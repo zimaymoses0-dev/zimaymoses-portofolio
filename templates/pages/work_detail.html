@@ -8,9 +8,9 @@
 {% block content %}
   <section class="container project-hero">
     <div class="project-hero-eyebrow" data-reveal>
-      <span>{{ case_study.client }}</span>
-      <span>{{ case_study.category }}</span>
-      <span>{{ case_study.year }}</span>
+      {% if case_study.client %}<span>{{ case_study.client }}</span>{% endif %}
+      {% if case_study.category %}<span>{{ case_study.category }}</span>{% endif %}
+      {% if case_study.year %}<span>{{ case_study.year }}</span>{% endif %}
     </div>
     <h1 data-reveal>{{ case_study.title }}</h1>
 
@@ -46,6 +46,13 @@
           <div class="project-summary-item">
             <h4>Result</h4>
             <p>{{ case_study.primary_metric }}</p>
+          </div>
+        {% endif %}
+        {% if case_study.live_url %}
+          <div class="project-summary-item">
+            <a class="btn btn-secondary" href="{{ case_study.live_url }}" target="_blank" rel="noopener">
+              Visit site <span class="btn-arrow">→</span>
+            </a>
           </div>
         {% endif %}
       </aside>

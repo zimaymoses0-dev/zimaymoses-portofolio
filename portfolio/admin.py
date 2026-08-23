@@ -17,7 +17,7 @@ class CaseStudyAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
     ordering = ("order",)
     fieldsets = (
-        (None, {"fields": ("title", "slug", "client", "category", "year", "short_description")}),
+        (None, {"fields": ("title", "slug", "client", "category", "year", "short_description", "live_url")}),
         ("Editorial", {"fields": ("challenge", "strategy", "solution", "outcome")}),
         ("Metrics", {"fields": ("primary_metric", "secondary_metric")}),
         ("Media", {"fields": ("hero_image", "thumbnail")}),

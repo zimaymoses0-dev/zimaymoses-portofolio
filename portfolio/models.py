@@ -8,6 +8,7 @@ class CaseStudy(models.Model):
     category = models.CharField(max_length=120, blank=True)
     year = models.PositiveIntegerField(null=True, blank=True)
     short_description = models.CharField(max_length=255, blank=True)
+    live_url = models.URLField(blank=True, help_text="Link to the live site, if it's still online.")
     challenge = models.TextField(blank=True)
     strategy = models.TextField(blank=True)
     solution = models.TextField(blank=True)

@@ -10,6 +10,7 @@
   </div>
 
   <nav class="header-nav" aria-label="Primary">
+    <a href="{% url 'core:home' %}">Home</a>
     <a href="{% url 'portfolio:list' %}">Work</a>
     <a href="{% url 'core:process' %}">Process</a>
     <a href="{% url 'core:pricing' %}">Pricing</a>
@@ -37,10 +38,12 @@
   </div>
 
   <div class="mobile-menu" :class="{ 'is-open': menuOpen }" @keyup.escape.window="menuOpen = false">
+    <a href="{% url 'core:home' %}" @click="menuOpen = false">Home</a>
     <a href="{% url 'portfolio:list' %}" @click="menuOpen = false">Work</a>
     <a href="{% url 'core:process' %}" @click="menuOpen = false">Process</a>
-    <a href="{% url 'core:home' %}" @click="menuOpen = false">Pricing</a>
+    <a href="{% url 'core:pricing' %}" @click="menuOpen = false">Pricing</a>
     <a href="{% url 'core:about' %}" @click="menuOpen = false">About</a>
+    <a href="{% url 'certifications:list' %}" @click="menuOpen = false">Certifications</a>
     {% if site_settings.cv_file %}
       <a href="{{ site_settings.cv_file.url }}" target="_blank" rel="noopener" @click="menuOpen = false">Download CV</a>
     {% endif %}

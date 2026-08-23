@@ -1,7 +1,21 @@
 <article class="card certification-card {% if certification.dark_card %}is-dark{% endif %}" data-carousel-item>
-  <span class="certification-badge" aria-hidden="true">{{ certification.issuer|slice:":2"|upper }}</span>
+  {% if certification.image %}
+    <a class="certification-media" href="{{ certification.image.url }}" target="_blank" rel="noopener" aria-label="View full certificate for {{ certification.title }}">
+      <img src="{{ certification.image.url }}" alt="{{ certification.title }} certificate" loading="lazy">
+    </a>
+  {% else %}
+    <span class="certification-badge" aria-hidden="true">{{ certification.issuer|slice:":2"|upper }}</span>
+  {% endif %}
   <h3>{{ certification.title }}</h3>
   {% if certification.subtitle %}<p>{{ certification.subtitle }}</p>{% endif %}
+  {% if certification.description %}<p class="certification-description">{{ certification.description }}</p>{% endif %}
+  {% if certification.skills_highlight %}
+    <ul class="certification-skills">
+      {% for skill in certification.skills_highlight.splitlines %}
+        {% if skill %}<li>{{ skill }}</li>{% endif %}
+      {% endfor %}
+    </ul>
+  {% endif %}
   {% if certification.certificate_url %}
     <a href="{{ certification.certificate_url }}" target="_blank" rel="noopener">View certificate ↗</a>
   {% endif %}

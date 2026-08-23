@@ -108,6 +108,34 @@ h1, h2, h3, h4 {
   font-size: 1.05rem;
 }
 
+.section-header-with-cta {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-6);
+  max-width: none;
+}
+
+.section-header-link {
+  flex-shrink: 0;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  padding-bottom: var(--space-2);
+  transition: color 0.2s var(--ease-premium);
+}
+
+.section-header-link:hover {
+  color: var(--color-accent);
+}
+
+@media (max-width: 640px) {
+  .section-header-with-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 .section-dark .section-header p {
   color: rgba(247, 244, 236, 0.65);
 }

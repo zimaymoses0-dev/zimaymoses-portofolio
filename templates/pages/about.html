@@ -119,9 +119,12 @@
   {% if certifications %}
     <section class="section">
       <div class="container">
-        <div class="section-header">
-          <span class="eyebrow">Credentials</span>
-          <h2>Professional certifications</h2>
+        <div class="section-header section-header-with-cta">
+          <div>
+            <span class="eyebrow">Credentials</span>
+            <h2>Professional certifications</h2>
+          </div>
+          <a class="section-header-link" href="{% url 'certifications:list' %}">View all certifications →</a>
         </div>
         <div data-carousel>
           <div class="certifications-track" data-carousel-track>

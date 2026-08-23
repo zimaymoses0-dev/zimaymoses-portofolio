@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Certifications — {{ site_settings.site_name }}{% endblock %}
+{% block meta_description %}All of {{ site_settings.owner_name }}'s professional certifications and diplomas, in accounting, finance, and web development.{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/certifications.css' %}">{% endblock %}
+
+{% block content %}
+  <section class="container certifications-hero">
+    <span class="eyebrow">Credentials</span>
+    <h1 data-reveal>Certifications &amp; diplomas.</h1>
+    <p data-reveal>Every professional certification and diploma, from accounting and finance to web development and marketing.</p>
+  </section>
+
+  <section class="section certifications-gallery-section">
+    <div class="container">
+      {% if certifications %}
+        <div class="certifications-gallery" data-reveal>
+          {% for certification in certifications %}
+            {% include "components/certification_card.html" %}
+          {% endfor %}
+        </div>
+      {% else %}
+        <p class="section-header">No certifications published yet.</p>
+      {% endif %}
+    </div>
+  </section>
+
+  <section class="section cta-section">
+    <div class="container">
+      <h2>Want the full picture?</h2>
+      {% if site_settings.cv_file %}
+        <a class="btn btn-primary" href="{{ site_settings.cv_file.url }}" target="_blank" rel="noopener">
+          Download CV <span class="btn-arrow">→</span>
+        </a>
+      {% endif %}
+    </div>
+  </section>
+{% endblock %}

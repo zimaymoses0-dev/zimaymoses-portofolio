@@ -1,0 +1,35 @@
+.certifications-hero {
+  padding: 160px 0 var(--space-16);
+  max-width: 720px;
+}
+
+.certifications-hero h1 {
+  margin-top: var(--space-3);
+  font-size: clamp(2.8rem, 7vw, 5.2rem);
+}
+
+.certifications-hero p {
+  margin-top: var(--space-5);
+  color: var(--color-muted);
+  font-size: 1.1rem;
+}
+
+.certifications-gallery-section {
+  padding-top: 0;
+}
+
+.certifications-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-6);
+}
+
+.certifications-gallery .certification-card {
+  flex-basis: auto;
+}
+
+@media (max-width: 720px) {
+  .certifications-hero {
+    padding-top: 120px;
+  }
+}

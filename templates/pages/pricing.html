@@ -12,8 +12,12 @@
     <p data-reveal>{{ hero.subtitle|default:"Starting prices below — every project gets a detailed quote before we begin. Prices in FCFA unless noted." }}</p>
   </section>
 
-  <section class="section pricing-grid-section">
+  <section class="section pricing-grid-section pricing-grid-section-first">
     <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Websites &amp; e-commerce</span>
+        <h2>Web projects</h2>
+      </div>
       <div class="pricing-grid" data-reveal>
 
         <article class="card pricing-card">
@@ -63,6 +67,18 @@
           </a>
         </article>
 
+      </div>
+    </div>
+  </section>
+
+  <section class="section pricing-grid-section pricing-grid-section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Accounting &amp; finance</span>
+        <h2>Bookkeeping &amp; financial support</h2>
+      </div>
+      <div class="pricing-grid" data-reveal>
+
         <article class="card pricing-card">
           <span class="eyebrow">Accounting</span>
           <h3>E-commerce bookkeeping (freelance)</h3>
@@ -78,11 +94,59 @@
             <li>Bank card reconciliation</li>
             <li>Business tracking, optimization &amp; advice</li>
           </ul>
+          <p class="pricing-note">Done on QuickBooks, Xero, or Excel.</p>
           <p class="pricing-note">Does not include payroll or tax filings.</p>
           <a class="btn btn-secondary" href="{{ site_settings.booking_url|default:'#' }}">
             Ask about this <span class="btn-arrow">→</span>
           </a>
         </article>
+
+        <article class="card pricing-card is-featured">
+          <span class="pricing-badge">FULL PACK</span>
+          <span class="eyebrow">Accounting</span>
+          <h3>Full bookkeeping, payroll &amp; tax filing</h3>
+          <div class="pricing-amount">
+            <span class="pricing-value">500 000 FCFA</span>
+            <span class="pricing-period">starting price / month</span>
+          </div>
+          <p class="pricing-delivery">Monthly invoicing</p>
+          <ul class="pricing-features">
+            <li>Everything in the freelance bookkeeping package</li>
+            <li>Payroll</li>
+            <li>Tax filings</li>
+          </ul>
+          <a class="btn btn-primary" href="{{ site_settings.booking_url|default:'#' }}">
+            Ask about this <span class="btn-arrow">→</span>
+          </a>
+        </article>
+
+        <article class="card pricing-card">
+          <span class="eyebrow">Personal finance</span>
+          <h3>Personal accountant</h3>
+          <div class="pricing-amount">
+            <span class="pricing-value">Negotiable</span>
+            <span class="pricing-period">based on your needs</span>
+          </div>
+          <ul class="pricing-features">
+            <li>1:1 personal assistance on your personal finances</li>
+            <li>Automated tools for managing personal finances</li>
+          </ul>
+          <a class="btn btn-secondary" href="{{ site_settings.booking_url|default:'#' }}">
+            Ask about this <span class="btn-arrow">→</span>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section pricing-grid-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Consultations</span>
+        <h2>Talk it through first</h2>
+      </div>
+      <div class="pricing-grid pricing-grid-single" data-reveal>
 
         <article class="card pricing-card">
           <span class="eyebrow">Consultation</span>
@@ -95,6 +159,7 @@
             <li>1:1 call to talk through your accounting or web project</li>
             <li>Open to non-profit organizations</li>
           </ul>
+          <p class="pricing-note">Larger-scope consultations are negotiated based on a Terms of Reference.</p>
           <a class="btn btn-secondary" href="{{ site_settings.booking_url|default:'#' }}">
             Book a consultation <span class="btn-arrow">→</span>
           </a>

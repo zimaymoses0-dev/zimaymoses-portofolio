@@ -14,14 +14,23 @@
   font-size: 1.1rem;
 }
 
-.pricing-grid-section {
+.pricing-grid-section-first {
   padding-top: 0;
+}
+
+.pricing-grid-section-alt {
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: var(--space-6);
+}
+
+.pricing-grid-single {
+  max-width: 420px;
 }
 
 .pricing-card {

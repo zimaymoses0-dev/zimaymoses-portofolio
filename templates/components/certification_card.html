@@ -1,0 +1,8 @@
+<article class="card certification-card {% if certification.dark_card %}is-dark{% endif %}" data-carousel-item>
+  <span class="certification-badge" aria-hidden="true">{{ certification.issuer|slice:":2"|upper }}</span>
+  <h3>{{ certification.title }}</h3>
+  {% if certification.subtitle %}<p>{{ certification.subtitle }}</p>{% endif %}
+  {% if certification.certificate_url %}
+    <a href="{{ certification.certificate_url }}" target="_blank" rel="noopener">View certificate ↗</a>
+  {% endif %}
+</article>

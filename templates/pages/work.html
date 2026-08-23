@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Work — {{ site_settings.site_name }}{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/work.css' %}">{% endblock %}
+
+{% block content %}
+  <section class="container work-hero">
+    <h1 data-reveal>The work.</h1>
+    <p data-reveal>The outcomes, the decisions behind them, and the numbers.</p>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      {% if case_studies %}
+        <div class="work-grid">
+          {% for case_study in case_studies %}
+            {% include "components/case_study_card.html" %}
+          {% endfor %}
+        </div>
+      {% else %}
+        <p class="section-header">No case studies published yet.</p>
+      {% endif %}
+    </div>
+  </section>
+
+  <section class="section newsletter-section">
+    <div class="container">
+      <h2>Get the retention patterns that actually move numbers.</h2>
+      {% include "components/newsletter_form.html" %}
+    </div>
+  </section>
+{% endblock %}

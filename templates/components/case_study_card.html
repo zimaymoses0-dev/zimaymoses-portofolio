@@ -1,0 +1,18 @@
+<a class="card case-study-card" href="{% url 'portfolio:detail' case_study.slug %}" data-reveal>
+  <div class="case-study-media">
+    {% if case_study.thumbnail %}
+      <img src="{{ case_study.thumbnail.url }}" alt="{{ case_study.title }}" loading="lazy">
+    {% endif %}
+  </div>
+  <div class="case-study-body">
+    <div class="case-study-eyebrow">
+      <span>{{ case_study.client }}</span>
+      <span>{{ case_study.category }}</span>
+    </div>
+    <h3>{{ case_study.title }}</h3>
+    <p>{{ case_study.short_description }}</p>
+    {% if case_study.primary_metric %}
+      <div class="case-study-metric">{{ case_study.primary_metric }}</div>
+    {% endif %}
+  </div>
+</a>

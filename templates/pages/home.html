@@ -1,0 +1,185 @@
+{% extends "base.html" %}
+{% load static core_tags %}
+
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/home.css' %}">{% endblock %}
+
+{% block content %}
+  {% get_content 'home' 'hero' as hero %}
+  <section class="hero">
+    <span class="eyebrow">{{ hero.eyebrow|default:site_settings.availability_text }}</span>
+    <h1 data-reveal>{{ hero.title|default:site_settings.headline }}</h1>
+    <p data-reveal>{{ hero.subtitle|default:site_settings.subheadline }}</p>
+    <div class="hero-actions" data-reveal>
+      <a class="btn btn-primary" href="{{ site_settings.booking_url|default:'#' }}">
+        Book a call <span class="btn-arrow">→</span>
+      </a>
+      <a class="btn btn-secondary" href="#how-i-help">
+        {{ hero.cta_label|default:"See how I help" }} <span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  {% if metrics %}
+    <section class="metrics-row">
+      {% for metric in metrics %}
+        {% include "components/metric.html" %}
+      {% endfor %}
+    </section>
+  {% endif %}
+
+  {% get_content 'home' 'how-i-help' as how_i_help %}
+  <section class="section" id="how-i-help">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">{{ how_i_help.eyebrow|default:"How I help" }}</span>
+        <h2>{{ how_i_help.title|default:"How I help" }}</h2>
+        <p>{{ how_i_help.subtitle|default:"Fixed-scope services, built for founders." }}</p>
+      </div>
+      {% if services %}
+        <div class="services-grid">
+          {% for service in services %}
+            {% include "components/service_card.html" %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </section>
+
+  {% get_content 'home' 'behavior' as behavior %}
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">{{ behavior.eyebrow|default:"Behavior" }}</span>
+        <h2>{{ behavior.title|default:"Screens are easy. Behavior is hard." }}</h2>
+        <p>{{ behavior.subtitle|default:"Persuasion. Emotion. Trust." }}</p>
+      </div>
+      <div class="behavior-columns" data-reveal>
+        <div class="behavior-column">
+          <h3>Accuracy</h3>
+          <ul>
+            <li>Bank-reconciliation-level attention to detail</li>
+            <li>No silent bugs</li>
+            <li>Documentation & audit trails</li>
+            <li>Compliance-minded</li>
+          </ul>
+        </div>
+        <div class="behavior-column">
+          <h3>Building</h3>
+          <ul>
+            <li>Full-stack web apps</li>
+            <li>WordPress & Shopify builds</li>
+            <li>API integrations & automation</li>
+            <li>Clean, maintainable code</li>
+          </ul>
+        </div>
+        <div class="behavior-column">
+          <h3>Trust</h3>
+          <ul>
+            <li>Clear, honest communication</li>
+            <li>Meeting deadlines</li>
+            <li>Transparent pricing</li>
+            <li>Long-term reliability</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% if case_studies %}
+    {% get_content 'home' 'case-studies' as case_studies_content %}
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">{{ case_studies_content.eyebrow|default:"Selected work" }}</span>
+          <h2>{{ case_studies_content.title|default:"Recent case studies" }}</h2>
+          <p>{{ case_studies_content.subtitle|default:"The work moves numbers, not just pixels." }}</p>
+        </div>
+        <div class="case-studies-grid">
+          {% for case_study in case_studies %}
+            {% include "components/case_study_card.html" %}
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+  {% endif %}
+
+  {% if testimonials %}
+    <section class="section">
+      <div class="container">
+        <div class="testimonials-lead">
+          <span class="eyebrow">Trusted worldwide</span>
+          <div class="testimonials-rating">4.9/5 from founders and teams I've worked with</div>
+        </div>
+        <div class="testimonials-grid">
+          {% for testimonial in testimonials %}
+            {% include "components/testimonial_card.html" %}
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+  {% endif %}
+
+  {% if video_testimonials %}
+    <section class="section" x-data="{ activeVideo: null }">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">In their words</span>
+          <h2>Hear it from the people I've worked with</h2>
+        </div>
+        <div class="video-grid">
+          {% for video in video_testimonials %}
+            {% include "components/video_card.html" %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="video-modal-backdrop" :class="{ 'is-open': activeVideo }" @click.self="activeVideo = null" @keyup.escape.window="activeVideo = null">
+        <button type="button" class="video-modal-close" @click="activeVideo = null" aria-label="Close video">×</button>
+        <div class="video-modal-frame">
+          <template x-if="activeVideo">
+            <iframe :src="activeVideo" title="Video testimonial" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </template>
+        </div>
+      </div>
+    </section>
+  {% endif %}
+
+  {% if certifications %}
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Credentials</span>
+          <h2>Professional certifications</h2>
+        </div>
+        <div data-carousel>
+          <div class="certifications-track" data-carousel-track>
+            {% for certification in certifications %}
+              {% include "components/certification_card.html" %}
+            {% endfor %}
+          </div>
+          <div class="carousel-nav">
+            <button type="button" data-carousel-prev aria-label="Previous">←</button>
+            <button type="button" data-carousel-next aria-label="Next">→</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  {% endif %}
+
+  {% get_content 'home' 'cta' as cta %}
+  <section class="section cta-section">
+    <div class="container">
+      <h2>{{ cta.title|default:"Want to see what I can do with it?" }}</h2>
+      <a class="btn btn-primary" href="{{ site_settings.booking_url|default:'#' }}">
+        Book a call <span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="section newsletter-section">
+    <div class="container">
+      <h2>Get notified when I publish new work and availability.</h2>
+      {% include "components/newsletter_form.html" %}
+    </div>
+  </section>
+{% endblock %}

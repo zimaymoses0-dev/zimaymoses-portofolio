@@ -1,0 +1,15 @@
+<article class="card testimonial-card" data-reveal>
+  <p class="testimonial-quote">&ldquo;{{ testimonial.quote }}&rdquo;</p>
+  {% if testimonial.metric %}<div class="testimonial-metric">{{ testimonial.metric }}</div>{% endif %}
+  <div class="testimonial-author">
+    {% if testimonial.avatar %}
+      <img class="testimonial-avatar" src="{{ testimonial.avatar.url }}" alt="{{ testimonial.author_name }}">
+    {% else %}
+      <span class="testimonial-avatar" aria-hidden="true"></span>
+    {% endif %}
+    <div>
+      <div class="testimonial-name">{{ testimonial.author_name }}</div>
+      <div class="testimonial-role">{{ testimonial.role }}{% if testimonial.company %}, {{ testimonial.company }}{% endif %}</div>
+    </div>
+  </div>
+</article>

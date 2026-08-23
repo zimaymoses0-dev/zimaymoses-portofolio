@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ case_study.title }} — {{ site_settings.site_name }}{% endblock %}
+{% block meta_description %}{{ case_study.short_description }}{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/work.css' %}">{% endblock %}
+
+{% block content %}
+  <section class="container project-hero">
+    <div class="project-hero-eyebrow" data-reveal>
+      <span>{{ case_study.client }}</span>
+      <span>{{ case_study.category }}</span>
+      <span>{{ case_study.year }}</span>
+    </div>
+    <h1 data-reveal>{{ case_study.title }}</h1>
+
+    {% if case_study.hero_image %}
+      <div class="project-hero-image" data-reveal>
+        <img src="{{ case_study.hero_image.url }}" alt="{{ case_study.title }}">
+      </div>
+    {% endif %}
+  </section>
+
+  <section class="section">
+    <div class="container project-layout">
+      <aside class="project-summary">
+        {% if case_study.client %}
+          <div class="project-summary-item">
+            <h4>Client</h4>
+            <p>{{ case_study.client }}</p>
+          </div>
+        {% endif %}
+        {% if case_study.category %}
+          <div class="project-summary-item">
+            <h4>Category</h4>
+            <p>{{ case_study.category }}</p>
+          </div>
+        {% endif %}
+        {% if case_study.year %}
+          <div class="project-summary-item">
+            <h4>Year</h4>
+            <p>{{ case_study.year }}</p>
+          </div>
+        {% endif %}
+        {% if case_study.primary_metric %}
+          <div class="project-summary-item">
+            <h4>Result</h4>
+            <p>{{ case_study.primary_metric }}</p>
+          </div>
+        {% endif %}
+      </aside>
+
+      <div class="project-body">
+        {% if case_study.challenge %}
+          <div class="project-block" data-reveal>
+            <h2>The problem</h2>
+            <p>{{ case_study.challenge }}</p>
+          </div>
+        {% endif %}
+
+        {% for section in sections %}
+          <div class="project-block" data-reveal>
+            <h2>{{ section.title }}</h2>
+            {% if section.content %}<p>{{ section.content }}</p>{% endif %}
+            {% if section.image %}<img src="{{ section.image.url }}" alt="{{ section.title }}">{% endif %}
+            {% if section.video_url %}
+              <div class="project-hero-image">
+                <video src="{{ section.video_url }}" controls></video>
+              </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+
+        {% if case_study.strategy %}
+          <div class="project-block" data-reveal>
+            <h2>Strategy</h2>
+            <p>{{ case_study.strategy }}</p>
+          </div>
+        {% endif %}
+
+        {% if case_study.solution %}
+          <div class="project-block" data-reveal>
+            <h2>Design & solution</h2>
+            <p>{{ case_study.solution }}</p>
+          </div>
+        {% endif %}
+
+        {% if case_study.outcome %}
+          <div class="project-block" data-reveal>
+            <h2>Results</h2>
+            <p>{{ case_study.outcome }}</p>
+            {% if case_study.primary_metric or case_study.secondary_metric %}
+              <div class="project-metrics">
+                {% if case_study.primary_metric %}<div class="project-metric-value">{{ case_study.primary_metric }}</div>{% endif %}
+                {% if case_study.secondary_metric %}<div class="project-metric-value">{{ case_study.secondary_metric }}</div>{% endif %}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        {% if testimonial %}
+          <div class="project-block project-testimonial" data-reveal>
+            {% include "components/testimonial_card.html" with testimonial=testimonial %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  {% if next_case_study %}
+    <section class="project-next">
+      <div class="container">
+        <span class="eyebrow">Next project</span>
+        <a href="{% url 'portfolio:detail' next_case_study.slug %}">
+          <h2>{{ next_case_study.title }} →</h2>
+        </a>
+      </div>
+    </section>
+  {% endif %}
+{% endblock %}

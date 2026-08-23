@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+{% load static core_tags %}
+
+{% block title %}About — {{ site_settings.site_name }}{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/about.css' %}">{% endblock %}
+
+{% block content %}
+  {% get_content 'about' 'hero' as hero %}
+  <section class="container about-hero">
+    <span class="eyebrow">{{ hero.eyebrow|default:"About" }}</span>
+    <h1 data-reveal>{{ hero.title|default:"Accountant by training. Developer by choice." }}</h1>
+    <p data-reveal>{{ hero.subtitle|default:"I spent years keeping the books straight for international organizations — now I build the web tools those teams need too." }}</p>
+  </section>
+
+  {% if metrics %}
+    <section class="metrics-row">
+      {% for metric in metrics %}
+        {% include "components/metric.html" %}
+      {% endfor %}
+    </section>
+  {% endif %}
+
+  {% get_content 'about' 'story' as story %}
+  <section class="section">
+    <div class="container about-story">
+      <div class="section-header">
+        <span class="eyebrow">{{ story.eyebrow|default:"My story" }}</span>
+        <h2>{{ story.title|default:"From ledgers to code." }}</h2>
+      </div>
+      <div class="about-story-body" data-reveal>
+        {% if story.body %}
+          {{ story.body|linebreaks }}
+        {% else %}
+          <p>I started my career in accounting — reconciling bank statements, preparing audits, and closing the books for the Inter-African Coffee Organization and an international church network. Seven years of that taught me something that stuck: numbers only mean something if the process behind them is airtight.</p>
+          <p>Alongside the ledgers, I kept building things — live-streaming setups, promotional videos, WordPress sites. What started as a side skill became a certification, then a second discipline. Today I build full-stack web apps and automate the systems small businesses run on, with the same discipline I learned closing the books.</p>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Experience</span>
+        <h2>Where the discipline came from.</h2>
+      </div>
+      <div class="about-timeline" data-reveal>
+        <div class="about-timeline-item">
+          <span class="about-timeline-date">2024 — Present</span>
+          <div>
+            <h3>Accounting Assistant, Finance Department</h3>
+            <p>Inter-African Coffee Organization (IACO) — bank reconciliation, audit preparation (MNG Audit &amp; Consulting, BDO/GIZ), financial reporting on SAGE 100.</p>
+          </div>
+        </div>
+        <div class="about-timeline-item">
+          <span class="about-timeline-date">2022 — 2023</span>
+          <div>
+            <h3>Intern Accounting Assistant</h3>
+            <p>Inter-African Coffee Organization (IACO) — bank journals, petty cash, monthly reconciliations, fixed asset register.</p>
+          </div>
+        </div>
+        <div class="about-timeline-item">
+          <span class="about-timeline-date">2017 — 2019</span>
+          <div>
+            <h3>Administrator &amp; Video Editor</h3>
+            <p>Children's Fruit — live-streaming production (OBS), video editing, treasury control for a youth media organization.</p>
+          </div>
+        </div>
+        <div class="about-timeline-item">
+          <span class="about-timeline-date">2019</span>
+          <div>
+            <h3>Intern Assistant Accounting</h3>
+            <p>International Fellowship of Christians (IFC) — QuickBooks bookkeeping, bank reconciliation, asset verification.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Toolbox</span>
+        <h2>What I work with.</h2>
+      </div>
+      <div class="about-skills" data-reveal>
+        <div class="about-skill-group">
+          <h3>Accounting &amp; finance</h3>
+          <ul class="tag-list">
+            <li>SAGE 100 Compta</li>
+            <li>QuickBooks</li>
+            <li>Xero</li>
+            <li>Bank reconciliation</li>
+            <li>Financial reporting</li>
+          </ul>
+        </div>
+        <div class="about-skill-group">
+          <h3>Web &amp; development</h3>
+          <ul class="tag-list">
+            <li>WordPress</li>
+            <li>Shopify</li>
+            <li>Full-stack web apps</li>
+            <li>Adobe Premiere Pro &amp; Photoshop</li>
+          </ul>
+        </div>
+        <div class="about-skill-group">
+          <h3>Marketing &amp; ads</h3>
+          <ul class="tag-list">
+            <li>Facebook &amp; Instagram Ads</li>
+            <li>TikTok Ads</li>
+            <li>Google Ads &amp; Analytics</li>
+            <li>Klaviyo</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% if certifications %}
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Credentials</span>
+          <h2>Professional certifications</h2>
+        </div>
+        <div data-carousel>
+          <div class="certifications-track" data-carousel-track>
+            {% for certification in certifications %}
+              {% include "components/certification_card.html" %}
+            {% endfor %}
+          </div>
+          <div class="carousel-nav">
+            <button type="button" data-carousel-prev aria-label="Previous">←</button>
+            <button type="button" data-carousel-next aria-label="Next">→</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  {% endif %}
+
+  {% get_content 'about' 'cta' as cta %}
+  <section class="section cta-section">
+    <div class="container">
+      <h2>{{ cta.title|default:"Want to work together?" }}</h2>
+      <div class="about-cta-actions">
+        <a class="btn btn-primary" href="{{ site_settings.booking_url|default:'#' }}">
+          Book a call <span class="btn-arrow">→</span>
+        </a>
+        {% if site_settings.cv_file %}
+          <a class="btn btn-secondary" href="{{ site_settings.cv_file.url }}" target="_blank" rel="noopener">
+            Download CV <span class="btn-arrow">→</span>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% endblock %}

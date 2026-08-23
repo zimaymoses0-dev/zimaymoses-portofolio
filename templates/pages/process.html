@@ -1,0 +1,179 @@
+{% extends "base.html" %}
+{% load static core_tags %}
+
+{% block title %}Process — {{ site_settings.site_name }}{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/process.css' %}">{% endblock %}
+
+{% block content %}
+  {% get_content 'process' 'hero' as hero %}
+  <section class="container process-hero">
+    <h1 data-reveal>{{ hero.title|default:"No guesswork." }}</h1>
+    <p data-reveal>{{ hero.subtitle|default:"Research, strategy, prototypes, validation. Fixed scope, 3 to 6 weeks." }}</p>
+  </section>
+
+  {% if metrics %}
+    <section class="metrics-row">
+      {% for metric in metrics %}
+        {% include "components/metric.html" %}
+      {% endfor %}
+    </section>
+  {% endif %}
+
+  {% if phases %}
+    <section class="section section-dark timeline-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">The method</span>
+          <h2>Five phases. No guesswork.</h2>
+        </div>
+
+        <div class="timeline-track" data-timeline>
+          <div class="timeline-line">
+            <div class="timeline-line-fill"></div>
+          </div>
+
+          {% for phase in phases %}
+            <div class="phase">
+              <span class="phase-marker" aria-hidden="true"></span>
+              <div>
+                <span class="phase-number">{{ phase.number }}</span>
+                {% if phase.week_label %}<span class="phase-week">{{ phase.week_label }}</span>{% endif %}
+              </div>
+              <div>
+                <h3 class="phase-title">{{ phase.title }}</h3>
+                {% if phase.description %}<p class="phase-description">{{ phase.description }}</p>{% endif %}
+              </div>
+              <div class="phase-meta">
+                {% if phase.ai_in_action %}
+                  <div class="phase-meta-item">
+                    <h4>AI in action</h4>
+                    <p>{{ phase.ai_in_action }}</p>
+                  </div>
+                {% endif %}
+                {% if phase.what_you_get %}
+                  <div class="phase-meta-item">
+                    <h4>What you get</h4>
+                    <p>{{ phase.what_you_get }}</p>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+  {% endif %}
+
+  {% get_content 'process' 'can-they' as can_they %}
+  {% get_content 'process' 'will-they' as will_they %}
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Behind the method</span>
+        <h2>Behind the method</h2>
+      </div>
+      <div class="method-cards">
+        <div class="card method-card" data-reveal>
+          <span class="method-card-shape" aria-hidden="true"></span>
+          <div class="method-card-label">{{ can_they.title|default:"Can they?" }}</div>
+          <p>{{ can_they.body|default:"Usability friction — can people actually use what you built?" }}</p>
+        </div>
+        <div class="card method-card" data-reveal>
+          <span class="method-card-shape" aria-hidden="true"></span>
+          <div class="method-card-label">{{ will_they.title|default:"Will they?" }}</div>
+          <p>{{ will_they.body|default:"Emotional friction — do people trust it enough to act?" }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">See it for yourself</span>
+        <h2>What's a 1% lift worth?</h2>
+        <p>Estimate the revenue impact of a conversion improvement before you spend a dollar on it.</p>
+      </div>
+
+      <div class="calculator" data-roi-calculator>
+        <div class="calculator-inputs">
+          <div class="calculator-type-toggle">
+            <button type="button" data-store-type="ecommerce" class="is-active">E-commerce store</button>
+            <button type="button" data-store-type="mobile">Mobile app</button>
+          </div>
+
+          <div class="calculator-field">
+            <label for="roi-conversion">Conversion rate (%)</label>
+            <input type="number" id="roi-conversion" data-roi-input="conversionRate" value="1.5" step="0.1" min="0">
+          </div>
+          <div class="calculator-field">
+            <label for="roi-aov">Average order value ($)</label>
+            <input type="number" id="roi-aov" data-roi-input="aov" value="146" step="1" min="0">
+          </div>
+          <div class="calculator-field">
+            <label for="roi-sessions">Monthly sessions</label>
+            <input type="number" id="roi-sessions" data-roi-input="sessions" value="50000" step="100" min="0">
+          </div>
+
+          <div class="calculator-field">
+            <label>Conversion lift</label>
+            <div class="calculator-lift-buttons">
+              <button type="button" data-lift="0.05" class="is-active">+5%</button>
+              <button type="button" data-lift="0.10">+10%</button>
+              <button type="button" data-lift="custom">Custom</button>
+            </div>
+          </div>
+          <div class="calculator-field" data-lift-custom-field style="display: none;">
+            <label for="roi-lift-custom">Custom lift (%)</label>
+            <input type="number" id="roi-lift-custom" data-roi-input="customLift" value="15" step="1" min="0">
+          </div>
+
+          {% if calculator_services %}
+            <div class="calculator-field">
+              <label for="roi-service">Service</label>
+              <select id="roi-service" data-roi-service>
+                {% for service in calculator_services %}
+                  <option value="{{ service.price|default:0 }}">
+                    {{ service.name }}{% if service.price %} ({{ service.price }} {{ service.currency }}){% endif %}
+                  </option>
+                {% endfor %}
+              </select>
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="calculator-results">
+          <div class="calculator-result-row">
+            <span class="calculator-result-label">Current annual revenue</span>
+            <span class="calculator-result-value" data-roi-output="annualRevenue">$0</span>
+          </div>
+          <div class="calculator-result-row">
+            <span class="calculator-result-label">Projected annual revenue</span>
+            <span class="calculator-result-value" data-roi-output="newAnnualRevenue">$0</span>
+          </div>
+          <div class="calculator-result-row">
+            <span class="calculator-result-label">Estimated increase</span>
+            <span class="calculator-result-value" data-roi-output="increase">$0</span>
+          </div>
+          <div class="calculator-result-row">
+            <span class="calculator-result-label">Service cost</span>
+            <span class="calculator-result-value" data-roi-output="serviceCost">$0</span>
+          </div>
+          <div class="calculator-result-row">
+            <span class="calculator-result-label">Additional net revenue</span>
+            <span class="calculator-result-value is-highlight" data-roi-output="netRevenue">$0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-section">
+    <div class="container">
+      <h2>Ready to put a number on it?</h2>
+      <a class="btn btn-primary" href="{{ site_settings.booking_url|default:'#' }}">
+        Book a call <span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </section>
+{% endblock %}

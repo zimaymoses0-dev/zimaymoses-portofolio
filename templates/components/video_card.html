@@ -1,0 +1,13 @@
+<button
+  type="button"
+  class="video-card"
+  data-reveal
+  @click="activeVideo = '{{ video.video_url|escapejs }}'"
+  aria-label="Play testimonial from {{ video.name }}"
+>
+  {% if video.thumbnail %}
+    <img src="{{ video.thumbnail.url }}" alt="" loading="lazy">
+  {% endif %}
+  <span class="video-play"><span aria-hidden="true">▶</span></span>
+  <span class="video-caption">{{ video.name }}{% if video.company %} · {{ video.company }}{% endif %}</span>
+</button>

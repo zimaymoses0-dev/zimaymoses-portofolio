@@ -35,3 +35,7 @@ def about(request):
         "certifications": Certification.objects.filter(is_published=True),
     }
     return render(request, "pages/about.html", context)
+
+
+def pricing(request):
+    return render(request, "pages/pricing.html")

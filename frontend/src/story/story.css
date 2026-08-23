@@ -1,0 +1,126 @@
+.story-page {
+  position: fixed;
+  inset: 0;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  background: #000;
+  z-index: 20;
+}
+
+.story-back {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  z-index: 30;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #f4f4f7;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.story-chapter {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10vh 24px;
+  scroll-snap-align: start;
+  overflow: hidden;
+}
+
+.story-video-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.story-video-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.6;
+}
+
+.story-flash {
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.story-chapter-inner {
+  position: relative;
+  z-index: 3;
+  max-width: 720px;
+  text-align: center;
+}
+
+.story-eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin: 0 0 20px;
+}
+
+.story-title {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 700;
+  color: #f4f4f7;
+  margin: 0 0 32px;
+  letter-spacing: -0.01em;
+}
+
+.story-body {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #d0d0d8;
+  margin: 0 0 36px;
+}
+
+.story-note {
+  border: 1px solid;
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin: 0 0 40px;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.story-note-label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  margin-bottom: 8px;
+}
+
+.story-note p {
+  color: #b4b4c0;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.story-cta {
+  background: transparent;
+  border: 1px solid;
+  padding: 14px 32px;
+  border-radius: 999px;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
+
+.story-cta:hover {
+  background: rgba(255, 255, 255, 0.08);
+}

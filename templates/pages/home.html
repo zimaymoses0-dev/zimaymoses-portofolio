@@ -5,17 +5,22 @@
 
 {% block content %}
   {% get_content 'home' 'hero' as hero %}
-  <section class="hero">
-    <span class="eyebrow">{{ hero.eyebrow|default:site_settings.availability_text }}</span>
-    <h1 data-reveal>{{ hero.title|default:site_settings.headline }}</h1>
-    <p data-reveal>{{ hero.subtitle|default:site_settings.subheadline }}</p>
-    <div class="hero-actions" data-reveal>
-      <a class="btn btn-primary" href="{{ site_settings.booking_url|default:'#' }}">
-        Book a call <span class="btn-arrow">→</span>
-      </a>
-      <a class="btn btn-secondary" href="#how-i-help">
-        {{ hero.cta_label|default:"See how I help" }} <span class="btn-arrow">→</span>
-      </a>
+  <section class="hero {% if hero.image %}hero--photo{% endif %}">
+    {% if hero.image %}
+      <img class="hero-bg" src="{{ hero.image.url }}" alt="">
+    {% endif %}
+    <div class="hero-content">
+      <span class="eyebrow">{{ hero.eyebrow|default:site_settings.availability_text }}</span>
+      <h1 data-reveal>{{ hero.title|default:site_settings.headline }}</h1>
+      <p data-reveal>{{ hero.subtitle|default:site_settings.subheadline }}</p>
+      <div class="hero-actions" data-reveal>
+        <a class="btn btn-primary" href="{{ site_settings.booking_url|default:'#' }}">
+          Book a call <span class="btn-arrow">→</span>
+        </a>
+        <a class="btn btn-secondary" href="#how-i-help">
+          {{ hero.cta_label|default:"See how I help" }} <span class="btn-arrow">→</span>
+        </a>
+      </div>
     </div>
   </section>
 

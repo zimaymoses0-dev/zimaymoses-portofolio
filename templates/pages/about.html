@@ -8,8 +8,8 @@
   {% get_content 'about' 'hero' as hero %}
   <section class="container about-hero">
     <span class="eyebrow">{{ hero.eyebrow|default:"About" }}</span>
-    <h1 data-reveal>{{ hero.title|default:"Accountant by training. Developer by choice." }}</h1>
-    <p data-reveal>{{ hero.subtitle|default:"I spent years keeping the books straight for international organizations — now I build the web tools those teams need too." }}</p>
+    <h1 data-reveal>{{ hero.title|default:"Accountant and full-stack developer." }}</h1>
+    <p data-reveal>{{ hero.subtitle|default:"I keep the books straight for international organizations — and I build the web tools those teams need too." }}</p>
   </section>
 
   {% if metrics %}
@@ -25,14 +25,14 @@
     <div class="container about-story">
       <div class="section-header">
         <span class="eyebrow">{{ story.eyebrow|default:"My story" }}</span>
-        <h2>{{ story.title|default:"From ledgers to code." }}</h2>
+        <h2>{{ story.title|default:"Numbers and code." }}</h2>
       </div>
       <div class="about-story-body" data-reveal>
         {% if story.body %}
           {{ story.body|linebreaks }}
         {% else %}
-          <p>I started my career in accounting — reconciling bank statements, preparing audits, and closing the books for the Inter-African Coffee Organization and an international church network. Seven years of that taught me something that stuck: numbers only mean something if the process behind them is airtight.</p>
-          <p>Alongside the ledgers, I kept building things — live-streaming setups, promotional videos, WordPress sites. What started as a side skill became a certification, then a second discipline. Today I build full-stack web apps and automate the systems small businesses run on, with the same discipline I learned closing the books.</p>
+          <p>I'm an Accounting Assistant at the Inter-African Coffee Organization — reconciling bank statements, preparing audits, and closing the books. Seven years of that taught me something that stuck: numbers only mean something if the process behind them is airtight.</p>
+          <p>Alongside that, I build full-stack web apps and automate the systems small businesses run on — websites, WordPress and Shopify builds, and financial dashboards. Two disciplines, the same standard: nothing ships until it's accurate.</p>
         {% endif %}
       </div>
     </div>

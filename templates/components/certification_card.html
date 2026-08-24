@@ -1,4 +1,4 @@
-<article class="card certification-card {% if certification.dark_card %}is-dark{% endif %}" data-carousel-item>
+{% load i18n_extra %}<article class="card certification-card {% if certification.dark_card %}is-dark{% endif %}" data-carousel-item>
   {% if certification.image %}
     <a class="certification-media" href="{{ certification.image.url }}" target="_blank" rel="noopener" aria-label="View full certificate for {{ certification.title }}">
       <img src="{{ certification.image.url }}" alt="{{ certification.title }} certificate" loading="lazy">
@@ -17,6 +17,6 @@
     </ul>
   {% endif %}
   {% if certification.certificate_url %}
-    <a href="{{ certification.certificate_url }}" target="_blank" rel="noopener">View certificate ↗</a>
+    <a href="{{ certification.certificate_url }}" target="_blank" rel="noopener">{% t "Voir le certificat ↗" %}</a>
   {% endif %}
 </article>

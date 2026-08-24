@@ -96,8 +96,3 @@ class ProcessViewTests(TestCase):
         self.assertIn("Second Phase", content)
         self.assertNotIn("Hidden Phase", content)
         self.assertLess(content.index("First Phase"), content.index("Second Phase"))
-
-    def test_calculator_markup_present(self):
-        response = self.client.get(reverse("core:process"))
-        self.assertContains(response, 'data-roi-calculator')
-        self.assertContains(response, 'data-roi-input="conversionRate"')

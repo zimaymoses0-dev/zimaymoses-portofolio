@@ -1,87 +1,87 @@
 {% extends "base.html" %}
-{% load static core_tags %}
+{% load static core_tags i18n_extra %}
 
-{% block title %}Pricing — {{ site_settings.site_name }}{% endblock %}
+{% block title %}{% t "Tarifs" %} — {{ site_settings.site_name }}{% endblock %}
 {% block extra_css %}<link rel="stylesheet" href="{% static 'css/pricing.css' %}">{% endblock %}
 
 {% block content %}
   {% get_content 'pricing' 'hero' as hero %}
   <section class="container pricing-hero">
-    <span class="eyebrow">{{ hero.eyebrow|default:"Pricing" }}</span>
-    <h1 data-reveal>{{ hero.title|default:"Clear pricing, no surprises." }}</h1>
-    <p data-reveal>{{ hero.subtitle|default:"Starting prices below — every project gets a detailed quote before we begin. Prices in FCFA unless noted." }}</p>
+    <span class="eyebrow">{% t hero.eyebrow|default:"Tarifs" %}</span>
+    <h1 data-reveal>{% t hero.title|default:"Des tarifs clairs, sans surprise." %}</h1>
+    <p data-reveal>{% t hero.subtitle|default:"Prix de départ ci-dessous — chaque projet fait l'objet d'un devis détaillé avant de commencer. Prix en FCFA sauf indication contraire." %}</p>
   </section>
 
   <section class="section pricing-grid-section pricing-grid-section-first">
     <div class="container">
       <div class="section-header">
-        <span class="eyebrow">Websites &amp; e-commerce</span>
-        <h2>Web projects</h2>
+        <span class="eyebrow">{% t "Sites web & e-commerce" %}</span>
+        <h2>{% t "Projets web" %}</h2>
       </div>
       <div class="pricing-grid" data-reveal>
 
         <article class="card pricing-card">
-          <span class="eyebrow">Websites</span>
-          <h3>Vitrine &amp; organizational sites</h3>
+          <span class="eyebrow">{% t "Sites web" %}</span>
+          <h3>{% t "Sites vitrine & organisationnels" %}</h3>
           <div class="pricing-amount">
             <span class="pricing-value">350 000 FCFA</span>
-            <span class="pricing-period">starting price</span>
+            <span class="pricing-period">{% t "prix de départ" %}</span>
           </div>
-          <p class="pricing-delivery">Delivered in 2 weeks</p>
+          <p class="pricing-delivery">{% t "Livré en 2 semaines" %}</p>
           <ul class="pricing-features">
-            <li>Payment method integration</li>
-            <li>Security setup</li>
-            <li>Maintenance included for the first 2 months</li>
+            <li>{% t "Intégration d'un moyen de paiement" %}</li>
+            <li>{% t "Mise en place de la sécurité" %}</li>
+            <li>{% t "Maintenance incluse les 2 premiers mois" %}</li>
           </ul>
-          <p class="pricing-note">Built on WordPress. A custom-coded site is negotiable if your requirements call for it.</p>
+          <p class="pricing-note">{% t "Réalisé sur WordPress. Un site codé sur mesure est négociable si tes besoins l'exigent." %}</p>
           <p class="pricing-note pricing-requirements">
-            <strong>Payment integration requires:</strong> registered business (Registre de Commerce), DFE, and Certificat de Résidence.
+            <strong>{% t "L'intégration du paiement nécessite :" %}</strong> {% t "une entreprise enregistrée (Registre de Commerce), une DFE et un Certificat de Résidence." %}
           </p>
           <a class="btn btn-secondary" href="{{ site_settings.booking_url|default:'#' }}">
-            Ask about this <span class="btn-arrow">→</span>
+            {% t "En savoir plus" %} <span class="btn-arrow">→</span>
           </a>
         </article>
 
         <article class="card pricing-card is-featured">
-          <span class="pricing-badge">FULL PACK</span>
-          <span class="eyebrow">E-commerce</span>
-          <h3>Shopify stores</h3>
+          <span class="pricing-badge">{% t "PACK COMPLET" %}</span>
+          <span class="eyebrow">{% t "E-commerce" %}</span>
+          <h3>{% t "Boutiques Shopify" %}</h3>
           <div class="pricing-amount">
             <span class="pricing-value">750 000 FCFA</span>
-            <span class="pricing-period">starting price, negotiable</span>
+            <span class="pricing-period">{% t "prix de départ, négociable" %}</span>
           </div>
-          <p class="pricing-delivery">Includes 1 year of hosting</p>
+          <p class="pricing-delivery">{% t "Hébergement 1 an inclus" %}</p>
           <ul class="pricing-features">
-            <li>Shopify store build</li>
-            <li>Art direction (DA)</li>
-            <li>SEO-optimized product copywriting</li>
-            <li>SEO-optimized site</li>
-            <li>Product photo shoot</li>
+            <li>{% t "Création de la boutique Shopify" %}</li>
+            <li>{% t "Direction artistique (DA)" %}</li>
+            <li>{% t "Rédaction des fiches produit optimisée SEO" %}</li>
+            <li>{% t "Site optimisé SEO" %}</li>
+            <li>{% t "Shooting photo produits" %}</li>
           </ul>
-          <p class="pricing-note">All extra costs are quoted with the client before work begins.</p>
+          <p class="pricing-note">{% t "Tous les frais additionnels sont soumis à devis avec le client avant le début des travaux." %}</p>
           <p class="pricing-note pricing-requirements">
-            <strong>Payment integration requires:</strong> registered business (Registre de Commerce), DFE, and Certificat de Résidence.
+            <strong>{% t "L'intégration du paiement nécessite :" %}</strong> {% t "une entreprise enregistrée (Registre de Commerce), une DFE et un Certificat de Résidence." %}
           </p>
           <a class="btn btn-primary" href="{{ site_settings.booking_url|default:'#' }}">
-            Ask about this <span class="btn-arrow">→</span>
+            {% t "En savoir plus" %} <span class="btn-arrow">→</span>
           </a>
         </article>
 
         <article class="card pricing-card">
-          <span class="eyebrow">Custom development</span>
-          <h3>Full-stack build, coded from scratch (Django)</h3>
+          <span class="eyebrow">{% t "Développement sur mesure" %}</span>
+          <h3>{% t "Développement full-stack, codé de A à Z (Django)" %}</h3>
           <div class="pricing-amount">
-            <span class="pricing-value">On quote</span>
-            <span class="pricing-period">based on Terms of Reference</span>
+            <span class="pricing-value">{% t "Sur devis" %}</span>
+            <span class="pricing-period">{% t "selon Termes de Référence" %}</span>
           </div>
           <ul class="pricing-features">
-            <li>Site built from scratch, A to Z</li>
-            <li>Full-stack, Django backend</li>
-            <li>Specific AI-powered features</li>
-            <li>Fully custom to your specification</li>
+            <li>{% t "Site construit de A à Z" %}</li>
+            <li>{% t "Full-stack, backend Django" %}</li>
+            <li>{% t "Fonctionnalités IA spécifiques" %}</li>
+            <li>{% t "Entièrement sur mesure selon tes besoins" %}</li>
           </ul>
           <a class="btn btn-secondary" href="{{ site_settings.booking_url|default:'#' }}">
-            Ask about this <span class="btn-arrow">→</span>
+            {% t "En savoir plus" %} <span class="btn-arrow">→</span>
           </a>
         </article>
 
@@ -92,65 +92,65 @@
   <section class="section pricing-grid-section pricing-grid-section-alt">
     <div class="container">
       <div class="section-header">
-        <span class="eyebrow">Accounting &amp; finance</span>
-        <h2>Bookkeeping &amp; financial support</h2>
+        <span class="eyebrow">{% t "Comptabilité & finance" %}</span>
+        <h2>{% t "Tenue de comptes & accompagnement financier" %}</h2>
       </div>
       <div class="pricing-grid" data-reveal>
 
         <article class="card pricing-card">
-          <span class="eyebrow">Accounting</span>
-          <h3>E-commerce bookkeeping (freelance)</h3>
+          <span class="eyebrow">{% t "Comptabilité" %}</span>
+          <h3>{% t "Tenue de comptes e-commerce (freelance)" %}</h3>
           <div class="pricing-amount">
             <span class="pricing-value">250 000 FCFA</span>
-            <span class="pricing-period">starting price / month</span>
+            <span class="pricing-period">{% t "prix de départ / mois" %}</span>
           </div>
-          <p class="pricing-delivery">Monthly invoicing</p>
+          <p class="pricing-delivery">{% t "Facturation mensuelle" %}</p>
           <ul class="pricing-features">
-            <li>Setting up the books &amp; chart of accounts</li>
-            <li>Journal entries</li>
-            <li>Subscription bookkeeping, reconciliation &amp; tracking</li>
-            <li>Bank card reconciliation</li>
-            <li>Business tracking, optimization &amp; advice</li>
+            <li>{% t "Mise en place des comptes & du plan comptable" %}</li>
+            <li>{% t "Saisie des écritures" %}</li>
+            <li>{% t "Tenue, rapprochement & suivi des abonnements" %}</li>
+            <li>{% t "Rapprochement des cartes bancaires" %}</li>
+            <li>{% t "Suivi, optimisation & conseil business" %}</li>
           </ul>
-          <p class="pricing-note">Done on QuickBooks, Xero, or Excel.</p>
-          <p class="pricing-note">Does not include payroll or tax filings.</p>
+          <p class="pricing-note">{% t "Réalisé sur QuickBooks, Xero ou Excel." %}</p>
+          <p class="pricing-note">{% t "N'inclut pas la paie ni les déclarations fiscales." %}</p>
           <a class="btn btn-secondary" href="{{ site_settings.booking_url|default:'#' }}">
-            Ask about this <span class="btn-arrow">→</span>
+            {% t "En savoir plus" %} <span class="btn-arrow">→</span>
           </a>
         </article>
 
         <article class="card pricing-card is-featured">
-          <span class="pricing-badge">FULL PACK</span>
-          <span class="eyebrow">Accounting</span>
-          <h3>Full bookkeeping, payroll &amp; tax filing</h3>
+          <span class="pricing-badge">{% t "PACK COMPLET" %}</span>
+          <span class="eyebrow">{% t "Comptabilité" %}</span>
+          <h3>{% t "Comptabilité complète, paie & déclarations fiscales" %}</h3>
           <div class="pricing-amount">
             <span class="pricing-value">500 000 FCFA</span>
-            <span class="pricing-period">starting price / month</span>
+            <span class="pricing-period">{% t "prix de départ / mois" %}</span>
           </div>
-          <p class="pricing-delivery">Monthly invoicing</p>
+          <p class="pricing-delivery">{% t "Facturation mensuelle" %}</p>
           <ul class="pricing-features">
-            <li>Everything in the freelance bookkeeping package</li>
-            <li>Payroll</li>
-            <li>Tax filings</li>
+            <li>{% t "Tout ce qui est inclus dans le pack freelance" %}</li>
+            <li>{% t "Paie" %}</li>
+            <li>{% t "Déclarations fiscales" %}</li>
           </ul>
           <a class="btn btn-primary" href="{{ site_settings.booking_url|default:'#' }}">
-            Ask about this <span class="btn-arrow">→</span>
+            {% t "En savoir plus" %} <span class="btn-arrow">→</span>
           </a>
         </article>
 
         <article class="card pricing-card">
-          <span class="eyebrow">Personal finance</span>
-          <h3>Personal accountant</h3>
+          <span class="eyebrow">{% t "Finance personnelle" %}</span>
+          <h3>{% t "Comptable personnel" %}</h3>
           <div class="pricing-amount">
-            <span class="pricing-value">Negotiable</span>
-            <span class="pricing-period">based on your needs</span>
+            <span class="pricing-value">{% t "Négociable" %}</span>
+            <span class="pricing-period">{% t "selon tes besoins" %}</span>
           </div>
           <ul class="pricing-features">
-            <li>1:1 personal assistance on your personal finances</li>
-            <li>Automated tools for managing personal finances</li>
+            <li>{% t "Accompagnement personnalisé sur tes finances personnelles" %}</li>
+            <li>{% t "Outils automatisés pour gérer tes finances personnelles" %}</li>
           </ul>
           <a class="btn btn-secondary" href="{{ site_settings.booking_url|default:'#' }}">
-            Ask about this <span class="btn-arrow">→</span>
+            {% t "En savoir plus" %} <span class="btn-arrow">→</span>
           </a>
         </article>
 
@@ -161,39 +161,39 @@
   <section class="section pricing-grid-section">
     <div class="container">
       <div class="section-header">
-        <span class="eyebrow">Consultations</span>
-        <h2>Talk it through first</h2>
+        <span class="eyebrow">{% t "Consultations" %}</span>
+        <h2>{% t "On en parle d'abord" %}</h2>
       </div>
       <div class="pricing-grid pricing-grid-single" data-reveal>
 
         <article class="card pricing-card">
-          <span class="eyebrow">Consultation</span>
-          <h3>Accounting (non-profits) &amp; web projects</h3>
+          <span class="eyebrow">{% t "Consultation" %}</span>
+          <h3>{% t "Comptabilité (associations) & projets web" %}</h3>
           <div class="pricing-amount">
-            <span class="pricing-value">$50</span>
-            <span class="pricing-period">45 minutes</span>
+            <span class="pricing-value">50 $</span>
+            <span class="pricing-period">{% t "45 minutes" %}</span>
           </div>
           <ul class="pricing-features">
-            <li>1:1 call to talk through your accounting or web project</li>
-            <li>Open to non-profit organizations</li>
+            <li>{% t "Appel individuel pour discuter de ton projet comptable ou web" %}</li>
+            <li>{% t "Ouvert aux associations à but non lucratif" %}</li>
           </ul>
-          <p class="pricing-note">Larger-scope consultations are negotiated based on a Terms of Reference.</p>
+          <p class="pricing-note">{% t "Les consultations à plus grande échelle sont négociées selon des Termes de Référence." %}</p>
           <a class="btn btn-secondary" href="{{ site_settings.booking_url|default:'#' }}">
-            Book a consultation <span class="btn-arrow">→</span>
+            {% t "Réserver une consultation" %} <span class="btn-arrow">→</span>
           </a>
         </article>
 
       </div>
-      <p class="pricing-disclaimer">All prices above are starting prices. Every engagement is scoped in a Terms of Reference and confirmed in a signed contract before work begins.</p>
+      <p class="pricing-disclaimer">{% t "Tous les prix ci-dessus sont des prix de départ. Chaque mission est cadrée par des Termes de Référence et confirmée par un contrat signé avant le début des travaux." %}</p>
     </div>
   </section>
 
   {% get_content 'pricing' 'cta' as cta %}
   <section class="section cta-section">
     <div class="container">
-      <h2>{{ cta.title|default:"Not sure which fits? Let's talk." }}</h2>
+      <h2>{% t cta.title|default:"Pas sûr de ce qui te convient ? Parlons-en." %}</h2>
       <a class="btn btn-primary" href="{{ site_settings.booking_url|default:'#' }}">
-        Book a call <span class="btn-arrow">→</span>
+        {% t "Réserver un appel" %} <span class="btn-arrow">→</span>
       </a>
     </div>
   </section>

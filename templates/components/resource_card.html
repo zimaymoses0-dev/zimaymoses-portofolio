@@ -1,0 +1,29 @@
+{% load i18n_extra %}<article class="card resource-card">
+  <div class="resource-media">
+    {% if resource.cover_image %}
+      <img src="{{ resource.cover_image.url }}" alt="{{ resource.title }}" loading="lazy">
+    {% endif %}
+    {% if resource.is_free %}
+      <span class="resource-price-badge is-free">{% t "Gratuit" %}</span>
+    {% elif resource.price %}
+      <span class="resource-price-badge">{{ resource.price|floatformat:0 }} {{ resource.currency }}</span>
+    {% endif %}
+  </div>
+  <div class="resource-body">
+    <span class="eyebrow">{% t resource.get_resource_type_display %}</span>
+    <h3>{{ resource.title }}</h3>
+    {% if resource.short_description %}<p>{{ resource.short_description }}</p>{% endif %}
+    <div class="resource-actions">
+      {% if resource.preview_url %}
+        <a class="resource-preview-link" href="{{ resource.preview_url }}" target="_blank" rel="noopener">{% t "Aperçu" %}</a>
+      {% elif resource.sample_file %}
+        <a class="resource-preview-link" href="{{ resource.sample_file.url }}" target="_blank" rel="noopener">{% t "Aperçu" %}</a>
+      {% endif %}
+      {% if resource.purchase_url %}
+        <a class="btn btn-primary" href="{{ resource.purchase_url }}" target="_blank" rel="noopener">
+          {% if resource.is_free %}{% t "Obtenir gratuitement" %}{% else %}{% t "Acheter" %}{% endif %} <span class="btn-arrow">→</span>
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</article>

@@ -1,25 +1,26 @@
-<footer class="site-footer">
+{% load i18n_extra %}<footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
       <div>
-        <h3 class="footer-heading">{{ site_settings.headline|default:"Working remotely with clients worldwide." }}</h3>
-        <p class="footer-description">{{ site_settings.footer_description }}</p>
+        <h3 class="footer-heading">{% if site_settings.headline %}{% t site_settings.headline %}{% else %}{% t "Je travaille à distance avec des clients partout dans le monde." %}{% endif %}</h3>
+        <p class="footer-description">{% t site_settings.footer_description %}</p>
         <ul class="footer-services">
           {% for service in footer_services %}
-            <li>{{ service.name }}</li>
+            <li>{% t service.name %}</li>
           {% endfor %}
         </ul>
       </div>
 
       <div class="footer-column">
-        <h4>Navigate</h4>
+        <h4>{% t "Navigation" %}</h4>
         <ul class="footer-links">
-          <li><a href="{% url 'core:home' %}">Home</a></li>
-          <li><a href="{% url 'portfolio:list' %}">Work</a></li>
-          <li><a href="{% url 'core:process' %}">Process</a></li>
-          <li><a href="{% url 'core:pricing' %}">Pricing</a></li>
-          <li><a href="{% url 'core:about' %}">About</a></li>
+          <li><a href="{% url 'core:home' %}">{% t "Accueil" %}</a></li>
+          <li><a href="{% url 'portfolio:list' %}">{% t "Projets" %}</a></li>
+          <li><a href="{% url 'core:process' %}">{% t "Processus" %}</a></li>
+          <li><a href="{% url 'core:pricing' %}">{% t "Tarifs" %}</a></li>
+          <li><a href="{% url 'core:about' %}">{% t "À propos" %}</a></li>
           <li><a href="{% url 'certifications:list' %}">Certifications</a></li>
+          <li><a href="{% url 'resources:list' %}">{% t "Ressources" %}</a></li>
         </ul>
       </div>
 
@@ -29,13 +30,13 @@
           {% if site_settings.email %}<li><a href="mailto:{{ site_settings.email }}">{{ site_settings.email }}</a></li>{% endif %}
           {% if site_settings.whatsapp %}<li><a href="https://wa.me/{{ site_settings.whatsapp }}">WhatsApp</a></li>{% endif %}
           {% if site_settings.location %}<li>{{ site_settings.location }}</li>{% endif %}
-          {% if site_settings.cv_file %}<li><a href="{{ site_settings.cv_file.url }}" target="_blank" rel="noopener">Download CV</a></li>{% endif %}
+          {% if site_settings.cv_file %}<li><a href="{{ site_settings.cv_file.url }}" target="_blank" rel="noopener">{% t "Télécharger le CV" %}</a></li>{% endif %}
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <span>{{ site_settings.copyright_text|default:"© All rights reserved." }}</span>
+      <span>{% if site_settings.copyright_text %}{% t site_settings.copyright_text %}{% else %}{% t "© Tous droits réservés." %}{% endif %}</span>
       <div class="footer-socials">
         {% if site_settings.linkedin_url %}<a href="{{ site_settings.linkedin_url }}">LinkedIn</a>{% endif %}
         {% if site_settings.instagram_url %}<a href="{{ site_settings.instagram_url }}">Instagram</a>{% endif %}

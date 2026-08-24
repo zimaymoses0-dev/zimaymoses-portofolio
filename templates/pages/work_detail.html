@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static %}
+{% load static i18n_extra %}
 
 {% block title %}{{ case_study.title }} — {{ site_settings.site_name }}{% endblock %}
 {% block meta_description %}{{ case_study.short_description }}{% endblock %}
@@ -26,32 +26,32 @@
       <aside class="project-summary">
         {% if case_study.client %}
           <div class="project-summary-item">
-            <h4>Client</h4>
+            <h4>{% t "Client" %}</h4>
             <p>{{ case_study.client }}</p>
           </div>
         {% endif %}
         {% if case_study.category %}
           <div class="project-summary-item">
-            <h4>Category</h4>
+            <h4>{% t "Catégorie" %}</h4>
             <p>{{ case_study.category }}</p>
           </div>
         {% endif %}
         {% if case_study.year %}
           <div class="project-summary-item">
-            <h4>Year</h4>
+            <h4>{% t "Année" %}</h4>
             <p>{{ case_study.year }}</p>
           </div>
         {% endif %}
         {% if case_study.primary_metric %}
           <div class="project-summary-item">
-            <h4>Result</h4>
+            <h4>{% t "Résultat" %}</h4>
             <p>{{ case_study.primary_metric }}</p>
           </div>
         {% endif %}
         {% if case_study.live_url %}
           <div class="project-summary-item">
             <a class="btn btn-secondary" href="{{ case_study.live_url }}" target="_blank" rel="noopener">
-              Visit site <span class="btn-arrow">→</span>
+              {% t "Voir le site" %} <span class="btn-arrow">→</span>
             </a>
           </div>
         {% endif %}
@@ -60,7 +60,7 @@
       <div class="project-body">
         {% if case_study.challenge %}
           <div class="project-block" data-reveal>
-            <h2>The problem</h2>
+            <h2>{% t "Le problème" %}</h2>
             <p>{{ case_study.challenge }}</p>
           </div>
         {% endif %}
@@ -80,21 +80,21 @@
 
         {% if case_study.strategy %}
           <div class="project-block" data-reveal>
-            <h2>Strategy</h2>
+            <h2>{% t "Stratégie" %}</h2>
             <p>{{ case_study.strategy }}</p>
           </div>
         {% endif %}
 
         {% if case_study.solution %}
           <div class="project-block" data-reveal>
-            <h2>Design & solution</h2>
+            <h2>{% t "Réalisation & solution" %}</h2>
             <p>{{ case_study.solution }}</p>
           </div>
         {% endif %}
 
         {% if case_study.outcome %}
           <div class="project-block" data-reveal>
-            <h2>Results</h2>
+            <h2>{% t "Résultats" %}</h2>
             <p>{{ case_study.outcome }}</p>
             {% if case_study.primary_metric or case_study.secondary_metric %}
               <div class="project-metrics">
@@ -117,7 +117,7 @@
   {% if next_case_study %}
     <section class="project-next">
       <div class="container">
-        <span class="eyebrow">Next project</span>
+        <span class="eyebrow">{% t "Projet suivant" %}</span>
         <a href="{% url 'portfolio:detail' next_case_study.slug %}">
           <h2>{{ next_case_study.title }} →</h2>
         </a>

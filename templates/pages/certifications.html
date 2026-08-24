@@ -1,15 +1,15 @@
 {% extends "base.html" %}
-{% load static %}
+{% load static i18n_extra %}
 
 {% block title %}Certifications — {{ site_settings.site_name }}{% endblock %}
-{% block meta_description %}All of {{ site_settings.owner_name }}'s professional certifications and diplomas, in accounting, finance, and web development.{% endblock %}
+{% block meta_description %}Toutes les certifications et diplômes professionnels de {{ site_settings.owner_name }}, en comptabilité, finance et développement web.{% endblock %}
 {% block extra_css %}<link rel="stylesheet" href="{% static 'css/certifications.css' %}">{% endblock %}
 
 {% block content %}
   <section class="container certifications-hero">
-    <span class="eyebrow">Credentials</span>
-    <h1 data-reveal>Certifications &amp; diplomas.</h1>
-    <p data-reveal>Every professional certification and diploma, from accounting and finance to web development and marketing.</p>
+    <span class="eyebrow">{% t "Diplômes" %}</span>
+    <h1 data-reveal>{% t "Certifications & diplômes." %}</h1>
+    <p data-reveal>{% t "Toutes les certifications et diplômes professionnels, de la comptabilité et la finance au développement web et au marketing." %}</p>
   </section>
 
   <section class="section certifications-gallery-section">
@@ -21,17 +21,17 @@
           {% endfor %}
         </div>
       {% else %}
-        <p class="section-header">No certifications published yet.</p>
+        <p class="section-header">{% t "Aucune certification publiée pour l'instant." %}</p>
       {% endif %}
     </div>
   </section>
 
   <section class="section cta-section">
     <div class="container">
-      <h2>Want the full picture?</h2>
+      <h2>{% t "Envie d'en savoir plus ?" %}</h2>
       {% if site_settings.cv_file %}
         <a class="btn btn-primary" href="{{ site_settings.cv_file.url }}" target="_blank" rel="noopener">
-          Download CV <span class="btn-arrow">→</span>
+          {% t "Télécharger le CV" %} <span class="btn-arrow">→</span>
         </a>
       {% endif %}
     </div>

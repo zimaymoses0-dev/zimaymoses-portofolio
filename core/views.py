@@ -24,7 +24,6 @@ def process(request):
     context = {
         "metrics": Metric.objects.filter(is_active=True),
         "phases": ProcessPhase.objects.filter(is_active=True),
-        "calculator_services": Service.objects.filter(is_active=True),
     }
     return render(request, "pages/process.html", context)
 

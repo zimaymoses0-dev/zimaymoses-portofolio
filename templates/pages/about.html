@@ -1,15 +1,15 @@
 {% extends "base.html" %}
-{% load static core_tags %}
+{% load static core_tags i18n_extra %}
 
-{% block title %}About — {{ site_settings.site_name }}{% endblock %}
+{% block title %}{% t "À propos" %} — {{ site_settings.site_name }}{% endblock %}
 {% block extra_css %}<link rel="stylesheet" href="{% static 'css/about.css' %}">{% endblock %}
 
 {% block content %}
   {% get_content 'about' 'hero' as hero %}
   <section class="container about-hero">
-    <span class="eyebrow">{{ hero.eyebrow|default:"About" }}</span>
-    <h1 data-reveal>{{ hero.title|default:"Accountant and full-stack developer." }}</h1>
-    <p data-reveal>{{ hero.subtitle|default:"I keep the books straight for international organizations — and I build the web tools those teams need too." }}</p>
+    <span class="eyebrow">{% t hero.eyebrow|default:"À propos" %}</span>
+    <h1 data-reveal>{% t hero.title|default:"Comptable et développeur full-stack." %}</h1>
+    <p data-reveal>{% t hero.subtitle|default:"I keep the books straight for international organizations — and I build the web tools those teams need too." %}</p>
   </section>
 
   {% if metrics %}
@@ -24,8 +24,8 @@
   <section class="section">
     <div class="container about-story">
       <div class="section-header">
-        <span class="eyebrow">{{ story.eyebrow|default:"My story" }}</span>
-        <h2>{{ story.title|default:"Numbers and code." }}</h2>
+        <span class="eyebrow">{% t story.eyebrow|default:"Mon parcours" %}</span>
+        <h2>{% t story.title|default:"Les chiffres et le code." %}</h2>
       </div>
       <div class="about-story-body" data-reveal>
         {% if story.body %}
@@ -41,35 +41,35 @@
   <section class="section section-dark">
     <div class="container">
       <div class="section-header">
-        <span class="eyebrow">Experience</span>
-        <h2>Where the discipline came from.</h2>
+        <span class="eyebrow">{% t "Expérience" %}</span>
+        <h2>{% t "D'où vient cette rigueur." %}</h2>
       </div>
       <div class="about-timeline" data-reveal>
         <div class="about-timeline-item">
-          <span class="about-timeline-date">2024 — Present</span>
+          <span class="about-timeline-date">{% t "2024 — Présent" %}</span>
           <div>
-            <h3>Accounting Assistant, Finance Department</h3>
+            <h3>{% t "Assistant Comptable, Département Finance" %}</h3>
             <p>Inter-African Coffee Organization (IACO) — bank reconciliation, audit preparation (MNG Audit &amp; Consulting, BDO/GIZ), financial reporting on SAGE 100.</p>
           </div>
         </div>
         <div class="about-timeline-item">
           <span class="about-timeline-date">2022 — 2023</span>
           <div>
-            <h3>Intern Accounting Assistant</h3>
+            <h3>{% t "Stagiaire Assistant Comptable" %}</h3>
             <p>Inter-African Coffee Organization (IACO) — bank journals, petty cash, monthly reconciliations, fixed asset register.</p>
           </div>
         </div>
         <div class="about-timeline-item">
           <span class="about-timeline-date">2017 — 2019</span>
           <div>
-            <h3>Administrator &amp; Video Editor</h3>
+            <h3>{% t "Administrateur & Monteur vidéo" %}</h3>
             <p>Children's Fruit — live-streaming production (OBS), video editing, treasury control for a youth media organization.</p>
           </div>
         </div>
         <div class="about-timeline-item">
           <span class="about-timeline-date">2019</span>
           <div>
-            <h3>Intern Assistant Accounting</h3>
+            <h3>{% t "Stagiaire Assistant Comptable" %}</h3>
             <p>International Fellowship of Christians (IFC) — QuickBooks bookkeeping, bank reconciliation, asset verification.</p>
           </div>
         </div>
@@ -80,35 +80,35 @@
   <section class="section">
     <div class="container">
       <div class="section-header">
-        <span class="eyebrow">Toolbox</span>
-        <h2>What I work with.</h2>
+        <span class="eyebrow">{% t "Boîte à outils" %}</span>
+        <h2>{% t "Avec quoi je travaille." %}</h2>
       </div>
       <div class="about-skills" data-reveal>
         <div class="about-skill-group">
-          <h3>Accounting &amp; finance</h3>
+          <h3>{% t "Comptabilité & finance" %}</h3>
           <ul class="tag-list">
             <li>SAGE 100 Compta</li>
             <li>QuickBooks</li>
             <li>Xero</li>
-            <li>Bank reconciliation</li>
-            <li>Financial reporting</li>
+            <li>{% t "Rapprochement bancaire" %}</li>
+            <li>{% t "Reporting financier" %}</li>
           </ul>
         </div>
         <div class="about-skill-group">
-          <h3>Web &amp; development</h3>
+          <h3>{% t "Web & développement" %}</h3>
           <ul class="tag-list">
             <li>WordPress</li>
             <li>Shopify</li>
-            <li>Full-stack web apps</li>
-            <li>Adobe Premiere Pro &amp; Photoshop</li>
+            <li>{% t "Applications web full-stack" %}</li>
+            <li>Adobe Premiere Pro & Photoshop</li>
           </ul>
         </div>
         <div class="about-skill-group">
-          <h3>Marketing &amp; ads</h3>
+          <h3>{% t "Marketing & publicité" %}</h3>
           <ul class="tag-list">
-            <li>Facebook &amp; Instagram Ads</li>
+            <li>Facebook & Instagram Ads</li>
             <li>TikTok Ads</li>
-            <li>Google Ads &amp; Analytics</li>
+            <li>Google Ads & Analytics</li>
             <li>Klaviyo</li>
           </ul>
         </div>
@@ -121,10 +121,10 @@
       <div class="container">
         <div class="section-header section-header-with-cta">
           <div>
-            <span class="eyebrow">Credentials</span>
-            <h2>Professional certifications</h2>
+            <span class="eyebrow">{% t "Diplômes" %}</span>
+            <h2>{% t "Certifications professionnelles" %}</h2>
           </div>
-          <a class="section-header-link" href="{% url 'certifications:list' %}">View all certifications →</a>
+          <a class="section-header-link" href="{% url 'certifications:list' %}">{% t "Voir toutes les certifications →" %}</a>
         </div>
         <div data-carousel>
           <div class="certifications-track" data-carousel-track>
@@ -133,8 +133,8 @@
             {% endfor %}
           </div>
           <div class="carousel-nav">
-            <button type="button" data-carousel-prev aria-label="Previous">←</button>
-            <button type="button" data-carousel-next aria-label="Next">→</button>
+            <button type="button" data-carousel-prev aria-label="{% t 'Précédent' %}">←</button>
+            <button type="button" data-carousel-next aria-label="{% t 'Suivant' %}">→</button>
           </div>
         </div>
       </div>
@@ -144,14 +144,14 @@
   {% get_content 'about' 'cta' as cta %}
   <section class="section cta-section">
     <div class="container">
-      <h2>{{ cta.title|default:"Want to work together?" }}</h2>
+      <h2>{% t cta.title|default:"Envie de travailler ensemble ?" %}</h2>
       <div class="about-cta-actions">
         <a class="btn btn-primary" href="{{ site_settings.booking_url|default:'#' }}">
-          Book a call <span class="btn-arrow">→</span>
+          {% t "Réserver un appel" %} <span class="btn-arrow">→</span>
         </a>
         {% if site_settings.cv_file %}
           <a class="btn btn-secondary" href="{{ site_settings.cv_file.url }}" target="_blank" rel="noopener">
-            Download CV <span class="btn-arrow">→</span>
+            {% t "Télécharger le CV" %} <span class="btn-arrow">→</span>
           </a>
         {% endif %}
       </div>

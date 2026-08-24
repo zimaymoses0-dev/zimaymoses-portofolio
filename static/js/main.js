@@ -164,15 +164,15 @@
         });
         const data = await res.json();
         if (data.ok) {
-          status.textContent = "Thanks — check your inbox.";
+          status.textContent = "Merci — vérifie ta boîte mail.";
           status.classList.add("is-success");
           newsletterForm.reset();
         } else {
-          status.textContent = data.error || "Something went wrong.";
+          status.textContent = data.error || "Une erreur est survenue.";
           status.classList.add("is-error");
         }
       } catch {
-        status.textContent = "Network error — try again.";
+        status.textContent = "Erreur réseau — réessaie.";
         status.classList.add("is-error");
       } finally {
         submitBtn.disabled = false;

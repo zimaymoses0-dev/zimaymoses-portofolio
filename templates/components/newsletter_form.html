@@ -1,7 +1,7 @@
-<form class="newsletter-form" action="{% url 'newsletter:subscribe' %}" method="post" data-newsletter-form>
+{% load i18n_extra %}<form class="newsletter-form" action="{% url 'newsletter:subscribe' %}" method="post" data-newsletter-form>
   {% csrf_token %}
-  <label class="sr-only" for="newsletter-email">Email address</label>
-  <input type="email" id="newsletter-email" name="email" placeholder="Email address" required>
-  <button type="submit" class="btn btn-primary">Subscribe <span class="btn-arrow">→</span></button>
+  <label class="sr-only" for="newsletter-email">{% t "Adresse e-mail" %}</label>
+  <input type="email" id="newsletter-email" name="email" placeholder="{% t 'Adresse e-mail' %}" required>
+  <button type="submit" class="btn btn-primary">{% t "S'abonner" %} <span class="btn-arrow">→</span></button>
 </form>
 <p class="newsletter-status" data-newsletter-status role="status"></p>

@@ -1,13 +1,13 @@
 {% extends "base.html" %}
-{% load static %}
+{% load static i18n_extra %}
 
-{% block title %}Work — {{ site_settings.site_name }}{% endblock %}
+{% block title %}{% t "Projets" %} — {{ site_settings.site_name }}{% endblock %}
 {% block extra_css %}<link rel="stylesheet" href="{% static 'css/work.css' %}">{% endblock %}
 
 {% block content %}
   <section class="container work-hero">
-    <h1 data-reveal>The work.</h1>
-    <p data-reveal>The outcomes, the decisions behind them, and the numbers.</p>
+    <h1 data-reveal>{% t "Les projets." %}</h1>
+    <p data-reveal>{% t "Les résultats, les décisions derrière eux, et les chiffres." %}</p>
   </section>
 
   <section class="section">
@@ -19,14 +19,14 @@
           {% endfor %}
         </div>
       {% else %}
-        <p class="section-header">No case studies published yet.</p>
+        <p class="section-header">{% t "Aucun projet publié pour l'instant." %}</p>
       {% endif %}
     </div>
   </section>
 
   <section class="section newsletter-section">
     <div class="container">
-      <h2>Get notified when I publish new work and availability.</h2>
+      <h2>{% t "Sois notifié quand je publie de nouveaux projets et mes disponibilités." %}</h2>
       {% include "components/newsletter_form.html" %}
     </div>
   </section>

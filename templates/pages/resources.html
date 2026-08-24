@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load static i18n_extra %}
+
+{% block title %}{% t "Ressources" %} — {{ site_settings.site_name }}{% endblock %}
+{% block meta_description %}Livres, livres audio et formations de {{ site_settings.owner_name }} — gratuits et payants.{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/resources.css' %}">{% endblock %}
+
+{% block content %}
+  <section class="container resources-hero">
+    <span class="eyebrow">{% t "Ressources" %}</span>
+    <h1 data-reveal>{% t "Livres, livres audio & formations." %}</h1>
+    <p data-reveal>{% t "Des ressources pratiques en comptabilité et développement web — certaines gratuites, d'autres payantes." %}</p>
+  </section>
+
+  {% if books %}
+    <section class="section resources-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">{% t "Livres" %}</span>
+          <h2>{% t "Livres" %}</h2>
+        </div>
+        <div class="resources-grid" data-reveal>
+          {% for resource in books %}
+            {% include "components/resource_card.html" %}
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+  {% endif %}
+
+  {% if audiobooks %}
+    <section class="section resources-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">{% t "Livres audio" %}</span>
+          <h2>{% t "Livres audio" %}</h2>
+        </div>
+        <div class="resources-grid" data-reveal>
+          {% for resource in audiobooks %}
+            {% include "components/resource_card.html" %}
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+  {% endif %}
+
+  {% if trainings %}
+    <section class="section resources-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">{% t "Formations" %}</span>
+          <h2>{% t "Formations" %}</h2>
+        </div>
+        <div class="resources-grid" data-reveal>
+          {% for resource in trainings %}
+            {% include "components/resource_card.html" %}
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+  {% endif %}
+
+  {% if not resources %}
+    <section class="section">
+      <div class="container">
+        <p class="section-header">{% t "Aucune ressource publiée pour l'instant — reviens bientôt." %}</p>
+      </div>
+    </section>
+  {% endif %}
+
+  <section class="section cta-section">
+    <div class="container">
+      <h2>{% t "Une demande particulière ?" %}</h2>
+      <a class="btn btn-primary" href="{{ site_settings.booking_url|default:'#' }}">
+        {% t "Contacter" %} {{ site_settings.owner_name|default:"moi" }} <span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </section>
+{% endblock %}

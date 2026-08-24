@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static core_tags %}
+{% load static core_tags i18n_extra %}
 
 {% block extra_css %}<link rel="stylesheet" href="{% static 'css/home.css' %}">{% endblock %}
 
@@ -10,15 +10,15 @@
       <img class="hero-bg" src="{{ hero.image.url }}" alt="">
     {% endif %}
     <div class="hero-content">
-      <span class="eyebrow">{{ hero.eyebrow|default:site_settings.availability_text }}</span>
-      <h1 data-reveal>{{ hero.title|default:site_settings.headline }}</h1>
-      <p data-reveal>{{ hero.subtitle|default:site_settings.subheadline }}</p>
+      <span class="eyebrow">{% t hero.eyebrow|default:site_settings.availability_text %}</span>
+      <h1 data-reveal>{% t hero.title|default:site_settings.headline %}</h1>
+      <p data-reveal>{% t hero.subtitle|default:site_settings.subheadline %}</p>
       <div class="hero-actions" data-reveal>
         <a class="btn btn-primary" href="{{ site_settings.booking_url|default:'#' }}">
-          Book a call <span class="btn-arrow">→</span>
+          {% t "Réserver un appel" %} <span class="btn-arrow">→</span>
         </a>
         <a class="btn btn-secondary" href="#how-i-help">
-          {{ hero.cta_label|default:"See how I help" }} <span class="btn-arrow">→</span>
+          {% t hero.cta_label|default:"Voir comment j'aide" %} <span class="btn-arrow">→</span>
         </a>
       </div>
     </div>
@@ -36,9 +36,9 @@
   <section class="section" id="how-i-help">
     <div class="container">
       <div class="section-header">
-        <span class="eyebrow">{{ how_i_help.eyebrow|default:"How I help" }}</span>
-        <h2>{{ how_i_help.title|default:"How I help" }}</h2>
-        <p>{{ how_i_help.subtitle|default:"Fixed-scope services, built for founders." }}</p>
+        <span class="eyebrow">{% t how_i_help.eyebrow|default:"Comment j'aide" %}</span>
+        <h2>{% t how_i_help.title|default:"Comment j'aide" %}</h2>
+        <p>{% t how_i_help.subtitle|default:"Fixed-scope services, built for founders." %}</p>
       </div>
       {% if services %}
         <div class="services-grid">
@@ -54,36 +54,36 @@
   <section class="section section-dark">
     <div class="container">
       <div class="section-header">
-        <span class="eyebrow">{{ behavior.eyebrow|default:"Behavior" }}</span>
-        <h2>{{ behavior.title|default:"Screens are easy. Behavior is hard." }}</h2>
-        <p>{{ behavior.subtitle|default:"Persuasion. Emotion. Trust." }}</p>
+        <span class="eyebrow">{% t behavior.eyebrow|default:"Ma méthode" %}</span>
+        <h2>{% t behavior.title|default:"Les chiffres m'ont appris la rigueur. Le code me permet de construire avec." %}</h2>
+        <p>{% t behavior.subtitle|default:"Précision. Vision systémique. Confiance." %}</p>
       </div>
       <div class="behavior-columns" data-reveal>
         <div class="behavior-column">
-          <h3>Accuracy</h3>
+          <h3>{% t "Précision" %}</h3>
           <ul>
-            <li>Bank-reconciliation-level attention to detail</li>
-            <li>No silent bugs</li>
-            <li>Documentation & audit trails</li>
-            <li>Compliance-minded</li>
+            <li>{% t "Le souci du détail d'un rapprochement bancaire" %}</li>
+            <li>{% t "Aucun bug silencieux" %}</li>
+            <li>{% t "Documentation & pistes d'audit" %}</li>
+            <li>{% t "Esprit conforme aux règles" %}</li>
           </ul>
         </div>
         <div class="behavior-column">
-          <h3>Building</h3>
+          <h3>{% t "Construction" %}</h3>
           <ul>
-            <li>Full-stack web apps</li>
-            <li>WordPress & Shopify builds</li>
-            <li>API integrations & automation</li>
-            <li>Clean, maintainable code</li>
+            <li>{% t "Applications web full-stack" %}</li>
+            <li>{% t "Sites WordPress & Shopify" %}</li>
+            <li>{% t "Intégrations API & automatisation" %}</li>
+            <li>{% t "Code propre et maintenable" %}</li>
           </ul>
         </div>
         <div class="behavior-column">
-          <h3>Trust</h3>
+          <h3>{% t "Confiance" %}</h3>
           <ul>
-            <li>Clear, honest communication</li>
-            <li>Meeting deadlines</li>
-            <li>Transparent pricing</li>
-            <li>Long-term reliability</li>
+            <li>{% t "Communication claire et honnête" %}</li>
+            <li>{% t "Respect des délais" %}</li>
+            <li>{% t "Tarification transparente" %}</li>
+            <li>{% t "Fiabilité sur le long terme" %}</li>
           </ul>
         </div>
       </div>
@@ -95,9 +95,9 @@
     <section class="section">
       <div class="container">
         <div class="section-header">
-          <span class="eyebrow">{{ case_studies_content.eyebrow|default:"Selected work" }}</span>
-          <h2>{{ case_studies_content.title|default:"Recent case studies" }}</h2>
-          <p>{{ case_studies_content.subtitle|default:"The work moves numbers, not just pixels." }}</p>
+          <span class="eyebrow">{% t case_studies_content.eyebrow|default:"Travaux sélectionnés" %}</span>
+          <h2>{% t case_studies_content.title|default:"Projets récents" %}</h2>
+          <p>{% t case_studies_content.subtitle|default:"The work moves numbers, not just pixels." %}</p>
         </div>
         <div class="case-studies-grid">
           {% for case_study in case_studies %}
@@ -112,8 +112,8 @@
     <section class="section">
       <div class="container">
         <div class="testimonials-lead">
-          <span class="eyebrow">Trusted worldwide</span>
-          <div class="testimonials-rating">4.9/5 from founders and teams I've worked with</div>
+          <span class="eyebrow">{% t "Une confiance établie" %}</span>
+          <div class="testimonials-rating">{% t "4,9/5 de la part des fondateurs et équipes avec qui j'ai travaillé" %}</div>
         </div>
         <div class="testimonials-grid">
           {% for testimonial in testimonials %}
@@ -128,8 +128,8 @@
     <section class="section" x-data="{ activeVideo: null }">
       <div class="container">
         <div class="section-header">
-          <span class="eyebrow">In their words</span>
-          <h2>Hear it from the people I've worked with</h2>
+          <span class="eyebrow">{% t "Dans leurs mots" %}</span>
+          <h2>{% t "Écoutez les personnes avec qui j'ai travaillé" %}</h2>
         </div>
         <div class="video-grid">
           {% for video in video_testimonials %}
@@ -139,10 +139,10 @@
       </div>
 
       <div class="video-modal-backdrop" :class="{ 'is-open': activeVideo }" @click.self="activeVideo = null" @keyup.escape.window="activeVideo = null">
-        <button type="button" class="video-modal-close" @click="activeVideo = null" aria-label="Close video">×</button>
+        <button type="button" class="video-modal-close" @click="activeVideo = null" aria-label="{% t 'Fermer la vidéo' %}">×</button>
         <div class="video-modal-frame">
           <template x-if="activeVideo">
-            <iframe :src="activeVideo" title="Video testimonial" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <iframe :src="activeVideo" title="{% t 'Témoignage vidéo' %}" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           </template>
         </div>
       </div>
@@ -154,10 +154,10 @@
       <div class="container">
         <div class="section-header section-header-with-cta">
           <div>
-            <span class="eyebrow">Credentials</span>
-            <h2>Professional certifications</h2>
+            <span class="eyebrow">{% t "Diplômes" %}</span>
+            <h2>{% t "Certifications professionnelles" %}</h2>
           </div>
-          <a class="section-header-link" href="{% url 'certifications:list' %}">View all certifications →</a>
+          <a class="section-header-link" href="{% url 'certifications:list' %}">{% t "Voir toutes les certifications →" %}</a>
         </div>
         <div data-carousel>
           <div class="certifications-track" data-carousel-track>
@@ -166,8 +166,8 @@
             {% endfor %}
           </div>
           <div class="carousel-nav">
-            <button type="button" data-carousel-prev aria-label="Previous">←</button>
-            <button type="button" data-carousel-next aria-label="Next">→</button>
+            <button type="button" data-carousel-prev aria-label="{% t 'Précédent' %}">←</button>
+            <button type="button" data-carousel-next aria-label="{% t 'Suivant' %}">→</button>
           </div>
         </div>
       </div>
@@ -177,16 +177,16 @@
   {% get_content 'home' 'cta' as cta %}
   <section class="section cta-section">
     <div class="container">
-      <h2>{{ cta.title|default:"Want to see what I can do with it?" }}</h2>
+      <h2>{% t cta.title|default:"Envie de voir ce que je peux construire pour toi ?" %}</h2>
       <a class="btn btn-primary" href="{{ site_settings.booking_url|default:'#' }}">
-        Book a call <span class="btn-arrow">→</span>
+        {% t "Réserver un appel" %} <span class="btn-arrow">→</span>
       </a>
     </div>
   </section>
 
   <section class="section newsletter-section">
     <div class="container">
-      <h2>Get notified when I publish new work and availability.</h2>
+      <h2>{% t "Sois notifié quand je publie de nouveaux projets et mes disponibilités." %}</h2>
       {% include "components/newsletter_form.html" %}
     </div>
   </section>

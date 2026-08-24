@@ -1,16 +1,16 @@
-<article class="card service-card" data-reveal>
+{% load i18n_extra %}<article class="card service-card" data-reveal>
   {% if service.badge %}<span class="service-card-badge">{{ service.badge }}</span>{% endif %}
-  <h3>{{ service.name }}</h3>
-  <p>{{ service.short_description }}</p>
+  <h3>{% t service.name %}</h3>
+  <p>{% t service.short_description %}</p>
   <div class="service-meta">
-    <span>{{ service.duration }}</span>
+    <span>{% t service.duration %}</span>
     {% if service.price %}
       <span class="service-price">{{ service.price }} {{ service.currency }}</span>
     {% endif %}
   </div>
   {% if service.cta_url %}
     <a class="btn btn-secondary" href="{{ service.cta_url }}">
-      {{ service.cta_label }} <span class="btn-arrow">→</span>
+      {% t service.cta_label %} <span class="btn-arrow">→</span>
     </a>
   {% endif %}
 </article>

@@ -1,7 +1,9 @@
+from django.core import signing
 from django.test import TestCase
 from django.urls import reverse
 
 from .models import Subscriber
+from .views import UNSUBSCRIBE_SALT, make_unsubscribe_token
 
 
 class NewsletterSubscribeTests(TestCase):
@@ -36,3 +38,43 @@ class NewsletterSubscribeTests(TestCase):
 
         subscriber = Subscriber.objects.get(email="person@example.com")
         self.assertTrue(subscriber.is_active)
+
+
+class NewsletterUnsubscribeTests(TestCase):
+    def test_valid_token_unsubscribes(self):
+        Subscriber.objects.create(email="person@example.com", is_active=True)
+        token = make_unsubscribe_token("person@example.com")
+
+        response = self.client.get(reverse("newsletter:unsubscribe", args=[token]))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertJSONEqual(response.content, {"ok": True})
+        self.assertFalse(Subscriber.objects.get(email="person@example.com").is_active)
+
+    def test_tampered_token_rejected(self):
+        Subscriber.objects.create(email="victim@example.com", is_active=True)
+        token = make_unsubscribe_token("someone-else@example.com")
+        tampered = token[:-1] + ("a" if token[-1] != "a" else "b")
+
+        response = self.client.get(reverse("newsletter:unsubscribe", args=[tampered]))
+
+        self.assertEqual(response.status_code, 400)
+        self.assertTrue(Subscriber.objects.get(email="victim@example.com").is_active)
+
+    def test_token_for_one_email_cannot_unsubscribe_another(self):
+        Subscriber.objects.create(email="victim@example.com", is_active=True)
+        token = signing.dumps({"email": "victim@example.com"}, salt="wrong-salt")
+
+        response = self.client.get(reverse("newsletter:unsubscribe", args=[token]))
+
+        self.assertEqual(response.status_code, 400)
+        self.assertTrue(Subscriber.objects.get(email="victim@example.com").is_active)
+
+    def test_unrelated_subscriber_untouched(self):
+        Subscriber.objects.create(email="person@example.com", is_active=True)
+        Subscriber.objects.create(email="other@example.com", is_active=True)
+        token = make_unsubscribe_token("person@example.com")
+
+        self.client.get(reverse("newsletter:unsubscribe", args=[token]))
+
+        self.assertTrue(Subscriber.objects.get(email="other@example.com").is_active)

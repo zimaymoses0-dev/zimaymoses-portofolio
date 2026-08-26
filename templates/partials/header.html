@@ -23,7 +23,7 @@
       <a class="header-cv" href="{{ site_settings.cv_file.url }}" target="_blank" rel="noopener">{% t "Télécharger le CV" %}</a>
     {% endif %}
     <a class="header-cta" href="{{ site_settings.booking_url|default:'#' }}">
-      {% t "Contacter" %} {{ site_settings.owner_name|default:"moi" }}
+      {% if LANGUAGE_CODE == 'fr' %}Contactez-moi{% else %}Contact {{ site_settings.owner_name|default:"me" }}{% endif %}
     </a>
     <form class="header-lang-form" action="{% url 'set_language' %}" method="post">
       {% csrf_token %}

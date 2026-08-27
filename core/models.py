@@ -1,5 +1,7 @@
 from django.db import models
 
+from .validators import MaxFileSizeValidator, validate_pdf_content
+
 
 class SiteSettings(models.Model):
     """Singleton: global settings editable from Django Admin."""
@@ -17,7 +19,13 @@ class SiteSettings(models.Model):
         max_length=120, blank=True, default="Available for new projects"
     )
     booking_url = models.URLField(blank=True)
-    cv_file = models.FileField(upload_to="cv/", blank=True, null=True, verbose_name="CV / Resume (PDF)")
+    cv_file = models.FileField(
+        upload_to="cv/",
+        blank=True,
+        null=True,
+        verbose_name="CV / Resume (PDF)",
+        validators=[MaxFileSizeValidator(10), validate_pdf_content],
+    )
     linkedin_url = models.URLField(blank=True)
     instagram_url = models.URLField(blank=True)
     twitter_url = models.URLField(blank=True)
@@ -65,7 +73,9 @@ class PageContent(models.Model):
     title = models.CharField(max_length=255, blank=True)
     subtitle = models.TextField(blank=True)
     body = models.TextField(blank=True)
-    image = models.ImageField(upload_to="page_content/", blank=True, null=True)
+    image = models.ImageField(
+        upload_to="page_content/", blank=True, null=True, validators=[MaxFileSizeValidator(8)]
+    )
     cta_label = models.CharField(max_length=60, blank=True)
     cta_url = models.CharField(max_length=255, blank=True)
 

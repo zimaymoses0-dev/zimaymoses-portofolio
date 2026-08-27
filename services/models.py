@@ -1,5 +1,7 @@
 from django.db import models
 
+from core.validators import MaxFileSizeValidator
+
 
 class Service(models.Model):
     name = models.CharField(max_length=120)
@@ -16,7 +18,9 @@ class Service(models.Model):
     is_active = models.BooleanField(default=True)
     cta_label = models.CharField(max_length=60, default="Learn more")
     cta_url = models.CharField(max_length=255, blank=True)
-    cover_image = models.ImageField(upload_to="services/", blank=True, null=True)
+    cover_image = models.ImageField(
+        upload_to="services/", blank=True, null=True, validators=[MaxFileSizeValidator(8)]
+    )
 
     class Meta:
         ordering = ["order"]

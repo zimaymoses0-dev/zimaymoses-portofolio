@@ -5,7 +5,7 @@ from .models import Subscriber
 
 @admin.register(Subscriber)
 class SubscriberAdmin(admin.ModelAdmin):
-    list_display = ("email", "first_name", "is_active", "subscribed_at")
-    list_filter = ("is_active",)
+    list_display = ("email", "first_name", "is_active", "is_confirmed", "subscribed_at")
+    list_filter = ("is_active", "is_confirmed")
     search_fields = ("email", "first_name")
     ordering = ("-subscribed_at",)

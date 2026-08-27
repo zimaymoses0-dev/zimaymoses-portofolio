@@ -1,5 +1,7 @@
 from django.db import models
 
+from core.validators import MaxFileSizeValidator, validate_safe_extension
+
 
 class Resource(models.Model):
     """A digital product: book, audiobook, or training (free or paid)."""
@@ -18,7 +20,9 @@ class Resource(models.Model):
     currency = models.CharField(max_length=8, default="USD")
     short_description = models.CharField(max_length=255, blank=True)
     description = models.TextField(blank=True)
-    cover_image = models.ImageField(upload_to="resources/covers/", blank=True, null=True)
+    cover_image = models.ImageField(
+        upload_to="resources/covers/", blank=True, null=True, validators=[MaxFileSizeValidator(8)]
+    )
     preview_url = models.URLField(
         blank=True, help_text="Link to a sample or preview — excerpt, trailer, free lesson, etc."
     )
@@ -27,6 +31,7 @@ class Resource(models.Model):
         blank=True,
         null=True,
         help_text="Downloadable preview file (sample chapter, audio snippet, syllabus...).",
+        validators=[MaxFileSizeValidator(25), validate_safe_extension],
     )
     purchase_url = models.URLField(
         blank=True, help_text="Where visitors buy or access this (Gumroad, Selar, WhatsApp, etc.)."

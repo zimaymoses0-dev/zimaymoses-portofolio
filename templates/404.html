@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Page introuvable — {{ site_settings.site_name }}{% endblock %}
+
+{% block content %}
+  <section class="container" style="padding: 200px 0 var(--space-16); text-align: center;">
+    <span class="eyebrow">Erreur 404</span>
+    <h1 style="margin-top: var(--space-3); font-size: clamp(2.4rem, 6vw, 4rem);">Cette page n'existe pas.</h1>
+    <p style="margin-top: var(--space-5); color: var(--color-muted); font-size: 1.1rem;">
+      Le lien est peut-être cassé, ou la page a été déplacée.
+    </p>
+    <div style="margin-top: var(--space-8);">
+      <a class="btn btn-primary" href="{% url 'core:home' %}">
+        Retour à l'accueil <span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </section>
+{% endblock %}

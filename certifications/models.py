@@ -1,5 +1,7 @@
 from django.db import models
 
+from core.validators import MaxFileSizeValidator
+
 
 class Certification(models.Model):
     title = models.CharField(max_length=150)
@@ -14,7 +16,9 @@ class Certification(models.Model):
     issue_date = models.DateField(null=True, blank=True)
     certificate_url = models.URLField(blank=True)
     credential_id = models.CharField(max_length=120, blank=True)
-    image = models.ImageField(upload_to="certifications/", blank=True, null=True)
+    image = models.ImageField(
+        upload_to="certifications/", blank=True, null=True, validators=[MaxFileSizeValidator(8)]
+    )
     dark_card = models.BooleanField(default=False, help_text="Render this card with a dark background.")
     is_published = models.BooleanField(default=True)
     featured = models.BooleanField(default=False)

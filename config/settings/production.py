@@ -1,6 +1,15 @@
+from django.core.exceptions import ImproperlyConfigured
+
 from .base import *  # noqa: F401,F403
 
 DEBUG = False
+
+# Fail loudly instead of silently deploying with the insecure fallback key from base.py.
+if SECRET_KEY == "django-insecure-change-me-in-env":  # noqa: F405
+    raise ImproperlyConfigured(
+        "SECRET_KEY is not set. Set a real, random SECRET_KEY in the environment "
+        "before running with production settings."
+    )
 
 SECURE_SSL_REDIRECT = True
 SESSION_COOKIE_SECURE = True

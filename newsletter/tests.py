@@ -2,8 +2,10 @@ from django.core import signing
 from django.test import TestCase
 from django.urls import reverse
 
+from django.core import mail
+
 from .models import Subscriber
-from .views import UNSUBSCRIBE_SALT, make_unsubscribe_token
+from .views import make_confirm_token, make_unsubscribe_token
 
 
 class NewsletterSubscribeTests(TestCase):
@@ -38,6 +40,41 @@ class NewsletterSubscribeTests(TestCase):
 
         subscriber = Subscriber.objects.get(email="person@example.com")
         self.assertTrue(subscriber.is_active)
+
+    def test_new_subscriber_is_not_confirmed_until_they_click_the_email_link(self):
+        self.client.post(reverse("newsletter:subscribe"), {"email": "person@example.com"})
+
+        subscriber = Subscriber.objects.get(email="person@example.com")
+        self.assertFalse(subscriber.is_confirmed)
+
+    def test_subscribing_sends_a_confirmation_email(self):
+        self.client.post(reverse("newsletter:subscribe"), {"email": "person@example.com"})
+
+        self.assertEqual(len(mail.outbox), 1)
+        self.assertIn("person@example.com", mail.outbox[0].to)
+
+
+class NewsletterConfirmTests(TestCase):
+    def test_valid_token_confirms_subscriber(self):
+        Subscriber.objects.create(email="person@example.com", is_active=True)
+        token = make_confirm_token("person@example.com")
+
+        response = self.client.get(reverse("newsletter:confirm", args=[token]))
+
+        self.assertEqual(response.status_code, 200)
+        subscriber = Subscriber.objects.get(email="person@example.com")
+        self.assertTrue(subscriber.is_confirmed)
+        self.assertIsNotNone(subscriber.confirmed_at)
+
+    def test_tampered_confirm_token_rejected(self):
+        Subscriber.objects.create(email="person@example.com", is_active=True)
+        token = make_confirm_token("person@example.com")
+        tampered = token[:-1] + ("a" if token[-1] != "a" else "b")
+
+        response = self.client.get(reverse("newsletter:confirm", args=[tampered]))
+
+        self.assertEqual(response.status_code, 400)
+        self.assertFalse(Subscriber.objects.get(email="person@example.com").is_confirmed)
 
 
 class NewsletterUnsubscribeTests(TestCase):

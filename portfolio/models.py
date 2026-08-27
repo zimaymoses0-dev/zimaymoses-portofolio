@@ -1,5 +1,7 @@
 from django.db import models
 
+from core.validators import MaxFileSizeValidator
+
 
 class CaseStudy(models.Model):
     title = models.CharField(max_length=200)
@@ -15,8 +17,12 @@ class CaseStudy(models.Model):
     outcome = models.TextField(blank=True)
     primary_metric = models.CharField(max_length=80, blank=True, help_text="e.g. '+67% YoY revenue'")
     secondary_metric = models.CharField(max_length=80, blank=True)
-    hero_image = models.ImageField(upload_to="case_studies/hero/", blank=True, null=True)
-    thumbnail = models.ImageField(upload_to="case_studies/thumbnails/", blank=True, null=True)
+    hero_image = models.ImageField(
+        upload_to="case_studies/hero/", blank=True, null=True, validators=[MaxFileSizeValidator(8)]
+    )
+    thumbnail = models.ImageField(
+        upload_to="case_studies/thumbnails/", blank=True, null=True, validators=[MaxFileSizeValidator(8)]
+    )
     featured = models.BooleanField(default=False)
     published = models.BooleanField(default=True)
     order = models.PositiveIntegerField(default=0)
@@ -35,7 +41,9 @@ class CaseStudySection(models.Model):
     case_study = models.ForeignKey(CaseStudy, on_delete=models.CASCADE, related_name="sections")
     title = models.CharField(max_length=150)
     content = models.TextField(blank=True)
-    image = models.ImageField(upload_to="case_studies/sections/", blank=True, null=True)
+    image = models.ImageField(
+        upload_to="case_studies/sections/", blank=True, null=True, validators=[MaxFileSizeValidator(8)]
+    )
     video_url = models.URLField(blank=True)
     order = models.PositiveIntegerField(default=0)
 

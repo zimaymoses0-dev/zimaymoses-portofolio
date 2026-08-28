@@ -19,4 +19,7 @@ RUN python manage.py collectstatic --noinput --settings=config.settings.producti
 
 EXPOSE 8000
 
-CMD ["gunicorn", "config.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "3"]
+# Shell form (not exec form) so $PORT actually expands. Railway/Render/Heroku-style
+# platforms inject PORT at runtime and expect the app to bind to it; ${PORT:-8000}
+# falls back to 8000 for plain `docker run` / docker-compose where it isn't set.
+CMD gunicorn config.wsgi:application --bind 0.0.0.0:${PORT:-8000} --workers 3

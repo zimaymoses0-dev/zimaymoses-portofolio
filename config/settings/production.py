@@ -20,4 +20,14 @@ SECURE_HSTS_PRELOAD = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 X_FRAME_OPTIONS = "DENY"
 
+# Railway (like Render/Heroku) terminates TLS at its edge and forwards plain HTTP to
+# the container, tagging the original scheme in this header. Without telling Django to
+# trust it, SECURE_SSL_REDIRECT thinks every request is insecure and redirect-loops.
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
+# Needed for Django 4+ to accept POSTs (admin login, forms) once the site is only
+# reachable over HTTPS. Comma-separated list of full origins, e.g.
+# "https://your-app.up.railway.app,https://yourdomain.com".
+CSRF_TRUSTED_ORIGINS = env.list("CSRF_TRUSTED_ORIGINS", default=[])  # noqa: F405
+
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"

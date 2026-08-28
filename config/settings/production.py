@@ -31,3 +31,22 @@ SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 CSRF_TRUSTED_ORIGINS = env.list("CSRF_TRUSTED_ORIGINS", default=[])  # noqa: F405
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+
+# Media files (CV, certification/case-study images, resource covers) must live somewhere
+# that survives redeploys — Railway wipes the container filesystem on every deploy. Local
+# dev keeps using base.py's filesystem MEDIA_ROOT; only production needs cloud storage.
+#
+# Credentials come from the CLOUDINARY_URL env var (cloudinary://key:secret@cloud_name),
+# which the underlying cloudinary SDK reads from os.environ on its own — nothing to parse
+# here. django-cloudinary-storage falls back to it whenever CLOUDINARY_STORAGE doesn't
+# define CLOUD_NAME/API_KEY/API_SECRET itself, so this dict stays deliberately empty.
+INSTALLED_APPS = ["cloudinary_storage", "cloudinary"] + INSTALLED_APPS  # noqa: F405
+
+if not env("CLOUDINARY_URL", default=""):  # noqa: F405
+    raise ImproperlyConfigured(
+        "CLOUDINARY_URL is not set. Media storage requires it in production "
+        "(get it from the Cloudinary dashboard: Settings > Access Keys)."
+    )
+
+CLOUDINARY_STORAGE = {}
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"

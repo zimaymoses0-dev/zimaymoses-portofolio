@@ -1,5 +1,6 @@
 from django.db import models
 
+from core.storage import get_raw_storage
 from core.validators import MaxFileSizeValidator, validate_safe_extension
 
 
@@ -32,6 +33,7 @@ class Resource(models.Model):
         null=True,
         help_text="Downloadable preview file (sample chapter, audio snippet, syllabus...).",
         validators=[MaxFileSizeValidator(25), validate_safe_extension],
+        storage=get_raw_storage,
     )
     purchase_url = models.URLField(
         blank=True, help_text="Where visitors buy or access this (Gumroad, Selar, WhatsApp, etc.)."

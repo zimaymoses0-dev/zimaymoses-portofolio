@@ -1,5 +1,6 @@
 from django.db import models
 
+from .storage import get_raw_storage
 from .validators import MaxFileSizeValidator, validate_pdf_content
 
 
@@ -25,6 +26,7 @@ class SiteSettings(models.Model):
         null=True,
         verbose_name="CV / Resume (PDF)",
         validators=[MaxFileSizeValidator(10), validate_pdf_content],
+        storage=get_raw_storage,
     )
     linkedin_url = models.URLField(blank=True)
     instagram_url = models.URLField(blank=True)

@@ -15,7 +15,15 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-RUN python manage.py collectstatic --noinput --settings=config.settings.production || true
+# collectstatic only needs settings to *load*, not a real secret or a live database —
+# but production.py now refuses to boot with the insecure default SECRET_KEY, and the
+# platform's real one isn't available at build time (only at container runtime). This
+# placeholder satisfies that check for the build step only; Railway's actual SECRET_KEY
+# env var overrides it once the container starts. No `|| true` here on purpose: if
+# collectstatic genuinely fails, the build should fail loudly instead of shipping an
+# image with no static files.
+RUN SECRET_KEY=build-time-placeholder-not-used-at-runtime \
+    python manage.py collectstatic --noinput --settings=config.settings.production
 
 EXPOSE 8000
 

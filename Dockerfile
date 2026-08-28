@@ -27,7 +27,9 @@ RUN SECRET_KEY=build-time-placeholder-not-used-at-runtime \
 
 EXPOSE 8000
 
-# Shell form (not exec form) so $PORT actually expands. Railway/Render/Heroku-style
-# platforms inject PORT at runtime and expect the app to bind to it; ${PORT:-8000}
-# falls back to 8000 for plain `docker run` / docker-compose where it isn't set.
-CMD gunicorn config.wsgi:application --bind 0.0.0.0:${PORT:-8000} --workers 3
+# Migrations run at container start (not build time), since the real DATABASE_URL only
+# exists at runtime on platforms like Railway. Then shell-form CMD so $PORT actually
+# expands — Railway/Render/Heroku-style platforms inject it at runtime and expect the
+# app to bind there; ${PORT:-8000} falls back to 8000 for plain `docker run` / compose.
+CMD python manage.py migrate --noinput && \
+    gunicorn config.wsgi:application --bind 0.0.0.0:${PORT:-8000} --workers 3

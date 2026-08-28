@@ -122,10 +122,17 @@ USE_TZ = True
 STATIC_URL = "static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 MEDIA_URL = "media/"
 MEDIA_ROOT = BASE_DIR / "media"
+
+# Django 5.1+ dropped the old STATICFILES_STORAGE/DEFAULT_FILE_STORAGE settings entirely
+# (silently ignored, not even a deprecation warning) — STORAGES is the only setting that
+# actually takes effect now. production.py overrides "default" to point media at Cloudinary.
+STORAGES = {
+    "default": {"BACKEND": "django.core.files.storage.FileSystemStorage"},
+    "staticfiles": {"BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage"},
+}
 
 # Reject request bodies/uploads above 25MB outright (per-field validators in
 # core/validators.py enforce tighter, field-specific limits on top of this).

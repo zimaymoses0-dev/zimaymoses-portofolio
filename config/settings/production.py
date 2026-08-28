@@ -49,4 +49,4 @@ if not env("CLOUDINARY_URL", default=""):  # noqa: F405
     )
 
 CLOUDINARY_STORAGE = {}
-DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+STORAGES["default"] = {"BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage"}  # noqa: F405

@@ -2,6 +2,7 @@ import re
 
 from django.conf import settings
 from django.core import signing
+from django.core.cache import cache
 from django.core.mail import send_mail
 from django.core.signing import BadSignature, SignatureExpired
 from django.http import JsonResponse
@@ -16,6 +17,18 @@ UNSUBSCRIBE_SALT = "newsletter-unsubscribe"
 UNSUBSCRIBE_TOKEN_MAX_AGE = 60 * 60 * 24 * 365  # 1 year
 CONFIRM_SALT = "newsletter-confirm"
 CONFIRM_TOKEN_MAX_AGE = 60 * 60 * 24 * 3  # 3 days
+
+# Unauthenticated endpoint accepting an arbitrary email address: without a cap, it's a
+# free tool for mail-bombing a third party's inbox with confirmation emails.
+SUBSCRIBE_RATE_LIMIT = 5
+SUBSCRIBE_RATE_WINDOW = 60 * 60  # 1 hour
+
+
+def _client_ip(request):
+    forwarded = request.META.get("HTTP_X_FORWARDED_FOR")
+    if forwarded:
+        return forwarded.split(",")[0].strip()
+    return request.META.get("REMOTE_ADDR", "")
 
 
 def make_unsubscribe_token(email):
@@ -46,6 +59,14 @@ def send_confirmation_email(request, email):
 
 @require_POST
 def subscribe(request):
+    cache_key = f"newsletter-subscribe-rate:{_client_ip(request)}"
+    attempts = cache.get(cache_key, 0)
+    if attempts >= SUBSCRIBE_RATE_LIMIT:
+        return JsonResponse(
+            {"ok": False, "error": "Too many attempts. Please try again later."}, status=429
+        )
+    cache.set(cache_key, attempts + 1, SUBSCRIBE_RATE_WINDOW)
+
     email = (request.POST.get("email") or "").strip().lower()
     first_name = (request.POST.get("first_name") or "").strip()
 

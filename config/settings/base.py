@@ -146,6 +146,21 @@ CELERY_BROKER_URL = env("CELERY_BROKER_URL", default="redis://localhost:6379/0")
 CELERY_RESULT_BACKEND = env("CELERY_RESULT_BACKEND", default="redis://localhost:6379/0")
 CELERY_TASK_ALWAYS_EAGER = env.bool("CELERY_TASK_ALWAYS_EAGER", default=True)
 
+# Backs the newsletter subscribe endpoint's per-IP rate limit. No Redis is deployed
+# yet (Celery's default CELERY_TASK_ALWAYS_EAGER=True means it never actually needs
+# CELERY_BROKER_URL either) — CACHE_URL opts into a real shared cache once one exists.
+# Per-process LocMemCache in the meantime doesn't share counts across gunicorn's worker
+# processes, so the effective cap is looser than SUBSCRIBE_RATE_LIMIT, but it's still a
+# real reduction from no limit at all.
+_cache_url = env("CACHE_URL", default="")
+CACHES = {
+    "default": (
+        {"BACKEND": "django.core.cache.backends.redis.RedisCache", "LOCATION": _cache_url}
+        if _cache_url
+        else {"BACKEND": "django.core.cache.backends.locmem.LocMemCache"}
+    )
+}
+
 # Email
 EMAIL_BACKEND = env(
     "EMAIL_BACKEND", default="django.core.mail.backends.console.EmailBackend"

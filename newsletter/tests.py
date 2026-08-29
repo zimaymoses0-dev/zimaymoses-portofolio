@@ -1,4 +1,5 @@
 from django.core import signing
+from django.core.cache import cache
 from django.test import TestCase
 from django.urls import reverse
 
@@ -9,6 +10,11 @@ from .views import make_confirm_token, make_unsubscribe_token
 
 
 class NewsletterSubscribeTests(TestCase):
+    def setUp(self):
+        # subscribe() is rate-limited per IP; without this, tests share Django's
+        # test-client IP and trip each other's counters across test methods.
+        cache.clear()
+
     def test_valid_email_creates_subscriber(self):
         response = self.client.post(reverse("newsletter:subscribe"), {"email": "person@example.com"})
 
@@ -52,6 +58,18 @@ class NewsletterSubscribeTests(TestCase):
 
         self.assertEqual(len(mail.outbox), 1)
         self.assertIn("person@example.com", mail.outbox[0].to)
+
+    def test_repeated_requests_from_same_ip_are_rate_limited(self):
+        for _ in range(5):
+            response = self.client.post(
+                reverse("newsletter:subscribe"), {"email": "person@example.com"}
+            )
+            self.assertEqual(response.status_code, 200)
+
+        response = self.client.post(reverse("newsletter:subscribe"), {"email": "victim@example.com"})
+
+        self.assertEqual(response.status_code, 429)
+        self.assertFalse(Subscriber.objects.filter(email="victim@example.com").exists())
 
 
 class NewsletterConfirmTests(TestCase):

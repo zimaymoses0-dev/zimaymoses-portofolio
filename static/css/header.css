@@ -158,9 +158,10 @@
   background: var(--color-bg);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: var(--space-8);
+  justify-content: flex-start;
+  padding: 100px var(--space-8) var(--space-8);
   gap: var(--space-6);
+  overflow-y: auto;
   opacity: 0;
   clip-path: circle(0% at 90% 5%);
   pointer-events: none;

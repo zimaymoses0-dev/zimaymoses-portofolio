@@ -23,6 +23,7 @@ COPY . .
 # collectstatic genuinely fails, the build should fail loudly instead of shipping an
 # image with no static files.
 RUN SECRET_KEY=build-time-placeholder-not-used-at-runtime \
+    CLOUDINARY_URL=cloudinary://build-placeholder:build-placeholder@build-placeholder \
     python manage.py collectstatic --noinput --settings=config.settings.production
 
 EXPOSE 8000

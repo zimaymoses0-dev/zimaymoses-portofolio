@@ -40,7 +40,13 @@ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 # which the underlying cloudinary SDK reads from os.environ on its own — nothing to parse
 # here. django-cloudinary-storage falls back to it whenever CLOUDINARY_STORAGE doesn't
 # define CLOUD_NAME/API_KEY/API_SECRET itself, so this dict stays deliberately empty.
-INSTALLED_APPS = ["cloudinary_storage", "cloudinary"] + INSTALLED_APPS  # noqa: F405
+#
+# Appended *after* staticfiles (its docs say "before", for its own StaticCloudinaryStorage
+# use case) — we only want it for media, and cloudinary_storage ships a collectstatic
+# override that reads the removed STATICFILES_STORAGE setting and crashes. Django's
+# management-command lookup favors earlier INSTALLED_APPS entries, so appending here lets
+# staticfiles' own collectstatic (whitenoise) win instead.
+INSTALLED_APPS = INSTALLED_APPS + ["cloudinary_storage", "cloudinary"]  # noqa: F405
 
 if not env("CLOUDINARY_URL", default=""):  # noqa: F405
     raise ImproperlyConfigured(

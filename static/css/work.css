@@ -152,3 +152,10 @@
     gap: var(--space-8);
   }
 }
+
+@media (max-width: 720px) {
+  .work-hero,
+  .project-hero {
+    padding-top: 120px;
+  }
+}

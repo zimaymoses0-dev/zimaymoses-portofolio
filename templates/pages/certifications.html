@@ -1,30 +1,53 @@
 {% extends "base.html" %}
 {% load static i18n_extra %}
 
-{% block title %}Certifications — {{ person.full_name }}{% endblock %}
+{% block title %}{% t "Certifications & diplômes" %} — {{ person.full_name }}{% endblock %}
 {% block meta_description %}{% t "Certifications de Moses Zegbah Zimay : finance et comptabilité (SYCEBNL, Xero), cybersécurité (tests d'intrusion), gestion, marketing et développement web." %}{% endblock %}
 {% block extra_css %}<link rel="stylesheet" href="{% static 'css/certifications.css' %}">{% endblock %}
 
 {% block content %}
   <section class="container certifications-hero">
-    <span class="eyebrow">{% t "Diplômes" %}</span>
+    <span class="eyebrow">{% t "Diplômes" %} · {{ person.full_name }}</span>
     <h1 data-reveal>{% t "Certifications & diplômes." %}</h1>
-    <p data-reveal>{% t "Toutes les certifications et diplômes professionnels, de la comptabilité et la finance au développement web et au marketing." %}</p>
+    <p data-reveal>{% t "Diplômes et certifications professionnelles en finance, comptabilité, cybersécurité et gestion — au service d'un objectif : la comptabilité forensique et la lutte contre la fraude." %}</p>
+    <p class="certifications-count" data-reveal>{{ education|length }} {% t "diplômes" %} · {{ certifications|length }} {% t "certifications" %}</p>
+    {% if certification_groups %}
+      <nav class="certifications-toc" aria-label="{% t 'Domaines' %}">
+        <a href="#diplomes">{% t "Diplômes d'études" %}</a>
+        {% for group in certification_groups %}<a href="#{{ group.key }}">{% t group.label %}</a>{% endfor %}
+      </nav>
+    {% endif %}
   </section>
 
-  <section class="section certifications-gallery-section">
+  <section class="section certifications-gallery-section" id="diplomes" aria-labelledby="diplomes-title">
     <div class="container">
-      {% if certifications %}
-        <div class="certifications-gallery" data-reveal>
-          {% for certification in certifications %}
+      <h2 class="certifications-group-title" id="diplomes-title">{% t "Diplômes d'études" %} <span>{{ education|length }}</span></h2>
+      <div class="certifications-gallery">
+        {% for degree in education %}
+          <article class="card certification-card degree-card">
+            <p class="certification-meta"><span>{{ degree.school }}</span><span>{{ degree.period }}</span></p>
+            <h3>{{ degree.degree }}</h3>
+            <p>{{ degree.location }}</p>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {% for group in certification_groups %}
+    <section class="section certifications-gallery-section" id="{{ group.key }}" aria-labelledby="{{ group.key }}-title">
+      <div class="container">
+        <h2 class="certifications-group-title" id="{{ group.key }}-title">{% t group.label %} <span>{{ group.items|length }}</span></h2>
+        <div class="certifications-gallery">
+          {% for certification in group.items %}
             {% include "components/certification_card.html" %}
           {% endfor %}
         </div>
-      {% else %}
-        <p class="section-header">{% t "Aucune certification publiée pour l'instant." %}</p>
-      {% endif %}
-    </div>
-  </section>
+      </div>
+    </section>
+  {% empty %}
+    <p class="section-header">{% t "Aucune certification publiée pour l'instant." %}</p>
+  {% endfor %}
 
   <section class="section cta-section">
     <div class="container">

@@ -59,20 +59,20 @@ Christian youth organization: films, vacation Bible schools and gospel concerts.
 - Baccalauréat, series D (science) — Nangui Abrogoua II, Abidjan, Côte d'Ivoire (2016 — 2017)
 
 ## Professional certifications
-- Executive Diploma in Finance Management — MTF Institute of Management, Technology and Finance (December 2025)
+- Executive Diploma in Finance Management — MTF Institute of Management, Technology and Finance (December 2025) — verify: https://edu.gtf.pt/admin/tool/certificate/index.php?code=4138373451MZ
 - Training on the Accounting System for Non-Profit Organizations (SYCEBNL) — SYCEBNL (February 2026)
 - Comprehensive Guide to Xero Accounting — Alison (January 2026)
 - Professional Diploma in Unit Economics Management — MTF Institute of Management, Technology and Finance (December 2025)
-- Learn Ethical Hacking and Penetration Testing (EHPT+) — Udemy (April 2025)
-- Become a Hydra Expert: Advanced Brute Forcing Techniques — Udemy (June 2025)
-- Executive Diploma in Business Administration — MTF Institute of Management, Technology and Finance (November 2023)
-- Executive Diploma in Operations Management — MTF Institute of Management, Technology and Finance (October 2025)
-- Mini MBA in Human Resource Management — MTF Institute of Management, Technology and Finance (November 2023)
-- Professional Diploma of Virtual Executive Assistant — MTF Institute of Management, Technology and Finance (February 2026)
+- Learn Ethical Hacking and Penetration Testing (EHPT+) — Udemy (April 2025) — verify: https://ude.my/UC-49279c9d-8485-461f-afc9-0fc7ee4445d4
+- Become a Hydra Expert: Advanced Brute Forcing Techniques — Udemy (June 2025) — verify: https://ude.my/UC-7cf3568d-60db-4f39-8165-b05561dbecd1
+- Executive Diploma in Business Administration — MTF Institute of Management, Technology and Finance (November 2023) — verify: https://edu.gtf.pt/admin/tool/certificate/index.php?code=7641936189MZ
+- Executive Diploma in Operations Management — MTF Institute of Management, Technology and Finance (October 2025) — verify: https://edu.gtf.pt/admin/tool/certificate/index.php?code=7229472887MZ
+- Mini MBA in Human Resource Management — MTF Institute of Management, Technology and Finance (November 2023) — verify: https://edu.gtf.pt/admin/tool/certificate/index.php?code=7446133388MZ
+- Professional Diploma of Virtual Executive Assistant — MTF Institute of Management, Technology and Finance (February 2026) — verify: https://edu.gtf.pt/admin/tool/certificate/index.php?code=6408328865MZ
 - Human Trafficking and the Management of Rehabilitation Centers (March 2021)
-- Social Media Marketing Professional Certification — MTF Institute of Management, Technology and Finance (March 2024)
-- Certified WordPress Website Developer — Udemy (January 2026)
-- Create a WordPress Website with Hostinger — Udemy (January 2026)
+- Social Media Marketing Professional Certification — MTF Institute of Management, Technology and Finance (March 2024) — verify: https://edu.gtf.pt/admin/tool/certificate/index.php?code=1780113671MZ
+- Certified WordPress Website Developer — Udemy (January 2026) — verify: https://ude.my/UC-d6dddcd3-df49-43fa-87a0-0d5c0cddd7ac
+- Create a WordPress Website with Hostinger — Udemy (January 2026) — verify: https://ude.my/UC-3701df63-b153-4d5a-8fd3-84c2c65d8a6b
 
 ## Skills
 - **Audit, control & fraud prevention**: External audit preparation, Internal control, Bank reconciliations, Asset verification & stock counts, Audit trails & supporting evidence, Financial compliance, Penetration testing (fundamentals), Access & password security

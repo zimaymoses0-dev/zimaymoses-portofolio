@@ -38,8 +38,10 @@
 {% for e in p.education %}- {{ e.degree }} — {{ e.school }}, {{ e.location }} ({{ e.period }})
 {% endfor %}
 ## {% if LANGUAGE_CODE == "fr" %}Certifications professionnelles{% else %}Professional certifications{% endif %}
-{% for c in certifications %}- {{ c.title }}{% if c.issuer %} — {{ c.issuer }}{% endif %}{% if c.issue_date %} ({{ c.issue_date|date:"F Y" }}){% endif %}{% if full and c.skills_highlight %}: {{ c.skills_highlight.splitlines|join:"; " }}{% endif %}
-{% endfor %}
+{% for c in certifications %}- {{ c.title }}{% if c.issuer %} — {{ c.issuer }}{% endif %}{% if c.issue_date %} ({{ c.issue_date|date:"F Y" }}){% endif %}{% if c.certificate_url %} — {% if LANGUAGE_CODE == "fr" %}vérification{% else %}verify{% endif %}: {{ c.certificate_url }}{% endif %}
+{% if full %}{% if c.display_description %}  {{ c.display_description }}
+{% endif %}{% if c.display_skills %}  {% if LANGUAGE_CODE == "fr" %}Compétences{% else %}Skills{% endif %}: {{ c.display_skills|join:"; " }}
+{% endif %}{% endif %}{% endfor %}
 ## {% if LANGUAGE_CODE == "fr" %}Compétences{% else %}Skills{% endif %}
 {% for g in p.skills %}- **{{ g.group }}**: {{ g.items|join:", " }}
 {% endfor %}

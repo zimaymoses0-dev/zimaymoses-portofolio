@@ -68,20 +68,43 @@ Christian youth organization: films, vacation Bible schools and gospel concerts.
 - Baccalauréat, series D (science) — Nangui Abrogoua II, Abidjan, Côte d'Ivoire (2016 — 2017)
 
 ## Professional certifications
-- Executive Diploma in Finance Management — MTF Institute of Management, Technology and Finance (December 2025): Planification financière & budgétisation; Gestion de trésorerie; Analyse des états financiers
-- Training on the Accounting System for Non-Profit Organizations (SYCEBNL) — SYCEBNL (February 2026): Comptabilité des fonds associatifs; Plan comptable pour les ONG; Préparation des états financiers selon le SYCEBNL
-- Comprehensive Guide to Xero Accounting — Alison (January 2026): Configuration de Xero; Facturation et rapprochement bancaire; Reporting financier dans Xero
-- Professional Diploma in Unit Economics Management — MTF Institute of Management, Technology and Finance (December 2025): Modélisation de l'unit economics; Coût d'acquisition client & LTV; Analyse des prix et des marges
-- Learn Ethical Hacking and Penetration Testing (EHPT+) — Udemy (April 2025): Méthodologie des tests d'intrusion; Identification des vulnérabilités; Sécurité des systèmes et des réseaux
-- Become a Hydra Expert: Advanced Brute Forcing Techniques — Udemy (June 2025): Attaques par force brute (Hydra); Robustesse des mots de passe; Protection des accès
-- Executive Diploma in Business Administration — MTF Institute of Management, Technology and Finance (November 2023)
-- Executive Diploma in Operations Management — MTF Institute of Management, Technology and Finance (October 2025)
-- Mini MBA in Human Resource Management — MTF Institute of Management, Technology and Finance (November 2023)
-- Professional Diploma of Virtual Executive Assistant — MTF Institute of Management, Technology and Finance (February 2026)
+- Executive Diploma in Finance Management — MTF Institute of Management, Technology and Finance (December 2025) — verify: https://edu.gtf.pt/admin/tool/certificate/index.php?code=4138373451MZ
+  An executive diploma covering the core practices of corporate financial management.
+  Skills: Financial planning & budgeting; Treasury management; Financial statement analysis
+- Training on the Accounting System for Non-Profit Organizations (SYCEBNL) — SYCEBNL (February 2026)
+  Training on SYCEBNL, the standardised accounting system used by non-profit and community organisations in the OHADA zone.
+  Skills: Accounting for association funds; Chart of accounts for NGOs; Preparing financial statements under SYCEBNL
+- Comprehensive Guide to Xero Accounting — Alison (January 2026)
+  A guided course on day-to-day bookkeeping and financial management with Xero.
+  Skills: Setting up Xero; Invoicing and bank reconciliation; Financial reporting in Xero
+- Professional Diploma in Unit Economics Management — MTF Institute of Management, Technology and Finance (December 2025)
+  A professional diploma on modelling and managing a growing company's unit economics.
+  Skills: Unit economics modelling; Customer acquisition cost & LTV; Pricing and margin analysis
+- Learn Ethical Hacking and Penetration Testing (EHPT+) — Udemy (April 2025) — verify: https://ude.my/UC-49279c9d-8485-461f-afc9-0fc7ee4445d4
+  Penetration testing and ethical hacking: understanding how systems are attacked in order to protect them.
+  Skills: Penetration testing methodology; Vulnerability identification; System and network security
+- Become a Hydra Expert: Advanced Brute Forcing Techniques — Udemy (June 2025) — verify: https://ude.my/UC-7cf3568d-60db-4f39-8165-b05561dbecd1
+  Brute-force password attacks with the Hydra tool, and the protections to put in place.
+  Skills: Brute-force attacks (Hydra); Password strength; Access protection
+- Executive Diploma in Business Administration — MTF Institute of Management, Technology and Finance (November 2023) — verify: https://edu.gtf.pt/admin/tool/certificate/index.php?code=7641936189MZ
+  An executive diploma covering the fundamentals of business administration.
+- Executive Diploma in Operations Management — MTF Institute of Management, Technology and Finance (October 2025) — verify: https://edu.gtf.pt/admin/tool/certificate/index.php?code=7229472887MZ
+  An executive diploma on managing business operations.
+- Mini MBA in Human Resource Management — MTF Institute of Management, Technology and Finance (November 2023) — verify: https://edu.gtf.pt/admin/tool/certificate/index.php?code=7446133388MZ
+  A mini MBA dedicated to human resource management.
+- Professional Diploma of Virtual Executive Assistant — MTF Institute of Management, Technology and Finance (February 2026) — verify: https://edu.gtf.pt/admin/tool/certificate/index.php?code=6408328865MZ
+  A professional diploma in remote executive assistance: organisation, administrative management and digital tools.
 - Human Trafficking and the Management of Rehabilitation Centers (March 2021)
-- Social Media Marketing Professional Certification — MTF Institute of Management, Technology and Finance (March 2024): Planification de campagnes sur les réseaux sociaux; Publicités payantes multi-plateformes; Suivi des performances & analytique
-- Certified WordPress Website Developer — Udemy (January 2026): Installation et thème WordPress; Extensions et constructeurs de pages; Maintenance et sécurité de base d'un site
-- Create a WordPress Website with Hostinger — Udemy (January 2026): Hébergement et nom de domaine; Installation de WordPress; Mise en ligne d'un site
+  A four-day training in Abidjan on human trafficking and the management of rehabilitation centres.
+- Social Media Marketing Professional Certification — MTF Institute of Management, Technology and Finance (March 2024) — verify: https://edu.gtf.pt/admin/tool/certificate/index.php?code=1780113671MZ
+  A professional certification in social media marketing strategy and execution.
+  Skills: Social media campaign planning; Multi-platform paid ads; Performance tracking & analytics
+- Certified WordPress Website Developer — Udemy (January 2026) — verify: https://ude.my/UC-d6dddcd3-df49-43fa-87a0-0d5c0cddd7ac
+  A hands-on course in building and managing WordPress websites.
+  Skills: WordPress installation and themes; Plugins and page builders; Basic site maintenance and security
+- Create a WordPress Website with Hostinger — Udemy (January 2026) — verify: https://ude.my/UC-3701df63-b153-4d5a-8fd3-84c2c65d8a6b
+  Building and launching a WordPress website on Hostinger hosting.
+  Skills: Hosting and domain name; Installing WordPress; Taking a site live
 
 ## Skills
 - **Audit, control & fraud prevention**: External audit preparation, Internal control, Bank reconciliations, Asset verification & stock counts, Audit trails & supporting evidence, Financial compliance, Penetration testing (fundamentals), Access & password security
@@ -183,20 +206,43 @@ Organisation de jeunesse chrétienne : films, écoles bibliques de vacances et c
 - Baccalauréat série D — Nangui Abrogoua II, Abidjan, Côte d'Ivoire (2016 — 2017)
 
 ## Certifications professionnelles
-- Executive Diploma in Finance Management — MTF Institute of Management, Technology and Finance (décembre 2025): Planification financière & budgétisation; Gestion de trésorerie; Analyse des états financiers
-- Training on the Accounting System for Non-Profit Organizations (SYCEBNL) — SYCEBNL (février 2026): Comptabilité des fonds associatifs; Plan comptable pour les ONG; Préparation des états financiers selon le SYCEBNL
-- Comprehensive Guide to Xero Accounting — Alison (janvier 2026): Configuration de Xero; Facturation et rapprochement bancaire; Reporting financier dans Xero
-- Professional Diploma in Unit Economics Management — MTF Institute of Management, Technology and Finance (décembre 2025): Modélisation de l'unit economics; Coût d'acquisition client & LTV; Analyse des prix et des marges
-- Learn Ethical Hacking and Penetration Testing (EHPT+) — Udemy (avril 2025): Méthodologie des tests d'intrusion; Identification des vulnérabilités; Sécurité des systèmes et des réseaux
-- Become a Hydra Expert: Advanced Brute Forcing Techniques — Udemy (juin 2025): Attaques par force brute (Hydra); Robustesse des mots de passe; Protection des accès
-- Executive Diploma in Business Administration — MTF Institute of Management, Technology and Finance (novembre 2023)
-- Executive Diploma in Operations Management — MTF Institute of Management, Technology and Finance (octobre 2025)
-- Mini MBA in Human Resource Management — MTF Institute of Management, Technology and Finance (novembre 2023)
-- Professional Diploma of Virtual Executive Assistant — MTF Institute of Management, Technology and Finance (février 2026)
+- Executive Diploma in Finance Management — MTF Institute of Management, Technology and Finance (décembre 2025) — vérification: https://edu.gtf.pt/admin/tool/certificate/index.php?code=4138373451MZ
+  Un diplôme exécutif couvrant les pratiques essentielles de gestion financière en entreprise.
+  Compétences: Planification financière & budgétisation; Gestion de trésorerie; Analyse des états financiers
+- Training on the Accounting System for Non-Profit Organizations (SYCEBNL) — SYCEBNL (février 2026)
+  Formation sur le SYCEBNL, le système comptable normalisé utilisé par les organisations à but non lucratif et communautaires dans la zone OHADA.
+  Compétences: Comptabilité des fonds associatifs; Plan comptable pour les ONG; Préparation des états financiers selon le SYCEBNL
+- Comprehensive Guide to Xero Accounting — Alison (janvier 2026)
+  Un cours guidé couvrant la comptabilité et la gestion financière au quotidien avec Xero.
+  Compétences: Configuration de Xero; Facturation et rapprochement bancaire; Reporting financier dans Xero
+- Professional Diploma in Unit Economics Management — MTF Institute of Management, Technology and Finance (décembre 2025)
+  Un diplôme professionnel sur la modélisation et la gestion de l'unit economics d'une entreprise en croissance.
+  Compétences: Modélisation de l'unit economics; Coût d'acquisition client & LTV; Analyse des prix et des marges
+- Learn Ethical Hacking and Penetration Testing (EHPT+) — Udemy (avril 2025) — vérification: https://ude.my/UC-49279c9d-8485-461f-afc9-0fc7ee4445d4
+  Formation aux tests d'intrusion et au hacking éthique : comprendre comment les systèmes sont attaqués pour mieux les protéger.
+  Compétences: Méthodologie des tests d'intrusion; Identification des vulnérabilités; Sécurité des systèmes et des réseaux
+- Become a Hydra Expert: Advanced Brute Forcing Techniques — Udemy (juin 2025) — vérification: https://ude.my/UC-7cf3568d-60db-4f39-8165-b05561dbecd1
+  Attaques par force brute sur les mots de passe avec l'outil Hydra, et les protections à mettre en place.
+  Compétences: Attaques par force brute (Hydra); Robustesse des mots de passe; Protection des accès
+- Executive Diploma in Business Administration — MTF Institute of Management, Technology and Finance (novembre 2023) — vérification: https://edu.gtf.pt/admin/tool/certificate/index.php?code=7641936189MZ
+  Diplôme exécutif couvrant les fondamentaux de l'administration des entreprises.
+- Executive Diploma in Operations Management — MTF Institute of Management, Technology and Finance (octobre 2025) — vérification: https://edu.gtf.pt/admin/tool/certificate/index.php?code=7229472887MZ
+  Diplôme exécutif consacré à la gestion des opérations en entreprise.
+- Mini MBA in Human Resource Management — MTF Institute of Management, Technology and Finance (novembre 2023) — vérification: https://edu.gtf.pt/admin/tool/certificate/index.php?code=7446133388MZ
+  Mini MBA consacré à la gestion des ressources humaines.
+- Professional Diploma of Virtual Executive Assistant — MTF Institute of Management, Technology and Finance (février 2026) — vérification: https://edu.gtf.pt/admin/tool/certificate/index.php?code=6408328865MZ
+  Diplôme professionnel en assistanat de direction à distance : organisation, gestion administrative et outils numériques.
 - Human Trafficking and the Management of Rehabilitation Centers (mars 2021)
-- Social Media Marketing Professional Certification — MTF Institute of Management, Technology and Finance (mars 2024): Planification de campagnes sur les réseaux sociaux; Publicités payantes multi-plateformes; Suivi des performances & analytique
-- Certified WordPress Website Developer — Udemy (janvier 2026): Installation et thème WordPress; Extensions et constructeurs de pages; Maintenance et sécurité de base d'un site
-- Create a WordPress Website with Hostinger — Udemy (janvier 2026): Hébergement et nom de domaine; Installation de WordPress; Mise en ligne d'un site
+  Formation de quatre jours à Abidjan sur la traite des êtres humains et la gestion des centres de réhabilitation.
+- Social Media Marketing Professional Certification — MTF Institute of Management, Technology and Finance (mars 2024) — vérification: https://edu.gtf.pt/admin/tool/certificate/index.php?code=1780113671MZ
+  Une certification professionnelle sur la stratégie et l'exécution en marketing sur les réseaux sociaux.
+  Compétences: Planification de campagnes sur les réseaux sociaux; Publicités payantes multi-plateformes; Suivi des performances & analytique
+- Certified WordPress Website Developer — Udemy (janvier 2026) — vérification: https://ude.my/UC-d6dddcd3-df49-43fa-87a0-0d5c0cddd7ac
+  Une formation pratique à la création et la gestion de sites web sur WordPress.
+  Compétences: Installation et thème WordPress; Extensions et constructeurs de pages; Maintenance et sécurité de base d'un site
+- Create a WordPress Website with Hostinger — Udemy (janvier 2026) — vérification: https://ude.my/UC-3701df63-b153-4d5a-8fd3-84c2c65d8a6b
+  Création et mise en ligne d'un site WordPress sur l'hébergeur Hostinger.
+  Compétences: Hébergement et nom de domaine; Installation de WordPress; Mise en ligne d'un site
 
 ## Compétences
 - **Audit, contrôle & prévention de la fraude**: Préparation d'audits externes, Contrôle interne, Rapprochements bancaires, Vérification des actifs & inventaires, Pistes d'audit & pièces justificatives, Conformité financière, Tests d'intrusion (notions), Sécurité des accès & mots de passe

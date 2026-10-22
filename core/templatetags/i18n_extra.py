@@ -305,6 +305,23 @@ TRANSLATIONS = {
     "Dossiers prêts pour l'auditeur : pièces justificatives, registre des immobilisations, inventaires et réponses aux demandes.": "Audit-ready files: supporting documents, fixed-asset register, stock counts and answers to auditor requests.",
     "Mise en place comptable (SAGE, Xero, QuickBooks)": "Accounting Setup (SAGE, Xero, QuickBooks)",
     "Paramétrage de la comptabilité, saisie, clôture et reporting financier — y compris pour les ONG (SYCEBNL).": "Accounting setup, bookkeeping, closing and financial reporting — including for non-profits (SYCEBNL).",
+
+    # --- Certifications & degrees page ---
+    "Certifications & diplômes": "Certifications & degrees",
+    "Certifications & diplômes.": "Certifications & degrees.",
+    "Diplômes et certifications professionnelles en finance, comptabilité, cybersécurité et gestion — au service d'un objectif : la comptabilité forensique et la lutte contre la fraude.": "Degrees and professional certifications in finance, accounting, cybersecurity and management — all serving one goal: forensic accounting and fighting fraud.",
+    "diplômes": "degrees",
+    "certifications": "certifications",
+    "Domaines": "Areas",
+    "Diplômes d'études": "Degrees",
+    "Finance & comptabilité": "Finance & accounting",
+    "Cybersécurité": "Cybersecurity",
+    "Gestion & management": "Management",
+    "Marketing & web": "Marketing & web",
+    "Autres formations": "Other training",
+    "Voir le certificat en grand": "View full certificate",
+    "Certificat": "Certificate",
+    "Vérifier le certificat ↗": "Verify certificate ↗",
 }
 
 

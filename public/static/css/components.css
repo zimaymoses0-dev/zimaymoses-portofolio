@@ -183,3 +183,24 @@
   align-items: center;
   justify-content: center;
 }
+
+/* Issuer · date line on certification cards */
+.certification-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  margin: 0 0 var(--space-2);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.certification-card.is-dark .certification-meta {
+  color: #e8a07c;
+}
+
+.certification-media + .certification-meta {
+  margin-top: var(--space-5);
+}

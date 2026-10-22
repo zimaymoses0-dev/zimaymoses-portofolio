@@ -1,22 +1,26 @@
-{% load i18n_extra %}<article class="card certification-card {% if certification.dark_card %}is-dark{% endif %}" data-carousel-item>
+{% load i18n_extra %}<article class="card certification-card {% if certification.dark_card %}is-dark{% endif %}" id="{{ certification.anchor }}" data-carousel-item>
   {% if certification.image %}
-    <a class="certification-media" href="{{ certification.image.url }}" target="_blank" rel="noopener" aria-label="View full certificate for {{ certification.title }}">
-      <img src="{{ certification.image.url }}" alt="{{ certification.title }} certificate" loading="lazy">
+    <a class="certification-media" href="{{ certification.image.url }}" target="_blank" rel="noopener" aria-label="{% t 'Voir le certificat en grand' %} : {{ certification.title }}">
+      <img src="{{ certification.image.url }}" width="{{ certification.image.width }}" height="{{ certification.image.height }}" alt="{% t 'Certificat' %} « {{ certification.title }} »{% if certification.issuer %} — {{ certification.issuer }}{% endif %} — Moses Zegbah Zimay" loading="lazy" decoding="async">
     </a>
   {% else %}
     <span class="certification-badge" aria-hidden="true">{{ certification.issuer|default:certification.title|slice:":2"|upper }}</span>
   {% endif %}
+  {% if certification.issuer or certification.issue_date %}
+    <p class="certification-meta">
+      {% if certification.issuer %}<span>{{ certification.issuer }}</span>{% endif %}
+      {% if certification.issue_date %}<time datetime="{{ certification.issue_date|date:'Y-m' }}">{{ certification.issue_date|date:"F Y"|capfirst }}</time>{% endif %}
+    </p>
+  {% endif %}
   <h3>{{ certification.title }}</h3>
-  {% if certification.subtitle %}<p>{{ certification.subtitle }}</p>{% endif %}
-  {% if certification.description %}<p class="certification-description">{{ certification.description }}</p>{% endif %}
-  {% if certification.skills_highlight %}
+  {% if certification.display_subtitle %}<p>{{ certification.display_subtitle }}</p>{% endif %}
+  {% if certification.display_description %}<p class="certification-description">{{ certification.display_description }}</p>{% endif %}
+  {% if certification.display_skills %}
     <ul class="certification-skills">
-      {% for skill in certification.skills_highlight.splitlines %}
-        {% if skill %}<li>{{ skill }}</li>{% endif %}
-      {% endfor %}
+      {% for skill in certification.display_skills %}<li>{{ skill }}</li>{% endfor %}
     </ul>
   {% endif %}
   {% if certification.certificate_url %}
-    <a href="{{ certification.certificate_url }}" target="_blank" rel="noopener">{% t "Voir le certificat ↗" %}</a>
+    <a href="{{ certification.certificate_url }}" target="_blank" rel="noopener">{% t "Vérifier le certificat ↗" %}</a>
   {% endif %}
 </article>

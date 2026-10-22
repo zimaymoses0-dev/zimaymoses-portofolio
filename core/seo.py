@@ -47,30 +47,8 @@ def person_jsonld(lang=None):
     current = [e for e in p["experience"] if not e["end"]]
     past = [e for e in p["experience"] if e["end"]]
 
-    credentials = [
-        {
-            "@type": "EducationalOccupationalCredential",
-            "name": e["degree"],
-            "credentialCategory": e["credential_category"],
-            "recognizedBy": {"@type": "EducationalOrganization", "name": e["school"]},
-        }
-        for e in p["education"]
-    ]
-    for cert in Certification.objects.filter(is_published=True):
-        credential = {
-            "@type": "EducationalOccupationalCredential",
-            "name": cert.title,
-            "credentialCategory": "certificate",
-        }
-        if cert.issuer:
-            credential["recognizedBy"] = {"@type": "Organization", "name": cert.issuer}
-        if cert.issue_date:
-            credential["dateCreated"] = cert.issue_date.isoformat()
-        if cert.certificate_url:
-            credential["url"] = cert.certificate_url
-        if cert.skills_highlight:
-            credential["competencyRequired"] = [s for s in cert.skills_highlight.splitlines() if s.strip()]
-        credentials.append(credential)
+    credentials = [education_credential_jsonld(e) for e in p["education"]]
+    credentials += [credential_jsonld(cert) for cert in Certification.objects.filter(is_published=True)]
 
     knows_about = []
     for group in p["skills"]:
@@ -153,6 +131,66 @@ def person_jsonld(lang=None):
     if site.phone:
         data["telephone"] = site.phone.replace(" ", "")
     return data
+
+
+def credential_jsonld(cert):
+    """One certification as a schema.org credential, with its own stable @id on the site."""
+    data = {
+        "@type": "EducationalOccupationalCredential",
+        "@id": absolute(reverse("certifications:list")) + "#" + cert.anchor,
+        "name": cert.title,
+        "credentialCategory": "certificate",
+        "inLanguage": "en",
+    }
+    if cert.display_description:
+        data["description"] = cert.display_description
+    if cert.issuer:
+        data["recognizedBy"] = {"@type": "Organization", "name": cert.issuer}
+    if cert.issue_date:
+        data["dateCreated"] = cert.issue_date.isoformat()
+    if cert.certificate_url:
+        data["url"] = cert.certificate_url  # official verification page
+    if cert.credential_id:
+        data["identifier"] = cert.credential_id
+    if cert.image:
+        data["image"] = absolute(cert.image.url)
+    if cert.display_skills:
+        data["competencyRequired"] = cert.display_skills
+    return data
+
+
+def education_credential_jsonld(degree):
+    return {
+        "@type": "EducationalOccupationalCredential",
+        "name": degree["degree"],
+        "credentialCategory": degree["credential_category"],
+        "recognizedBy": {"@type": "EducationalOrganization", "name": degree["school"], "address": degree["location"]},
+        "temporalCoverage": degree["period"].replace(" — ", "/"),
+    }
+
+
+def certifications_page_jsonld(request, certifications):
+    """Certifications page: a collection listing every degree and certificate the person holds."""
+    p = profile.get_profile()
+    items = [education_credential_jsonld(d) for d in p["education"]] + [
+        credential_jsonld(c) for c in certifications
+    ]
+    return {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "url": absolute(request.path),
+        "name": f'Certifications — {p["full_name"]}',
+        "inLanguage": (get_language() or "fr")[:2],
+        "isPartOf": {"@id": absolute(WEBSITE_ID)},
+        "about": {"@id": absolute(PERSON_ID), "@type": "Person", "name": p["full_name"]},
+        "mainEntity": {
+            "@type": "ItemList",
+            "numberOfItems": len(items),
+            "itemListElement": [
+                {"@type": "ListItem", "position": i, "item": item} for i, item in enumerate(items, start=1)
+            ],
+        },
+    }
 
 
 def website_jsonld():

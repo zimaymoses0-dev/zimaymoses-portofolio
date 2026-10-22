@@ -105,8 +105,10 @@ class SeoTests(TestCase):
 
     def setUp(self):
         from django.core.cache import cache
+        from django.utils import translation
 
         cache.clear()  # robots/llms views are cached
+        translation.activate("fr")  # a previous /en/ request leaves English active for reverse()
 
     def jsonld_blocks(self, response):
         import json
@@ -195,3 +197,52 @@ class BuildStaticTests(TestCase):
             self.assertNotIn("csrfmiddlewaretoken", (out / "index.html").read_text(encoding="utf-8"))
         finally:
             shutil.rmtree(out, ignore_errors=True)
+
+
+class CertificationsPageTests(TestCase):
+    def setUp(self):
+        from django.utils import translation
+
+        translation.activate("fr")  # a previous /en/ request leaves English active for reverse()
+        self.cert = Certification.objects.create(
+            title="Xero Accounting", issuer="Alison", category="finance",
+            description="Un cours sur Xero.", description_en="A course on Xero.",
+            skills_highlight="Rapprochement bancaire", skills_highlight_en="Bank reconciliation",
+            certificate_url="https://example.com/verify/123", credential_id="123",
+        )
+        Certification.objects.create(title="Hidden", category="cyber", is_published=False)
+
+    def jsonld(self, response):
+        import json
+        import re
+
+        return [json.loads(b) for b in re.findall(
+            r'<script type="application/ld\+json">(.*?)</script>', response.content.decode(), re.S)]
+
+    def test_groups_degrees_and_details_render(self):
+        response = self.client.get(reverse("certifications:list"))
+        self.assertContains(response, 'id="finance"')
+        self.assertNotContains(response, 'id="cyber"')  # only unpublished there: group hidden
+        self.assertContains(response, "Groupe CEFIAT Plateau")  # degrees section
+        self.assertContains(response, "Alison")
+        self.assertContains(response, f'id="{self.cert.anchor}"')
+        self.assertContains(response, "Vérifier le certificat")
+
+    def test_english_page_uses_english_texts(self):
+        response = self.client.get("/en/certifications/")
+        self.assertContains(response, "A course on Xero.")
+        self.assertContains(response, "Bank reconciliation")
+        self.assertNotContains(response, "Un cours sur Xero.")
+
+    def test_collection_jsonld_lists_degrees_and_certificates(self):
+        page = self.jsonld(self.client.get(reverse("certifications:list")))[0]
+        self.assertEqual(page["@type"], "CollectionPage")
+        items = [e["item"] for e in page["mainEntity"]["itemListElement"]]
+        self.assertEqual(page["mainEntity"]["numberOfItems"], len(items))
+        names = [i["name"] for i in items]
+        self.assertIn("Xero Accounting", names)
+        self.assertNotIn("Hidden", names)
+        xero = items[names.index("Xero Accounting")]
+        self.assertEqual(xero["url"], "https://example.com/verify/123")
+        self.assertEqual(xero["identifier"], "123")
+        self.assertTrue(xero["@id"].endswith(f"/certifications/#{self.cert.anchor}"))

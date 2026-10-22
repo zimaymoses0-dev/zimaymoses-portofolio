@@ -10,8 +10,8 @@ __pycache__/
 *.pyc
 .venv/
 venv/
-staticfiles/
-media/
+/staticfiles/
+/media/
 db.sqlite3
 backups/
 logs/

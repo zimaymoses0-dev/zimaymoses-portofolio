@@ -13,6 +13,7 @@ or file reference points at something that wasn't exported.
 
 import re
 import shutil
+import subprocess
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
@@ -73,6 +74,7 @@ class Command(BaseCommand):
         static_count = self.copy_static(out)
         media_count = self.copy_media(out, written)
         self.check_references(out, written)
+        self.check_not_gitignored(out)
 
         self.stdout.write(
             self.style.SUCCESS(
@@ -165,3 +167,20 @@ class Command(BaseCommand):
                     missing.add(f"{path}  (linked from {page.relative_to(out)})")
         if missing:
             raise CommandError("Broken internal links in the export:\n  " + "\n  ".join(sorted(missing)))
+
+    def check_not_gitignored(self, out):
+        """public/ is deployed from Git, so an ignored file would be missing online."""
+        files = [p.relative_to(settings.BASE_DIR).as_posix() for p in out.rglob("*") if p.is_file()]
+        try:
+            result = subprocess.run(
+                ["git", "check-ignore", "--stdin"],
+                input="\n".join(files), capture_output=True, text=True, cwd=settings.BASE_DIR,
+            )
+        except FileNotFoundError:
+            return  # git not installed: nothing to check
+        ignored = result.stdout.splitlines()
+        if ignored:
+            raise CommandError(
+                ".gitignore excludes exported files, so they would never reach the live site:\n  "
+                + "\n  ".join(ignored[:20])
+            )

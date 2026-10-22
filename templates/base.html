@@ -1,19 +1,41 @@
-{% load static %}<!doctype html>
-<html lang="fr">
+{% load static core_tags i18n_extra %}<!doctype html>
+<html lang="{{ LANGUAGE_CODE|default:'fr' }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% block title %}{{ site_settings.site_name }}{% endblock %}</title>
-  <meta name="description" content="{% block meta_description %}{{ site_settings.subheadline }}{% endblock %}">
-  <link rel="canonical" href="{% block canonical %}{{ request.build_absolute_uri }}{% endblock %}">
+  <title>{% block title %}{{ person.full_name }} — {{ person.job_titles|join:" & " }} | {{ person.location.locality }}{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}{{ person.summary|truncatechars:158 }}{% endblock %}">
+  <meta name="author" content="{{ person.full_name }}">
+  <meta name="robots" content="{% block robots %}index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1{% endblock %}">
+  <link rel="canonical" href="{% block canonical %}{{ canonical_url }}{% endblock %}">
+  {% for code, url in hreflang_alternates.items %}<link rel="alternate" hreflang="{{ code }}" href="{{ url }}">
+  {% endfor %}<link rel="alternate" hreflang="x-default" href="{{ x_default_url }}">
+  <link rel="alternate" type="text/plain" title="Profile for AI assistants" href="{{ SITE_URL }}/llms.txt">
   <link rel="icon" href="{% static 'images/favicon.ico' %}">
   <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
+  <link rel="apple-touch-icon" href="{% static 'images/favicon.png' %}">
+  <meta name="theme-color" content="#f7f4ec">
 
-  <meta property="og:title" content="{% block og_title %}{{ site_settings.site_name }}{% endblock %}">
-  <meta property="og:description" content="{% block og_description %}{{ site_settings.subheadline }}{% endblock %}">
-  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ site_settings.site_name }}">
+  <meta property="og:title" content="{% block og_title %}{{ person.full_name }} — {{ person.job_titles|join:" & " }}{% endblock %}">
+  <meta property="og:description" content="{% block og_description %}{{ person.summary|truncatechars:200 }}{% endblock %}">
+  <meta property="og:type" content="{% block og_type %}profile{% endblock %}">
+  <meta property="og:url" content="{{ canonical_url }}">
+  <meta property="og:image" content="{% block og_image %}{{ SITE_URL }}{% static 'images/og-image.png' %}{% endblock %}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{ person.full_name }}">
+  <meta property="og:locale" content="{% if LANGUAGE_CODE == 'en' %}en_US{% else %}fr_FR{% endif %}">
+  <meta property="og:locale:alternate" content="{% if LANGUAGE_CODE == 'en' %}fr_FR{% else %}en_US{% endif %}">
+  <meta property="profile:first_name" content="Moses">
+  <meta property="profile:last_name" content="Zimay">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ person.full_name }} — {{ person.job_titles|join:" & " }}">
+  <meta name="twitter:description" content="{{ person.summary|truncatechars:200 }}">
+  <meta name="twitter:image" content="{{ SITE_URL }}{% static 'images/og-image.png' %}">
 
+  {% for item in jsonld %}{% jsonld item %}
+  {% endfor %}
   <link rel="stylesheet" href="{% static 'css/tokens.css' %}">
   <link rel="stylesheet" href="{% static 'css/base.css' %}">
   <link rel="stylesheet" href="{% static 'css/header.css' %}">
@@ -22,7 +44,7 @@
   {% block extra_css %}{% endblock %}
 </head>
 <body>
-  <a class="skip-link" href="#main-content">Passer au contenu</a>
+  <a class="skip-link" href="#main-content">{% t "Passer au contenu" %}</a>
 
   {% include "partials/header.html" %}
 

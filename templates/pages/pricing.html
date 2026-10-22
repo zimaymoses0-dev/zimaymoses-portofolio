@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% load static core_tags i18n_extra %}
 
-{% block title %}{% t "Tarifs" %} — {{ site_settings.site_name }}{% endblock %}
+{% block title %}{% t "Tarifs" %} — {{ person.full_name }}{% endblock %}
+{% block meta_description %}{% t "Tarifs de Moses Zimay pour la création de sites et applications web, la mise en place comptable et la gestion publicitaire. Devis détaillé avant chaque projet." %}{% endblock %}
 {% block extra_css %}<link rel="stylesheet" href="{% static 'css/pricing.css' %}">{% endblock %}
 
 {% block content %}

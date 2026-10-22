@@ -1,0 +1,51 @@
+{% load i18n_extra %}{% autoescape off %}{% if p.full_name %}# {{ p.full_name }}{% endif %}
+
+> {{ p.summary }}
+
+{% if LANGUAGE_CODE == "fr" %}- Aussi connu sous le nom de : {{ p.alternate_names|join:", " }}
+- Métiers : {{ p.job_titles|join:" · " }}
+- Localisation : {{ p.location.locality }}, {{ p.location.country }}
+- Langues : {% for l in p.languages %}{{ l.name }}{% if not forloop.last %}, {% endif %}{% endfor %}
+- Site officiel : {{ base }}/
+{% if site.linkedin_url %}- LinkedIn : {{ site.linkedin_url }}
+{% endif %}{% if site.email %}- E-mail : {{ site.email }}
+{% endif %}{% else %}- Also known as: {{ p.alternate_names|join:", " }}
+- Roles: {{ p.job_titles|join:" · " }}
+- Location: {{ p.location.locality }}, {{ p.location.country }}
+- Languages: {% for l in p.languages %}{{ l.name }}{% if not forloop.last %}, {% endif %}{% endfor %}
+- Official website: {{ base }}/
+{% if site.linkedin_url %}- LinkedIn: {{ site.linkedin_url }}
+{% endif %}{% if site.email %}- Email: {{ site.email }}
+{% endif %}{% endif %}
+## {% if LANGUAGE_CODE == "fr" %}Expérience professionnelle{% else %}Professional experience{% endif %}
+{% for e in p.experience %}
+### {{ e.title }} — {{ e.organization }} ({{ e.period }})
+{% if e.organization_description %}{{ e.organization_description }}
+{% endif %}{% if full %}{% for h in e.highlights %}- {{ h }}
+{% endfor %}{% else %}{% for h in e.highlights|slice:":4" %}- {{ h }}
+{% endfor %}{% endif %}{% endfor %}
+### {{ p.freelance.title }} ({{ p.freelance.period }})
+{% for h in p.freelance.highlights %}- {{ h }}
+{% endfor %}
+## {% if LANGUAGE_CODE == "fr" %}Formation{% else %}Education{% endif %}
+{% for e in p.education %}- {{ e.degree }} — {{ e.school }}, {{ e.location }} ({{ e.period }})
+{% endfor %}
+## {% if LANGUAGE_CODE == "fr" %}Certifications professionnelles{% else %}Professional certifications{% endif %}
+{% for c in certifications %}- {{ c.title }}{% if c.issuer %} — {{ c.issuer }}{% endif %}{% if c.issue_date %} ({{ c.issue_date|date:"F Y" }}){% endif %}{% if full and c.skills_highlight %}: {{ c.skills_highlight.splitlines|join:"; " }}{% endif %}
+{% endfor %}
+## {% if LANGUAGE_CODE == "fr" %}Compétences{% else %}Skills{% endif %}
+{% for g in p.skills %}- **{{ g.group }}**: {{ g.items|join:", " }}
+{% endfor %}
+## {% if LANGUAGE_CODE == "fr" %}Services proposés{% else %}Services offered{% endif %}
+{% for s in services %}- {% t s.name %}{% if s.short_description %}: {% t s.short_description %}{% endif %}
+{% endfor %}
+## {% if LANGUAGE_CODE == "fr" %}Projets{% else %}Projects{% endif %}
+{% for c in case_studies %}- [{{ c.title }}]({{ base }}{% url 'portfolio:detail' c.slug %}){% if c.short_description %}: {{ c.short_description }}{% endif %}
+{% endfor %}
+## {% if LANGUAGE_CODE == "fr" %}Pages{% else %}Pages{% endif %}
+- [{% if LANGUAGE_CODE == "fr" %}À propos — parcours complet{% else %}About — full background{% endif %}]({{ base }}{% url 'core:about' %})
+- [Certifications]({{ base }}{% url 'certifications:list' %})
+- [{% if LANGUAGE_CODE == "fr" %}Projets{% else %}Work{% endif %}]({{ base }}{% url 'portfolio:list' %})
+- [{% if LANGUAGE_CODE == "fr" %}Tarifs{% else %}Pricing{% endif %}]({{ base }}{% url 'core:pricing' %})
+{% if not full %}- [{% if LANGUAGE_CODE == "fr" %}Version complète{% else %}Full version (all details, English + French){% endif %}]({{ base }}/llms-full.txt)
+{% endif %}{% endautoescape %}

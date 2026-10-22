@@ -1,15 +1,17 @@
 {% extends "base.html" %}
 {% load static core_tags i18n_extra %}
 
-{% block title %}{% t "À propos" %} — {{ site_settings.site_name }}{% endblock %}
+{% block title %}{% t "À propos" %} — {{ person.full_name }}, {% t "comptable & développeur full-stack" %}{% endblock %}
+{% block meta_description %}{% t "Parcours complet de Moses Zegbah Zimay : assistant comptable à l'Organisation Interafricaine du Café, développeur full-stack, formation, certifications et compétences." %}{% endblock %}
 {% block extra_css %}<link rel="stylesheet" href="{% static 'css/about.css' %}">{% endblock %}
 
 {% block content %}
   {% get_content 'about' 'hero' as hero %}
   <section class="container about-hero">
-    <span class="eyebrow">{% t hero.eyebrow|default:"À propos" %}</span>
+    <span class="eyebrow">{% t hero.eyebrow|default:"À propos" %} · {{ person.full_name }}</span>
     <h1 data-reveal>{% t hero.title|default:"Comptable et développeur full-stack." %}</h1>
     <p data-reveal>{% t hero.subtitle|default:"I keep the books straight for international organizations — and I build the web tools those teams need too." %}</p>
+    <p class="about-summary" data-reveal>{{ person.summary }}</p>
   </section>
 
   {% if metrics %}
@@ -38,78 +40,76 @@
     </div>
   </section>
 
-  <section class="section section-dark">
+  <section class="section section-dark" id="experience">
     <div class="container">
       <div class="section-header">
         <span class="eyebrow">{% t "Expérience" %}</span>
         <h2>{% t "D'où vient cette rigueur." %}</h2>
       </div>
       <div class="about-timeline" data-reveal>
-        <div class="about-timeline-item">
-          <span class="about-timeline-date">{% t "2024 — Présent" %}</span>
+        {% for job in person.experience %}
+          <article class="about-timeline-item">
+            <span class="about-timeline-date">{{ job.period }}</span>
+            <div>
+              <h3>{{ job.title }}</h3>
+              <p class="about-timeline-org">{{ job.organization }} · {{ job.location }}</p>
+              {% if job.organization_description %}<p>{{ job.organization_description }}</p>{% endif %}
+              <ul class="about-timeline-highlights">
+                {% for highlight in job.highlights %}<li>{{ highlight }}</li>{% endfor %}
+              </ul>
+            </div>
+          </article>
+        {% endfor %}
+        <article class="about-timeline-item">
+          <span class="about-timeline-date">{{ person.freelance.period }}</span>
           <div>
-            <h3>{% t "Assistant Comptable, Département Finance" %}</h3>
-            <p>Inter-African Coffee Organization (IACO) — bank reconciliation, audit preparation (MNG Audit &amp; Consulting, BDO/GIZ), financial reporting on SAGE 100.</p>
+            <h3>{{ person.freelance.title }}</h3>
+            <ul class="about-timeline-highlights">
+              {% for highlight in person.freelance.highlights %}<li>{{ highlight }}</li>{% endfor %}
+            </ul>
           </div>
-        </div>
-        <div class="about-timeline-item">
-          <span class="about-timeline-date">2022 — 2023</span>
-          <div>
-            <h3>{% t "Stagiaire Assistant Comptable" %}</h3>
-            <p>Inter-African Coffee Organization (IACO) — bank journals, petty cash, monthly reconciliations, fixed asset register.</p>
-          </div>
-        </div>
-        <div class="about-timeline-item">
-          <span class="about-timeline-date">2017 — 2019</span>
-          <div>
-            <h3>{% t "Administrateur & Monteur vidéo" %}</h3>
-            <p>Children's Fruit — live-streaming production (OBS), video editing, treasury control for a youth media organization.</p>
-          </div>
-        </div>
-        <div class="about-timeline-item">
-          <span class="about-timeline-date">2019</span>
-          <div>
-            <h3>{% t "Stagiaire Assistant Comptable" %}</h3>
-            <p>International Fellowship of Christians (IFC) — QuickBooks bookkeeping, bank reconciliation, asset verification.</p>
-          </div>
-        </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="education">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">{% t "Formation" %}</span>
+        <h2>{% t "Diplômes & études." %}</h2>
+      </div>
+      <div class="about-education" data-reveal>
+        {% for school in person.education %}
+          <article class="about-education-item">
+            <span class="about-timeline-date">{{ school.period }}</span>
+            <h3>{{ school.degree }}</h3>
+            <p>{{ school.school }} · {{ school.location }}</p>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="skills">
     <div class="container">
       <div class="section-header">
         <span class="eyebrow">{% t "Boîte à outils" %}</span>
         <h2>{% t "Avec quoi je travaille." %}</h2>
       </div>
       <div class="about-skills" data-reveal>
+        {% for group in person.skills %}
+          <div class="about-skill-group">
+            <h3>{{ group.group }}</h3>
+            <ul class="tag-list">
+              {% for item in group.items %}<li>{{ item }}</li>{% endfor %}
+            </ul>
+          </div>
+        {% endfor %}
         <div class="about-skill-group">
-          <h3>{% t "Comptabilité & finance" %}</h3>
+          <h3>{% t "Langues" %}</h3>
           <ul class="tag-list">
-            <li>SAGE 100 Compta</li>
-            <li>QuickBooks</li>
-            <li>Xero</li>
-            <li>{% t "Rapprochement bancaire" %}</li>
-            <li>{% t "Reporting financier" %}</li>
-          </ul>
-        </div>
-        <div class="about-skill-group">
-          <h3>{% t "Web & développement" %}</h3>
-          <ul class="tag-list">
-            <li>WordPress</li>
-            <li>Shopify</li>
-            <li>{% t "Applications web full-stack" %}</li>
-            <li>Adobe Premiere Pro & Photoshop</li>
-          </ul>
-        </div>
-        <div class="about-skill-group">
-          <h3>{% t "Marketing & publicité" %}</h3>
-          <ul class="tag-list">
-            <li>Facebook & Instagram Ads</li>
-            <li>TikTok Ads</li>
-            <li>Google Ads & Analytics</li>
-            <li>Klaviyo</li>
+            {% for language in person.languages %}<li>{{ language.name }}</li>{% endfor %}
           </ul>
         </div>
       </div>

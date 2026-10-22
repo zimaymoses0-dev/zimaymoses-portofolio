@@ -10,7 +10,7 @@
       <img class="hero-bg" src="{{ hero.image.url }}" alt="">
     {% endif %}
     <div class="hero-content">
-      <span class="eyebrow">{% t hero.eyebrow|default:site_settings.availability_text %}</span>
+      <span class="eyebrow">{{ person.full_name }} · {% t hero.eyebrow|default:site_settings.availability_text %}</span>
       <h1 data-reveal>{% t hero.title|default:site_settings.headline %}</h1>
       <p data-reveal>{% t hero.subtitle|default:site_settings.subheadline %}</p>
       <div class="hero-actions" data-reveal>

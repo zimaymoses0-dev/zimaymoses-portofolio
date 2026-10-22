@@ -5,11 +5,13 @@ from portfolio.models import CaseStudy
 from services.models import Service
 from testimonials.models import Testimonial, VideoTestimonial
 
+from . import seo
 from .models import Metric, ProcessPhase
 
 
 def home(request):
     context = {
+        "jsonld": [seo.website_jsonld(), seo.person_jsonld()],
         "metrics": Metric.objects.filter(is_active=True),
         "services": Service.objects.filter(is_active=True),
         "case_studies": CaseStudy.objects.filter(published=True).order_by("order")[:4],
@@ -30,6 +32,7 @@ def process(request):
 
 def about(request):
     context = {
+        "jsonld": [seo.profile_page_jsonld(request), seo.breadcrumbs_jsonld(request, ("About", request.path))],
         "metrics": Metric.objects.filter(is_active=True),
         "certifications": Certification.objects.filter(is_published=True),
     }

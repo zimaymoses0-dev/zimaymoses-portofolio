@@ -96,3 +96,78 @@ class ProcessViewTests(TestCase):
         self.assertIn("Second Phase", content)
         self.assertNotIn("Hidden Phase", content)
         self.assertLess(content.index("First Phase"), content.index("Second Phase"))
+
+
+class SeoTests(TestCase):
+    """Search-engine / AI discoverability: structured data, crawl files, language URLs."""
+
+    def setUp(self):
+        from django.core.cache import cache
+
+        cache.clear()  # robots/llms views are cached
+
+    def jsonld_blocks(self, response):
+        import json
+        import re
+
+        html = response.content.decode()
+        return [
+            json.loads(block)
+            for block in re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.S)
+        ]
+
+    def test_home_has_person_and_website_jsonld(self):
+        Certification.objects.create(title="Xero <script>", issuer="Alison")
+        response = self.client.get(reverse("core:home"))
+        types = [b["@type"] for b in self.jsonld_blocks(response)]
+        self.assertEqual(types, ["WebSite", "Person"])
+        person = self.jsonld_blocks(response)[1]
+        self.assertEqual(person["name"], "Moses Zegbah Zimay")
+        self.assertIn("Moses Zimay", person["alternateName"])
+        self.assertIn("Xero <script>", [c["name"] for c in person["hasCredential"]])
+        # Admin-entered text must not be able to break out of the script tag.
+        self.assertNotIn("Xero <script>", response.content.decode())
+
+    def test_about_is_a_profile_page_listing_every_job(self):
+        response = self.client.get(reverse("core:about"))
+        profile_page = self.jsonld_blocks(response)[0]
+        self.assertEqual(profile_page["@type"], "ProfilePage")
+        self.assertEqual(profile_page["mainEntity"]["@type"], "Person")
+        self.assertContains(response, "Organisation Interafricaine du Café")
+        self.assertContains(response, "Children&#x27;s Fruit")
+        self.assertContains(response, "Groupe CEFIAT Plateau")
+
+    def test_english_pages_have_their_own_urls_and_hreflang(self):
+        response = self.client.get("/en/about/")
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, '<html lang="en">')
+        self.assertContains(response, "Inter-African Coffee Organization (IACO)")
+        self.assertContains(response, 'hreflang="fr" href="https://zimaymoses.com/about/"')
+        self.assertContains(response, 'rel="canonical" href="https://zimaymoses.com/en/about/"')
+
+    def test_language_switch_goes_back_to_unprefixed_french(self):
+        response = self.client.post("/i18n/setlang/", {"language": "fr", "next": "/about/"})
+        self.assertEqual(response["Location"], "/about/")
+        response = self.client.post("/i18n/setlang/", {"language": "en", "next": "/en/about/"})
+        self.assertEqual(response["Location"], "/en/about/")
+
+    def test_robots_welcomes_ai_crawlers_and_points_to_sitemap(self):
+        body = self.client.get("/robots.txt").content.decode()
+        for bot in ("GPTBot", "ClaudeBot", "PerplexityBot", "Google-Extended"):
+            self.assertIn(f"User-agent: {bot}", body)
+        self.assertIn("Sitemap: https://zimaymoses.com/sitemap.xml", body)
+
+    def test_llms_txt_describes_the_person(self):
+        body = self.client.get("/llms.txt").content.decode()
+        self.assertTrue(body.startswith("# Moses Zegbah Zimay"))
+        self.assertIn("Inter-African Coffee Organization", body)
+        full = self.client.get("/llms-full.txt").content.decode()
+        self.assertIn("Expérience professionnelle", full)
+
+    def test_sitemap_lists_both_languages_on_canonical_domain(self):
+        CaseStudy.objects.create(title="Visible", slug="visible", published=True)
+        CaseStudy.objects.create(title="Hidden", slug="hidden", published=False)
+        body = self.client.get("/sitemap.xml").content.decode()
+        self.assertIn("<loc>https://zimaymoses.com/en/about/</loc>", body)
+        self.assertIn("https://zimaymoses.com/work/visible/", body)
+        self.assertNotIn("hidden", body)

@@ -263,6 +263,18 @@ TRANSLATIONS = {
     "Années en finance & comptabilité": "Years in finance & accounting",
     "Langues — Français & Anglais": "Languages — French & English",
     "© 2026 Moses Zimay. Tous droits réservés.": "© 2026 Moses Zimay. All rights reserved.",
+
+    # --- SEO: page titles / meta descriptions, profile sections ---
+    "comptable & développeur full-stack": "accountant & full-stack developer",
+    "Parcours complet de Moses Zegbah Zimay : assistant comptable à l'Organisation Interafricaine du Café, développeur full-stack, formation, certifications et compétences.": "Full background of Moses Zegbah Zimay: accounting assistant at the Inter-African Coffee Organization, full-stack developer, education, certifications and skills.",
+    "Projets de Moses Zimay : plateformes Django, boutiques WordPress/WooCommerce et Shopify, comptabilité e-commerce et campagnes publicitaires.": "Projects by Moses Zimay: Django platforms, WordPress/WooCommerce and Shopify stores, e-commerce bookkeeping and ad campaigns.",
+    "Comment Moses Zimay travaille : cadrage, devis et contrat, réalisation, tests et livraison — un périmètre fixe défini avant de commencer.": "How Moses Zimay works: scoping, quote and contract, build, testing and delivery — a fixed scope agreed before starting.",
+    "Tarifs de Moses Zimay pour la création de sites et applications web, la mise en place comptable et la gestion publicitaire. Devis détaillé avant chaque projet.": "Moses Zimay's pricing for websites and web apps, accounting setup and ads management. A detailed quote before every project.",
+    "Toutes les certifications et diplômes professionnels de Moses Zegbah Zimay : finance, comptabilité (SYCEBNL, Xero), gestion, marketing et développement web WordPress.": "All professional certifications and diplomas of Moses Zegbah Zimay: finance, accounting (SYCEBNL, Xero), management, marketing and WordPress web development.",
+    "Livres, livres audio et formations de Moses Zimay — gratuits et payants.": "Books, audiobooks and courses by Moses Zimay — free and paid.",
+    "Formation": "Education",
+    "Diplômes & études.": "Degrees & studies.",
+    "Langues": "Languages",
 }
 
 

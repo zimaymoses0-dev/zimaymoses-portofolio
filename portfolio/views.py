@@ -1,4 +1,7 @@
 from django.shortcuts import get_object_or_404, render
+from django.urls import reverse
+
+from core import seo
 
 from .models import CaseStudy
 
@@ -25,5 +28,11 @@ def work_detail(request, slug):
         "sections": case_study.sections.all(),
         "testimonial": case_study.testimonials.filter(is_published=True).first(),
         "next_case_study": next_case_study,
+        "jsonld": [
+            seo.case_study_jsonld(request, case_study),
+            seo.breadcrumbs_jsonld(
+                request, ("Work", reverse("portfolio:list")), (case_study.title, request.path)
+            ),
+        ],
     }
     return render(request, "pages/work_detail.html", context)

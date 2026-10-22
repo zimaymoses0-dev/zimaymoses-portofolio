@@ -15,6 +15,11 @@ environ.Env.read_env(BASE_DIR / ".env")
 
 SECRET_KEY = env("SECRET_KEY", default="django-insecure-change-me-in-env")
 
+# Canonical public URL. Every canonical link, hreflang, sitemap entry and JSON-LD @id
+# points here, so search engines consolidate all ranking signals on one domain — even
+# when the site is also reachable at *.vercel.app or www.
+SITE_URL = env("SITE_URL", default="https://zimaymoses.com").rstrip("/")
+
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["localhost", "127.0.0.1"])
 
 INSTALLED_APPS = [
@@ -78,6 +83,7 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 "core.context_processors.site_settings",
                 "core.context_processors.footer_services",
+                "core.context_processors.seo",
             ],
         },
     },

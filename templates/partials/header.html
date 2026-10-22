@@ -27,7 +27,7 @@
     </a>
     <form class="header-lang-form" action="{% url 'set_language' %}" method="post">
       {% csrf_token %}
-      <input type="hidden" name="next" value="{{ request.path }}">
+      <input type="hidden" name="next" value="{% if LANGUAGE_CODE == 'fr' %}{{ language_paths.en }}{% else %}{{ language_paths.fr }}{% endif %}">
       {% if LANGUAGE_CODE == 'fr' %}
         <input type="hidden" name="language" value="en">
         <button type="submit" class="header-plus" aria-label="Switch to English">EN</button>
@@ -64,7 +64,7 @@
     </a>
     <form class="header-lang-form-mobile" action="{% url 'set_language' %}" method="post">
       {% csrf_token %}
-      <input type="hidden" name="next" value="{{ request.path }}">
+      <input type="hidden" name="next" value="{% if LANGUAGE_CODE == 'fr' %}{{ language_paths.en }}{% else %}{{ language_paths.fr }}{% endif %}">
       {% if LANGUAGE_CODE == 'fr' %}
         <input type="hidden" name="language" value="en">
         <button type="submit" class="mobile-lang-btn">English</button>

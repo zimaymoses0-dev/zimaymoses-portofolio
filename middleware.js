@@ -76,7 +76,8 @@ export default function middleware(request, context) {
   try {
     const env = (typeof process !== "undefined" && process.env) || {};
     const store = storageFrom(env);
-    if (new URL(request.url).pathname === "/__visit-tracker") {
+    // vercel.json's trailingSlash rule turns /__visit-tracker into /__visit-tracker/.
+    if (new URL(request.url).pathname.replace(/\/$/, "") === "/__visit-tracker") {
       // Health check: lets us confirm the tracker is deployed (reveals no secrets).
       return Response.json(
         { tracker: "ok", storage: store ? "configured" : "missing" },

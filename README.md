@@ -17,7 +17,7 @@ production. Django and its Admin are the local editing tool.
 
 Files in `site_root/` are copied verbatim to the site root — that's where
 search-engine ownership files go (e.g. Google Search Console's
-`google83c9d79746db2dc0.html`). Don't delete them, or the site loses its
+`google83c9d79746db2dc0.html`, Bing's `BingSiteAuth.xml`). Don't delete them, or the site loses its
 verified status.
 
 Search/AI discoverability is built in: schema.org JSON-LD, `sitemap.xml`,
@@ -38,8 +38,8 @@ links to those pages currently point at Home as a placeholder.
 
 ## Stack
 
-- Python 3.12 (Docker) / this environment was set up against the locally
-  installed Python 3.10 — Django 5 supports both.
+- Python 3.14 locally (Pillow 13+, needed for its security fixes, requires
+  Python 3.11+); Python 3.12 in the Dockerfile.
 - Django 5, PostgreSQL (SQLite locally by default), Redis + Celery, Pillow
 - Django Templates + vanilla CSS (design tokens) + Alpine.js for light
   interactivity. No GSAP was needed for Home — CSS transitions +

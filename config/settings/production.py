@@ -68,6 +68,11 @@ if env.bool("VERCEL", default=False):  # noqa: F405
             "(e.g. Neon, Supabase) — SQLite cannot work on its read-only filesystem."
         )
 
+    # Neon's (and most serverless Postgres providers') DATABASE_URL goes through a
+    # transaction-mode connection pooler, which can't keep the server-side cursors Django
+    # uses for .iterator() open across transactions.
+    DATABASES["default"]["DISABLE_SERVER_SIDE_CURSORS"] = True  # noqa: F405
+
     # No collectstatic runs on Vercel, so there is no manifest for the hashed-filename
     # storage to read. Serve straight from the app/static directories via WhiteNoise's
     # finders instead (they're bundled with the function).

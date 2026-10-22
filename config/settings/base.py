@@ -65,7 +65,10 @@ MIDDLEWARE = [
 # --- django-axes: lock out an IP/username after repeated failed admin logins ---
 AXES_FAILURE_LIMIT = 5
 AXES_COOLOFF_TIME = 1  # hours
-AXES_LOCKOUT_PARAMETERS = ["ip_address", "username"]
+# Lock out the *combination* of IP + username. Listing them separately would lock by
+# username alone too, letting anyone lock the owner out of Admin by mistyping their
+# username five times from anywhere.
+AXES_LOCKOUT_PARAMETERS = [["ip_address", "username"]]
 AXES_RESET_COOL_OFF_ON_FAILURE_DURING_LOCKOUT = False
 
 ROOT_URLCONF = "config.urls"

@@ -1,0 +1,196 @@
+# Moses Zegbah Zimay
+
+> Moses Zegbah Zimay (Moses Zimay) is an accounting assistant and full-stack web developer based in Abidjan, Côte d'Ivoire (Ivory Coast). Since 2022 he has worked in the Finance Department of the Inter-African Coffee Organization (IACO), a 25-member-country coffee producers' organization: multi-currency bank reconciliations (XOF, EUR), preparing the annual statutory audit (MNG Audit & Consulting) and the external audit of a GIZ-funded project (BDO), and bookkeeping on SAGE 100. He has 7+ years of finance and accounting experience (SAGE 100, QuickBooks, Xero, SYCEBNL). Alongside that he builds websites and web apps (Django, WordPress/WooCommerce, Shopify), runs paid ad campaigns (Facebook, Instagram, TikTok, Google Ads) and produces video. Bilingual in French and English.
+
+- Also known as: Moses Zimay, Zimay Moses, Moses Z. Zimay, Moses Zegbah, Zimay Moses Zegbah
+- Roles: Accounting Assistant · Full-stack web developer
+- Location: Abidjan, Côte d'Ivoire (Ivory Coast)
+- Languages: French, English
+- Official website: https://zimaymoses.com/
+- LinkedIn: https://www.linkedin.com/in/zimay-moses-z-1188251b1/
+- Email: zimaymoses0@gmail.com
+
+## Professional experience
+
+### Accounting Assistant — Finance Department (permanent contract) — Inter-African Coffee Organization (IACO) (Jan 2024 — Present)
+Inter-African organization of 25 coffee-producing member countries that promotes domestic coffee consumption in Africa.
+- Accurately recording financial transactions in the accounting system (SAGE 100).
+- Helping prepare financial statements, budgets and reports.
+- Preparing the annual audit of IACO's accounts (XOF, EUR, asset depreciation) by MNG Audit & Consulting — accounts certified true and compliant for coffee years 2022-2023 and 2023-2024.
+- Preparing the external audit of the GIZ project 'Facilitation of the implementation of the living prosperous income commitments', conducted by BDO — accounts certified true and compliant.
+- Preparing the financial documentation for the Annual General Meeting (coffee years 2022-2023 / 2023-2024).
+- Monthly multi-account, multi-currency bank reconciliations (BICICI XOF & RECA, ECOBANK EUR & XOF, GIZ and ICO accounts) and cash-flow monitoring.
+- Bank journals and petty-cash entries on SAGE; handling invoices, payments and expenses; filing and archiving supporting documents.
+- Cash management: bank withdrawals for petty cash and per-diem allowances for staff missions.
+- Stock counts of office and hygiene supplies three times a year, with the official year-end inventory report (procès-verbal).
+- Monitoring compliance with financial regulations and policies.
+
+### Intern Accounting Assistant — Finance Department — Inter-African Coffee Organization (IACO) (Jan 2022 — Dec 2023)
+- Bank journals and petty-cash entries on SAGE; monthly bank reconciliations (BICICI, ECOBANK, GIZ, ICO).
+- Updated the fixed-asset register through a physical count, making quarterly depreciation reliable and keeping interim financial statements compliant.
+- Preparing internal and external audits and compiling the supporting documents requested.
+- Preparing the financial documentation for the Annual General Meeting.
+- Monitoring compliance with internal financial policies and regulations; filing and archiving.
+- Designed promotional visuals to recruit a Community Management intern for the 'Coffee Essay Writing Competition 2024'.
+
+### Accounting Assistant (internship, then role) — International Fellowship of Christians (IFC) (Feb — May 2019)
+International English-speaking church in Abidjan founded by missionaries, bringing together 40+ nationalities.
+- Bookkeeping on QuickBooks: posting transactions and checking supporting documents are complete.
+- Closing the 2018 financial year; contributing to the annual budget, year-end reporting and balance sheet.
+- Monthly bank reconciliations on Excel and QuickBooks (GT Bank, Banque Atlantique).
+- Asset verification and updating the fixed-asset register through a physical count.
+- Preparing internal and external audits.
+
+### Administrator & Video Editor — Children's Fruit (Jan 2017 — Feb 2019)
+Christian youth organization: films, vacation Bible schools and gospel concerts.
+- Preparing and running live streams on OBS (Open Broadcaster Software).
+- Annual budget proposal and treasury control.
+- Video editing, graphic design and filming evangelism videos for YouTube; actor.
+- Planning and running concerts and vacation Bible schools.
+
+### Full-stack web developer & accounting consultant — Freelance (Alongside)
+- Full-stack Django platform for Children's Fruit (web TV, community, donations).
+- WordPress/WooCommerce and Shopify stores, SEO-optimized product pages.
+- E-commerce bookkeeping, ad campaigns and branding for Shopify brands.
+
+## Education
+- Bachelor's degree (Licence 3) — Finance, Accounting and Business Management — Groupe CEFIAT Plateau, Abidjan, Côte d'Ivoire (2020 — 2021)
+- BTS (Higher National Diploma) in Finance and Accounting — ESIM Yopougon, Abidjan, Côte d'Ivoire (2020 — 2021)
+- Baccalauréat, series D (science) — Nangui Abrogoua II, Abidjan, Côte d'Ivoire (2016 — 2017)
+
+## Professional certifications
+- Training on the Accounting System for Non-Profit Organizations (SYCEBNL) — SYCEBNL (February 2026): Comptabilité des fonds associatifs; Plan comptable pour les ONG; Préparation des états financiers selon le SYCEBNL
+- Comprehensive Guide to Xero Accounting — Alison (January 2026): Configuration de Xero; Facturation et rapprochement bancaire; Reporting financier dans Xero
+- Certified WordPress Website Developer — Udemy (January 2026): Installation et thème WordPress; Extensions et constructeurs de pages; Maintenance et sécurité de base d'un site
+- Professional Diploma in Unit Economics Management — MTF Institute of Management, Technology and Finance (December 2025): Modélisation de l'unit economics; Coût d'acquisition client & LTV; Analyse des prix et des marges
+- Executive Diploma in Finance Management — MTF Institute of Management, Technology and Finance (December 2025): Planification financière & budgétisation; Gestion de trésorerie; Analyse des états financiers
+- Social Media Marketing Professional Certification — MTF Institute of Management, Technology and Finance (March 2024): Planification de campagnes sur les réseaux sociaux; Publicités payantes multi-plateformes; Suivi des performances & analytique
+- Executive Diploma in Operations Management — MTF Institute of Management, Technology and Finance (October 2025)
+- Mini MBA in Human Resource Management — MTF Institute of Management, Technology and Finance (November 2023)
+- Executive Diploma in Business Administration — MTF Institute of Management, Technology and Finance (November 2023)
+- Human Trafficking and the Management of Rehabilitation Centers (March 2021)
+
+## Skills
+- **Accounting & finance**: SAGE 100 Comptabilité, QuickBooks, Xero, SYCEBNL (non-profit accounting), Multi-currency bank reconciliation, Financial statements, Budgeting, Audit preparation, Fixed-asset register & depreciation, Treasury & petty cash, Inventory management, Financial compliance, Unit economics
+- **Web & development**: Full-stack web apps, Python / Django, WordPress, WooCommerce, Shopify, SEO, API integrations & automation
+- **Marketing & ads**: Facebook Ads, Instagram, TikTok Ads, Google Ads, Google Analytics, Email marketing (Klaviyo), Niche Scraper, DropPoint
+- **Design, video & tools**: Adobe Premiere Pro, Adobe Photoshop, Canva, Live streaming (OBS), Video editing, Graphic design, Microsoft Excel, Microsoft Word, Microsoft PowerPoint
+- **Strengths**: Sense of responsibility, Interpersonal skills, Initiative and proactivity
+
+## Services offered
+- Website & Web App Development: Custom websites, WordPress/Shopify builds, and full-stack web apps.
+- Accounting Systems & Automation: Bookkeeping setup, bank reconciliation, and financial reporting on Sage & Xero.
+- Social Media & Ads Management: Content, Facebook/Instagram/TikTok/Google Ads setup, and performance tracking.
+
+## Projects
+- [Mimo — Comptabilité & SEO produit pour une marque bien-être](https://zimaymoses.com/en/work/mimo/): Suivi financier et fiches produit optimisées SEO pour une marque bien-être sur Shopify.
+- [Nadrelie — Boutique WordPress pour une marque de soins ancestraux](https://zimaymoses.com/en/work/nadrelie/): Création de la boutique WordPress/WooCommerce et rédaction des fiches produit optimisées SEO.
+- [Children's Fruit — Plateforme full-stack Django](https://zimaymoses.com/en/work/childrens-fruit/): Création et maintenance de la plateforme WebTV, communauté et dons.
+- [Protoclean — Comptabilité, publicité & branding pour une marque d'hygiène](https://zimaymoses.com/en/work/protoclean/): Comptabilité, gestion des campagnes publicitaires et apport sur la marque pour une marque d'hygiène sur Shopify.
+
+## Pages
+- [About — full background](https://zimaymoses.com/en/about/)
+- [Certifications](https://zimaymoses.com/en/certifications/)
+- [Work](https://zimaymoses.com/en/work/)
+- [Pricing](https://zimaymoses.com/en/pricing/)
+
+
+
+---
+
+# Moses Zegbah Zimay
+
+> Moses Zegbah Zimay (Moses Zimay) est assistant comptable et développeur web full-stack basé à Abidjan, en Côte d'Ivoire. Depuis 2022, il travaille au département Finance de l'Organisation Interafricaine du Café (OIAC / IACO), une organisation de 25 pays membres producteurs de café : rapprochements bancaires multi-devises (XOF, EUR), préparation des audits annuels (MNG Audit & Consulting) et de l'audit externe d'un projet GIZ (BDO), et saisie comptable sur SAGE 100. Il cumule plus de 7 ans d'expérience en finance et comptabilité (SAGE 100, QuickBooks, Xero, SYCEBNL). En parallèle, il conçoit des sites et applications web (Django, WordPress/WooCommerce, Shopify), gère des campagnes publicitaires (Facebook, Instagram, TikTok, Google Ads) et produit de la vidéo. Bilingue français–anglais.
+
+- Aussi connu sous le nom de : Moses Zimay, Zimay Moses, Moses Z. Zimay, Moses Zegbah, Zimay Moses Zegbah
+- Métiers : Assistant comptable · Développeur web full-stack
+- Localisation : Abidjan, Côte d'Ivoire
+- Langues : Français, Anglais
+- Site officiel : https://zimaymoses.com/
+- LinkedIn : https://www.linkedin.com/in/zimay-moses-z-1188251b1/
+- E-mail : zimaymoses0@gmail.com
+
+## Expérience professionnelle
+
+### Assistant Comptable — Département Finance (CDI) — Organisation Interafricaine du Café (OIAC / IACO) (Janv. 2024 — Aujourd'hui)
+Organisation interafricaine de 25 pays membres producteurs de café, qui promeut la consommation domestique de café en Afrique.
+- Enregistrement précis des opérations financières dans le système comptable (SAGE 100).
+- Participation à la préparation des états financiers, des budgets et des rapports.
+- Préparation de l'audit annuel des comptes de l'OIAC (XOF, EUR, amortissement des immobilisations) par MNG Audit & Consulting — comptes certifiés sincères et conformes pour les campagnes caféières 2022-2023 et 2023-2024.
+- Préparation de l'audit externe du projet GIZ « Facilitation de la mise en œuvre des engagements de revenu vital et prospère », réalisé par BDO — comptes certifiés sincères et conformes.
+- Préparation de la documentation financière de l'Assemblée Générale annuelle (campagnes 2022-2023 / 2023-2024).
+- Rapprochements bancaires mensuels multi-comptes et multi-devises (BICICI XOF & RECA, ECOBANK EUR & XOF, comptes GIZ et OIC) et suivi de la trésorerie.
+- Journaux de banque et écritures de caisse sur SAGE ; traitement des factures, paiements et dépenses ; classement et archivage des pièces.
+- Gestion de la caisse : retraits bancaires pour la petite caisse et les per diem des missions du personnel.
+- Inventaire des fournitures trois fois par an et procès-verbal d'inventaire de fin d'année.
+- Suivi de la conformité aux règles et procédures financières.
+
+### Stagiaire Assistant Comptable — Département Finance — Organisation Interafricaine du Café (OIAC / IACO) (Janv. 2022 — Déc. 2023)
+- Journaux de banque et écritures de caisse sur SAGE ; rapprochements bancaires mensuels (BICICI, ECOBANK, GIZ, OIC).
+- Mise à jour du registre des immobilisations par inventaire physique, fiabilisant le calcul des amortissements trimestriels et la conformité des états financiers intermédiaires.
+- Préparation des audits internes et externes et constitution des pièces justificatives.
+- Préparation de la documentation financière de l'Assemblée Générale.
+- Suivi de la conformité aux règlements et politiques financières internes ; classement et archivage.
+- Création de visuels promotionnels pour le recrutement d'un stagiaire Community Management (« Coffee Essay Writing Competition 2024 »).
+
+### Assistant Comptable (stage puis poste) — International Fellowship of Christians (IFC) (Févr. — Mai 2019)
+Église internationale anglophone d'Abidjan fondée par des missionnaires, rassemblant plus de 40 nationalités.
+- Tenue de la comptabilité sur QuickBooks : saisie des opérations, contrôle de l'exhaustivité des pièces.
+- Clôture de l'exercice 2018, participation au budget annuel, au reporting de fin d'année et au bilan.
+- Rapprochements bancaires mensuels sur Excel et QuickBooks (GT Bank, Banque Atlantique).
+- Vérification des actifs et mise à jour du registre des immobilisations par inventaire physique.
+- Préparation des audits internes et externes.
+
+### Administrateur & Monteur vidéo — Children's Fruit (Janv. 2017 — Févr. 2019)
+Organisation de jeunesse chrétienne : films, écoles bibliques de vacances et concerts gospel.
+- Préparation et coordination des diffusions en direct sur OBS (Open Broadcaster Software).
+- Proposition du budget annuel et contrôle de la trésorerie.
+- Montage vidéo, graphisme et tournage de vidéos d'évangélisation pour YouTube ; acteur.
+- Organisation de concerts et préparation des écoles bibliques de vacances.
+
+### Développeur web full-stack & consultant comptable — Indépendant (En parallèle)
+- Plateforme full-stack Django pour Children's Fruit (WebTV, communauté, dons).
+- Boutiques WordPress/WooCommerce et Shopify, fiches produit optimisées SEO.
+- Comptabilité e-commerce, campagnes publicitaires et branding pour des marques sur Shopify.
+
+## Formation
+- Licence 3 — Finance, Comptabilité et Gestion des entreprises — Groupe CEFIAT Plateau, Abidjan, Côte d'Ivoire (2020 — 2021)
+- BTS Finance-Comptabilité — ESIM Yopougon, Abidjan, Côte d'Ivoire (2020 — 2021)
+- Baccalauréat série D — Nangui Abrogoua II, Abidjan, Côte d'Ivoire (2016 — 2017)
+
+## Certifications professionnelles
+- Training on the Accounting System for Non-Profit Organizations (SYCEBNL) — SYCEBNL (février 2026): Comptabilité des fonds associatifs; Plan comptable pour les ONG; Préparation des états financiers selon le SYCEBNL
+- Comprehensive Guide to Xero Accounting — Alison (janvier 2026): Configuration de Xero; Facturation et rapprochement bancaire; Reporting financier dans Xero
+- Certified WordPress Website Developer — Udemy (janvier 2026): Installation et thème WordPress; Extensions et constructeurs de pages; Maintenance et sécurité de base d'un site
+- Professional Diploma in Unit Economics Management — MTF Institute of Management, Technology and Finance (décembre 2025): Modélisation de l'unit economics; Coût d'acquisition client & LTV; Analyse des prix et des marges
+- Executive Diploma in Finance Management — MTF Institute of Management, Technology and Finance (décembre 2025): Planification financière & budgétisation; Gestion de trésorerie; Analyse des états financiers
+- Social Media Marketing Professional Certification — MTF Institute of Management, Technology and Finance (mars 2024): Planification de campagnes sur les réseaux sociaux; Publicités payantes multi-plateformes; Suivi des performances & analytique
+- Executive Diploma in Operations Management — MTF Institute of Management, Technology and Finance (octobre 2025)
+- Mini MBA in Human Resource Management — MTF Institute of Management, Technology and Finance (novembre 2023)
+- Executive Diploma in Business Administration — MTF Institute of Management, Technology and Finance (novembre 2023)
+- Human Trafficking and the Management of Rehabilitation Centers (mars 2021)
+
+## Compétences
+- **Comptabilité & finance**: SAGE 100 Comptabilité, QuickBooks, Xero, SYCEBNL (comptabilité des ONG), Rapprochement bancaire multi-devises, États financiers, Budgétisation, Préparation d'audit, Registre des immobilisations & amortissements, Trésorerie & petite caisse, Gestion des stocks, Conformité financière, Unit economics
+- **Web & développement**: Applications web full-stack, Python / Django, WordPress, WooCommerce, Shopify, SEO, Intégrations API & automatisation
+- **Marketing & publicité**: Facebook Ads, Instagram, TikTok Ads, Google Ads, Google Analytics, E-mailing (Klaviyo), Niche Scraper, DropPoint
+- **Design, vidéo & outils**: Adobe Premiere Pro, Adobe Photoshop, Canva, Diffusion en direct (OBS), Montage vidéo, Graphisme, Microsoft Excel, Microsoft Word, Microsoft PowerPoint
+- **Savoir-être**: Sens des responsabilités, Aisance relationnelle, Initiative et proactivité
+
+## Services proposés
+- Développement de sites & applications web: Sites sur mesure, boutiques WordPress/Shopify, et applications web full-stack.
+- Systèmes comptables & automatisation: Mise en place de la comptabilité, rapprochement bancaire, et reporting financier sur Sage & Xero.
+- Réseaux sociaux & gestion publicitaire: Contenu, mise en place des publicités Facebook/Instagram/TikTok/Google, et suivi des performances.
+
+## Projets
+- [Mimo — Comptabilité & SEO produit pour une marque bien-être](https://zimaymoses.com/work/mimo/): Suivi financier et fiches produit optimisées SEO pour une marque bien-être sur Shopify.
+- [Nadrelie — Boutique WordPress pour une marque de soins ancestraux](https://zimaymoses.com/work/nadrelie/): Création de la boutique WordPress/WooCommerce et rédaction des fiches produit optimisées SEO.
+- [Children's Fruit — Plateforme full-stack Django](https://zimaymoses.com/work/childrens-fruit/): Création et maintenance de la plateforme WebTV, communauté et dons.
+- [Protoclean — Comptabilité, publicité & branding pour une marque d'hygiène](https://zimaymoses.com/work/protoclean/): Comptabilité, gestion des campagnes publicitaires et apport sur la marque pour une marque d'hygiène sur Shopify.
+
+## Pages
+- [À propos — parcours complet](https://zimaymoses.com/about/)
+- [Certifications](https://zimaymoses.com/certifications/)
+- [Projets](https://zimaymoses.com/work/)
+- [Tarifs](https://zimaymoses.com/pricing/)
+

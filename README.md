@@ -4,8 +4,22 @@ A premium, editorial portfolio site built with Django 5, styled after the
 visual language and rhythm of `surinder.design` — original content and
 service offerings, not a clone of that site's business or copy.
 
-> The previous React/Express/Supabase implementation ("MZ Creative Room")
-> lives untouched in `_legacy_mz_creative_room/` for reference/recovery.
+## Publishing (static site on Vercel)
+
+The public site is **static HTML** — no Python, database or server runs in
+production. Django and its Admin are the local editing tool.
+
+1. Edit content locally: `python manage.py runserver`, then `/admin/`.
+2. Export the site: `python manage.py build_static` (writes `public/`; it fails
+   loudly if any page errors or any internal link/image is broken).
+3. Commit and push `public/` — Vercel deploys it (see `vercel.json`, which also
+   sets the security headers and Content-Security-Policy).
+
+Search/AI discoverability is built in: schema.org JSON-LD, `sitemap.xml`,
+`robots.txt`, `llms.txt` / `llms-full.txt`, and English pages under `/en/`.
+Career, education and skills live in `core/profile.py`; certifications,
+projects and page copy are edited in Admin. The newsletter signup is hidden
+(`NEWSLETTER_ENABLED=False`) because a static site can't receive form posts.
 
 ## Status
 

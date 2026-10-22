@@ -57,32 +57,3 @@ if not env("CLOUDINARY_URL", default=""):  # noqa: F405
 CLOUDINARY_STORAGE = {}
 STORAGES["default"] = {"BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage"}  # noqa: F405
 
-# --- Vercel ---
-# Vercel sets VERCEL=1 in every deployment. Its serverless functions have a read-only,
-# throwaway filesystem and no separate build step for collectstatic, so:
-if env.bool("VERCEL", default=False):  # noqa: F405
-    # SQLite would be read-only and reset on every cold start — require a hosted Postgres.
-    if not env("DATABASE_URL", default=""):  # noqa: F405
-        raise ImproperlyConfigured(
-            "DATABASE_URL is not set. Vercel needs a hosted Postgres database "
-            "(e.g. Neon, Supabase) — SQLite cannot work on its read-only filesystem."
-        )
-
-    # Neon's (and most serverless Postgres providers') DATABASE_URL goes through a
-    # transaction-mode connection pooler, which can't keep the server-side cursors Django
-    # uses for .iterator() open across transactions.
-    DATABASES["default"]["DISABLE_SERVER_SIDE_CURSORS"] = True  # noqa: F405
-
-    # No collectstatic runs on Vercel, so there is no manifest for the hashed-filename
-    # storage to read. Serve straight from the app/static directories via WhiteNoise's
-    # finders instead (they're bundled with the function).
-    STORAGES["staticfiles"] = {  # noqa: F405
-        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage"
-    }
-    WHITENOISE_USE_FINDERS = True
-    WHITENOISE_AUTOREFRESH = False
-
-    # Accept the auto-generated *.vercel.app URLs (production, preview, branch) on top
-    # of whatever custom domains ALLOWED_HOSTS / CSRF_TRUSTED_ORIGINS already list.
-    ALLOWED_HOSTS = ALLOWED_HOSTS + [".vercel.app"]  # noqa: F405
-    CSRF_TRUSTED_ORIGINS = CSRF_TRUSTED_ORIGINS + ["https://*.vercel.app"]

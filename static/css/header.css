@@ -191,7 +191,13 @@
   margin-top: var(--space-2);
 }
 
+.header-plus,
 .mobile-lang-btn {
+  text-decoration: none;
+}
+
+.mobile-lang-btn {
+  display: inline-block;
   background: none;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-pill);

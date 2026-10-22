@@ -1,3 +1,5 @@
+import os
+
 from django.test import TestCase
 from django.urls import reverse
 
@@ -171,3 +173,25 @@ class SeoTests(TestCase):
         self.assertIn("<loc>https://zimaymoses.com/en/about/</loc>", body)
         self.assertIn("https://zimaymoses.com/work/visible/", body)
         self.assertNotIn("hidden", body)
+
+
+class BuildStaticTests(TestCase):
+    def test_exports_every_page_in_both_languages(self):
+        import shutil
+
+        from django.conf import settings
+        from django.core.management import call_command
+
+        CaseStudy.objects.create(title="Visible", slug="visible", published=True)
+        out = settings.BASE_DIR / "public-test-build"
+        try:
+            call_command("build_static", output=str(out), stdout=open(os.devnull, "w"))
+            for path in ("index.html", "en/index.html", "about/index.html", "en/about/index.html",
+                         "work/visible/index.html", "en/work/visible/index.html", "404.html",
+                         "robots.txt", "llms.txt", "sitemap.xml", "static/css/base.css"):
+                self.assertTrue((out / path).is_file(), path)
+            self.assertFalse((out / "static" / "admin").exists())
+            # Static pages must not contain forms that need a server to post to.
+            self.assertNotIn("csrfmiddlewaretoken", (out / "index.html").read_text(encoding="utf-8"))
+        finally:
+            shutil.rmtree(out, ignore_errors=True)

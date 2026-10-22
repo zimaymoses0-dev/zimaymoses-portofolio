@@ -7,10 +7,10 @@
   <meta name="description" content="{% block meta_description %}{{ person.summary|truncatechars:158 }}{% endblock %}">
   <meta name="author" content="{{ person.full_name }}">
   <meta name="robots" content="{% block robots %}index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1{% endblock %}">
-  <link rel="canonical" href="{% block canonical %}{{ canonical_url }}{% endblock %}">
+  {% block seo_links %}<link rel="canonical" href="{{ canonical_url }}">
   {% for code, url in hreflang_alternates.items %}<link rel="alternate" hreflang="{{ code }}" href="{{ url }}">
   {% endfor %}<link rel="alternate" hreflang="x-default" href="{{ x_default_url }}">
-  <link rel="alternate" type="text/plain" title="Profile for AI assistants" href="{{ SITE_URL }}/llms.txt">
+  {% endblock %}  <link rel="alternate" type="text/plain" title="Profile for AI assistants" href="{{ SITE_URL }}/llms.txt">
   <link rel="icon" href="{% static 'images/favicon.ico' %}">
   <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
   <link rel="apple-touch-icon" href="{% static 'images/favicon.png' %}">

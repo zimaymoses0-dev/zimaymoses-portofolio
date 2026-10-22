@@ -20,6 +20,10 @@ SECRET_KEY = env("SECRET_KEY", default="django-insecure-change-me-in-env")
 # when the site is also reachable at *.vercel.app or www.
 SITE_URL = env("SITE_URL", default="https://zimaymoses.com").rstrip("/")
 
+# The public site is a static export (manage.py build_static), which can't take form
+# posts — so the newsletter signup is hidden unless this is turned back on.
+NEWSLETTER_ENABLED = env.bool("NEWSLETTER_ENABLED", default=False)
+
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["localhost", "127.0.0.1"])
 
 INSTALLED_APPS = [

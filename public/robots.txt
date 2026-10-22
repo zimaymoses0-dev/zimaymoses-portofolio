@@ -1,0 +1,86 @@
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Disallow: /newsletter/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+Disallow: /newsletter/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /admin/
+Disallow: /newsletter/
+
+User-agent: GPTBot
+Allow: /
+Disallow: /admin/
+Disallow: /newsletter/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /admin/
+Disallow: /newsletter/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /admin/
+Disallow: /newsletter/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /admin/
+Disallow: /newsletter/
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /admin/
+Disallow: /newsletter/
+
+User-agent: Claude-User
+Allow: /
+Disallow: /admin/
+Disallow: /newsletter/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /admin/
+Disallow: /newsletter/
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /admin/
+Disallow: /newsletter/
+
+User-agent: Applebot
+Allow: /
+Disallow: /admin/
+Disallow: /newsletter/
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /admin/
+Disallow: /newsletter/
+
+User-agent: meta-externalagent
+Allow: /
+Disallow: /admin/
+Disallow: /newsletter/
+
+User-agent: CCBot
+Allow: /
+Disallow: /admin/
+Disallow: /newsletter/
+
+User-agent: DuckAssistBot
+Allow: /
+Disallow: /admin/
+Disallow: /newsletter/
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /newsletter/
+
+Sitemap: https://zimaymoses.com/sitemap.xml

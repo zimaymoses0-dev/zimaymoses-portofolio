@@ -25,10 +25,12 @@
     </div>
   </section>
 
+  {% if newsletter_enabled %}
   <section class="section newsletter-section">
     <div class="container">
       <h2>{% t "Sois notifié quand je publie de nouveaux projets et mes disponibilités." %}</h2>
       {% include "components/newsletter_form.html" %}
     </div>
   </section>
+  {% endif %}
 {% endblock %}

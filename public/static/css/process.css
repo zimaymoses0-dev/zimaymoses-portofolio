@@ -1,0 +1,303 @@
+.process-hero {
+  padding: 160px 0 var(--space-16);
+  max-width: 720px;
+}
+
+.process-hero h1 {
+  font-size: clamp(2.8rem, 7vw, 5.2rem);
+}
+
+.process-hero p {
+  margin-top: var(--space-5);
+  color: var(--color-muted);
+  font-size: 1.1rem;
+}
+
+/* ---- Dark timeline ---- */
+
+.timeline-section {
+  position: relative;
+}
+
+.timeline-track {
+  position: relative;
+  margin-top: var(--space-12);
+  padding-left: 48px;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(247, 244, 236, 0.12);
+}
+
+.timeline-line-fill {
+  width: 100%;
+  background: var(--color-accent);
+  transform-origin: top;
+}
+
+.phase {
+  position: relative;
+  padding: var(--space-10) 0;
+  border-bottom: 1px solid rgba(247, 244, 236, 0.1);
+  display: grid;
+  grid-template-columns: 100px 1fr 1fr;
+  gap: var(--space-8);
+}
+
+.phase:last-child {
+  border-bottom: none;
+}
+
+.phase-marker {
+  position: absolute;
+  left: -54px;
+  top: var(--space-10);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.phase-number {
+  font-size: 13px;
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.phase-week {
+  display: block;
+  font-size: 11px;
+  color: rgba(247, 244, 236, 0.45);
+  margin-top: var(--space-2);
+}
+
+.phase-title {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: #fff;
+  margin-bottom: var(--space-3);
+}
+
+.phase-description {
+  color: rgba(247, 244, 236, 0.6);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.phase-meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.phase-meta-item h4 {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-label);
+  color: rgba(247, 244, 236, 0.4);
+  margin-bottom: var(--space-2);
+}
+
+.phase-meta-item p {
+  font-size: 13px;
+  color: rgba(247, 244, 236, 0.75);
+  margin: 0;
+}
+
+/* ---- Behind the method ---- */
+
+.method-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+.method-card {
+  position: relative;
+  padding: var(--space-10);
+  min-height: 320px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.method-card-shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.08;
+  background: var(--color-ink);
+  filter: blur(2px);
+  transition: opacity 0.4s var(--ease-premium), filter 0.4s var(--ease-premium), transform 0.4s var(--ease-premium);
+}
+
+.method-card:hover .method-card-shape {
+  opacity: 0.16;
+  filter: blur(0px);
+  transform: scale(1.05);
+}
+
+.method-card:nth-child(1) .method-card-shape {
+  width: 260px;
+  height: 260px;
+  top: -60px;
+  right: -60px;
+}
+
+.method-card:nth-child(2) .method-card-shape {
+  width: 220px;
+  height: 220px;
+  bottom: -50px;
+  right: 30px;
+  border-radius: 30% 70% 60% 40% / 40% 50% 50% 60%;
+}
+
+.method-card-label {
+  position: relative;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: var(--tracking-tight);
+  margin-bottom: var(--space-3);
+}
+
+.method-card p {
+  position: relative;
+  color: var(--color-muted);
+  max-width: 380px;
+}
+
+/* ---- ROI calculator ---- */
+
+.calculator {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-10);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-10);
+}
+
+.calculator-type-toggle {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+.calculator-type-toggle button {
+  flex: 1;
+  padding: 10px 16px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border);
+  background: transparent;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+}
+
+.calculator-type-toggle button.is-active {
+  background: var(--color-ink);
+  color: var(--color-bg);
+  border-color: var(--color-ink);
+}
+
+.calculator-field {
+  margin-bottom: var(--space-5);
+}
+
+.calculator-field label {
+  display: block;
+  font-size: 12px;
+  color: var(--color-muted);
+  margin-bottom: var(--space-2);
+}
+
+.calculator-field input,
+.calculator-field select {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  font-size: 15px;
+  font-family: inherit;
+}
+
+.calculator-lift-buttons {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.calculator-lift-buttons button {
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border);
+  background: transparent;
+  font-size: 13px;
+  font-family: inherit;
+}
+
+.calculator-lift-buttons button.is-active {
+  background: var(--color-accent);
+  color: #fff;
+  border-color: var(--color-accent);
+}
+
+.calculator-results {
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.calculator-result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.calculator-result-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.calculator-result-label {
+  font-size: 13px;
+  color: var(--color-muted);
+}
+
+.calculator-result-value {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.calculator-result-value.is-highlight {
+  color: var(--color-accent);
+  font-size: 1.8rem;
+}
+
+@media (max-width: 900px) {
+  .phase {
+    grid-template-columns: 1fr;
+  }
+
+  .method-cards,
+  .calculator {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-track {
+    padding-left: 28px;
+  }
+
+  .phase-marker {
+    left: -34px;
+  }
+}

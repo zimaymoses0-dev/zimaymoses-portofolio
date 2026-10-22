@@ -25,17 +25,11 @@
     <a class="header-cta" href="{{ site_settings.booking_url|default:'#' }}">
       {% if LANGUAGE_CODE == 'fr' %}Contactez-moi{% else %}Contact {{ site_settings.owner_name|default:"me" }}{% endif %}
     </a>
-    <form class="header-lang-form" action="{% url 'set_language' %}" method="post">
-      {% csrf_token %}
-      <input type="hidden" name="next" value="{% if LANGUAGE_CODE == 'fr' %}{{ language_paths.en }}{% else %}{{ language_paths.fr }}{% endif %}">
-      {% if LANGUAGE_CODE == 'fr' %}
-        <input type="hidden" name="language" value="en">
-        <button type="submit" class="header-plus" aria-label="Switch to English">EN</button>
-      {% else %}
-        <input type="hidden" name="language" value="fr">
-        <button type="submit" class="header-plus" aria-label="Passer en français">FR</button>
-      {% endif %}
-    </form>
+    {% if LANGUAGE_CODE == 'fr' %}
+      <a class="header-plus" href="{{ language_paths.en }}" hreflang="en" lang="en" aria-label="Switch to English">EN</a>
+    {% else %}
+      <a class="header-plus" href="{{ language_paths.fr }}" hreflang="fr" lang="fr" aria-label="Passer en français">FR</a>
+    {% endif %}
     <button
       class="header-menu-toggle"
       type="button"
@@ -62,16 +56,12 @@
     <a class="btn btn-primary" href="{{ site_settings.booking_url|default:'#' }}">
       {% t "Réserver un appel" %} <span class="btn-arrow">→</span>
     </a>
-    <form class="header-lang-form-mobile" action="{% url 'set_language' %}" method="post">
-      {% csrf_token %}
-      <input type="hidden" name="next" value="{% if LANGUAGE_CODE == 'fr' %}{{ language_paths.en }}{% else %}{{ language_paths.fr }}{% endif %}">
+    <div class="header-lang-form-mobile">
       {% if LANGUAGE_CODE == 'fr' %}
-        <input type="hidden" name="language" value="en">
-        <button type="submit" class="mobile-lang-btn">English</button>
+        <a class="mobile-lang-btn" href="{{ language_paths.en }}" hreflang="en" lang="en">English</a>
       {% else %}
-        <input type="hidden" name="language" value="fr">
-        <button type="submit" class="mobile-lang-btn">Français</button>
+        <a class="mobile-lang-btn" href="{{ language_paths.fr }}" hreflang="fr" lang="fr">Français</a>
       {% endif %}
-    </form>
+    </div>
   </div>
 </header>

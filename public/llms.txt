@@ -1,14 +1,23 @@
 # Moses Zegbah Zimay
 
-> Moses Zegbah Zimay (Moses Zimay) is an accounting assistant and full-stack web developer based in Abidjan, Côte d'Ivoire (Ivory Coast). Since 2022 he has worked in the Finance Department of the Inter-African Coffee Organization (IACO), a 25-member-country coffee producers' organization: multi-currency bank reconciliations (XOF, EUR), preparing the annual statutory audit (MNG Audit & Consulting) and the external audit of a GIZ-funded project (BDO), and bookkeeping on SAGE 100. He has 7+ years of finance and accounting experience (SAGE 100, QuickBooks, Xero, SYCEBNL). Alongside that he builds websites and web apps (Django, WordPress/WooCommerce, Shopify), runs paid ad campaigns (Facebook, Instagram, TikTok, Google Ads) and produces video. Bilingual in French and English.
+> Moses Zegbah Zimay (Moses Zimay) is an accounting assistant based in Abidjan, Côte d'Ivoire (Ivory Coast), focused on audit, internal control and fraud prevention, and building a career in forensic accounting and financial fraud investigation. Since 2022 he has worked in the Finance Department of the Inter-African Coffee Organization (IACO), a 25-member-country coffee producers' organization: multi-currency bank reconciliations (XOF, EUR), preparing the annual statutory audit (MNG Audit & Consulting) and the external audit of a GIZ-funded project (BDO), and bookkeeping on SAGE 100. He has 7+ years of finance and accounting experience (SAGE 100, QuickBooks, Xero, SYCEBNL) and has trained in cybersecurity (penetration testing, brute-force attacks). He is also a full-stack web developer (Django, WordPress/WooCommerce, Shopify). Bilingual in French and English.
 
 - Also known as: Moses Zimay, Zimay Moses, Moses Z. Zimay, Moses Zegbah, Zimay Moses Zegbah
 - Roles: Accounting Assistant · Full-stack web developer
+- Focus: Audit, internal control & fraud prevention
+- Career goal: Becoming a forensic accountant and financial fraud investigation expert.
 - Location: Abidjan, Côte d'Ivoire (Ivory Coast)
 - Languages: French, English
 - Official website: https://zimaymoses.com/
 - LinkedIn: https://www.linkedin.com/in/zimay-moses-z-1188251b1/
 - Email: zimaymoses0@gmail.com
+
+## Path to forensic accounting
+- Certified external audits: prepared IACO's audits by MNG Audit & Consulting and the GIZ project audit by BDO — supporting evidence, auditor requests, accounts certified true and compliant.
+- Monthly multi-account, multi-currency bank reconciliations (XOF, EUR) — the first line of defence for spotting anomalies and misappropriation.
+- Physical stock counts and fixed-asset verification with formal reports — matching what is recorded to what actually exists.
+- Monitoring compliance with financial rules and procedures, cash and per-diem handling, and a full paper trail for every transaction.
+- Cybersecurity training (penetration testing, brute-force attacks) to understand digital fraud and how access is protected.
 
 ## Professional experience
 
@@ -50,18 +59,23 @@ Christian youth organization: films, vacation Bible schools and gospel concerts.
 - Baccalauréat, series D (science) — Nangui Abrogoua II, Abidjan, Côte d'Ivoire (2016 — 2017)
 
 ## Professional certifications
+- Executive Diploma in Finance Management — MTF Institute of Management, Technology and Finance (December 2025)
 - Training on the Accounting System for Non-Profit Organizations (SYCEBNL) — SYCEBNL (February 2026)
 - Comprehensive Guide to Xero Accounting — Alison (January 2026)
-- Certified WordPress Website Developer — Udemy (January 2026)
 - Professional Diploma in Unit Economics Management — MTF Institute of Management, Technology and Finance (December 2025)
-- Executive Diploma in Finance Management — MTF Institute of Management, Technology and Finance (December 2025)
-- Social Media Marketing Professional Certification — MTF Institute of Management, Technology and Finance (March 2024)
+- Learn Ethical Hacking and Penetration Testing (EHPT+) — Udemy (April 2025)
+- Become a Hydra Expert: Advanced Brute Forcing Techniques — Udemy (June 2025)
+- Executive Diploma in Business Administration — MTF Institute of Management, Technology and Finance (November 2023)
 - Executive Diploma in Operations Management — MTF Institute of Management, Technology and Finance (October 2025)
 - Mini MBA in Human Resource Management — MTF Institute of Management, Technology and Finance (November 2023)
-- Executive Diploma in Business Administration — MTF Institute of Management, Technology and Finance (November 2023)
+- Professional Diploma of Virtual Executive Assistant — MTF Institute of Management, Technology and Finance (February 2026)
 - Human Trafficking and the Management of Rehabilitation Centers (March 2021)
+- Social Media Marketing Professional Certification — MTF Institute of Management, Technology and Finance (March 2024)
+- Certified WordPress Website Developer — Udemy (January 2026)
+- Create a WordPress Website with Hostinger — Udemy (January 2026)
 
 ## Skills
+- **Audit, control & fraud prevention**: External audit preparation, Internal control, Bank reconciliations, Asset verification & stock counts, Audit trails & supporting evidence, Financial compliance, Penetration testing (fundamentals), Access & password security
 - **Accounting & finance**: SAGE 100 Comptabilité, QuickBooks, Xero, SYCEBNL (non-profit accounting), Multi-currency bank reconciliation, Financial statements, Budgeting, Audit preparation, Fixed-asset register & depreciation, Treasury & petty cash, Inventory management, Financial compliance, Unit economics
 - **Web & development**: Full-stack web apps, Python / Django, WordPress, WooCommerce, Shopify, SEO, API integrations & automation
 - **Marketing & ads**: Facebook Ads, Instagram, TikTok Ads, Google Ads, Google Analytics, Email marketing (Klaviyo), Niche Scraper, DropPoint

@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% load static core_tags i18n_extra %}
 
-{% block title %}{% t "À propos" %} — {{ person.full_name }}, {% t "comptable & développeur full-stack" %}{% endblock %}
-{% block meta_description %}{% t "Parcours complet de Moses Zegbah Zimay : assistant comptable à l'Organisation Interafricaine du Café, développeur full-stack, formation, certifications et compétences." %}{% endblock %}
+{% block title %}{% t "À propos" %} — {{ person.full_name }}, {% t "audit & prévention de la fraude" %}{% endblock %}
+{% block meta_description %}{% t "Parcours de Moses Zegbah Zimay, assistant comptable (audit, contrôle interne, prévention de la fraude) à l'Organisation Interafricaine du Café, en route vers la comptabilité forensique." %}{% endblock %}
 {% block extra_css %}<link rel="stylesheet" href="{% static 'css/about.css' %}">{% endblock %}
 
 {% block content %}
@@ -12,6 +12,19 @@
     <h1 data-reveal>{% t hero.title|default:"Comptable et développeur full-stack." %}</h1>
     <p data-reveal>{% t hero.subtitle|default:"I keep the books straight for international organizations — and I build the web tools those teams need too." %}</p>
     <p class="about-summary" data-reveal>{{ person.summary }}</p>
+  </section>
+
+  <section class="section about-goal" id="objectif">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">{% t "Objectif" %}</span>
+        <h2>{{ person.career_goal }}</h2>
+        <p>{% t "Ce qui m'y prépare déjà, au quotidien :" %}</p>
+      </div>
+      <ul class="about-goal-list" data-reveal>
+        {% for item in person.goal_foundations %}<li>{{ item }}</li>{% endfor %}
+      </ul>
+    </div>
   </section>
 
   {% if metrics %}

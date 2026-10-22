@@ -32,31 +32,54 @@ JOB_TITLES = [
     {"fr": "Développeur web full-stack", "en": "Full-stack web developer"},
 ]
 
+# Where the career is heading. Phrased as a goal, not a title already held.
+FOCUS = {"fr": "Audit, contrôle interne & prévention de la fraude", "en": "Audit, internal control & fraud prevention"}
+CAREER_GOAL = {
+    "fr": "Devenir comptable forensique et expert en investigation de la fraude financière.",
+    "en": "Becoming a forensic accountant and financial fraud investigation expert.",
+}
+# Real experience that builds toward that goal — shown on the About page.
+GOAL_FOUNDATIONS = [
+    {"fr": "Audits externes certifiés : préparation des audits de l'OIAC par MNG Audit & Consulting et du projet GIZ par BDO — pièces justificatives, réponses aux auditeurs, comptes certifiés sincères et conformes.",
+     "en": "Certified external audits: prepared IACO's audits by MNG Audit & Consulting and the GIZ project audit by BDO — supporting evidence, auditor requests, accounts certified true and compliant."},
+    {"fr": "Rapprochements bancaires mensuels multi-comptes et multi-devises (XOF, EUR) — le premier filet de détection des anomalies et des détournements.",
+     "en": "Monthly multi-account, multi-currency bank reconciliations (XOF, EUR) — the first line of defence for spotting anomalies and misappropriation."},
+    {"fr": "Inventaires physiques et vérification des immobilisations, avec procès-verbaux — rapprocher ce qui est enregistré de ce qui existe réellement.",
+     "en": "Physical stock counts and fixed-asset verification with formal reports — matching what is recorded to what actually exists."},
+    {"fr": "Contrôle de la conformité aux règles et procédures financières, gestion de la caisse et des per diem, traçabilité des pièces.",
+     "en": "Monitoring compliance with financial rules and procedures, cash and per-diem handling, and a full paper trail for every transaction."},
+    {"fr": "Formations en cybersécurité (tests d'intrusion, attaques par force brute) pour comprendre la fraude numérique et la protection des accès.",
+     "en": "Cybersecurity training (penetration testing, brute-force attacks) to understand digital fraud and how access is protected."},
+]
+
 SUMMARY = {
     "fr": (
-        "Moses Zegbah Zimay (Moses Zimay) est assistant comptable et développeur web "
-        "full-stack basé à Abidjan, en Côte d'Ivoire. Depuis 2022, il travaille au "
+        "Moses Zegbah Zimay (Moses Zimay) est assistant comptable basé à Abidjan, en Côte "
+        "d'Ivoire, spécialisé en audit, contrôle interne et prévention de la fraude, qui "
+        "oriente sa carrière vers la comptabilité forensique et l'investigation de la fraude "
+        "financière. Depuis 2022, il travaille au "
         "département Finance de l'Organisation Interafricaine du Café (OIAC / IACO), une "
         "organisation de 25 pays membres producteurs de café : rapprochements bancaires "
         "multi-devises (XOF, EUR), préparation des audits annuels (MNG Audit & Consulting) "
         "et de l'audit externe d'un projet GIZ (BDO), et saisie comptable sur SAGE 100. "
         "Il cumule plus de 7 ans d'expérience en finance et comptabilité (SAGE 100, "
-        "QuickBooks, Xero, SYCEBNL). En parallèle, il conçoit des sites et applications "
-        "web (Django, WordPress/WooCommerce, Shopify), gère des campagnes publicitaires "
-        "(Facebook, Instagram, TikTok, Google Ads) et produit de la vidéo. Bilingue "
-        "français–anglais."
+        "QuickBooks, Xero, SYCEBNL) et s'est formé à la cybersécurité (tests d'intrusion, "
+        "attaques par force brute). Il est aussi développeur web full-stack (Django, "
+        "WordPress/WooCommerce, Shopify). Bilingue français–anglais."
     ),
     "en": (
-        "Moses Zegbah Zimay (Moses Zimay) is an accounting assistant and full-stack web "
-        "developer based in Abidjan, Côte d'Ivoire (Ivory Coast). Since 2022 he has worked "
+        "Moses Zegbah Zimay (Moses Zimay) is an accounting assistant based in Abidjan, Côte "
+        "d'Ivoire (Ivory Coast), focused on audit, internal control and fraud prevention, and "
+        "building a career in forensic accounting and financial fraud investigation. Since "
+        "2022 he has worked "
         "in the Finance Department of the Inter-African Coffee Organization (IACO), a "
         "25-member-country coffee producers' organization: multi-currency bank "
         "reconciliations (XOF, EUR), preparing the annual statutory audit (MNG Audit & "
         "Consulting) and the external audit of a GIZ-funded project (BDO), and bookkeeping "
         "on SAGE 100. He has 7+ years of finance and accounting experience (SAGE 100, "
-        "QuickBooks, Xero, SYCEBNL). Alongside that he builds websites and web apps "
-        "(Django, WordPress/WooCommerce, Shopify), runs paid ad campaigns (Facebook, "
-        "Instagram, TikTok, Google Ads) and produces video. Bilingual in French and English."
+        "QuickBooks, Xero, SYCEBNL) and has trained in cybersecurity (penetration testing, "
+        "brute-force attacks). He is also a full-stack web developer (Django, "
+        "WordPress/WooCommerce, Shopify). Bilingual in French and English."
     ),
 }
 
@@ -187,6 +210,19 @@ EDUCATION = [
 # Grouped for display; flattened into schema.org knowsAbout for search engines.
 SKILLS = [
     {
+        "group": {"fr": "Audit, contrôle & prévention de la fraude", "en": "Audit, control & fraud prevention"},
+        "items": [
+            {"fr": "Préparation d'audits externes", "en": "External audit preparation"},
+            {"fr": "Contrôle interne", "en": "Internal control"},
+            {"fr": "Rapprochements bancaires", "en": "Bank reconciliations"},
+            {"fr": "Vérification des actifs & inventaires", "en": "Asset verification & stock counts"},
+            {"fr": "Pistes d'audit & pièces justificatives", "en": "Audit trails & supporting evidence"},
+            {"fr": "Conformité financière", "en": "Financial compliance"},
+            {"fr": "Tests d'intrusion (notions)", "en": "Penetration testing (fundamentals)"},
+            {"fr": "Sécurité des accès & mots de passe", "en": "Access & password security"},
+        ],
+    },
+    {
         "group": {"fr": "Comptabilité & finance", "en": "Accounting & finance"},
         "items": [
             "SAGE 100 Comptabilité", "QuickBooks", "Xero",
@@ -259,6 +295,9 @@ def get_profile(lang=None):
             "full_name": FULL_NAME,
             "alternate_names": ALTERNATE_NAMES,
             "job_titles": JOB_TITLES,
+            "focus": FOCUS,
+            "career_goal": CAREER_GOAL,
+            "goal_foundations": GOAL_FOUNDATIONS,
             "summary": SUMMARY,
             "location": LOCATION,
             "languages": LANGUAGES,

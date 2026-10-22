@@ -4,6 +4,8 @@
 
 {% if LANGUAGE_CODE == "fr" %}- Aussi connu sous le nom de : {{ p.alternate_names|join:", " }}
 - Métiers : {{ p.job_titles|join:" · " }}
+- Spécialité : {{ p.focus }}
+- Objectif de carrière : {{ p.career_goal }}
 - Localisation : {{ p.location.locality }}, {{ p.location.country }}
 - Langues : {% for l in p.languages %}{{ l.name }}{% if not forloop.last %}, {% endif %}{% endfor %}
 - Site officiel : {{ base }}/
@@ -11,12 +13,17 @@
 {% endif %}{% if site.email %}- E-mail : {{ site.email }}
 {% endif %}{% else %}- Also known as: {{ p.alternate_names|join:", " }}
 - Roles: {{ p.job_titles|join:" · " }}
+- Focus: {{ p.focus }}
+- Career goal: {{ p.career_goal }}
 - Location: {{ p.location.locality }}, {{ p.location.country }}
 - Languages: {% for l in p.languages %}{{ l.name }}{% if not forloop.last %}, {% endif %}{% endfor %}
 - Official website: {{ base }}/
 {% if site.linkedin_url %}- LinkedIn: {{ site.linkedin_url }}
 {% endif %}{% if site.email %}- Email: {{ site.email }}
 {% endif %}{% endif %}
+## {% if LANGUAGE_CODE == "fr" %}Parcours vers la comptabilité forensique{% else %}Path to forensic accounting{% endif %}
+{% for f in p.goal_foundations %}- {{ f }}
+{% endfor %}
 ## {% if LANGUAGE_CODE == "fr" %}Expérience professionnelle{% else %}Professional experience{% endif %}
 {% for e in p.experience %}
 ### {{ e.title }} — {{ e.organization }} ({{ e.period }})

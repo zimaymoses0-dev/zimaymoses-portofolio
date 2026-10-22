@@ -7,14 +7,14 @@
   "trailingSlash": true,
   "redirects": [
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [
         {
           "type": "host",
           "value": "www.zimaymoses.com"
         }
       ],
-      "destination": "https://zimaymoses.com/:path*",
+      "destination": "https://zimaymoses.com/$1",
       "permanent": true
     }
   ],

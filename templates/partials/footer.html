@@ -36,7 +36,7 @@
     </div>
 
     <div class="footer-bottom">
-      <span>{% if site_settings.copyright_text %}{% t site_settings.copyright_text %}{% else %}{% t "© Tous droits réservés." %}{% endif %}</span>
+      <span>{% if site_settings.copyright_text %}{% t site_settings.copyright_text %}{% else %}{% t "© Tous droits réservés." %}{% endif %} · <a href="{% url 'core:privacy' %}">{% t "Politique de confidentialité" %}</a></span>
       <div class="footer-socials">
         {% if site_settings.linkedin_url %}<a href="{{ site_settings.linkedin_url }}">LinkedIn</a>{% endif %}
         {% if site_settings.instagram_url %}<a href="{{ site_settings.instagram_url }}">Instagram</a>{% endif %}

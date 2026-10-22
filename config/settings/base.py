@@ -24,6 +24,14 @@ SITE_URL = env("SITE_URL", default="https://zimaymoses.com").rstrip("/")
 # posts — so the newsletter signup is hidden unless this is turned back on.
 NEWSLETTER_ENABLED = env.bool("NEWSLETTER_ENABLED", default=False)
 
+# Visitor tracking: middleware.js on Vercel writes each visit to an Upstash Redis list;
+# `manage.py sync_visits` (or the button in Admin > Visites) imports them here. The names
+# Vercel's Upstash integration creates (KV_REST_API_*) are accepted too.
+UPSTASH_REDIS_REST_URL = env("UPSTASH_REDIS_REST_URL", default=env("KV_REST_API_URL", default=""))
+UPSTASH_REDIS_REST_TOKEN = env("UPSTASH_REDIS_REST_TOKEN", default=env("KV_REST_API_TOKEN", default=""))
+# Must match the retention period stated in the privacy policy.
+VISIT_RETENTION_DAYS = 365
+
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["localhost", "127.0.0.1"])
 
 INSTALLED_APPS = [
@@ -42,6 +50,7 @@ INSTALLED_APPS = [
     "certifications",
     "newsletter",
     "resources",
+    "analytics",
     # third-party
     "axes",
 ]

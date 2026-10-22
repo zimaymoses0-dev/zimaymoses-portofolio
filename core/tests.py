@@ -277,3 +277,19 @@ class EnglishProjectPagesTests(TestCase):
         self.assertIn("- Xero Accounting — Alison", body)
         self.assertIn("[Mimo store](", body)
         self.assertIn("[Boutique Mimo](", body)
+
+
+class PrivacyPageTests(TestCase):
+    def setUp(self):
+        from django.utils import translation
+
+        translation.activate("fr")
+
+    def test_privacy_policy_in_both_languages_linked_and_in_sitemap(self):
+        fr = self.client.get("/confidentialite/")
+        en = self.client.get("/en/confidentialite/")
+        self.assertContains(fr, "adresse IP")
+        self.assertContains(fr, "12 mois")
+        self.assertContains(en, "Privacy policy")
+        self.assertContains(self.client.get("/"), 'href="/confidentialite/"')
+        self.assertContains(self.client.get("/sitemap.xml"), "https://zimaymoses.com/confidentialite/")

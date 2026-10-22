@@ -321,11 +321,12 @@ class CanonicalDomainSitemap(Sitemap):
 
 
 class StaticViewSitemap(CanonicalDomainSitemap):
-    PRIORITIES = {"core:home": 1.0, "core:about": 0.9, "portfolio:list": 0.8, "certifications:list": 0.8}
+    PRIORITIES = {"core:home": 1.0, "core:about": 0.9, "portfolio:list": 0.8, "certifications:list": 0.8,
+                  "core:privacy": 0.2}
 
     def items(self):
         return ["core:home", "core:about", "portfolio:list", "certifications:list",
-                "core:process", "core:pricing", "resources:list"]
+                "core:process", "core:pricing", "resources:list", "core:privacy"]
 
     def location(self, item):
         return reverse(item)

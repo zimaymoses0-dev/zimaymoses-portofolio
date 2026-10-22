@@ -20,6 +20,13 @@ search-engine ownership files go (e.g. Google Search Console's
 `google83c9d79746db2dc0.html`, Bing's `BingSiteAuth.xml`). Don't delete them, or the site loses its
 verified status.
 
+Visitor tracking: `middleware.js` runs on Vercel for every page request and
+pushes the visit (IP, location, page, referrer, browser) to an Upstash Redis
+list — set `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN` in Vercel. Locally,
+put the same values in `.env` and run `python manage.py sync_visits` (or click
+"Synchroniser" in Admin > Visites) to import them. Visits older than 12 months
+are deleted on sync, as stated in the privacy policy (`/confidentialite/`).
+
 Search/AI discoverability is built in: schema.org JSON-LD, `sitemap.xml`,
 `robots.txt`, `llms.txt` / `llms-full.txt`, and English pages under `/en/`.
 Career, education and skills live in `core/profile.py`; certifications,

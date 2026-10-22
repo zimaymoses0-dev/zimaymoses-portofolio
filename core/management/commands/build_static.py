@@ -35,6 +35,7 @@ PAGES = [
     "portfolio:list",
     "certifications:list",
     "resources:list",
+    "core:privacy",
 ]
 ROOT_FILES = ["/robots.txt", "/llms.txt", "/llms-full.txt", "/sitemap.xml"]
 NOT_FOUND_PROBE = "/__static-build-404__/"

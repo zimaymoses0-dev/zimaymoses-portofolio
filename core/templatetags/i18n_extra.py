@@ -322,6 +322,12 @@ TRANSLATIONS = {
     "Voir le certificat en grand": "View full certificate",
     "Certificat": "Certificate",
     "Vérifier le certificat ↗": "Verify certificate ↗",
+
+    # --- Privacy policy ---
+    "Politique de confidentialité": "Privacy policy",
+    "Vos données": "Your data",
+    "Mise à jour le 23 octobre 2026.": "Last updated 23 October 2026.",
+    "Quelles données le site zimaymoses.com enregistre lors de votre visite (adresse IP, pays, page, provenance), pourquoi, combien de temps, et comment exercer vos droits.": "What data zimaymoses.com records when you visit (IP address, country, page, referrer), why, for how long, and how to exercise your rights.",
 }
 
 

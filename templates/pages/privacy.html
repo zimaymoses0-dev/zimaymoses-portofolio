@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static i18n_extra %}
+
+{% block title %}{% t "Politique de confidentialité" %} — {{ person.full_name }}{% endblock %}
+{% block meta_description %}{% t "Quelles données le site zimaymoses.com enregistre lors de votre visite (adresse IP, pays, page, provenance), pourquoi, combien de temps, et comment exercer vos droits." %}{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/about.css' %}">{% endblock %}
+
+{% block content %}
+  <section class="container about-hero">
+    <span class="eyebrow">{% t "Vos données" %}</span>
+    <h1>{% t "Politique de confidentialité" %}</h1>
+    <p>{% t "Mise à jour le 23 octobre 2026." %}</p>
+  </section>
+
+  <section class="section">
+    <div class="container about-story about-story-body legal-text">
+      {% if LANGUAGE_CODE == "en" %}
+        <h2>Who is responsible</h2>
+        <p>This website, zimaymoses.com, is published by Moses Zegbah Zimay, Abidjan, Côte d'Ivoire. Contact: <a href="mailto:{{ site_settings.email }}">{{ site_settings.email }}</a>.</p>
+
+        <h2>What is recorded when you visit</h2>
+        <p>For each page you open, the site records: your IP address; the approximate location derived from it (country, region, city); the page visited; the page or site that sent you here (for example Google, LinkedIn or ChatGPT); your browser, operating system and device type, as reported by your browser; your browser's language; and the date and time.</p>
+        <p>The site uses no cookies, no advertising trackers and no third-party analytics. No form on the site collects personal information.</p>
+
+        <h2>Why</h2>
+        <ul>
+          <li><strong>Security</strong>: detecting attempts to break into the site, such as scans for admin pages.</li>
+          <li><strong>Audience</strong>: knowing which pages are read and how visitors find the site, so it can be improved.</li>
+        </ul>
+        <p>The legal basis is the publisher's legitimate interest in securing and improving the site.</p>
+
+        <h2>Who processes the data</h2>
+        <p>The site is hosted by Vercel Inc., which provides the location estimate. Visit records are stored temporarily with Upstash Inc. (database service), then on the publisher's own computer. These providers may store data outside Côte d'Ivoire. The data is never sold, shared with advertisers or used to identify you personally.</p>
+
+        <h2>How long</h2>
+        <p>Visit records are kept for a maximum of 12 months, then deleted automatically.</p>
+
+        <h2>Your rights</h2>
+        <p>Under Ivorian law No. 2013-450 on the protection of personal data and, where it applies, the EU General Data Protection Regulation (GDPR), you can ask to access, correct or delete the data concerning you, or object to its processing. Write to <a href="mailto:{{ site_settings.email }}">{{ site_settings.email }}</a>, stating your IP address and the approximate date of your visit. You may also lodge a complaint with the ARTCI (Côte d'Ivoire) or your local data protection authority.</p>
+      {% else %}
+        <h2>Responsable du site</h2>
+        <p>Le site zimaymoses.com est édité par Moses Zegbah Zimay, Abidjan, Côte d'Ivoire. Contact : <a href="mailto:{{ site_settings.email }}">{{ site_settings.email }}</a>.</p>
+
+        <h2>Ce qui est enregistré lors de votre visite</h2>
+        <p>Pour chaque page que vous ouvrez, le site enregistre : votre adresse IP ; la localisation approximative qui en découle (pays, région, ville) ; la page consultée ; la page ou le site qui vous a mené ici (par exemple Google, LinkedIn ou ChatGPT) ; votre navigateur, votre système d'exploitation et le type d'appareil, tels que votre navigateur les indique ; la langue de votre navigateur ; la date et l'heure.</p>
+        <p>Le site n'utilise ni cookies, ni traceurs publicitaires, ni outil de statistiques tiers. Aucun formulaire du site ne collecte d'informations personnelles.</p>
+
+        <h2>Pourquoi</h2>
+        <ul>
+          <li><strong>Sécurité</strong> : repérer les tentatives d'intrusion, comme la recherche de pages d'administration.</li>
+          <li><strong>Audience</strong> : savoir quelles pages sont lues et comment les visiteurs trouvent le site, afin de l'améliorer.</li>
+        </ul>
+        <p>La base légale est l'intérêt légitime de l'éditeur à sécuriser et améliorer son site.</p>
+
+        <h2>Qui traite les données</h2>
+        <p>Le site est hébergé par Vercel Inc., qui fournit l'estimation de localisation. Les visites sont stockées temporairement chez Upstash Inc. (service de base de données), puis sur l'ordinateur de l'éditeur. Ces prestataires peuvent stocker les données hors de Côte d'Ivoire. Les données ne sont jamais vendues, ni partagées avec des annonceurs, ni utilisées pour vous identifier personnellement.</p>
+
+        <h2>Durée de conservation</h2>
+        <p>Les visites sont conservées 12 mois au maximum, puis supprimées automatiquement.</p>
+
+        <h2>Vos droits</h2>
+        <p>Conformément à la loi ivoirienne n° 2013-450 relative à la protection des données à caractère personnel et, lorsqu'il s'applique, au Règlement général sur la protection des données (RGPD), vous pouvez demander l'accès, la rectification ou la suppression des données vous concernant, ou vous opposer à leur traitement. Écrivez à <a href="mailto:{{ site_settings.email }}">{{ site_settings.email }}</a> en indiquant votre adresse IP et la date approximative de votre visite. Vous pouvez aussi saisir l'ARTCI (Côte d'Ivoire) ou l'autorité de protection des données de votre pays.</p>
+      {% endif %}
+    </div>
+  </section>
+{% endblock %}

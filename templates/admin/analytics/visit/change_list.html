@@ -1,0 +1,63 @@
+{% extends "admin/change_list.html" %}
+
+{% block object-tools-items %}
+  <li><a href="{% url 'admin:analytics_visit_sync' %}">⟳ Synchroniser les visites</a></li>
+  {{ block.super }}
+{% endblock %}
+
+{% block content %}
+<style>
+  .vd { margin: 0 0 24px; }
+  .vd-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 16px; }
+  .vd-tile { border: 1px solid var(--hairline-color, #ddd); border-radius: 8px; padding: 12px 14px; background: var(--body-bg, #fff); }
+  .vd-tile b { display: block; font-size: 24px; line-height: 1.2; }
+  .vd-tile span { color: var(--body-quiet-color, #666); font-size: 12px; }
+  .vd-tile.alert b { color: #c0392b; }
+  .vd-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .vd-cols h3 { margin: 0 0 6px; font-size: 13px; text-transform: uppercase; letter-spacing: .04em; }
+  .vd-cols table { width: 100%; }
+  .vd-cols td:last-child { text-align: right; font-weight: 600; }
+  .vd-note { padding: 10px 14px; border-radius: 8px; background: #fff4e5; color: #6b4300; margin-bottom: 16px; }
+</style>
+<div class="vd">
+  {% if not upstash_configured %}
+    <p class="vd-note">Le suivi n'est pas encore relié : ajoute <code>UPSTASH_REDIS_REST_URL</code> et <code>UPSTASH_REDIS_REST_TOKEN</code> dans le fichier <code>.env</code>, puis clique sur « Synchroniser les visites ».</p>
+  {% endif %}
+
+  <div class="vd-grid">
+    <div class="vd-tile"><b>{{ stats.views_today }}</b><span>Pages vues aujourd'hui</span></div>
+    <div class="vd-tile"><b>{{ stats.views_7 }}</b><span>Pages vues · 7 jours</span></div>
+    <div class="vd-tile"><b>{{ stats.views_30 }}</b><span>Pages vues · 30 jours</span></div>
+    <div class="vd-tile"><b>{{ stats.visitors_30 }}</b><span>Visiteurs uniques (IP) · 30 jours</span></div>
+    <div class="vd-tile"><b>{{ stats.bots_30 }}</b><span>Passages de robots · 30 jours</span></div>
+    <div class="vd-tile {% if stats.probes_30 %}alert{% endif %}"><b>{{ stats.probes_30 }}</b><span>Tentatives admin / scans · 30 jours</span></div>
+  </div>
+  <p class="help">Dernière visite enregistrée : {% if stats.last_visit %}{{ stats.last_visit.timestamp|date:"d/m/Y H:i" }}{% else %}aucune pour l'instant{% endif %}. Les chiffres « visiteurs » excluent les robots et les tentatives d'intrusion.</p>
+
+  <div class="vd-cols">
+    <div><h3>Comment ils t'ont trouvé</h3><table>{% for r in top_sources %}<tr><td>{{ r.source }}</td><td>{{ r.n }}</td></tr>{% empty %}<tr><td>—</td><td></td></tr>{% endfor %}</table></div>
+    <div><h3>Pages les plus vues</h3><table>{% for r in top_pages %}<tr><td>{{ r.path }}</td><td>{{ r.n }}</td></tr>{% empty %}<tr><td>—</td><td></td></tr>{% endfor %}</table></div>
+    <div><h3>Pays</h3><table>{% for r in top_countries %}<tr><td>{{ r.country }}</td><td>{{ r.n }}</td></tr>{% empty %}<tr><td>—</td><td></td></tr>{% endfor %}</table></div>
+    <div><h3>Villes</h3><table>{% for r in top_cities %}<tr><td>{{ r.city }}</td><td>{{ r.n }}</td></tr>{% empty %}<tr><td>—</td><td></td></tr>{% endfor %}</table></div>
+    <div><h3>Robots (Google, IA…)</h3><table>{% for r in top_bots %}<tr><td>{{ r.bot_name }}</td><td>{{ r.n }}</td></tr>{% empty %}<tr><td>—</td><td></td></tr>{% endfor %}</table></div>
+  </div>
+
+  <div class="vd-cols" style="margin-top:16px">
+    <div>
+      <h3>Tentatives d'accès admin / scans sur le site en ligne</h3>
+      <table>
+        {% for v in recent_probes %}<tr><td>{{ v.timestamp|date:"d/m H:i" }} · {{ v.ip }} · {{ v.location|default:"?" }}<br><small>{{ v.path }}</small></td><td></td></tr>
+        {% empty %}<tr><td>Aucune. (L'admin n'est pas en ligne : ces tentatives tombent toutes sur une page 404.)</td><td></td></tr>{% endfor %}
+      </table>
+    </div>
+    <div>
+      <h3>Échecs de connexion à l'admin local</h3>
+      <table>
+        {% for f in local_admin_failures %}<tr><td>{{ f.attempt_time|date:"d/m H:i" }} · {{ f.ip_address }} · « {{ f.username }} »</td><td></td></tr>
+        {% empty %}<tr><td>Aucun échec. <a href="{% url 'admin:axes_accesslog_changelist' %}">Voir toutes les connexions</a></td><td></td></tr>{% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+{{ block.super }}
+{% endblock %}

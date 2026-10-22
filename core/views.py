@@ -41,3 +41,7 @@ def about(request):
 
 def pricing(request):
     return render(request, "pages/pricing.html")
+
+
+def privacy(request):
+    return render(request, "pages/privacy.html")

@@ -89,10 +89,10 @@ Christian youth organization: films, vacation Bible schools and gospel concerts.
 - Website & Web App Development: Custom websites, WordPress/Shopify builds, and full-stack web apps.
 
 ## Projects
-- [Mimo — Comptabilité & SEO produit pour une marque bien-être](https://zimaymoses.com/en/work/mimo/): Suivi financier et fiches produit optimisées SEO pour une marque bien-être sur Shopify.
-- [Nadrelie — Boutique WordPress pour une marque de soins ancestraux](https://zimaymoses.com/en/work/nadrelie/): Création de la boutique WordPress/WooCommerce et rédaction des fiches produit optimisées SEO.
-- [Children's Fruit — Plateforme full-stack Django](https://zimaymoses.com/en/work/childrens-fruit/): Création et maintenance de la plateforme WebTV, communauté et dons.
-- [Protoclean — Comptabilité, publicité & branding pour une marque d'hygiène](https://zimaymoses.com/en/work/protoclean/): Comptabilité, gestion des campagnes publicitaires et apport sur la marque pour une marque d'hygiène sur Shopify.
+- [Mimo — Bookkeeping & product SEO for a wellness brand](https://zimaymoses.com/en/work/mimo/): Financial tracking and SEO-optimized product pages for a wellness brand on Shopify.
+- [Nadrelie — WordPress store for an ancestral skincare brand](https://zimaymoses.com/en/work/nadrelie/): Built the WordPress/WooCommerce store and wrote SEO-optimized product pages.
+- [Children's Fruit — Full-stack Django platform](https://zimaymoses.com/en/work/childrens-fruit/): Built and maintain the web TV, community and donations platform.
+- [Protoclean — Bookkeeping, advertising & branding for a hygiene brand](https://zimaymoses.com/en/work/protoclean/): Bookkeeping, ad campaign management and brand input for a hygiene brand on Shopify.
 
 ## Pages
 - [About — full background](https://zimaymoses.com/en/about/)

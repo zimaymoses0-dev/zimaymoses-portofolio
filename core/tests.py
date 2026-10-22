@@ -249,3 +249,31 @@ class CertificationsPageTests(TestCase):
         self.assertEqual(xero["url"], "https://example.com/verify/123")
         self.assertEqual(xero["identifier"], "123")
         self.assertTrue(xero["@id"].endswith(f"/certifications/#{self.cert.anchor}"))
+
+
+class EnglishProjectPagesTests(TestCase):
+    def setUp(self):
+        from django.core.cache import cache
+        from django.utils import translation
+
+        cache.clear()
+        translation.activate("fr")
+        CaseStudy.objects.create(
+            title="Boutique Mimo", title_en="Mimo store", slug="mimo", published=True,
+            short_description="Une boutique.", short_description_en="A store.",
+        )
+        Certification.objects.create(title="Xero Accounting", issuer="Alison")
+
+    def test_english_project_page_is_not_a_duplicate_of_the_french_one(self):
+        fr = self.client.get("/work/mimo/").content.decode()
+        en = self.client.get("/en/work/mimo/").content.decode()
+        self.assertIn("<title>Boutique Mimo", fr)
+        self.assertIn("<title>Mimo store", en)
+        self.assertIn("A store.", en)
+        self.assertNotIn("Une boutique.", en)
+
+    def test_llms_txt_names_every_certification_and_project(self):
+        body = self.client.get("/llms-full.txt").content.decode()
+        self.assertIn("- Xero Accounting — Alison", body)
+        self.assertIn("[Mimo store](", body)
+        self.assertIn("[Boutique Mimo](", body)

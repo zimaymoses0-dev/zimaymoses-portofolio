@@ -49,7 +49,7 @@
 {% for s in services %}- {% t s.name %}{% if s.short_description %}: {% t s.short_description %}{% endif %}
 {% endfor %}
 ## {% if LANGUAGE_CODE == "fr" %}Projets{% else %}Projects{% endif %}
-{% for c in case_studies %}- [{{ c.title }}]({{ base }}{% url 'portfolio:detail' c.slug %}){% if c.short_description %}: {{ c.short_description }}{% endif %}
+{% for c in case_studies %}- [{{ c.display_title }}]({{ base }}{% url 'portfolio:detail' c.slug %}){% if c.display_short_description %}: {{ c.display_short_description }}{% endif %}
 {% endfor %}
 ## {% if LANGUAGE_CODE == "fr" %}Pages{% else %}Pages{% endif %}
 - [{% if LANGUAGE_CODE == "fr" %}À propos — parcours complet{% else %}About — full background{% endif %}]({{ base }}{% url 'core:about' %})

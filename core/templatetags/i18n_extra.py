@@ -276,7 +276,7 @@ TRANSLATIONS = {
     "Diplômes & études.": "Degrees & studies.",
     "Langues": "Languages",
     "audit & prévention de la fraude": "audit & fraud prevention",
-    "Parcours de Moses Zegbah Zimay, assistant comptable (audit, contrôle interne, prévention de la fraude) à l'Organisation Interafricaine du Café, en route vers la comptabilité forensique.": "Background of Moses Zegbah Zimay, accounting assistant (audit, internal control, fraud prevention) at the Inter-African Coffee Organization, on the path to forensic accounting.",
+    "Moses Zegbah Zimay, assistant comptable (audit, contrôle interne, fraude) à l'Organisation Interafricaine du Café, en route vers la comptabilité forensique.": "Moses Zegbah Zimay, accounting assistant (audit, internal control, fraud) at the Inter-African Coffee Organization, on the path to forensic accounting.",
     "Certifications de Moses Zegbah Zimay : finance et comptabilité (SYCEBNL, Xero), cybersécurité (tests d'intrusion), gestion, marketing et développement web.": "Certifications of Moses Zegbah Zimay: finance and accounting (SYCEBNL, Xero), cybersecurity (penetration testing), management, marketing and web development.",
     "Objectif": "Goal",
     "Ce qui m'y prépare déjà, au quotidien :": "What already prepares me for it, day to day:",

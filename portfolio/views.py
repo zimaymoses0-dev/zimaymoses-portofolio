@@ -31,7 +31,7 @@ def work_detail(request, slug):
         "jsonld": [
             seo.case_study_jsonld(request, case_study),
             seo.breadcrumbs_jsonld(
-                request, ("Work", reverse("portfolio:list")), (case_study.title, request.path)
+                request, ("Work", reverse("portfolio:list")), (case_study.display_title, request.path)
             ),
         ],
     }

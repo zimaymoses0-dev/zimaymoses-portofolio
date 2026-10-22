@@ -19,6 +19,8 @@ class CaseStudyAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {"fields": ("title", "slug", "client", "category", "year", "short_description", "live_url")}),
         ("Editorial", {"fields": ("challenge", "strategy", "solution", "outcome")}),
+        ("English", {"fields": ("title_en", "category_en", "short_description_en",
+                                "challenge_en", "strategy_en", "solution_en", "outcome_en")}),
         ("Metrics", {"fields": ("primary_metric", "secondary_metric")}),
         ("Media", {"fields": ("hero_image", "thumbnail")}),
         ("Publishing", {"fields": ("featured", "published", "order")}),

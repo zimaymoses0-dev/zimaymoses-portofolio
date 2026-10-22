@@ -224,10 +224,10 @@ def case_study_jsonld(request, case_study):
     data = {
         "@context": "https://schema.org",
         "@type": "CreativeWork",
-        "name": case_study.title,
+        "name": case_study.display_title,
         "url": absolute(request.path),
-        "description": case_study.short_description,
-        "genre": case_study.category,
+        "description": case_study.display_short_description,
+        "genre": case_study.display_category,
         "creator": {"@id": absolute(PERSON_ID), "@type": "Person", "name": profile.FULL_NAME},
         "inLanguage": (get_language() or "fr")[:2],
     }

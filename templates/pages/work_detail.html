@@ -1,23 +1,23 @@
 {% extends "base.html" %}
 {% load static i18n_extra %}
 
-{% block title %}{{ case_study.title }} — {{ person.full_name }}{% endblock %}
+{% block title %}{{ case_study.display_title }} — {{ person.full_name }}{% endblock %}
 {% block og_type %}article{% endblock %}{% block og_image %}{% if case_study.hero_image %}{{ case_study.hero_image.url }}{% else %}{{ block.super }}{% endif %}{% endblock %}
-{% block meta_description %}{{ case_study.short_description }}{% endblock %}
+{% block meta_description %}{{ case_study.display_short_description }}{% endblock %}
 {% block extra_css %}<link rel="stylesheet" href="{% static 'css/work.css' %}">{% endblock %}
 
 {% block content %}
   <section class="container project-hero">
     <div class="project-hero-eyebrow" data-reveal>
       {% if case_study.client %}<span>{{ case_study.client }}</span>{% endif %}
-      {% if case_study.category %}<span>{{ case_study.category }}</span>{% endif %}
+      {% if case_study.display_category %}<span>{{ case_study.display_category }}</span>{% endif %}
       {% if case_study.year %}<span>{{ case_study.year }}</span>{% endif %}
     </div>
-    <h1 data-reveal>{{ case_study.title }}</h1>
+    <h1 data-reveal>{{ case_study.display_title }}</h1>
 
     {% if case_study.hero_image %}
       <div class="project-hero-image" data-reveal>
-        <img src="{{ case_study.hero_image.url }}" alt="{{ case_study.title }}">
+        <img src="{{ case_study.hero_image.url }}" alt="{{ case_study.display_title }}">
       </div>
     {% endif %}
   </section>
@@ -31,10 +31,10 @@
             <p>{{ case_study.client }}</p>
           </div>
         {% endif %}
-        {% if case_study.category %}
+        {% if case_study.display_category %}
           <div class="project-summary-item">
             <h4>{% t "Catégorie" %}</h4>
-            <p>{{ case_study.category }}</p>
+            <p>{{ case_study.display_category }}</p>
           </div>
         {% endif %}
         {% if case_study.year %}
@@ -59,10 +59,10 @@
       </aside>
 
       <div class="project-body">
-        {% if case_study.challenge %}
+        {% if case_study.display_challenge %}
           <div class="project-block" data-reveal>
             <h2>{% t "Le problème" %}</h2>
-            <p>{{ case_study.challenge }}</p>
+            <p>{{ case_study.display_challenge }}</p>
           </div>
         {% endif %}
 
@@ -79,24 +79,24 @@
           </div>
         {% endfor %}
 
-        {% if case_study.strategy %}
+        {% if case_study.display_strategy %}
           <div class="project-block" data-reveal>
             <h2>{% t "Stratégie" %}</h2>
-            <p>{{ case_study.strategy }}</p>
+            <p>{{ case_study.display_strategy }}</p>
           </div>
         {% endif %}
 
-        {% if case_study.solution %}
+        {% if case_study.display_solution %}
           <div class="project-block" data-reveal>
             <h2>{% t "Réalisation & solution" %}</h2>
-            <p>{{ case_study.solution }}</p>
+            <p>{{ case_study.display_solution }}</p>
           </div>
         {% endif %}
 
-        {% if case_study.outcome %}
+        {% if case_study.display_outcome %}
           <div class="project-block" data-reveal>
             <h2>{% t "Résultats" %}</h2>
-            <p>{{ case_study.outcome }}</p>
+            <p>{{ case_study.display_outcome }}</p>
             {% if case_study.primary_metric or case_study.secondary_metric %}
               <div class="project-metrics">
                 {% if case_study.primary_metric %}<div class="project-metric-value">{{ case_study.primary_metric }}</div>{% endif %}
@@ -120,7 +120,7 @@
       <div class="container">
         <span class="eyebrow">{% t "Projet suivant" %}</span>
         <a href="{% url 'portfolio:detail' next_case_study.slug %}">
-          <h2>{{ next_case_study.title }} →</h2>
+          <h2>{{ next_case_study.display_title }} →</h2>
         </a>
       </div>
     </section>

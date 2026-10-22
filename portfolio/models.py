@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.translation import get_language
 
 from core.validators import MaxFileSizeValidator
 
@@ -15,6 +16,14 @@ class CaseStudy(models.Model):
     strategy = models.TextField(blank=True)
     solution = models.TextField(blank=True)
     outcome = models.TextField(blank=True)
+    # English versions, shown on /en/ pages. Leave blank to fall back to the French text.
+    title_en = models.CharField(max_length=200, blank=True)
+    category_en = models.CharField(max_length=120, blank=True)
+    short_description_en = models.CharField(max_length=255, blank=True)
+    challenge_en = models.TextField(blank=True)
+    strategy_en = models.TextField(blank=True)
+    solution_en = models.TextField(blank=True)
+    outcome_en = models.TextField(blank=True)
     primary_metric = models.CharField(max_length=80, blank=True, help_text="e.g. '+67% YoY revenue'")
     secondary_metric = models.CharField(max_length=80, blank=True)
     hero_image = models.ImageField(
@@ -33,6 +42,18 @@ class CaseStudy(models.Model):
 
     def __str__(self):
         return self.title
+
+    TRANSLATED_FIELDS = ("title", "category", "short_description", "challenge", "strategy", "solution", "outcome")
+
+    def __getattr__(self, name):
+        """`display_<field>`: the English text on /en/ pages when filled in, else the French."""
+        if name.startswith("display_") and name[8:] in self.TRANSLATED_FIELDS:
+            field = name[8:]
+            english = self.__dict__.get(f"{field}_en", "")
+            if (get_language() or "").startswith("en") and english:
+                return english
+            return self.__dict__.get(field, "")
+        raise AttributeError(name)
 
 
 class CaseStudySection(models.Model):

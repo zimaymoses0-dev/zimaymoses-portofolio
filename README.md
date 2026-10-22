@@ -15,6 +15,11 @@ production. Django and its Admin are the local editing tool.
 3. Commit and push `public/` — Vercel deploys it (see `vercel.json`, which also
    sets the security headers and Content-Security-Policy).
 
+Files in `site_root/` are copied verbatim to the site root — that's where
+search-engine ownership files go (e.g. Google Search Console's
+`google83c9d79746db2dc0.html`). Don't delete them, or the site loses its
+verified status.
+
 Search/AI discoverability is built in: schema.org JSON-LD, `sitemap.xml`,
 `robots.txt`, `llms.txt` / `llms-full.txt`, and English pages under `/en/`.
 Career, education and skills live in `core/profile.py`; certifications,

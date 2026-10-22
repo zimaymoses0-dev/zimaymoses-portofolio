@@ -193,6 +193,8 @@ class BuildStaticTests(TestCase):
                          "robots.txt", "llms.txt", "sitemap.xml", "static/css/base.css"):
                 self.assertTrue((out / path).is_file(), path)
             self.assertFalse((out / "static" / "admin").exists())
+            # Search-engine ownership files from site_root/ are published at the root.
+            self.assertTrue((out / "google83c9d79746db2dc0.html").is_file())
             # Static pages must not contain forms that need a server to post to.
             self.assertNotIn("csrfmiddlewaretoken", (out / "index.html").read_text(encoding="utf-8"))
         finally:

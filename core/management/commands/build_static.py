@@ -71,6 +71,7 @@ class Command(BaseCommand):
             cache.clear()
             written = self.render_pages(out)
 
+        root_count = self.copy_site_root(out)
         static_count = self.copy_static(out)
         media_count = self.copy_media(out, written)
         self.check_references(out, written)
@@ -118,6 +119,25 @@ class Command(BaseCommand):
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(content)
         return target
+
+    def copy_site_root(self, out):
+        """Files in site_root/ are published verbatim at the site root.
+
+        For files that must live at an exact URL and never change, such as search-engine
+        ownership checks (Google Search Console's googleXXXX.html, Bing's BingSiteAuth.xml).
+        """
+        source = settings.BASE_DIR / "site_root"
+        count = 0
+        if source.is_dir():
+            for path in source.rglob("*"):
+                if path.is_file():
+                    target = out / path.relative_to(source)
+                    if target.exists():
+                        raise CommandError(f"site_root/{path.name} would overwrite a generated page.")
+                    target.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copy2(path, target)
+                    count += 1
+        return count
 
     def copy_static(self, out):
         prefix = "/" + settings.STATIC_URL.strip("/")

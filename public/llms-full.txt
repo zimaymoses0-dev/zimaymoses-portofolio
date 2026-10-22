@@ -92,9 +92,10 @@ Christian youth organization: films, vacation Bible schools and gospel concerts.
 - **Strengths**: Sense of responsibility, Interpersonal skills, Initiative and proactivity
 
 ## Services offered
+- Bank Reconciliation & Internal Control: Monthly multi-account, multi-currency reconciliations, spotting discrepancies and strengthening control procedures.
+- Audit Preparation & Supporting Evidence: Audit-ready files: supporting documents, fixed-asset register, stock counts and answers to auditor requests.
+- Accounting Setup (SAGE, Xero, QuickBooks): Accounting setup, bookkeeping, closing and financial reporting — including for non-profits (SYCEBNL).
 - Website & Web App Development: Custom websites, WordPress/Shopify builds, and full-stack web apps.
-- Accounting Systems & Automation: Bookkeeping setup, bank reconciliation, and financial reporting on Sage & Xero.
-- Social Media & Ads Management: Content, Facebook/Instagram/TikTok/Google Ads setup, and performance tracking.
 
 ## Projects
 - [Mimo — Comptabilité & SEO produit pour une marque bien-être](https://zimaymoses.com/en/work/mimo/): Suivi financier et fiches produit optimisées SEO pour une marque bien-être sur Shopify.
@@ -206,9 +207,10 @@ Organisation de jeunesse chrétienne : films, écoles bibliques de vacances et c
 - **Savoir-être**: Sens des responsabilités, Aisance relationnelle, Initiative et proactivité
 
 ## Services proposés
+- Rapprochements bancaires & contrôle interne: Rapprochements mensuels multi-comptes et multi-devises, détection des écarts et renforcement des procédures de contrôle.
+- Préparation d'audit & pièces justificatives: Dossiers prêts pour l'auditeur : pièces justificatives, registre des immobilisations, inventaires et réponses aux demandes.
+- Mise en place comptable (SAGE, Xero, QuickBooks): Paramétrage de la comptabilité, saisie, clôture et reporting financier — y compris pour les ONG (SYCEBNL).
 - Développement de sites & applications web: Sites sur mesure, boutiques WordPress/Shopify, et applications web full-stack.
-- Systèmes comptables & automatisation: Mise en place de la comptabilité, rapprochement bancaire, et reporting financier sur Sage & Xero.
-- Réseaux sociaux & gestion publicitaire: Contenu, mise en place des publicités Facebook/Instagram/TikTok/Google, et suivi des performances.
 
 ## Projets
 - [Mimo — Comptabilité & SEO produit pour une marque bien-être](https://zimaymoses.com/work/mimo/): Suivi financier et fiches produit optimisées SEO pour une marque bien-être sur Shopify.

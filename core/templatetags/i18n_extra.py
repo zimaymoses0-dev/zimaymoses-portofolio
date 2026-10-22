@@ -280,6 +280,31 @@ TRANSLATIONS = {
     "Certifications de Moses Zegbah Zimay : finance et comptabilité (SYCEBNL, Xero), cybersécurité (tests d'intrusion), gestion, marketing et développement web.": "Certifications of Moses Zegbah Zimay: finance and accounting (SYCEBNL, Xero), cybersecurity (penetration testing), management, marketing and web development.",
     "Objectif": "Goal",
     "Ce qui m'y prépare déjà, au quotidien :": "What already prepares me for it, day to day:",
+
+    # --- Home page: audit & fraud-prevention positioning ---
+    "Audit & prévention de la fraude.": "Audit & fraud prevention.",
+    "La rigueur d'un comptable. Le regard d'un enquêteur.": "An accountant's rigor. An investigator's eye.",
+    "Assistant comptable spécialisé en audit, contrôle interne et prévention de la fraude — en route vers la comptabilité forensique.": "Accounting assistant focused on audit, internal control and fraud prevention — on the path to forensic accounting.",
+    "Des comptes justes, des contrôles solides.": "Accurate books, solid controls.",
+    "Rapprochements, préparation d'audit et mise en place comptable — pour que chaque chiffre soit justifié et chaque anomalie repérée.": "Reconciliations, audit preparation and accounting setup — so every figure is backed up and every anomaly gets caught.",
+    "Chaque chiffre doit pouvoir être justifié.": "Every figure has to be backed up.",
+    "Précision. Esprit critique. Confiance.": "Accuracy. Professional skepticism. Trust.",
+    "Besoin de comptes fiables et bien contrôlés ? Parlons‑en.": "Need reliable, well-controlled books? Let's talk.",
+    "Assistant comptable — audit, contrôle interne et prévention de la fraude, avec plus de 7 ans d'expérience en finance.": "Accounting assistant — audit, internal control and fraud prevention, with 7+ years in finance.",
+    "Assistant comptable spécialisé en audit, contrôle interne et prévention de la fraude, en route vers la comptabilité forensique. Également développeur web full-stack.": "Accounting assistant focused on audit, internal control and fraud prevention, on the path to forensic accounting. Also a full-stack web developer.",
+    "Aucun écart laissé sans explication": "No discrepancy left unexplained",
+    "Contrôle": "Control",
+    "Rapprochements bancaires multi-devises": "Multi-currency bank reconciliations",
+    "Vérification des actifs & inventaires": "Asset verification & stock counts",
+    "Préparation d'audits externes": "External audit preparation",
+    "Sensibilisation à la cybersécurité": "Cybersecurity awareness",
+    "Rapprochements bancaires & contrôle interne": "Bank Reconciliation & Internal Control",
+    "Rapprochements mensuels multi-comptes et multi-devises, détection des écarts et renforcement des procédures de contrôle.": "Monthly multi-account, multi-currency reconciliations, spotting discrepancies and strengthening control procedures.",
+    "Mensuel": "Monthly",
+    "Préparation d'audit & pièces justificatives": "Audit Preparation & Supporting Evidence",
+    "Dossiers prêts pour l'auditeur : pièces justificatives, registre des immobilisations, inventaires et réponses aux demandes.": "Audit-ready files: supporting documents, fixed-asset register, stock counts and answers to auditor requests.",
+    "Mise en place comptable (SAGE, Xero, QuickBooks)": "Accounting Setup (SAGE, Xero, QuickBooks)",
+    "Paramétrage de la comptabilité, saisie, clôture et reporting financier — y compris pour les ONG (SYCEBNL).": "Accounting setup, bookkeeping, closing and financial reporting — including for non-profits (SYCEBNL).",
 }
 
 

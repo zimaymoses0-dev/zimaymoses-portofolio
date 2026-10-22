@@ -83,9 +83,10 @@ Christian youth organization: films, vacation Bible schools and gospel concerts.
 - **Strengths**: Sense of responsibility, Interpersonal skills, Initiative and proactivity
 
 ## Services offered
+- Bank Reconciliation & Internal Control: Monthly multi-account, multi-currency reconciliations, spotting discrepancies and strengthening control procedures.
+- Audit Preparation & Supporting Evidence: Audit-ready files: supporting documents, fixed-asset register, stock counts and answers to auditor requests.
+- Accounting Setup (SAGE, Xero, QuickBooks): Accounting setup, bookkeeping, closing and financial reporting — including for non-profits (SYCEBNL).
 - Website & Web App Development: Custom websites, WordPress/Shopify builds, and full-stack web apps.
-- Accounting Systems & Automation: Bookkeeping setup, bank reconciliation, and financial reporting on Sage & Xero.
-- Social Media & Ads Management: Content, Facebook/Instagram/TikTok/Google Ads setup, and performance tracking.
 
 ## Projects
 - [Mimo — Comptabilité & SEO produit pour une marque bien-être](https://zimaymoses.com/en/work/mimo/): Suivi financier et fiches produit optimisées SEO pour une marque bien-être sur Shopify.

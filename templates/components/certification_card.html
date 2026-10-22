@@ -4,7 +4,7 @@
       <img src="{{ certification.image.url }}" alt="{{ certification.title }} certificate" loading="lazy">
     </a>
   {% else %}
-    <span class="certification-badge" aria-hidden="true">{{ certification.issuer|slice:":2"|upper }}</span>
+    <span class="certification-badge" aria-hidden="true">{{ certification.issuer|default:certification.title|slice:":2"|upper }}</span>
   {% endif %}
   <h3>{{ certification.title }}</h3>
   {% if certification.subtitle %}<p>{{ certification.subtitle }}</p>{% endif %}

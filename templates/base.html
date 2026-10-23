@@ -11,9 +11,10 @@
   {% for code, url in hreflang_alternates.items %}<link rel="alternate" hreflang="{{ code }}" href="{{ url }}">
   {% endfor %}<link rel="alternate" hreflang="x-default" href="{{ x_default_url }}">
   {% endblock %}  <link rel="alternate" type="text/plain" title="Profile for AI assistants" href="{{ SITE_URL }}/llms.txt">
-  <link rel="icon" href="{% static 'images/favicon.ico' %}">
-  <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
-  <link rel="apple-touch-icon" href="{% static 'images/favicon.png' %}">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/apple-touch-icon.png' %}">
+  <link rel="manifest" href="{% static 'site.webmanifest' %}">
   <meta name="theme-color" content="#f7f4ec">
 
   <meta property="og:site_name" content="{{ site_settings.site_name }}">
@@ -22,8 +23,8 @@
   <meta property="og:type" content="{% block og_type %}profile{% endblock %}">
   <meta property="og:url" content="{{ canonical_url }}">
   <meta property="og:image" content="{% block og_image %}{{ SITE_URL }}{% static 'images/og-image.png' %}{% endblock %}">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image:width" content="{% block og_image_width %}1200{% endblock %}">
+  <meta property="og:image:height" content="{% block og_image_height %}630{% endblock %}">
   <meta property="og:image:alt" content="{{ person.full_name }}">
   <meta property="og:locale" content="{% if LANGUAGE_CODE == 'en' %}en_US{% else %}fr_FR{% endif %}">
   <meta property="og:locale:alternate" content="{% if LANGUAGE_CODE == 'en' %}fr_FR{% else %}en_US{% endif %}">
@@ -32,7 +33,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ person.full_name }} — {{ person.job_titles.0 }} · {{ person.focus }}">
   <meta name="twitter:description" content="{{ person.summary|truncatechars:200 }}">
-  <meta name="twitter:image" content="{{ SITE_URL }}{% static 'images/og-image.png' %}">
+  <meta name="twitter:image" content="{% block twitter_image %}{{ SITE_URL }}{% static 'images/og-image.png' %}{% endblock %}">
 
   {% for item in jsonld %}{% jsonld item %}
   {% endfor %}
@@ -54,7 +55,6 @@
 
   {% include "partials/footer.html" %}
 
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.17.5/dist/cdn.min.js" integrity="sha384-FYLKjwG3aohNhNZoVG8sY/5ntunm+MqylL90Q+rT3OM7AwV9/BKFjk/RjoIpIgsI" crossorigin="anonymous"></script>
   <script src="{% static 'js/main.js' %}"></script>
   {% block extra_js %}{% endblock %}
 </body>

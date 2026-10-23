@@ -1,8 +1,13 @@
 {% extends "base.html" %}
-{% load static i18n_extra %}
+{% load static core_tags i18n_extra %}
 
 {% block title %}{{ case_study.display_title }} — {{ person.full_name }}{% endblock %}
-{% block og_type %}article{% endblock %}{% block og_image %}{% if case_study.hero_image %}{{ case_study.hero_image.url }}{% else %}{{ block.super }}{% endif %}{% endblock %}
+{% block og_type %}article{% endblock %}
+{# The project's own screenshot as share image, with its real size; site default otherwise. #}
+{% block og_image %}{% if case_study.hero_image %}{{ SITE_URL }}{{ case_study.hero_image.url }}{% else %}{{ block.super }}{% endif %}{% endblock %}
+{% block twitter_image %}{% if case_study.hero_image %}{{ SITE_URL }}{{ case_study.hero_image.url }}{% else %}{{ block.super }}{% endif %}{% endblock %}
+{% block og_image_width %}{% if case_study.hero_image %}{{ case_study.hero_image.width }}{% else %}{{ block.super }}{% endif %}{% endblock %}
+{% block og_image_height %}{% if case_study.hero_image %}{{ case_study.hero_image.height }}{% else %}{{ block.super }}{% endif %}{% endblock %}
 {% block meta_description %}{{ case_study.display_short_description }}{% endblock %}
 {% block extra_css %}<link rel="stylesheet" href="{% static 'css/work.css' %}">{% endblock %}
 
@@ -17,7 +22,7 @@
 
     {% if case_study.hero_image %}
       <div class="project-hero-image" data-reveal>
-        <img src="{{ case_study.hero_image.url }}" alt="{{ case_study.display_title }}">
+        {% responsive_img case_study.hero_image alt=case_study.display_title sizes="(max-width: 1200px) 100vw, 1200px" priority=True %}
       </div>
     {% endif %}
   </section>
@@ -27,25 +32,25 @@
       <aside class="project-summary">
         {% if case_study.client %}
           <div class="project-summary-item">
-            <h4>{% t "Client" %}</h4>
+            <h2>{% t "Client" %}</h2>
             <p>{{ case_study.client }}</p>
           </div>
         {% endif %}
         {% if case_study.display_category %}
           <div class="project-summary-item">
-            <h4>{% t "Catégorie" %}</h4>
+            <h2>{% t "Catégorie" %}</h2>
             <p>{{ case_study.display_category }}</p>
           </div>
         {% endif %}
         {% if case_study.year %}
           <div class="project-summary-item">
-            <h4>{% t "Année" %}</h4>
+            <h2>{% t "Année" %}</h2>
             <p>{{ case_study.year }}</p>
           </div>
         {% endif %}
         {% if case_study.primary_metric %}
           <div class="project-summary-item">
-            <h4>{% t "Résultat" %}</h4>
+            <h2>{% t "Résultat" %}</h2>
             <p>{{ case_study.primary_metric }}</p>
           </div>
         {% endif %}
@@ -70,7 +75,7 @@
           <div class="project-block" data-reveal>
             <h2>{{ section.title }}</h2>
             {% if section.content %}<p>{{ section.content }}</p>{% endif %}
-            {% if section.image %}<img src="{{ section.image.url }}" alt="{{ section.title }}">{% endif %}
+            {% if section.image %}{% responsive_img section.image alt=section.title sizes="(max-width: 900px) 100vw, 900px" %}{% endif %}
             {% if section.video_url %}
               <div class="project-hero-image">
                 <video src="{{ section.video_url }}" controls></video>

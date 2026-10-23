@@ -18,8 +18,8 @@ from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 from django.conf import settings
-from django.contrib.staticfiles import finders
 from django.core.cache import cache
+from django.core.management import call_command
 from django.core.management.base import BaseCommand, CommandError
 from django.test import Client, override_settings
 from django.urls import reverse
@@ -36,6 +36,7 @@ PAGES = [
     "certifications:list",
     "resources:list",
     "core:privacy",
+    "core:legal",
 ]
 ROOT_FILES = ["/robots.txt", "/llms.txt", "/llms-full.txt", "/sitemap.xml"]
 NOT_FOUND_PROBE = "/__static-build-404__/"
@@ -59,21 +60,27 @@ class Command(BaseCommand):
             shutil.rmtree(out)
         out.mkdir(parents=True)
 
-        # Render as production would: real 404 template, no debug pages, plain static URLs.
+        # Render as production would: real 404 template, no debug pages. Static files are
+        # collected first with content hashes in their names (base.3f9a1c2b7d4e.css), so
+        # vercel.json can let browsers cache them for a year: a changed file gets a new name.
+        static_root = out / settings.STATIC_URL.strip("/")
         with override_settings(
             DEBUG=False,
             ALLOWED_HOSTS=["*"],
             SECURE_SSL_REDIRECT=False,
+            STATIC_ROOT=str(static_root),
             STORAGES={
                 **settings.STORAGES,
-                "staticfiles": {"BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage"},
+                "staticfiles": {"BACKEND": "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"},
             },
         ):
+            # Admin's assets aren't needed: Admin is never exported.
+            call_command("collectstatic", interactive=False, verbosity=0, ignore_patterns=["admin"])
+            static_count = sum(1 for p in static_root.rglob("*") if p.is_file())
             cache.clear()
             written = self.render_pages(out)
 
         root_count = self.copy_site_root(out)
-        static_count = self.copy_static(out)
         media_count = self.copy_media(out, written)
         self.check_references(out, written)
         self.check_not_gitignored(out)
@@ -138,24 +145,6 @@ class Command(BaseCommand):
                     target.parent.mkdir(parents=True, exist_ok=True)
                     shutil.copy2(path, target)
                     count += 1
-        return count
-
-    def copy_static(self, out):
-        prefix = "/" + settings.STATIC_URL.strip("/")
-        count = 0
-        seen = set()
-        for finder in finders.get_finders():
-            for path, storage in finder.list(["CVS", ".*", "*~"]):
-                path = path.replace("\\", "/")  # finders return OS-native separators
-                # Admin's assets aren't needed: Admin is never exported.
-                if path in seen or path.startswith("admin/"):
-                    continue
-                seen.add(path)
-                target = out / prefix.lstrip("/") / path
-                target.parent.mkdir(parents=True, exist_ok=True)
-                with storage.open(path) as src:
-                    target.write_bytes(src.read())
-                count += 1
         return count
 
     def copy_media(self, out, written):

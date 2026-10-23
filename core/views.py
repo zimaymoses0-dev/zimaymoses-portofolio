@@ -45,3 +45,7 @@ def pricing(request):
 
 def privacy(request):
     return render(request, "pages/privacy.html")
+
+
+def legal(request):
+    return render(request, "pages/legal.html")

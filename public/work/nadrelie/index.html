@@ -12,9 +12,10 @@
   <link rel="alternate" hreflang="en" href="https://zimaymoses.com/en/work/nadrelie/">
   <link rel="alternate" hreflang="x-default" href="https://zimaymoses.com/work/nadrelie/">
     <link rel="alternate" type="text/plain" title="Profile for AI assistants" href="https://zimaymoses.com/llms.txt">
-  <link rel="icon" href="/static/images/favicon.ico">
-  <link rel="icon" type="image/png" href="/static/images/favicon.png">
-  <link rel="apple-touch-icon" href="/static/images/favicon.png">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon-32x32.a6871b241def.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/images/apple-touch-icon.cd494605781f.png">
+  <link rel="manifest" href="/static/site.d1de38085269.webmanifest">
   <meta name="theme-color" content="#f7f4ec">
 
   <meta property="og:site_name" content="Moses Zimay">
@@ -22,9 +23,9 @@
   <meta property="og:description" content="Moses Zegbah Zimay (Moses Zimay) est assistant comptable basé à Abidjan, en Côte d&#x27;Ivoire, spécialisé en audit, contrôle interne et prévention de la fraude, qui oriente sa carrière vers la comptabili…">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://zimaymoses.com/work/nadrelie/">
-  <meta property="og:image" content="/media/case_studies/hero/preview_nadrelie.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image" content="https://zimaymoses.com/media/case_studies/hero/preview_nadrelie.png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="800">
   <meta property="og:image:alt" content="Moses Zegbah Zimay">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:locale:alternate" content="en_US">
@@ -33,22 +34,22 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Moses Zegbah Zimay — Assistant comptable · Audit, contrôle interne &amp; prévention de la fraude">
   <meta name="twitter:description" content="Moses Zegbah Zimay (Moses Zimay) est assistant comptable basé à Abidjan, en Côte d&#x27;Ivoire, spécialisé en audit, contrôle interne et prévention de la fraude, qui oriente sa carrière vers la comptabili…">
-  <meta name="twitter:image" content="https://zimaymoses.com/static/images/og-image.png">
+  <meta name="twitter:image" content="https://zimaymoses.com/media/case_studies/hero/preview_nadrelie.png">
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"Nadrelie — Boutique WordPress pour une marque de soins ancestraux","url":"https://zimaymoses.com/work/nadrelie/","description":"Création de la boutique WordPress/WooCommerce et rédaction des fiches produit optimisées SEO.","genre":"WordPress \u0026 WooCommerce, SEO","creator":{"@id":"https://zimaymoses.com/#person","@type":"Person","name":"Moses Zegbah Zimay"},"inLanguage":"fr","sourceOrganization":{"@type":"Organization","name":"Nadrelie"},"sameAs":"https://nadrelie.com/","image":"/media/case_studies/hero/preview_nadrelie.png"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Moses Zimay","item":"https://zimaymoses.com/"},{"@type":"ListItem","position":2,"name":"Work","item":"https://zimaymoses.com/work/"},{"@type":"ListItem","position":3,"name":"Nadrelie — Boutique WordPress pour une marque de soins ancestraux","item":"https://zimaymoses.com/work/nadrelie/"}]}</script>
   
-  <link rel="stylesheet" href="/static/css/tokens.css">
-  <link rel="stylesheet" href="/static/css/base.css">
-  <link rel="stylesheet" href="/static/css/header.css">
-  <link rel="stylesheet" href="/static/css/footer.css">
-  <link rel="stylesheet" href="/static/css/components.css">
-  <link rel="stylesheet" href="/static/css/work.css">
+  <link rel="stylesheet" href="/static/css/tokens.d2a97a330119.css">
+  <link rel="stylesheet" href="/static/css/base.133316869fa0.css">
+  <link rel="stylesheet" href="/static/css/header.891f95dfa877.css">
+  <link rel="stylesheet" href="/static/css/footer.7a21da9a3e2a.css">
+  <link rel="stylesheet" href="/static/css/components.205acdf7078c.css">
+  <link rel="stylesheet" href="/static/css/work.6598a5498938.css">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Passer au contenu</a>
 
-  <header class="site-header is-entering" x-data="{ menuOpen: false }">
+  <header class="site-header is-entering">
   <div class="header-brand">
     <span>Moses Zimay</span>
     
@@ -83,23 +84,23 @@
       type="button"
       aria-label="Ouvrir le menu"
       aria-expanded="false"
-      @click="menuOpen = !menuOpen"
-      :aria-expanded="menuOpen.toString()"
+      aria-controls="mobile-menu"
+      data-menu-toggle
     >
-      <span aria-hidden="true" x-text="menuOpen ? '×' : '☰'"></span>
+      <span aria-hidden="true" data-menu-icon>☰</span>
     </button>
   </div>
 
-  <div class="mobile-menu" :class="{ 'is-open': menuOpen }" @keyup.escape.window="menuOpen = false">
-    <a href="/" @click="menuOpen = false">Accueil</a>
-    <a href="/work/" @click="menuOpen = false">Projets</a>
-    <a href="/process/" @click="menuOpen = false">Processus</a>
-    <a href="/pricing/" @click="menuOpen = false">Tarifs</a>
-    <a href="/about/" @click="menuOpen = false">À propos</a>
-    <a href="/certifications/" @click="menuOpen = false">Certifications</a>
-    <a href="/resources/" @click="menuOpen = false">Ressources</a>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="/">Accueil</a>
+    <a href="/work/">Projets</a>
+    <a href="/process/">Processus</a>
+    <a href="/pricing/">Tarifs</a>
+    <a href="/about/">À propos</a>
+    <a href="/certifications/">Certifications</a>
+    <a href="/resources/">Ressources</a>
     
-      <a href="/media/cv/Moses_Zimay_CV.pdf" target="_blank" rel="noopener" @click="menuOpen = false">Télécharger le CV</a>
+      <a href="/media/cv/Moses_Zimay_CV.pdf" target="_blank" rel="noopener">Télécharger le CV</a>
     
     <a class="btn btn-primary" href="https://wa.me/2250544822043?text=Hi%20Moses%2C%20I%27d%20like%20to%20talk%20about%20a%20project.">
       Réserver un appel <span class="btn-arrow">→</span>
@@ -125,7 +126,7 @@
 
     
       <div class="project-hero-image" data-reveal>
-        <img src="/media/case_studies/hero/preview_nadrelie.png" alt="Nadrelie — Boutique WordPress pour une marque de soins ancestraux">
+        <picture><source type="image/webp" srcset="/media/_resp/case_studies/hero/preview_nadrelie-640.webp 640w, /media/_resp/case_studies/hero/preview_nadrelie-1280.webp 1280w" sizes="(max-width: 1200px) 100vw, 1200px"><img src="/media/case_studies/hero/preview_nadrelie.png" alt="Nadrelie — Boutique WordPress pour une marque de soins ancestraux" width="1280" height="800" decoding="sync" fetchpriority="high"></picture>
       </div>
     
   </section>
@@ -135,13 +136,13 @@
       <aside class="project-summary">
         
           <div class="project-summary-item">
-            <h4>Client</h4>
+            <h2>Client</h2>
             <p>Nadrelie</p>
           </div>
         
         
           <div class="project-summary-item">
-            <h4>Catégorie</h4>
+            <h2>Catégorie</h2>
             <p>WordPress &amp; WooCommerce, SEO</p>
           </div>
         
@@ -199,7 +200,7 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <h3 class="footer-heading">La rigueur d&#x27;un comptable. Le regard d&#x27;un enquêteur.</h3>
+        <h2 class="footer-heading">La rigueur d&#x27;un comptable. Le regard d&#x27;un enquêteur.</h2>
         <p class="footer-description">Assistant comptable spécialisé en audit, contrôle interne et prévention de la fraude, en route vers la comptabilité forensique. Également développeur web full-stack.</p>
         <ul class="footer-services">
           
@@ -215,7 +216,7 @@
       </div>
 
       <div class="footer-column">
-        <h4>Navigation</h4>
+        <h2>Navigation</h2>
         <ul class="footer-links">
           <li><a href="/">Accueil</a></li>
           <li><a href="/work/">Projets</a></li>
@@ -228,7 +229,7 @@
       </div>
 
       <div class="footer-column">
-        <h4>Contact</h4>
+        <h2>Contact</h2>
         <ul class="footer-links">
           <li><a href="mailto:zimaymoses0@gmail.com">zimaymoses0@gmail.com</a></li>
           <li><a href="https://wa.me/2250544822043">WhatsApp</a></li>
@@ -239,10 +240,10 @@
     </div>
 
     <div class="footer-bottom">
-      <span>© 2026 Moses Zimay. Tous droits réservés. · <a href="/confidentialite/">Politique de confidentialité</a></span>
+      <span>© 2026 Moses Zimay. Tous droits réservés. · <a href="/mentions-legales/">Mentions légales & CGU</a> · <a href="/confidentialite/">Politique de confidentialité</a></span>
       <div class="footer-socials">
-        <a href="https://www.linkedin.com/in/zimay-moses-z-1188251b1/">LinkedIn</a>
-        <a href="https://www.facebook.com/ZimayMoses/">Instagram</a>
+        <a href="https://www.linkedin.com/in/zimay-moses-z-1188251b1/" rel="me noopener">LinkedIn</a>
+        <a href="https://www.facebook.com/ZimayMoses/" rel="me noopener">Facebook</a>
         
       </div>
     </div>
@@ -250,8 +251,7 @@
 </footer>
 
 
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.17.5/dist/cdn.min.js" integrity="sha384-FYLKjwG3aohNhNZoVG8sY/5ntunm+MqylL90Q+rT3OM7AwV9/BKFjk/RjoIpIgsI" crossorigin="anonymous"></script>
-  <script src="/static/js/main.js"></script>
+  <script src="/static/js/main.b9e049a50000.js"></script>
   
 </body>
 </html>

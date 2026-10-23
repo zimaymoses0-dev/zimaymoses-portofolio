@@ -1,7 +1,7 @@
-{% load i18n_extra %}<article class="card certification-card {% if certification.dark_card %}is-dark{% endif %}" id="{{ certification.anchor }}" data-carousel-item>
+{% load core_tags i18n_extra %}<article class="card certification-card {% if certification.dark_card %}is-dark{% endif %}" id="{{ certification.anchor }}" data-carousel-item>
   {% if certification.image %}
     <a class="certification-media" href="{{ certification.image.url }}" target="_blank" rel="noopener" aria-label="{% t 'Voir le certificat en grand' %} : {{ certification.title }}">
-      <img src="{{ certification.image.url }}" width="{{ certification.image.width }}" height="{{ certification.image.height }}" alt="{% t 'Certificat' %} « {{ certification.title }} »{% if certification.issuer %} — {{ certification.issuer }}{% endif %} — Moses Zegbah Zimay" loading="lazy" decoding="async">
+      {% responsive_img certification.image alt=certification.image_alt sizes="(max-width: 720px) 100vw, 380px" %}
     </a>
   {% else %}
     <span class="certification-badge" aria-hidden="true">{{ certification.issuer|default:certification.title|slice:":2"|upper }}</span>

@@ -1,7 +1,7 @@
-{% load i18n_extra %}<article class="card resource-card">
+{% load core_tags i18n_extra %}<article class="card resource-card">
   <div class="resource-media">
     {% if resource.cover_image %}
-      <img src="{{ resource.cover_image.url }}" alt="{{ resource.title }}" loading="lazy">
+      {% responsive_img resource.cover_image alt=resource.title sizes="(max-width: 720px) 100vw, 400px" %}
     {% endif %}
     {% if resource.is_free %}
       <span class="resource-price-badge is-free">{% t "Gratuit" %}</span>

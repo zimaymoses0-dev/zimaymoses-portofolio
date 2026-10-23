@@ -28,11 +28,11 @@
   </section>
 
   {% if metrics %}
-    <section class="metrics-row">
+    <div class="metrics-row">
       {% for metric in metrics %}
         {% include "components/metric.html" %}
       {% endfor %}
-    </section>
+    </div>
   {% endif %}
 
   {% get_content 'about' 'story' as story %}

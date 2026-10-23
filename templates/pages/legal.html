@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static i18n_extra %}
+
+{% block title %}{% t "Mentions légales & conditions d'utilisation" %} — {{ person.full_name }}{% endblock %}
+{% block meta_description %}{% t "Mentions légales et conditions générales d'utilisation du site zimaymoses.com : éditeur, hébergeur, propriété intellectuelle, responsabilité et droit applicable." %}{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/about.css' %}">{% endblock %}
+
+{% block content %}
+  <section class="container about-hero">
+    <span class="eyebrow">{% t "Informations légales" %}</span>
+    <h1>{% t "Mentions légales & conditions d'utilisation" %}</h1>
+    <p>{% t "Mise à jour le 23 octobre 2026." %}</p>
+  </section>
+
+  <section class="section">
+    <div class="container about-story about-story-body legal-text">
+      {% if LANGUAGE_CODE == "en" %}
+        <h2>Publisher</h2>
+        <p>zimaymoses.com is a personal, non-commercial portfolio website published by Moses Zegbah Zimay, an individual based in Abidjan, Côte d'Ivoire.<br>
+        Email: <a href="mailto:{{ site_settings.email }}">{{ site_settings.email }}</a>{% if site_settings.phone %} · Phone: {{ site_settings.phone }}{% endif %}<br>
+        Publication director: Moses Zegbah Zimay.</p>
+
+        <h2>Hosting</h2>
+        <p>Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, United States — <a href="https://vercel.com" rel="noopener">vercel.com</a>.</p>
+
+        <h2>Intellectual property</h2>
+        <p>All content on this site — text, photographs, logo, design and code — belongs to Moses Zegbah Zimay unless stated otherwise, and may not be reproduced without written permission. Certificates are shown to document qualifications; they remain the property of the issuing organisations (MTF Institute, Udemy, Alison and others). Project screenshots show work carried out for the clients named; their brands belong to them.</p>
+
+        <h2>Terms of use</h2>
+        <p>By using this site you accept these terms. The site presents the publisher's background, skills and services for information. Prices shown are starting prices and become binding only through a written quote and signed contract. The publisher strives to keep information accurate and up to date but cannot guarantee it is error-free, and is not liable for any use made of it. Links to external sites are provided for convenience; the publisher is not responsible for their content. Attempts to disrupt, scan or gain unauthorised access to the site are prohibited and recorded.</p>
+
+        <h2>Personal data</h2>
+        <p>See the <a href="{% url 'core:privacy' %}">privacy policy</a> for what is recorded when you visit and how to exercise your rights. The site uses no cookies.</p>
+
+        <h2>Applicable law</h2>
+        <p>These terms are governed by the law of Côte d'Ivoire. Any dispute will be submitted to the competent courts of Abidjan, after an attempt at amicable resolution.</p>
+      {% else %}
+        <h2>Éditeur du site</h2>
+        <p>zimaymoses.com est un site personnel de présentation (portfolio), non commercial, édité par Moses Zegbah Zimay, personne physique résidant à Abidjan, Côte d'Ivoire.<br>
+        E-mail : <a href="mailto:{{ site_settings.email }}">{{ site_settings.email }}</a>{% if site_settings.phone %} · Téléphone : {{ site_settings.phone }}{% endif %}<br>
+        Directeur de la publication : Moses Zegbah Zimay.</p>
+
+        <h2>Hébergement</h2>
+        <p>Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis — <a href="https://vercel.com" rel="noopener">vercel.com</a>.</p>
+
+        <h2>Propriété intellectuelle</h2>
+        <p>Sauf mention contraire, l'ensemble du contenu de ce site — textes, photographies, logo, mise en page et code — appartient à Moses Zegbah Zimay et ne peut être reproduit sans autorisation écrite. Les certificats sont présentés pour attester des qualifications ; ils restent la propriété des organismes qui les ont délivrés (MTF Institute, Udemy, Alison et autres). Les captures des projets présentent des travaux réalisés pour les clients cités ; leurs marques leur appartiennent.</p>
+
+        <h2>Conditions générales d'utilisation</h2>
+        <p>L'utilisation du site vaut acceptation des présentes conditions. Le site présente, à titre informatif, le parcours, les compétences et les services de l'éditeur. Les tarifs affichés sont des prix de départ et n'engagent qu'après un devis écrit et un contrat signé. L'éditeur s'efforce de fournir des informations exactes et à jour, sans pouvoir garantir l'absence d'erreur, et ne saurait être tenu responsable de l'usage qui en est fait. Les liens vers des sites externes sont fournis à titre de commodité ; l'éditeur n'est pas responsable de leur contenu. Toute tentative de perturber le site, de le scanner ou d'y accéder sans autorisation est interdite et enregistrée.</p>
+
+        <h2>Données personnelles</h2>
+        <p>Consultez la <a href="{% url 'core:privacy' %}">politique de confidentialité</a> pour savoir ce qui est enregistré lors de votre visite et comment exercer vos droits. Le site n'utilise aucun cookie.</p>
+
+        <h2>Droit applicable</h2>
+        <p>Les présentes conditions sont régies par le droit ivoirien. Tout litige relèvera des juridictions compétentes d'Abidjan, après tentative de règlement amiable.</p>
+      {% endif %}
+    </div>
+  </section>
+{% endblock %}

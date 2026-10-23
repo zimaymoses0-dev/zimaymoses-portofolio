@@ -63,6 +63,12 @@ class Certification(models.Model):
         return [line.strip() for line in self._localized("skills_highlight").splitlines() if line.strip()]
 
     @property
+    def image_alt(self):
+        word = "Certificate" if (get_language() or "").startswith("en") else "Certificat"
+        issuer = f" — {self.issuer}" if self.issuer else ""
+        return f"{word} « {self.title} »{issuer} — Moses Zegbah Zimay"
+
+    @property
     def anchor(self):
         """Stable in-page id, so each credential has its own URL (#cert-<pk>)."""
         return f"cert-{self.pk}"

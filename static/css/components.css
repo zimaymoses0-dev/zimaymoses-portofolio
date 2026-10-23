@@ -198,7 +198,7 @@
 }
 
 .certification-card.is-dark .certification-meta {
-  color: #e8a07c;
+  color: var(--color-accent-on-dark);
 }
 
 .certification-media + .certification-meta {

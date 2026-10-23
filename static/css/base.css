@@ -16,6 +16,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* <picture> wraps images only to offer WebP; it must not affect layout. */
+picture {
+  display: contents;
+}
+
 img, video {
   max-width: 100%;
   display: block;
@@ -92,6 +97,11 @@ h1, h2, h3, h4 {
 .section-header {
   max-width: 640px;
   margin: 0 0 var(--space-12);
+}
+
+/* Muted grey is too dark on black sections (3.4:1): use light text instead (WCAG AA). */
+.section-dark .eyebrow {
+  color: rgba(247, 244, 236, 0.6);
 }
 
 .section-header .eyebrow {

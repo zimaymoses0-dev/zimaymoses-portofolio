@@ -1,9 +1,9 @@
-<button
+{% load i18n_extra %}<button
   type="button"
   class="video-card"
   data-reveal
-  @click="activeVideo = '{{ video.video_url|escapejs }}'"
-  aria-label="Play testimonial from {{ video.name }}"
+  data-video-url="{{ video.video_url }}"
+  aria-label="{% t 'Lire le témoignage de' %} {{ video.name }}"
 >
   {% if video.thumbnail %}
     <img src="{{ video.thumbnail.url }}" alt="" loading="lazy">

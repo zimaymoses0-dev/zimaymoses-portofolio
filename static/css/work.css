@@ -69,7 +69,7 @@
   gap: var(--space-6);
 }
 
-.project-summary-item h4 {
+.project-summary-item h2 {
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: var(--tracking-label);

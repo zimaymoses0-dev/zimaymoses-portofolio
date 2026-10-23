@@ -1,0 +1,94 @@
+.certifications-hero {
+  padding: 160px 0 var(--space-16);
+  max-width: 720px;
+}
+
+.certifications-hero h1 {
+  margin-top: var(--space-3);
+  font-size: clamp(2.8rem, 7vw, 5.2rem);
+}
+
+.certifications-hero p {
+  margin-top: var(--space-5);
+  color: var(--color-muted);
+  font-size: 1.1rem;
+}
+
+.certifications-gallery-section {
+  padding-top: 0;
+}
+
+.certifications-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-6);
+}
+
+.certifications-gallery .certification-card {
+  flex-basis: auto;
+}
+
+@media (max-width: 720px) {
+  .certifications-hero {
+    padding-top: 120px;
+  }
+}
+
+/* ---- Grouping, counts and quick navigation ---- */
+
+.certifications-count {
+  font-weight: 600;
+  color: var(--color-ink) !important;
+  font-size: 0.95rem !important;
+}
+
+.certifications-toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+}
+
+.certifications-toc a {
+  padding: 8px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  color: var(--color-muted);
+  text-decoration: none;
+}
+
+.certifications-toc a:hover {
+  border-color: var(--color-ink);
+  color: var(--color-ink);
+}
+
+.certifications-gallery-section + .certifications-gallery-section {
+  padding-top: var(--space-8);
+}
+
+.certifications-gallery-section,
+.certification-card {
+  scroll-margin-top: 110px;  /* clear the floating header when jumping to #anchors */
+}
+
+.certifications-group-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: var(--space-6);
+  scroll-margin-top: 110px;
+}
+
+.certifications-group-title span {
+  font-size: 0.55em;
+  color: var(--color-muted);
+  vertical-align: middle;
+  margin-left: var(--space-2);
+}
+
+.degree-card h3 {
+  margin-top: var(--space-2);
+}
+
+.degree-card p:last-child {
+  color: var(--color-muted);
+}

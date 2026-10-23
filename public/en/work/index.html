@@ -12,9 +12,10 @@
   <link rel="alternate" hreflang="en" href="https://zimaymoses.com/en/work/">
   <link rel="alternate" hreflang="x-default" href="https://zimaymoses.com/work/">
     <link rel="alternate" type="text/plain" title="Profile for AI assistants" href="https://zimaymoses.com/llms.txt">
-  <link rel="icon" href="/static/images/favicon.ico">
-  <link rel="icon" type="image/png" href="/static/images/favicon.png">
-  <link rel="apple-touch-icon" href="/static/images/favicon.png">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon-32x32.a6871b241def.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/images/apple-touch-icon.cd494605781f.png">
+  <link rel="manifest" href="/static/site.d1de38085269.webmanifest">
   <meta name="theme-color" content="#f7f4ec">
 
   <meta property="og:site_name" content="Moses Zimay">
@@ -22,7 +23,7 @@
   <meta property="og:description" content="Moses Zegbah Zimay (Moses Zimay) is an accounting assistant based in Abidjan, Côte d&#x27;Ivoire (Ivory Coast), focused on audit, internal control and fraud prevention, and building a career in forensic a…">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://zimaymoses.com/en/work/">
-  <meta property="og:image" content="https://zimaymoses.com/static/images/og-image.png">
+  <meta property="og:image" content="https://zimaymoses.com/static/images/og-image.70215a98b87d.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Moses Zegbah Zimay">
@@ -33,20 +34,20 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Moses Zegbah Zimay — Accounting Assistant · Audit, internal control &amp; fraud prevention">
   <meta name="twitter:description" content="Moses Zegbah Zimay (Moses Zimay) is an accounting assistant based in Abidjan, Côte d&#x27;Ivoire (Ivory Coast), focused on audit, internal control and fraud prevention, and building a career in forensic a…">
-  <meta name="twitter:image" content="https://zimaymoses.com/static/images/og-image.png">
+  <meta name="twitter:image" content="https://zimaymoses.com/static/images/og-image.70215a98b87d.png">
 
   
-  <link rel="stylesheet" href="/static/css/tokens.css">
-  <link rel="stylesheet" href="/static/css/base.css">
-  <link rel="stylesheet" href="/static/css/header.css">
-  <link rel="stylesheet" href="/static/css/footer.css">
-  <link rel="stylesheet" href="/static/css/components.css">
-  <link rel="stylesheet" href="/static/css/work.css">
+  <link rel="stylesheet" href="/static/css/tokens.d2a97a330119.css">
+  <link rel="stylesheet" href="/static/css/base.133316869fa0.css">
+  <link rel="stylesheet" href="/static/css/header.891f95dfa877.css">
+  <link rel="stylesheet" href="/static/css/footer.7a21da9a3e2a.css">
+  <link rel="stylesheet" href="/static/css/components.205acdf7078c.css">
+  <link rel="stylesheet" href="/static/css/work.6598a5498938.css">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <header class="site-header is-entering" x-data="{ menuOpen: false }">
+  <header class="site-header is-entering">
   <div class="header-brand">
     <span>Moses Zimay</span>
     
@@ -81,23 +82,23 @@
       type="button"
       aria-label="Open menu"
       aria-expanded="false"
-      @click="menuOpen = !menuOpen"
-      :aria-expanded="menuOpen.toString()"
+      aria-controls="mobile-menu"
+      data-menu-toggle
     >
-      <span aria-hidden="true" x-text="menuOpen ? '×' : '☰'"></span>
+      <span aria-hidden="true" data-menu-icon>☰</span>
     </button>
   </div>
 
-  <div class="mobile-menu" :class="{ 'is-open': menuOpen }" @keyup.escape.window="menuOpen = false">
-    <a href="/en/" @click="menuOpen = false">Home</a>
-    <a href="/en/work/" @click="menuOpen = false">Work</a>
-    <a href="/en/process/" @click="menuOpen = false">Process</a>
-    <a href="/en/pricing/" @click="menuOpen = false">Pricing</a>
-    <a href="/en/about/" @click="menuOpen = false">About</a>
-    <a href="/en/certifications/" @click="menuOpen = false">Certifications</a>
-    <a href="/en/resources/" @click="menuOpen = false">Resources</a>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="/en/">Home</a>
+    <a href="/en/work/">Work</a>
+    <a href="/en/process/">Process</a>
+    <a href="/en/pricing/">Pricing</a>
+    <a href="/en/about/">About</a>
+    <a href="/en/certifications/">Certifications</a>
+    <a href="/en/resources/">Resources</a>
     
-      <a href="/media/cv/Moses_Zimay_CV.pdf" target="_blank" rel="noopener" @click="menuOpen = false">Download CV</a>
+      <a href="/media/cv/Moses_Zimay_CV.pdf" target="_blank" rel="noopener">Download CV</a>
     
     <a class="btn btn-primary" href="https://wa.me/2250544822043?text=Hi%20Moses%2C%20I%27d%20like%20to%20talk%20about%20a%20project.">
       Book a call <span class="btn-arrow">→</span>
@@ -121,12 +122,13 @@
   <section class="section">
     <div class="container">
       
+        <h2 class="sr-only">All projects</h2>
         <div class="work-grid">
           
             <a class="card case-study-card" href="/en/work/mimo/" data-reveal>
   <div class="case-study-media">
     
-      <img src="/media/case_studies/thumbnails/preview_mimo.png" alt="Mimo — Bookkeeping &amp; product SEO for a wellness brand" loading="lazy">
+      <picture><source type="image/webp" srcset="/media/_resp/case_studies/thumbnails/preview_mimo-640.webp 640w, /media/_resp/case_studies/thumbnails/preview_mimo-1280.webp 1280w" sizes="(max-width: 720px) 100vw, 600px"><img src="/media/case_studies/thumbnails/preview_mimo.png" alt="Mimo — Bookkeeping &amp; product SEO for a wellness brand" width="1280" height="800" decoding="async" loading="lazy"></picture>
     
   </div>
   <div class="case-study-body">
@@ -144,7 +146,7 @@
             <a class="card case-study-card" href="/en/work/nadrelie/" data-reveal>
   <div class="case-study-media">
     
-      <img src="/media/case_studies/thumbnails/preview_nadrelie.png" alt="Nadrelie — WordPress store for an ancestral skincare brand" loading="lazy">
+      <picture><source type="image/webp" srcset="/media/_resp/case_studies/thumbnails/preview_nadrelie-640.webp 640w, /media/_resp/case_studies/thumbnails/preview_nadrelie-1280.webp 1280w" sizes="(max-width: 720px) 100vw, 600px"><img src="/media/case_studies/thumbnails/preview_nadrelie.png" alt="Nadrelie — WordPress store for an ancestral skincare brand" width="1280" height="800" decoding="async" loading="lazy"></picture>
     
   </div>
   <div class="case-study-body">
@@ -162,7 +164,7 @@
             <a class="card case-study-card" href="/en/work/childrens-fruit/" data-reveal>
   <div class="case-study-media">
     
-      <img src="/media/case_studies/thumbnails/preview_childrens-fruit.png" alt="Children&#x27;s Fruit — Full-stack Django platform" loading="lazy">
+      <picture><source type="image/webp" srcset="/media/_resp/case_studies/thumbnails/preview_childrens-fruit-640.webp 640w, /media/_resp/case_studies/thumbnails/preview_childrens-fruit-1280.webp 1280w" sizes="(max-width: 720px) 100vw, 600px"><img src="/media/case_studies/thumbnails/preview_childrens-fruit.png" alt="Children&#x27;s Fruit — Full-stack Django platform" width="1280" height="800" decoding="async" loading="lazy"></picture>
     
   </div>
   <div class="case-study-body">
@@ -180,7 +182,7 @@
             <a class="card case-study-card" href="/en/work/protoclean/" data-reveal>
   <div class="case-study-media">
     
-      <img src="/media/case_studies/thumbnails/preview_protoclean.png" alt="Protoclean — Bookkeeping, advertising &amp; branding for a hygiene brand" loading="lazy">
+      <picture><source type="image/webp" srcset="/media/_resp/case_studies/thumbnails/preview_protoclean-640.webp 640w, /media/_resp/case_studies/thumbnails/preview_protoclean-1280.webp 1280w" sizes="(max-width: 720px) 100vw, 600px"><img src="/media/case_studies/thumbnails/preview_protoclean.png" alt="Protoclean — Bookkeeping, advertising &amp; branding for a hygiene brand" width="1280" height="800" decoding="async" loading="lazy"></picture>
     
   </div>
   <div class="case-study-body">
@@ -208,7 +210,7 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <h3 class="footer-heading">An accountant&#x27;s rigor. An investigator&#x27;s eye.</h3>
+        <h2 class="footer-heading">An accountant&#x27;s rigor. An investigator&#x27;s eye.</h2>
         <p class="footer-description">Accounting assistant focused on audit, internal control and fraud prevention, on the path to forensic accounting. Also a full-stack web developer.</p>
         <ul class="footer-services">
           
@@ -224,7 +226,7 @@
       </div>
 
       <div class="footer-column">
-        <h4>Navigate</h4>
+        <h2>Navigate</h2>
         <ul class="footer-links">
           <li><a href="/en/">Home</a></li>
           <li><a href="/en/work/">Work</a></li>
@@ -237,7 +239,7 @@
       </div>
 
       <div class="footer-column">
-        <h4>Contact</h4>
+        <h2>Contact</h2>
         <ul class="footer-links">
           <li><a href="mailto:zimaymoses0@gmail.com">zimaymoses0@gmail.com</a></li>
           <li><a href="https://wa.me/2250544822043">WhatsApp</a></li>
@@ -248,10 +250,10 @@
     </div>
 
     <div class="footer-bottom">
-      <span>© 2026 Moses Zimay. All rights reserved. · <a href="/en/confidentialite/">Privacy policy</a></span>
+      <span>© 2026 Moses Zimay. All rights reserved. · <a href="/en/mentions-legales/">Legal notice &amp; terms</a> · <a href="/en/confidentialite/">Privacy policy</a></span>
       <div class="footer-socials">
-        <a href="https://www.linkedin.com/in/zimay-moses-z-1188251b1/">LinkedIn</a>
-        <a href="https://www.facebook.com/ZimayMoses/">Instagram</a>
+        <a href="https://www.linkedin.com/in/zimay-moses-z-1188251b1/" rel="me noopener">LinkedIn</a>
+        <a href="https://www.facebook.com/ZimayMoses/" rel="me noopener">Facebook</a>
         
       </div>
     </div>
@@ -259,8 +261,7 @@
 </footer>
 
 
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.17.5/dist/cdn.min.js" integrity="sha384-FYLKjwG3aohNhNZoVG8sY/5ntunm+MqylL90Q+rT3OM7AwV9/BKFjk/RjoIpIgsI" crossorigin="anonymous"></script>
-  <script src="/static/js/main.js"></script>
+  <script src="/static/js/main.b9e049a50000.js"></script>
   
 </body>
 </html>

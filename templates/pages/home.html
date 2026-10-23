@@ -7,7 +7,7 @@
   {% get_content 'home' 'hero' as hero %}
   <section class="hero {% if hero.image %}hero--photo{% endif %}">
     {% if hero.image %}
-      <img class="hero-bg" src="{{ hero.image.url }}" alt="">
+      {% responsive_img hero.image alt="" css_class="hero-bg" sizes="(max-width: 720px) 100vw, 55vw" priority=True %}
     {% endif %}
     <div class="hero-content">
       <span class="eyebrow">{{ person.full_name }} · {% t hero.eyebrow|default:site_settings.availability_text %}</span>
@@ -25,11 +25,11 @@
   </section>
 
   {% if metrics %}
-    <section class="metrics-row">
+    <div class="metrics-row">
       {% for metric in metrics %}
         {% include "components/metric.html" %}
       {% endfor %}
-    </section>
+    </div>
   {% endif %}
 
   {% get_content 'home' 'how-i-help' as how_i_help %}
@@ -125,7 +125,7 @@
   {% endif %}
 
   {% if video_testimonials %}
-    <section class="section" x-data="{ activeVideo: null }">
+    <section class="section">
       <div class="container">
         <div class="section-header">
           <span class="eyebrow">{% t "Dans leurs mots" %}</span>
@@ -138,13 +138,9 @@
         </div>
       </div>
 
-      <div class="video-modal-backdrop" :class="{ 'is-open': activeVideo }" @click.self="activeVideo = null" @keyup.escape.window="activeVideo = null">
-        <button type="button" class="video-modal-close" @click="activeVideo = null" aria-label="{% t 'Fermer la vidéo' %}">×</button>
-        <div class="video-modal-frame">
-          <template x-if="activeVideo">
-            <iframe :src="activeVideo" title="{% t 'Témoignage vidéo' %}" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </template>
-        </div>
+      <div class="video-modal-backdrop" data-video-modal data-video-title="{% t 'Témoignage vidéo' %}">
+        <button type="button" class="video-modal-close" data-video-close aria-label="{% t 'Fermer la vidéo' %}">×</button>
+        <div class="video-modal-frame" data-video-frame></div>
       </div>
     </section>
   {% endif %}

@@ -10,4 +10,5 @@ urlpatterns = [
     path("about/", views.about, name="about"),
     path("pricing/", views.pricing, name="pricing"),
     path("confidentialite/", views.privacy, name="privacy"),
+    path("mentions-legales/", views.legal, name="legal"),
 ]

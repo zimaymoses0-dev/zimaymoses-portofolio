@@ -293,3 +293,12 @@ class PrivacyPageTests(TestCase):
         self.assertContains(en, "Privacy policy")
         self.assertContains(self.client.get("/"), 'href="/confidentialite/"')
         self.assertContains(self.client.get("/sitemap.xml"), "https://zimaymoses.com/confidentialite/")
+
+    def test_legal_notice_names_publisher_and_host_and_is_linked(self):
+        fr = self.client.get("/mentions-legales/")
+        self.assertContains(fr, "Moses Zegbah Zimay")
+        self.assertContains(fr, "Vercel Inc.")
+        self.assertContains(fr, "Propriété intellectuelle")
+        self.assertContains(self.client.get("/en/mentions-legales/"), "Terms of use")
+        self.assertContains(self.client.get("/"), 'href="/mentions-legales/"')
+        self.assertContains(self.client.get("/sitemap.xml"), "https://zimaymoses.com/mentions-legales/")

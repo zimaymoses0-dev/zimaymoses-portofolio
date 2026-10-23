@@ -13,11 +13,11 @@
   </section>
 
   {% if metrics %}
-    <section class="metrics-row">
+    <div class="metrics-row">
       {% for metric in metrics %}
         {% include "components/metric.html" %}
       {% endfor %}
-    </section>
+    </div>
   {% endif %}
 
   {% if phases %}

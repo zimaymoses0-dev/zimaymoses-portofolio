@@ -179,4 +179,52 @@
       }
     });
   }
+
+  // Mobile menu (replaces Alpine.js: no third-party script, valid HTML, strict CSP).
+  const menuToggle = document.querySelector("[data-menu-toggle]");
+  const mobileMenu = document.getElementById("mobile-menu");
+  if (menuToggle && mobileMenu) {
+    const icon = menuToggle.querySelector("[data-menu-icon]");
+    const setMenuOpen = (open) => {
+      mobileMenu.classList.toggle("is-open", open);
+      menuToggle.setAttribute("aria-expanded", String(open));
+      if (icon) icon.textContent = open ? "×" : "☰";
+    };
+    menuToggle.addEventListener("click", () => setMenuOpen(!mobileMenu.classList.contains("is-open")));
+    mobileMenu.addEventListener("click", (event) => {
+      if (event.target.closest("a")) setMenuOpen(false);
+    });
+    document.addEventListener("keyup", (event) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    });
+  }
+
+  // Video testimonials: open the clicked video in a modal; Escape or backdrop closes it.
+  const videoModal = document.querySelector("[data-video-modal]");
+  if (videoModal) {
+    const videoFrame = videoModal.querySelector("[data-video-frame]");
+    const closeVideo = () => {
+      videoModal.classList.remove("is-open");
+      videoFrame.replaceChildren();  // stops playback
+    };
+    document.querySelectorAll("[data-video-url]").forEach((card) => {
+      card.addEventListener("click", () => {
+        const iframe = document.createElement("iframe");
+        iframe.src = card.dataset.videoUrl;
+        iframe.title = videoModal.dataset.videoTitle || "";
+        iframe.allow = "autoplay; encrypted-media";
+        iframe.allowFullscreen = true;
+        videoFrame.replaceChildren(iframe);
+        videoModal.classList.add("is-open");
+      });
+    });
+    videoModal.addEventListener("click", (event) => {
+      if (event.target === videoModal) closeVideo();
+    });
+    const closeButton = videoModal.querySelector("[data-video-close]");
+    if (closeButton) closeButton.addEventListener("click", closeVideo);
+    document.addEventListener("keyup", (event) => {
+      if (event.key === "Escape") closeVideo();
+    });
+  }
 })();

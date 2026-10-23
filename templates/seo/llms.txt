@@ -10,6 +10,7 @@
 - Langues : {% for l in p.languages %}{{ l.name }}{% if not forloop.last %}, {% endif %}{% endfor %}
 - Site officiel : {{ base }}/
 {% if site.linkedin_url %}- LinkedIn : {{ site.linkedin_url }}
+{% endif %}{% if site.youtube_url %}- Chaîne YouTube (ZAcadémie, formations gratuites aux outils numériques) : {{ site.youtube_url }}
 {% endif %}{% if site.email %}- E-mail : {{ site.email }}
 {% endif %}{% else %}- Also known as: {{ p.alternate_names|join:", " }}
 - Roles: {{ p.job_titles|join:" · " }}
@@ -19,6 +20,7 @@
 - Languages: {% for l in p.languages %}{{ l.name }}{% if not forloop.last %}, {% endif %}{% endfor %}
 - Official website: {{ base }}/
 {% if site.linkedin_url %}- LinkedIn: {{ site.linkedin_url }}
+{% endif %}{% if site.youtube_url %}- YouTube channel (ZAcadémie, free training on digital tools): {{ site.youtube_url }}
 {% endif %}{% if site.email %}- Email: {{ site.email }}
 {% endif %}{% endif %}
 ## {% if LANGUAGE_CODE == "fr" %}Parcours vers la comptabilité forensique{% else %}Path to forensic accounting{% endif %}

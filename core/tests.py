@@ -302,3 +302,32 @@ class PrivacyPageTests(TestCase):
         self.assertContains(self.client.get("/en/mentions-legales/"), "Terms of use")
         self.assertContains(self.client.get("/"), 'href="/mentions-legales/"')
         self.assertContains(self.client.get("/sitemap.xml"), "https://zimaymoses.com/mentions-legales/")
+
+
+class YouTubeChannelTests(TestCase):
+    def test_channel_linked_in_footer_jsonld_and_llms(self):
+        import json
+        import re
+
+        from django.core.cache import cache
+        from django.utils import translation
+
+        translation.activate("fr")
+        cache.clear()
+        site = SiteSettings.load()
+        site.youtube_url = "https://www.youtube.com/@ZAcademie"
+        site.save()
+        html = self.client.get("/").content.decode()
+        self.assertIn('href="https://www.youtube.com/@ZAcademie" rel="me noopener">YouTube</a>', html)
+        person = [json.loads(b) for b in re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.S)][1]
+        self.assertIn("https://www.youtube.com/@ZAcademie", person["sameAs"])
+        self.assertIn("https://www.youtube.com/@ZAcademie", self.client.get("/llms.txt").content.decode())
+
+
+class HeaderHomeLinkTests(TestCase):
+    def test_name_in_header_links_to_home_in_each_language(self):
+        from django.utils import translation
+
+        translation.activate("fr")
+        self.assertContains(self.client.get("/about/"), 'class="header-home" href="/"')
+        self.assertContains(self.client.get("/en/about/"), 'class="header-home" href="/en/"')

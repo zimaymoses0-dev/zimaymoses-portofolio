@@ -326,6 +326,8 @@ TRANSLATIONS = {
     # --- Privacy policy ---
     "Politique de confidentialité": "Privacy policy",
     "Tous les projets": "All projects",
+    "Fermer le menu": "Close menu",
+    "Menu": "Menu",
     "Lire le témoignage de": "Play testimonial from",
     "Mentions légales & CGU": "Legal notice & terms",
     "Mentions légales & conditions d'utilisation": "Legal notice & terms of use",

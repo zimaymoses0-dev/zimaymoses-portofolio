@@ -180,22 +180,60 @@
     });
   }
 
-  // Mobile menu (replaces Alpine.js: no third-party script, valid HTML, strict CSP).
+  // Mobile menu: full-screen panel toggled by the header button.
   const menuToggle = document.querySelector("[data-menu-toggle]");
   const mobileMenu = document.getElementById("mobile-menu");
   if (menuToggle && mobileMenu) {
-    const icon = menuToggle.querySelector("[data-menu-icon]");
-    const setMenuOpen = (open) => {
-      mobileMenu.classList.toggle("is-open", open);
-      menuToggle.setAttribute("aria-expanded", String(open));
-      if (icon) icon.textContent = open ? "×" : "☰";
-    };
-    menuToggle.addEventListener("click", () => setMenuOpen(!mobileMenu.classList.contains("is-open")));
-    mobileMenu.addEventListener("click", (event) => {
-      if (event.target.closest("a")) setMenuOpen(false);
+    const root = document.documentElement;
+    const focusables = () => [menuToggle, ...mobileMenu.querySelectorAll("a, button")];
+    const isOpen = () => root.classList.contains("menu-open");
+
+    // Highlight the link for the page being viewed.
+    mobileMenu.querySelectorAll(".mobile-menu-nav a").forEach((link) => {
+      if (link.pathname === window.location.pathname) link.setAttribute("aria-current", "page");
     });
-    document.addEventListener("keyup", (event) => {
-      if (event.key === "Escape") setMenuOpen(false);
+
+    const setMenuOpen = (open, { restoreFocus = true } = {}) => {
+      if (open === isOpen()) return;
+      root.classList.toggle("menu-open", open);
+      menuToggle.setAttribute("aria-expanded", String(open));
+      menuToggle.setAttribute("aria-label", open ? menuToggle.dataset.labelClose : menuToggle.dataset.labelOpen);
+      if (open) {
+        // Wait for the panel to become visible before moving keyboard focus into it.
+        setTimeout(() => {
+          const first = mobileMenu.querySelector("a");
+          if (first) first.focus({ preventScroll: true });
+        }, 50);
+      } else if (restoreFocus && mobileMenu.contains(document.activeElement)) {
+        menuToggle.focus({ preventScroll: true });
+      }
+    };
+
+    menuToggle.addEventListener("click", () => setMenuOpen(!isOpen()));
+    mobileMenu.addEventListener("click", (event) => {
+      if (event.target.closest("a")) setMenuOpen(false, { restoreFocus: false });
+    });
+    document.addEventListener("keydown", (event) => {
+      if (!isOpen()) return;
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+      } else if (event.key === "Tab") {
+        // Keep keyboard focus inside the open menu (toggle button included).
+        const items = focusables();
+        const first = items[0];
+        const last = items[items.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+    });
+    // Rotating a tablet to landscape shows the desktop nav: don't leave the page locked.
+    window.matchMedia("(min-width: 1081px)").addEventListener("change", (event) => {
+      if (event.matches) setMenuOpen(false, { restoreFocus: false });
     });
   }
 

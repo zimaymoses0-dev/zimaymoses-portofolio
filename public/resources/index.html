@@ -39,7 +39,7 @@
   
   <link rel="stylesheet" href="/static/css/tokens.d2a97a330119.css">
   <link rel="stylesheet" href="/static/css/base.133316869fa0.css">
-  <link rel="stylesheet" href="/static/css/header.891f95dfa877.css">
+  <link rel="stylesheet" href="/static/css/header.62981ce36a18.css">
   <link rel="stylesheet" href="/static/css/footer.7a21da9a3e2a.css">
   <link rel="stylesheet" href="/static/css/components.205acdf7078c.css">
   <link rel="stylesheet" href="/static/css/resources.e346fabd7473.css">
@@ -49,7 +49,7 @@
 
   <header class="site-header is-entering">
   <div class="header-brand">
-    <span>Moses Zimay</span>
+    <a class="header-home" href="/" aria-label="Moses Zimay — Accueil">Moses Zimay</a>
     
       <span class="availability-pill">
         <span class="availability-dot"></span>
@@ -84,32 +84,37 @@
       aria-expanded="false"
       aria-controls="mobile-menu"
       data-menu-toggle
+      data-label-open="Ouvrir le menu"
+      data-label-close="Fermer le menu"
     >
-      <span aria-hidden="true" data-menu-icon>☰</span>
+      <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
     </button>
   </div>
 
-  <div class="mobile-menu" id="mobile-menu">
-    <a href="/">Accueil</a>
-    <a href="/work/">Projets</a>
-    <a href="/process/">Processus</a>
-    <a href="/pricing/">Tarifs</a>
-    <a href="/about/">À propos</a>
-    <a href="/certifications/">Certifications</a>
-    <a href="/resources/">Ressources</a>
-    
-      <a href="/media/cv/Moses_Zimay_CV.pdf" target="_blank" rel="noopener">Télécharger le CV</a>
-    
+</header>
+
+
+<div class="mobile-menu" id="mobile-menu" data-mobile-menu>
+  <nav class="mobile-menu-nav" aria-label="Menu">
+    <ul>
+      <li><a href="/">Accueil</a></li>
+      <li><a href="/work/">Projets</a></li>
+      <li><a href="/process/">Processus</a></li>
+      <li><a href="/pricing/">Tarifs</a></li>
+      <li><a href="/about/">À propos</a></li>
+      <li><a href="/certifications/">Certifications</a></li>
+      <li><a href="/resources/">Ressources</a></li>
+    </ul>
+  </nav>
+  <div class="mobile-menu-actions">
     <a class="btn btn-primary" href="https://wa.me/2250544822043?text=Hi%20Moses%2C%20I%27d%20like%20to%20talk%20about%20a%20project.">
       Réserver un appel <span class="btn-arrow">→</span>
     </a>
-    <div class="header-lang-form-mobile">
-      
-        <a class="mobile-lang-btn" href="/en/resources/" hreflang="en" lang="en">English</a>
-      
-    </div>
+    
+      <a class="btn btn-secondary" href="/media/cv/Moses_Zimay_CV.pdf" target="_blank" rel="noopener">Télécharger le CV</a>
+    
   </div>
-</header>
+</div>
 
 
   <main id="main-content">
@@ -224,6 +229,7 @@
       <div class="footer-socials">
         <a href="https://www.linkedin.com/in/zimay-moses-z-1188251b1/" rel="me noopener">LinkedIn</a>
         <a href="https://www.facebook.com/ZimayMoses/" rel="me noopener">Facebook</a>
+        <a href="https://www.youtube.com/@ZAcademie" rel="me noopener">YouTube</a>
         
       </div>
     </div>
@@ -231,7 +237,7 @@
 </footer>
 
 
-  <script src="/static/js/main.b9e049a50000.js"></script>
+  <script src="/static/js/main.9ea86931f9e4.js"></script>
   
 </body>
 </html>

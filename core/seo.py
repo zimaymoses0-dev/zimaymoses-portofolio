@@ -124,7 +124,7 @@ def person_jsonld(lang=None):
             }
             for s in Service.objects.filter(is_active=True)
         ],
-        "sameAs": [u for u in (site.linkedin_url, site.instagram_url, site.twitter_url) if u],
+        "sameAs": [u for u in (site.linkedin_url, site.instagram_url, site.twitter_url, site.youtube_url) if u],
     }
     if site.email:
         data["email"] = f"mailto:{site.email}"

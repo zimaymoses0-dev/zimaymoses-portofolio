@@ -31,6 +31,7 @@ class SiteSettings(models.Model):
     linkedin_url = models.URLField(blank=True)
     instagram_url = models.URLField(blank=True)
     twitter_url = models.URLField(blank=True)
+    youtube_url = models.URLField("YouTube", blank=True)
     copyright_text = models.CharField(max_length=255, blank=True)
     footer_description = models.TextField(blank=True)
 

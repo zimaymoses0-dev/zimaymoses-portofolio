@@ -1,6 +1,6 @@
 {% load i18n_extra %}<header class="site-header is-entering">
   <div class="header-brand">
-    <span>{{ site_settings.site_name }}</span>
+    <a class="header-home" href="{% url 'core:home' %}" aria-label="{{ site_settings.site_name }} — {% t 'Accueil' %}">{{ site_settings.site_name }}</a>
     {% if site_settings.available %}
       <span class="availability-pill">
         <span class="availability-dot"></span>
@@ -37,31 +37,37 @@
       aria-expanded="false"
       aria-controls="mobile-menu"
       data-menu-toggle
+      data-label-open="{% t 'Ouvrir le menu' %}"
+      data-label-close="{% t 'Fermer le menu' %}"
     >
-      <span aria-hidden="true" data-menu-icon>☰</span>
+      <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
     </button>
   </div>
 
-  <div class="mobile-menu" id="mobile-menu">
-    <a href="{% url 'core:home' %}">{% t "Accueil" %}</a>
-    <a href="{% url 'portfolio:list' %}">{% t "Projets" %}</a>
-    <a href="{% url 'core:process' %}">{% t "Processus" %}</a>
-    <a href="{% url 'core:pricing' %}">{% t "Tarifs" %}</a>
-    <a href="{% url 'core:about' %}">{% t "À propos" %}</a>
-    <a href="{% url 'certifications:list' %}">Certifications</a>
-    <a href="{% url 'resources:list' %}">{% t "Ressources" %}</a>
-    {% if site_settings.cv_file %}
-      <a href="{{ site_settings.cv_file.url }}" target="_blank" rel="noopener">{% t "Télécharger le CV" %}</a>
-    {% endif %}
+</header>
+
+{% comment %}
+  Outside the header element: its transform/backdrop-filter would otherwise trap this
+  position:fixed panel inside the header pill instead of covering the screen.
+{% endcomment %}
+<div class="mobile-menu" id="mobile-menu" data-mobile-menu>
+  <nav class="mobile-menu-nav" aria-label="{% t 'Menu' %}">
+    <ul>
+      <li><a href="{% url 'core:home' %}">{% t "Accueil" %}</a></li>
+      <li><a href="{% url 'portfolio:list' %}">{% t "Projets" %}</a></li>
+      <li><a href="{% url 'core:process' %}">{% t "Processus" %}</a></li>
+      <li><a href="{% url 'core:pricing' %}">{% t "Tarifs" %}</a></li>
+      <li><a href="{% url 'core:about' %}">{% t "À propos" %}</a></li>
+      <li><a href="{% url 'certifications:list' %}">Certifications</a></li>
+      <li><a href="{% url 'resources:list' %}">{% t "Ressources" %}</a></li>
+    </ul>
+  </nav>
+  <div class="mobile-menu-actions">
     <a class="btn btn-primary" href="{{ site_settings.booking_url|default:'#' }}">
       {% t "Réserver un appel" %} <span class="btn-arrow">→</span>
     </a>
-    <div class="header-lang-form-mobile">
-      {% if LANGUAGE_CODE == 'fr' %}
-        <a class="mobile-lang-btn" href="{{ language_paths.en }}" hreflang="en" lang="en">English</a>
-      {% else %}
-        <a class="mobile-lang-btn" href="{{ language_paths.fr }}" hreflang="fr" lang="fr">Français</a>
-      {% endif %}
-    </div>
+    {% if site_settings.cv_file %}
+      <a class="btn btn-secondary" href="{{ site_settings.cv_file.url }}" target="_blank" rel="noopener">{% t "Télécharger le CV" %}</a>
+    {% endif %}
   </div>
-</header>
+</div>

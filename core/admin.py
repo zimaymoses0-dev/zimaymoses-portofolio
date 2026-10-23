@@ -10,7 +10,7 @@ class SiteSettingsAdmin(admin.ModelAdmin):
         ("Availability", {"fields": ("available", "availability_text", "booking_url")}),
         ("CV", {"fields": ("cv_file",)}),
         ("Contact", {"fields": ("email", "phone", "whatsapp", "location")}),
-        ("Social", {"fields": ("linkedin_url", "instagram_url", "twitter_url")}),
+        ("Social", {"fields": ("linkedin_url", "instagram_url", "twitter_url", "youtube_url")}),
         ("Footer", {"fields": ("footer_description", "copyright_text")}),
     )
 

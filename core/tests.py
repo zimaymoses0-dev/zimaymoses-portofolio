@@ -356,3 +356,45 @@ class LanguageConsistencyTests(TestCase):
         en = self.client.get("/en/about/").content.decode()
         self.assertIn("Seven years of this work", en)
         self.assertNotIn("Sept ans de ce travail", en)
+
+
+class WhatsAppMessageTests(TestCase):
+    """Every contact button opens WhatsApp with a message naming the service, in the page's language."""
+
+    def setUp(self):
+        from django.utils import translation
+
+        translation.activate("fr")
+        site = SiteSettings.load()
+        site.whatsapp = "2250544822043"
+        site.save()
+        Service.objects.create(name="Préparation d'audit & pièces justificatives", slug="audit", is_active=True,
+                               cta_label="En savoir plus", cta_url="https://wa.me/2250544822043?text=Hi")
+
+    def messages(self, url):
+        import html
+        import re
+        from urllib.parse import parse_qs, urlsplit
+
+        page = self.client.get(url).content.decode()
+        return [parse_qs(urlsplit(html.unescape(h)).query)["text"][0]
+                for h in re.findall(r'href="(https://wa\.me/[^"]+)"', page)]
+
+    def test_service_button_names_the_service_in_french(self):
+        msgs = self.messages("/")
+        self.assertTrue(all(m.startswith("Bonjour Moses, je vous contacte depuis votre site zimaymoses.com.") for m in msgs))
+        self.assertIn("Je suis intéressé(e) par votre service « Préparation d'audit & pièces justificatives ». "
+                      "Pouvons-nous en discuter ?", " ".join(msgs))
+
+    def test_english_page_sends_english_message_with_translated_service(self):
+        msgs = " ".join(self.messages("/en/"))
+        self.assertIn("Hello Moses, I'm contacting you from your website zimaymoses.com.", msgs)
+        self.assertIn("“Audit Preparation & Supporting Evidence” service", msgs)
+        self.assertNotIn("Bonjour", msgs)
+
+    def test_pricing_offers_include_name_and_price(self):
+        msgs = " ".join(self.messages("/pricing/"))
+        self.assertIn("« Boutiques Shopify » (à partir de 750 000 FCFA)", msgs)
+        self.assertIn("J'hésite entre plusieurs offres", msgs)
+        en = " ".join(self.messages("/en/pricing/"))
+        self.assertIn("“Showcase & organizational websites” service (starting at 350 000 FCFA)", en)

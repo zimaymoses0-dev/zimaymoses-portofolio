@@ -1,4 +1,4 @@
-{% load i18n_extra %}<header class="site-header is-entering">
+{% load core_tags i18n_extra %}<header class="site-header is-entering">
   <div class="header-brand">
     <a class="header-home" href="{% url 'core:home' %}" aria-label="{{ site_settings.site_name }} — {% t 'Accueil' %}">{{ site_settings.site_name }}</a>
     {% if site_settings.available %}
@@ -22,7 +22,7 @@
     {% if site_settings.cv_file %}
       <a class="header-cv" href="{{ site_settings.cv_file.url }}" target="_blank" rel="noopener">{% t "Télécharger le CV" %}</a>
     {% endif %}
-    <a class="header-cta" href="{{ site_settings.booking_url|default:'#' }}">
+    <a class="header-cta" href="{% whatsapp_url 'contact' %}" target="_blank" rel="noopener">
       {% if LANGUAGE_CODE == 'fr' %}Contactez-moi{% else %}Contact {{ site_settings.owner_name|default:"me" }}{% endif %}
     </a>
     {% if LANGUAGE_CODE == 'fr' %}
@@ -63,7 +63,7 @@
     </ul>
   </nav>
   <div class="mobile-menu-actions">
-    <a class="btn btn-primary" href="{{ site_settings.booking_url|default:'#' }}">
+    <a class="btn btn-primary" href="{% whatsapp_url 'call' %}" target="_blank" rel="noopener">
       {% t "Réserver un appel" %} <span class="btn-arrow">→</span>
     </a>
     {% if site_settings.cv_file %}

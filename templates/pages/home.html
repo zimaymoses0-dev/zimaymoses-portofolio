@@ -14,7 +14,7 @@
       <h1 data-reveal>{% t hero.title|default:site_settings.headline %}</h1>
       <p data-reveal>{% t hero.subtitle|default:site_settings.subheadline %}</p>
       <div class="hero-actions" data-reveal>
-        <a class="btn btn-primary" href="{{ site_settings.booking_url|default:'#' }}">
+        <a class="btn btn-primary" href="{% whatsapp_url 'call' %}" target="_blank" rel="noopener">
           {% t "Réserver un appel" %} <span class="btn-arrow">→</span>
         </a>
         <a class="btn btn-secondary" href="#how-i-help">
@@ -174,7 +174,7 @@
   <section class="section cta-section">
     <div class="container">
       <h2>{% t cta.title|default:"Envie de voir ce que je peux construire pour toi ?" %}</h2>
-      <a class="btn btn-primary" href="{{ site_settings.booking_url|default:'#' }}">
+      <a class="btn btn-primary" href="{% whatsapp_url 'call' %}" target="_blank" rel="noopener">
         {% t "Réserver un appel" %} <span class="btn-arrow">→</span>
       </a>
     </div>

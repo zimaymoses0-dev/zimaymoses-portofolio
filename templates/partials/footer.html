@@ -1,4 +1,4 @@
-{% load i18n_extra %}<footer class="site-footer">
+{% load core_tags i18n_extra %}<footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
       <div>
@@ -28,7 +28,7 @@
         <h2>Contact</h2>
         <ul class="footer-links">
           {% if site_settings.email %}<li><a href="mailto:{{ site_settings.email }}">{{ site_settings.email }}</a></li>{% endif %}
-          {% if site_settings.whatsapp %}<li><a href="https://wa.me/{{ site_settings.whatsapp }}">WhatsApp</a></li>{% endif %}
+          {% if site_settings.whatsapp %}<li><a href="{% whatsapp_url 'contact' %}" target="_blank" rel="noopener">WhatsApp</a></li>{% endif %}
           {% if site_settings.location %}<li>{{ site_settings.location }}</li>{% endif %}
           {% if site_settings.cv_file %}<li><a href="{{ site_settings.cv_file.url }}" target="_blank" rel="noopener">{% t "Télécharger le CV" %}</a></li>{% endif %}
         </ul>

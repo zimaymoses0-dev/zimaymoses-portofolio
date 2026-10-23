@@ -141,7 +141,7 @@ TRANSLATIONS = {
     "Sites web & e-commerce": "Websites & e-commerce",
     "Projets web": "Web projects",
     "Sites web": "Websites",
-    "Sites vitrine & organisationnels": "Vitrine & organizational sites",
+    "Sites vitrine & organisationnels": "Showcase & organizational websites",
     "prix de départ": "starting price",
     "Livré en 2 semaines": "Delivered in 2 weeks",
     "Intégration d'un moyen de paiement": "Payment method integration",

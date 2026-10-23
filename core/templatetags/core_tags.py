@@ -69,3 +69,55 @@ def responsive_img(image, alt="", sizes="100vw", css_class="", loading="lazy", p
     return format_html(
         '<picture><source type="image/webp" srcset="{}" sizes="{}">{}</picture>', srcset, sizes, img
     )
+
+
+# Pre-filled WhatsApp messages, in the language of the page the visitor is reading, so the
+# owner knows at a glance which service a contact is about and which language to answer in.
+WHATSAPP_MESSAGES = {
+    "fr": {
+        "intro": "Bonjour Moses, je vous contacte depuis votre site zimaymoses.com.",
+        "service": "Je suis intéressé(e) par votre service « {subject} »{price}. Pouvons-nous en discuter ?",
+        "price": " (à partir de {price})",
+        "consultation": "J'aimerais réserver une consultation « {subject} »{price}.",
+        "consultation_price": " ({price})",
+        "call": "J'aimerais réserver un appel avec vous.",
+        "advice": "J'hésite entre plusieurs offres et j'aimerais votre conseil.",
+        "contact": "J'aimerais échanger avec vous au sujet d'un projet.",
+    },
+    "en": {
+        "intro": "Hello Moses, I'm contacting you from your website zimaymoses.com.",
+        "service": "I'm interested in your “{subject}” service{price}. Can we discuss it?",
+        "price": " (starting at {price})",
+        "consultation": "I'd like to book a consultation: “{subject}”{price}.",
+        "consultation_price": " ({price})",
+        "call": "I'd like to book a call with you.",
+        "advice": "I'm hesitating between several offers and would like your advice.",
+        "contact": "I'd like to talk with you about a project.",
+    },
+}
+
+
+@register.simple_tag(takes_context=True)
+def whatsapp_url(context, kind="contact", subject="", price=""):
+    """wa.me link with a pre-filled message: `kind` is service | consultation | call | advice | contact.
+
+    `subject` is the service name as written in the French templates/Admin; it is shown in
+    English on /en/ pages through the site's translation table.
+    """
+    from urllib.parse import quote
+
+    from django.utils.translation import get_language
+
+    from core.templatetags.i18n_extra import t
+
+    site = context.get("site_settings")
+    number = "".join(ch for ch in (getattr(site, "whatsapp", "") or "") if ch.isdigit())
+    if not number:
+        return getattr(site, "booking_url", "") or "#"
+    texts = WHATSAPP_MESSAGES["en" if (get_language() or "").startswith("en") else "fr"]
+    if kind in ("service", "consultation") and subject:
+        price_template = texts["price" if kind == "service" else "consultation_price"]
+        detail = texts[kind].format(subject=t(subject), price=price_template.format(price=price) if price else "")
+    else:
+        detail = texts.get(kind, texts["contact"])
+    return f"https://wa.me/{number}?text={quote(texts['intro'] + ' ' + detail, safe='')}"

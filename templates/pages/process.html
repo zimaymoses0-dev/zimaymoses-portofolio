@@ -91,7 +91,7 @@
   <section class="section cta-section">
     <div class="container">
       <h2>{% t "Prêt à démarrer ton projet ?" %}</h2>
-      <a class="btn btn-primary" href="{{ site_settings.booking_url|default:'#' }}">
+      <a class="btn btn-primary" href="{% whatsapp_url 'call' %}" target="_blank" rel="noopener">
         {% t "Réserver un appel" %} <span class="btn-arrow">→</span>
       </a>
     </div>

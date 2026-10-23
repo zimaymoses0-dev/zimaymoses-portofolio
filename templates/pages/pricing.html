@@ -38,7 +38,7 @@
           <p class="pricing-note pricing-requirements">
             <strong>{% t "L'intégration du paiement nécessite :" %}</strong> {% t "une entreprise enregistrée (Registre de Commerce), une DFE et un Certificat de Résidence." %}
           </p>
-          <a class="btn btn-secondary" href="{{ site_settings.booking_url|default:'#' }}">
+          <a class="btn btn-secondary" href="{% whatsapp_url 'service' subject="Sites vitrine & organisationnels" price="350 000 FCFA" %}" target="_blank" rel="noopener">
             {% t "En savoir plus" %} <span class="btn-arrow">→</span>
           </a>
         </article>
@@ -63,7 +63,7 @@
           <p class="pricing-note pricing-requirements">
             <strong>{% t "L'intégration du paiement nécessite :" %}</strong> {% t "une entreprise enregistrée (Registre de Commerce), une DFE et un Certificat de Résidence." %}
           </p>
-          <a class="btn btn-primary" href="{{ site_settings.booking_url|default:'#' }}">
+          <a class="btn btn-primary" href="{% whatsapp_url 'service' subject="Boutiques Shopify" price="750 000 FCFA" %}" target="_blank" rel="noopener">
             {% t "En savoir plus" %} <span class="btn-arrow">→</span>
           </a>
         </article>
@@ -81,7 +81,7 @@
             <li>{% t "Fonctionnalités IA spécifiques" %}</li>
             <li>{% t "Entièrement sur mesure selon tes besoins" %}</li>
           </ul>
-          <a class="btn btn-secondary" href="{{ site_settings.booking_url|default:'#' }}">
+          <a class="btn btn-secondary" href="{% whatsapp_url 'service' subject="Développement full-stack, codé de A à Z (Django)" %}" target="_blank" rel="noopener">
             {% t "En savoir plus" %} <span class="btn-arrow">→</span>
           </a>
         </article>
@@ -115,7 +115,7 @@
           </ul>
           <p class="pricing-note">{% t "Réalisé sur QuickBooks, Xero ou Excel." %}</p>
           <p class="pricing-note">{% t "N'inclut pas la paie ni les déclarations fiscales." %}</p>
-          <a class="btn btn-secondary" href="{{ site_settings.booking_url|default:'#' }}">
+          <a class="btn btn-secondary" href="{% whatsapp_url 'service' subject="Tenue de comptes e-commerce (freelance)" price="250 000 FCFA" %}" target="_blank" rel="noopener">
             {% t "En savoir plus" %} <span class="btn-arrow">→</span>
           </a>
         </article>
@@ -134,7 +134,7 @@
             <li>{% t "Paie" %}</li>
             <li>{% t "Déclarations fiscales" %}</li>
           </ul>
-          <a class="btn btn-primary" href="{{ site_settings.booking_url|default:'#' }}">
+          <a class="btn btn-primary" href="{% whatsapp_url 'service' subject="Comptabilité complète, paie & déclarations fiscales" price="500 000 FCFA" %}" target="_blank" rel="noopener">
             {% t "En savoir plus" %} <span class="btn-arrow">→</span>
           </a>
         </article>
@@ -150,7 +150,7 @@
             <li>{% t "Accompagnement personnalisé sur tes finances personnelles" %}</li>
             <li>{% t "Outils automatisés pour gérer tes finances personnelles" %}</li>
           </ul>
-          <a class="btn btn-secondary" href="{{ site_settings.booking_url|default:'#' }}">
+          <a class="btn btn-secondary" href="{% whatsapp_url 'service' subject="Comptable personnel" %}" target="_blank" rel="noopener">
             {% t "En savoir plus" %} <span class="btn-arrow">→</span>
           </a>
         </article>
@@ -179,7 +179,7 @@
             <li>{% t "Ouvert aux associations à but non lucratif" %}</li>
           </ul>
           <p class="pricing-note">{% t "Les consultations à plus grande échelle sont négociées selon des Termes de Référence." %}</p>
-          <a class="btn btn-secondary" href="{{ site_settings.booking_url|default:'#' }}">
+          <a class="btn btn-secondary" href="{% whatsapp_url 'consultation' subject="Comptabilité (associations) & projets web" price="50 $ · 45 min" %}" target="_blank" rel="noopener">
             {% t "Réserver une consultation" %} <span class="btn-arrow">→</span>
           </a>
         </article>
@@ -193,7 +193,7 @@
   <section class="section cta-section">
     <div class="container">
       <h2>{% t cta.title|default:"Pas sûr de ce qui te convient ? Parlons-en." %}</h2>
-      <a class="btn btn-primary" href="{{ site_settings.booking_url|default:'#' }}">
+      <a class="btn btn-primary" href="{% whatsapp_url 'advice' %}" target="_blank" rel="noopener">
         {% t "Réserver un appel" %} <span class="btn-arrow">→</span>
       </a>
     </div>

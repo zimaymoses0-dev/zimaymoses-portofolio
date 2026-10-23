@@ -1,4 +1,4 @@
-{% load i18n_extra %}<article class="card service-card" data-reveal>
+{% load core_tags i18n_extra %}<article class="card service-card" data-reveal>
   {% if service.badge %}<span class="service-card-badge">{{ service.badge }}</span>{% endif %}
   <h3>{% t service.name %}</h3>
   <p>{% t service.short_description %}</p>
@@ -8,8 +8,14 @@
       <span class="service-price">{{ service.price }} {{ service.currency }}</span>
     {% endif %}
   </div>
-  {% if service.cta_url %}
+  {% if service.cta_url and "wa.me" not in service.cta_url %}
+    {# A custom destination set in Admin (booking page, form…) wins. #}
     <a class="btn btn-secondary" href="{{ service.cta_url }}">
+      {% t service.cta_label %} <span class="btn-arrow">→</span>
+    </a>
+  {% elif site_settings.whatsapp or service.cta_url %}
+    {# WhatsApp, with a message naming this exact service in the visitor's language. #}
+    <a class="btn btn-secondary" href="{% whatsapp_url 'service' subject=service.name %}" target="_blank" rel="noopener">
       {% t service.cta_label %} <span class="btn-arrow">→</span>
     </a>
   {% endif %}

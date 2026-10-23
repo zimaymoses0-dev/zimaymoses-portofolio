@@ -159,7 +159,7 @@
     <div class="container">
       <h2>{% t cta.title|default:"Envie de travailler ensemble ?" %}</h2>
       <div class="about-cta-actions">
-        <a class="btn btn-primary" href="{{ site_settings.booking_url|default:'#' }}">
+        <a class="btn btn-primary" href="{% whatsapp_url 'call' %}" target="_blank" rel="noopener">
           {% t "Réserver un appel" %} <span class="btn-arrow">→</span>
         </a>
         {% if site_settings.cv_file %}

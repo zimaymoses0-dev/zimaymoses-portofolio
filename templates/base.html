@@ -22,10 +22,12 @@
   <meta property="og:description" content="{% block og_description %}{{ person.summary|truncatechars:200 }}{% endblock %}">
   <meta property="og:type" content="{% block og_type %}profile{% endblock %}">
   <meta property="og:url" content="{{ canonical_url }}">
-  <meta property="og:image" content="{% block og_image %}{{ SITE_URL }}{% static 'images/og-image.png' %}{% endblock %}">
+  {# Link preview = a screenshot of the home hero, in the page's language. #}
+  <meta property="og:image" content="{% block og_image %}{{ SITE_URL }}{% if LANGUAGE_CODE == 'en' %}{% static 'images/og-hero-en.jpg' %}{% else %}{% static 'images/og-hero-fr.jpg' %}{% endif %}{% endblock %}">
+  <meta property="og:image:type" content="{% block og_image_type %}image/jpeg{% endblock %}">
   <meta property="og:image:width" content="{% block og_image_width %}1200{% endblock %}">
   <meta property="og:image:height" content="{% block og_image_height %}630{% endblock %}">
-  <meta property="og:image:alt" content="{{ person.full_name }}">
+  <meta property="og:image:alt" content="{{ person.full_name }} — {{ person.job_titles.0 }} · {{ person.focus }}">
   <meta property="og:locale" content="{% if LANGUAGE_CODE == 'en' %}en_US{% else %}fr_FR{% endif %}">
   <meta property="og:locale:alternate" content="{% if LANGUAGE_CODE == 'en' %}fr_FR{% else %}en_US{% endif %}">
   <meta property="profile:first_name" content="Moses">
@@ -33,7 +35,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ person.full_name }} — {{ person.job_titles.0 }} · {{ person.focus }}">
   <meta name="twitter:description" content="{{ person.summary|truncatechars:200 }}">
-  <meta name="twitter:image" content="{% block twitter_image %}{{ SITE_URL }}{% static 'images/og-image.png' %}{% endblock %}">
+  <meta name="twitter:image" content="{% block twitter_image %}{{ SITE_URL }}{% if LANGUAGE_CODE == 'en' %}{% static 'images/og-hero-en.jpg' %}{% else %}{% static 'images/og-hero-fr.jpg' %}{% endif %}{% endblock %}">
 
   {% for item in jsonld %}{% jsonld item %}
   {% endfor %}

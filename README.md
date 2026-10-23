@@ -27,6 +27,11 @@ put the same values in `.env` and run `python manage.py sync_visits` (or click
 "Synchroniser" in Admin > Visites) to import them. Visits older than 12 months
 are deleted on sync, as stated in the privacy policy (`/confidentialite/`).
 
+Link previews (WhatsApp, LinkedIn, Facebook, X) show a screenshot of the home
+hero: `static/images/og-hero-fr.jpg` / `og-hero-en.jpg` (1200x630, captured at 2x
+then downscaled). If the hero text or photo changes, regenerate both so the
+preview matches the site.
+
 Search/AI discoverability is built in: schema.org JSON-LD, `sitemap.xml`,
 `robots.txt`, `llms.txt` / `llms-full.txt`, and English pages under `/en/`.
 Career, education and skills live in `core/profile.py`; certifications,

@@ -398,3 +398,16 @@ class WhatsAppMessageTests(TestCase):
         self.assertIn("J'hésite entre plusieurs offres", msgs)
         en = " ".join(self.messages("/en/pricing/"))
         self.assertIn("“Showcase & organizational websites” service (starting at 350 000 FCFA)", en)
+
+
+class LinkPreviewTests(TestCase):
+    def test_preview_image_is_the_hero_in_the_page_language(self):
+        from django.utils import translation
+
+        translation.activate("fr")
+        fr = self.client.get("/").content.decode()
+        en = self.client.get("/en/about/").content.decode()
+        self.assertRegex(fr, r'og:image" content="https://zimaymoses\.com/static/images/og-hero-fr[^"]*\.jpg"')
+        self.assertRegex(en, r'og:image" content="https://zimaymoses\.com/static/images/og-hero-en[^"]*\.jpg"')
+        self.assertIn('og:image:type" content="image/jpeg"', fr)
+        self.assertRegex(en, r'twitter:image" content="https://zimaymoses\.com/static/images/og-hero-en')

@@ -52,3 +52,23 @@ def webp_variants(field_file):
                 )
             variants.append((_media_url(str(relative)), target_width))
     return variants, (width, height)
+
+
+def og_jpeg(field_file, width=1200, height=630, quality=85):
+    """Link-preview copy of an upload: 1200x630 JPEG (centre-cropped), well under the
+    ~300 KB that WhatsApp accepts for previews. Returns (url, (w, h)) or (None, None)."""
+    try:
+        source = Path(field_file.path)
+    except (NotImplementedError, ValueError):
+        return None, None
+    if not source.is_file():
+        return None, None
+    relative = Path(VARIANT_DIR) / f"{Path(field_file.name).with_suffix('')}-og.jpg"
+    destination = Path(settings.MEDIA_ROOT) / relative
+    if not destination.exists() or destination.stat().st_mtime < source.stat().st_mtime:
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        with Image.open(source) as original:
+            image = ImageOps.fit(ImageOps.exif_transpose(original).convert("RGB"), (width, height),
+                                 Image.LANCZOS, centering=(0.5, 0.0))
+            image.save(destination, "JPEG", quality=quality, optimize=True, progressive=True)
+    return _media_url(str(relative)), (width, height)

@@ -121,3 +121,14 @@ def whatsapp_url(context, kind="contact", subject="", price=""):
     else:
         detail = texts.get(kind, texts["contact"])
     return f"https://wa.me/{number}?text={quote(texts['intro'] + ' ' + detail, safe='')}"
+
+
+@register.simple_tag
+def og_image_url(image):
+    """Absolute URL of the lightweight 1200x630 JPEG preview of an uploaded image."""
+    from django.conf import settings
+
+    from core.images import og_jpeg
+
+    url, _ = og_jpeg(image) if image else (None, None)
+    return settings.SITE_URL + url if url else ""

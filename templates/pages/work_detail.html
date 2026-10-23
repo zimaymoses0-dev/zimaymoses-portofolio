@@ -3,11 +3,9 @@
 
 {% block title %}{{ case_study.display_title }} — {{ person.full_name }}{% endblock %}
 {% block og_type %}article{% endblock %}
-{# The project's own screenshot as share image, with its real size; site default otherwise. #}
-{% block og_image %}{% if case_study.hero_image %}{{ SITE_URL }}{{ case_study.hero_image.url }}{% else %}{{ block.super }}{% endif %}{% endblock %}
-{% block twitter_image %}{% if case_study.hero_image %}{{ SITE_URL }}{{ case_study.hero_image.url }}{% else %}{{ block.super }}{% endif %}{% endblock %}
-{% block og_image_width %}{% if case_study.hero_image %}{{ case_study.hero_image.width }}{% else %}{{ block.super }}{% endif %}{% endblock %}
-{% block og_image_height %}{% if case_study.hero_image %}{{ case_study.hero_image.height }}{% else %}{{ block.super }}{% endif %}{% endblock %}
+{# The project's own screenshot as share image (light 1200x630 JPEG); site default otherwise. #}
+{% block og_image %}{% if case_study.hero_image %}{% og_image_url case_study.hero_image %}{% else %}{{ block.super }}{% endif %}{% endblock %}
+{% block twitter_image %}{% if case_study.hero_image %}{% og_image_url case_study.hero_image %}{% else %}{{ block.super }}{% endif %}{% endblock %}
 {% block meta_description %}{{ case_study.display_short_description }}{% endblock %}
 {% block extra_css %}<link rel="stylesheet" href="{% static 'css/work.css' %}">{% endblock %}
 

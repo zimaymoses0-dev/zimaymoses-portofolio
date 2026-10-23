@@ -33,6 +33,16 @@ PERSON_ID = "/#person"
 WEBSITE_ID = "/#website"
 
 
+def _portrait_url():
+    """The owner's photo (home hero image) for schema.org Person.image."""
+    from .models import PageContent
+
+    hero = PageContent.objects.filter(page="home", section_key="hero").exclude(image="").first()
+    if hero and hero.image:
+        return absolute(hero.image.url)
+    return absolute(static("images/og-hero-fr.jpg"))
+
+
 def person_jsonld(lang=None):
     """The full schema.org Person — the entity search engines and AI build a profile from."""
     lang = lang or (get_language() or "fr")[:2]
@@ -69,7 +79,7 @@ def person_jsonld(lang=None):
         "jobTitle": p["job_titles"],
         "description": p["summary"],
         "url": absolute(reverse("core:home")),
-        "image": absolute(static("images/og-image.png")),
+        "image": _portrait_url(),
         "address": {
             "@type": "PostalAddress",
             "addressLocality": p["location"]["locality"],

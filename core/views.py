@@ -32,7 +32,7 @@ def process(request):
 
 def about(request):
     context = {
-        "jsonld": [seo.profile_page_jsonld(request), seo.breadcrumbs_jsonld(request, ("About", request.path))],
+        "jsonld": [seo.profile_page_jsonld(request), seo.breadcrumbs_jsonld(request, ("À propos", request.path))],
         "metrics": Metric.objects.filter(is_active=True),
         "certifications": Certification.objects.filter(is_published=True),
     }

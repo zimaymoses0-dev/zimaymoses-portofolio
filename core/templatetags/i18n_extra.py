@@ -336,6 +336,14 @@ TRANSLATIONS = {
     "Vos données": "Your data",
     "Mise à jour le 23 octobre 2026.": "Last updated 23 October 2026.",
     "Quelles données le site zimaymoses.com enregistre lors de votre visite (adresse IP, pays, page, provenance), pourquoi, combien de temps, et comment exercer vos droits.": "What data zimaymoses.com records when you visit (IP address, country, page, referrer), why, for how long, and how to exercise your rights.",
+
+    # --- Language consistency pass ---
+    "Je suis Assistant Comptable à l'Organisation Interafricaine du Café — rapprochements bancaires, préparation des audits, clôture des comptes. Sept ans de ce travail m'ont appris une chose qui est restée : les chiffres n'ont de sens que si le processus derrière eux est irréprochable.\n\nEn parallèle, je construis des applications web full-stack et j'automatise les systèmes sur lesquels tournent les petites entreprises — sites web, boutiques WordPress et Shopify, tableaux de bord financiers. Deux disciplines, une seule exigence : rien ne sort tant que ce n'est pas juste.": "I'm an Accounting Assistant at the Inter-African Coffee Organization — bank reconciliations, audit preparation, closing the books. Seven years of this work taught me one thing that stuck: numbers only mean something if the process behind them is airtight.\n\nAlongside that, I build full-stack web applications and automate the systems small businesses run on — websites, WordPress and Shopify stores, financial dashboards. Two disciplines, one standard: nothing goes out until it's right.",
+    "Des prestations au périmètre fixe, pensées pour les entrepreneurs.": "Fixed-scope services, built for business owners.",
+    "Des résultats concrets, pas seulement de jolis écrans.": "Real results, not just pretty screens.",
+    "30 astuces concrètes sur 90 jours pour gérer la dépression et reconstruire ta confiance.": "A guide in French: 30 practical tips over 90 days to manage depression and rebuild your confidence.",
+    "Principal": "Main",
+    "Profil pour les assistants IA": "Profile for AI assistants",
 }
 
 

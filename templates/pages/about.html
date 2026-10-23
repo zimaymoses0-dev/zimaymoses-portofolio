@@ -10,7 +10,7 @@
   <section class="container about-hero">
     <span class="eyebrow">{% t hero.eyebrow|default:"À propos" %} · {{ person.full_name }}</span>
     <h1 data-reveal>{% t hero.title|default:"Comptable et développeur full-stack." %}</h1>
-    <p data-reveal>{% t hero.subtitle|default:"I keep the books straight for international organizations — and I build the web tools those teams need too." %}</p>
+    <p data-reveal>{% t hero.subtitle|default:"Je tiens les comptes d'une organisation internationale du café et d'un réseau international d'églises — et je construis aussi les outils web dont ces équipes ont besoin." %}</p>
     <p class="about-summary" data-reveal>{{ person.summary }}</p>
   </section>
 
@@ -44,7 +44,7 @@
       </div>
       <div class="about-story-body" data-reveal>
         {% if story.body %}
-          {{ story.body|linebreaks }}
+          {% t story.body as story_body %}{{ story_body|linebreaks }}
         {% else %}
           <p>I'm an Accounting Assistant at the Inter-African Coffee Organization — reconciling bank statements, preparing audits, and closing the books. Seven years of that taught me something that stuck: numbers only mean something if the process behind them is airtight.</p>
           <p>Alongside that, I build full-stack web apps and automate the systems small businesses run on — websites, WordPress and Shopify builds, and financial dashboards. Two disciplines, the same standard: nothing ships until it's accurate.</p>

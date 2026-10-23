@@ -9,7 +9,7 @@
     {% endif %}
   </div>
 
-  <nav class="header-nav" aria-label="Principal">
+  <nav class="header-nav" aria-label="{% t 'Principal' %}">
     <a href="{% url 'core:home' %}">{% t "Accueil" %}</a>
     <a href="{% url 'portfolio:list' %}">{% t "Projets" %}</a>
     <a href="{% url 'core:process' %}">{% t "Processus" %}</a>

@@ -331,3 +331,28 @@ class HeaderHomeLinkTests(TestCase):
         translation.activate("fr")
         self.assertContains(self.client.get("/about/"), 'class="header-home" href="/"')
         self.assertContains(self.client.get("/en/about/"), 'class="header-home" href="/en/"')
+
+
+class LanguageConsistencyTests(TestCase):
+    def test_detector_flags_wrong_language_and_respects_exceptions(self):
+        from core.lang_check import check_page
+
+        en_page = '<html><body><p>Je suis assistant comptable et je construis des outils pour les équipes.</p></body></html>'
+        self.assertEqual(len(check_page(en_page, "en")), 1)
+        fr_page = '<html><body><p>I build web tools for the teams that keep the books.</p></body></html>'
+        self.assertEqual(len(check_page(fr_page, "fr")), 1)
+        # Certificate titles keep their original language; links written in another language
+        # on purpose (lang attribute) and quoted titles are fine.
+        ok = ('<article class="card certification-card"><h3>Executive Diploma in Finance Management</h3></article>'
+              '<a lang="fr" aria-label="Passer en français pour lire la page">FR</a>'
+              '<img alt="Cover of the book « Les 90 jours qui changent tout pour toi »">')
+        self.assertEqual(check_page(ok, "en"), [])
+
+    def test_english_about_page_has_no_french_story(self):
+        from django.utils import translation
+
+        translation.activate("fr")
+        PageContent.objects.create(page="about", section_key="story", body="Je suis Assistant Comptable à l'Organisation Interafricaine du Café — rapprochements bancaires, préparation des audits, clôture des comptes. Sept ans de ce travail m'ont appris une chose qui est restée : les chiffres n'ont de sens que si le processus derrière eux est irréprochable.\n\nEn parallèle, je construis des applications web full-stack et j'automatise les systèmes sur lesquels tournent les petites entreprises — sites web, boutiques WordPress et Shopify, tableaux de bord financiers. Deux disciplines, une seule exigence : rien ne sort tant que ce n'est pas juste.")
+        en = self.client.get("/en/about/").content.decode()
+        self.assertIn("Seven years of this work", en)
+        self.assertNotIn("Sept ans de ce travail", en)

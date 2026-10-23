@@ -21,6 +21,7 @@ from portfolio.models import CaseStudy
 from services.models import Service
 
 from . import profile
+from .templatetags.i18n_extra import t
 from .models import SiteSettings
 
 
@@ -120,7 +121,7 @@ def person_jsonld(lang=None):
         "makesOffer": [
             {
                 "@type": "Offer",
-                "itemOffered": {"@type": "Service", "name": s.name, "description": s.short_description},
+                "itemOffered": {"@type": "Service", "name": t(s.name), "description": t(s.short_description)},
             }
             for s in Service.objects.filter(is_active=True)
         ],
@@ -244,7 +245,7 @@ def case_study_jsonld(request, case_study):
 
 def breadcrumbs_jsonld(request, *crumbs):
     """crumbs: (name, path) pairs after Home."""
-    items = [("Moses Zimay", reverse("core:home"))] + list(crumbs)
+    items = [("Moses Zimay", reverse("core:home"))] + [(t(name), path) for name, path in crumbs]
     return {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",

@@ -47,3 +47,11 @@ class Resource(models.Model):
 
     def __str__(self):
         return self.title
+
+    @property
+    def cover_alt(self):
+        from django.utils.translation import get_language
+
+        if (get_language() or "").startswith("en"):
+            return f"Cover of the book « {self.title} »"
+        return f"Couverture du livre « {self.title} »"

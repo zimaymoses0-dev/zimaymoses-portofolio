@@ -84,6 +84,7 @@ class Command(BaseCommand):
         media_count = self.copy_media(out, written)
         self.check_references(out, written)
         self.check_not_gitignored(out)
+        self.check_languages(out, written)
 
         self.stdout.write(
             self.style.SUCCESS(
@@ -194,3 +195,32 @@ class Command(BaseCommand):
                 ".gitignore excludes exported files, so they would never reach the live site:\n  "
                 + "\n  ".join(ignored[:20])
             )
+
+    def check_languages(self, out, written):
+        """Warn about any text in the wrong language (see core/lang_check.py)."""
+        from certifications.models import Certification
+        from core import profile
+        from core.lang_check import check_page
+
+        # Organisation and school names are proper nouns: identical in both languages.
+        proper_nouns = sorted(
+            {c.issuer for c in Certification.objects.exclude(issuer="")}
+            | {e["school"] for e in profile.EDUCATION},
+            key=len, reverse=True,
+        )
+        issues = []
+        for url, path in written.items():
+            if path.suffix != ".html" or url == "/404.html":
+                continue
+            expected = "en" if url.startswith("/en/") else "fr"
+            for where, text in check_page(path.read_text(encoding="utf-8"), expected, proper_nouns):
+                issues.append(f"{url} [{where}] « {text[:110]} »")
+        if issues:
+            self.stdout.write(self.style.WARNING(
+                f"{len(issues)} text(s) in the wrong language — add a translation "
+                "(core/templatetags/i18n_extra.py or the *_en fields in Admin):"
+            ))
+            for issue in issues:
+                self.stdout.write("  " + issue)
+        else:
+            self.stdout.write(self.style.SUCCESS("Language check: every page reads in a single language."))

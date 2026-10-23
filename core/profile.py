@@ -199,7 +199,7 @@ EDUCATION = [
         "credential_category": "degree",
     },
     {
-        "degree": {"fr": "Baccalauréat série D", "en": "Baccalauréat, series D (science)"},
+        "degree": {"fr": "Baccalauréat série D", "en": "Baccalaureate, series D (science)"},
         "school": "Nangui Abrogoua II",
         "location": "Abidjan, Côte d'Ivoire",
         "period": "2016 — 2017",

@@ -1,7 +1,7 @@
 {% load core_tags i18n_extra %}<article class="card resource-card">
   <div class="resource-media">
     {% if resource.cover_image %}
-      {% responsive_img resource.cover_image alt=resource.title sizes="(max-width: 720px) 100vw, 400px" %}
+      {% responsive_img resource.cover_image alt=resource.cover_alt sizes="(max-width: 720px) 100vw, 400px" %}
     {% endif %}
     {% if resource.is_free %}
       <span class="resource-price-badge is-free">{% t "Gratuit" %}</span>
@@ -12,7 +12,7 @@
   <div class="resource-body">
     <span class="eyebrow">{% t resource.get_resource_type_display %}</span>
     <h3>{{ resource.title }}</h3>
-    {% if resource.short_description %}<p>{{ resource.short_description }}</p>{% endif %}
+    {% if resource.short_description %}<p>{% t resource.short_description %}</p>{% endif %}
     <div class="resource-actions">
       {% if resource.preview_url %}
         <a class="resource-preview-link" href="{{ resource.preview_url }}" target="_blank" rel="noopener">{% t "Aperçu" %}</a>

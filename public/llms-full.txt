@@ -79,10 +79,10 @@ Christian youth organization: films, vacation Bible schools and gospel concerts.
 - Training on the Accounting System for Non-Profit Organizations (SYCEBNL) — Cabinet EXCO ECA (February 2026)
   Training on SYCEBNL, the standardised accounting system used by non-profit and community organisations in the OHADA zone.
   Skills: Accounting for association funds; Chart of accounts for NGOs; Preparing financial statements under SYCEBNL
-- Comprehensive Guide to Xero Accounting — Alison (January 2026)
+- Comprehensive Guide to Xero Accounting — Alison (January 2026) — verify: https://alison.com/verify/21ecbb4b9a
   A guided course on day-to-day bookkeeping and financial management with Xero.
   Skills: Setting up Xero; Invoicing and bank reconciliation; Financial reporting in Xero
-- Professional Diploma in Unit Economics Management — MTF Institute of Management, Technology and Finance (December 2025)
+- Professional Diploma in Unit Economics Management — MTF Institute of Management, Technology and Finance (December 2025) — verify: https://edu.gtf.pt/admin/tool/certificate/index.php?code=9585891092MZ
   A professional diploma on modelling and managing a growing company's unit economics.
   Skills: Unit economics modelling; Customer acquisition cost & LTV; Pricing and margin analysis
 - Learn Ethical Hacking and Penetration Testing (EHPT+) — Udemy (April 2025) — verify: https://ude.my/UC-49279c9d-8485-461f-afc9-0fc7ee4445d4
@@ -222,10 +222,10 @@ Organisation de jeunesse chrétienne : films, écoles bibliques de vacances et c
 - Training on the Accounting System for Non-Profit Organizations (SYCEBNL) — Cabinet EXCO ECA (février 2026)
   Formation sur le SYCEBNL, le système comptable normalisé utilisé par les organisations à but non lucratif et communautaires dans la zone OHADA.
   Compétences: Comptabilité des fonds associatifs; Plan comptable pour les ONG; Préparation des états financiers selon le SYCEBNL
-- Comprehensive Guide to Xero Accounting — Alison (janvier 2026)
+- Comprehensive Guide to Xero Accounting — Alison (janvier 2026) — vérification: https://alison.com/verify/21ecbb4b9a
   Un cours guidé couvrant la comptabilité et la gestion financière au quotidien avec Xero.
   Compétences: Configuration de Xero; Facturation et rapprochement bancaire; Reporting financier dans Xero
-- Professional Diploma in Unit Economics Management — MTF Institute of Management, Technology and Finance (décembre 2025)
+- Professional Diploma in Unit Economics Management — MTF Institute of Management, Technology and Finance (décembre 2025) — vérification: https://edu.gtf.pt/admin/tool/certificate/index.php?code=9585891092MZ
   Un diplôme professionnel sur la modélisation et la gestion de l'unit economics d'une entreprise en croissance.
   Compétences: Modélisation de l'unit economics; Coût d'acquisition client & LTV; Analyse des prix et des marges
 - Learn Ethical Hacking and Penetration Testing (EHPT+) — Udemy (avril 2025) — vérification: https://ude.my/UC-49279c9d-8485-461f-afc9-0fc7ee4445d4

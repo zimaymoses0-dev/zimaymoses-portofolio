@@ -10,6 +10,7 @@
     <p class="certification-meta">
       {% if certification.issuer %}<span>{{ certification.issuer }}</span>{% endif %}
       {% if certification.issue_date %}<time datetime="{{ certification.issue_date|date:'Y-m' }}">{{ certification.issue_date|date:"F Y"|capfirst }}</time>{% endif %}
+      {% if certification.score %}<span>{% t "Score" %} {{ certification.score }}</span>{% endif %}
     </p>
   {% endif %}
   <h3>{{ certification.title }}</h3>

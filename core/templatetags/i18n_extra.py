@@ -345,6 +345,8 @@ TRANSLATIONS = {
     "30 astuces concrètes sur 90 jours pour gérer la dépression et reconstruire ta confiance.": "A guide in French: 30 practical tips over 90 days to manage depression and rebuild your confidence.",
     "Principal": "Main",
     "Profil pour les assistants IA": "Profile for AI assistants",
+    "Score": "Score",
+    "17 h 13 min d'étude · 16-18 h CPD": "17 h 13 min of study · 16-18 CPD hours",
 }
 
 

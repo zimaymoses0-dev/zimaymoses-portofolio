@@ -1,0 +1,9 @@
+# GitHub checks the project's Python libraries every week and opens a pull request
+# when a security fix is available (enable "Dependabot alerts" in repo Settings).
+version: 2
+updates:
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5

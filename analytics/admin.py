@@ -6,6 +6,7 @@ from django.shortcuts import redirect
 from django.urls import path, reverse
 from django.utils import timezone
 from django.utils.html import format_html
+from django.views.decorators.http import require_POST
 
 from .models import Visit
 from .sync import SyncError, is_configured, sync
@@ -48,7 +49,8 @@ class VisitAdmin(admin.ModelAdmin):
 
     def get_urls(self):
         return [
-            path("sync/", self.admin_site.admin_view(self.sync_view), name="analytics_visit_sync"),
+            # POST only (CSRF-protected form): a GET link could be triggered by another site.
+            path("sync/", self.admin_site.admin_view(require_POST(self.sync_view)), name="analytics_visit_sync"),
         ] + super().get_urls()
 
     def sync_view(self, request):

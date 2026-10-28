@@ -122,7 +122,7 @@ class DashboardTests(TestCase):
 
     @override_settings(UPSTASH_REDIS_REST_URL="", UPSTASH_REDIS_REST_TOKEN="")
     def test_sync_button_explains_missing_configuration(self):
-        response = self.client.get(reverse("admin:analytics_visit_sync"), follow=True)
+        response = self.client.post(reverse("admin:analytics_visit_sync"), follow=True)
         self.assertContains(response, "Upstash n&#x27;est pas configuré")
 
     def test_visits_are_read_only(self):
@@ -154,3 +154,22 @@ class ReadOnlyTokenTests(TestCase):
             with self.assertRaisesMessage(sync.SyncError, "lecture seule"):
                 sync.sync()
         self.assertEqual(Visit.objects.count(), 0)
+
+
+class AdminSecurityTests(TestCase):
+    def setUp(self):
+        self.admin = get_user_model().objects.create_superuser("boss", "b@example.com", "x-Strong-pass-123")
+        self.client.force_login(self.admin)
+
+    def test_sync_requires_post(self):
+        self.assertEqual(self.client.get(reverse("admin:analytics_visit_sync")).status_code, 405)
+
+    def test_attacker_controlled_fields_are_escaped_in_admin(self):
+        evil = '<script>alert("xss")</script>'
+        Visit.objects.create(timestamp=timezone.now(), ip="1.2.3.4", path="/" + evil, referrer="javascript:" + evil,
+                             user_agent=evil, city=evil, is_probe=True, bot_name=evil, is_bot=True)
+        for url in (reverse("admin:analytics_visit_changelist"),
+                    reverse("admin:analytics_visit_change", args=[Visit.objects.get().pk])):
+            page = self.client.get(url).content.decode()
+            self.assertNotIn(evil, page)
+            self.assertIn("&lt;script&gt;", page)

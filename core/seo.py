@@ -144,6 +144,15 @@ def person_jsonld(lang=None):
     return data
 
 
+# Official sites of issuing organisations, matched against the issuer name, so search
+# engines and AI assistants can tie each credential to a known entity.
+ISSUER_URLS = {
+    "Basel Institute on Governance": "https://baselgovernance.org",
+    "Udemy": "https://www.udemy.com",
+    "Alison": "https://alison.com",
+}
+
+
 def credential_jsonld(cert):
     """One certification as a schema.org credential, with its own stable @id on the site."""
     data = {
@@ -151,12 +160,14 @@ def credential_jsonld(cert):
         "@id": absolute(reverse("certifications:list")) + "#" + cert.anchor,
         "name": cert.title,
         "credentialCategory": "certificate",
-        "inLanguage": "en",
     }
     if cert.display_description:
         data["description"] = cert.display_description
     if cert.issuer:
         data["recognizedBy"] = {"@type": "Organization", "name": cert.issuer}
+        url = next((u for name, u in ISSUER_URLS.items() if name in cert.issuer), None)
+        if url:
+            data["recognizedBy"]["url"] = url
     if cert.issue_date:
         data["dateCreated"] = cert.issue_date.isoformat()
     if cert.certificate_url:
@@ -344,6 +355,15 @@ class StaticViewSitemap(CanonicalDomainSitemap):
 
     def priority(self, item):
         return self.PRIORITIES.get(item, 0.6)
+
+    # Pages that list credentials change when one is added: tell crawlers when.
+    CREDENTIAL_PAGES = {"core:home", "core:about", "certifications:list"}
+
+    def lastmod(self, item):
+        if item in self.CREDENTIAL_PAGES:
+            latest = Certification.objects.filter(is_published=True).exclude(issue_date=None).order_by("-issue_date").first()
+            return latest.issue_date if latest else None
+        return None
 
     changefreq = "monthly"
 

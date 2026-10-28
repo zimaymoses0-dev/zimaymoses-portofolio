@@ -17,7 +17,8 @@ production. Django and its Admin are the local editing tool.
 
 Files in `site_root/` are copied verbatim to the site root — that's where
 search-engine ownership files go (e.g. Google Search Console's
-`google83c9d79746db2dc0.html`, Bing's `BingSiteAuth.xml`). Don't delete them, or the site loses its
+`google83c9d79746db2dc0.html`, Bing's `BingSiteAuth.xml`, and the IndexNow key
+`<32 hex>.txt`). Don't delete them, or the site loses its
 verified status.
 
 Visitor tracking: `middleware.js` runs on Vercel for every page request and
@@ -31,6 +32,9 @@ Link previews (WhatsApp, LinkedIn, Facebook, X) show a screenshot of the home
 hero: `static/images/og-hero-fr.jpg` / `og-hero-en.jpg` (1200x630, captured at 2x
 then downscaled). If the hero text or photo changes, regenerate both so the
 preview matches the site.
+
+After a deploy is live, `python manage.py ping_indexnow` tells Bing (which
+ChatGPT search uses) and other IndexNow engines which pages to recrawl.
 
 Search/AI discoverability is built in: schema.org JSON-LD, `sitemap.xml`,
 `robots.txt`, `llms.txt` / `llms-full.txt`, and English pages under `/en/`.

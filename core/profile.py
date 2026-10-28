@@ -48,6 +48,8 @@ GOAL_FOUNDATIONS = [
      "en": "Physical stock counts and fixed-asset verification with formal reports — matching what is recorded to what actually exists."},
     {"fr": "Contrôle de la conformité aux règles et procédures financières, gestion de la caisse et des per diem, traçabilité des pièces.",
      "en": "Monitoring compliance with financial rules and procedures, cash and per-diem handling, and a full paper trail for every transaction."},
+    {"fr": "Formation au renseignement de sources ouvertes (OSINT) auprès de l'International Centre for Asset Recovery du Basel Institute on Governance — la méthode d'enquête utilisée pour remonter les flux financiers et recouvrer des avoirs détournés.",
+     "en": "Open-source intelligence (OSINT) training with the International Centre for Asset Recovery of the Basel Institute on Governance — the investigative method used to trace financial flows and recover stolen assets."},
     {"fr": "Formations en cybersécurité (tests d'intrusion, attaques par force brute) pour comprendre la fraude numérique et la protection des accès.",
      "en": "Cybersecurity training (penetration testing, brute-force attacks) to understand digital fraud and how access is protected."},
 ]
@@ -63,8 +65,9 @@ SUMMARY = {
         "multi-devises (XOF, EUR), préparation des audits annuels (MNG Audit & Consulting) "
         "et de l'audit externe d'un projet GIZ (BDO), et saisie comptable sur SAGE 100. "
         "Il cumule plus de 7 ans d'expérience en finance et comptabilité (SAGE 100, "
-        "QuickBooks, Xero, SYCEBNL) et s'est formé à la cybersécurité (tests d'intrusion, "
-        "attaques par force brute). Il est aussi développeur web full-stack (Django, "
+        "QuickBooks, Xero, SYCEBNL), s'est formé au renseignement de sources ouvertes (OSINT) "
+        "auprès du Basel Institute on Governance (ICAR) et à la cybersécurité (tests "
+        "d'intrusion, attaques par force brute). Il est aussi développeur web full-stack (Django, "
         "WordPress/WooCommerce, Shopify). Bilingue français–anglais."
     ),
     "en": (
@@ -77,8 +80,9 @@ SUMMARY = {
         "reconciliations (XOF, EUR), preparing the annual statutory audit (MNG Audit & "
         "Consulting) and the external audit of a GIZ-funded project (BDO), and bookkeeping "
         "on SAGE 100. He has 7+ years of finance and accounting experience (SAGE 100, "
-        "QuickBooks, Xero, SYCEBNL) and has trained in cybersecurity (penetration testing, "
-        "brute-force attacks). He is also a full-stack web developer (Django, "
+        "QuickBooks, Xero, SYCEBNL), and has trained in open-source intelligence (OSINT) "
+        "with the Basel Institute on Governance (ICAR) and in cybersecurity (penetration "
+        "testing, brute-force attacks). He is also a full-stack web developer (Django, "
         "WordPress/WooCommerce, Shopify). Bilingual in French and English."
     ),
 }
@@ -220,6 +224,8 @@ SKILLS = [
             {"fr": "Conformité financière", "en": "Financial compliance"},
             {"fr": "Tests d'intrusion (notions)", "en": "Penetration testing (fundamentals)"},
             {"fr": "Sécurité des accès & mots de passe", "en": "Access & password security"},
+            {"fr": "Renseignement de sources ouvertes (OSINT)", "en": "Open-source intelligence (OSINT)"},
+            {"fr": "Enquête financière & recouvrement d'avoirs (notions)", "en": "Financial investigation & asset recovery (fundamentals)"},
         ],
     },
     {

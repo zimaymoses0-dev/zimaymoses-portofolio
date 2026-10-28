@@ -7,6 +7,7 @@ from core.validators import MaxFileSizeValidator
 class Certification(models.Model):
     # Groups on the Certifications page, in display order.
     CATEGORY_CHOICES = [
+        ("investigation", "Investigation & lutte anticorruption"),
         ("finance", "Finance & comptabilité"),
         ("cyber", "Cybersécurité"),
         ("management", "Gestion & management"),

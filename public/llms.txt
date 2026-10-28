@@ -1,6 +1,6 @@
 # Moses Zegbah Zimay
 
-> Moses Zegbah Zimay (Moses Zimay) is an accounting assistant based in Abidjan, Côte d'Ivoire (Ivory Coast), focused on audit, internal control and fraud prevention, and building a career in forensic accounting and financial fraud investigation. Since 2022 he has worked in the Finance Department of the Inter-African Coffee Organization (IACO), a 25-member-country coffee producers' organization: multi-currency bank reconciliations (XOF, EUR), preparing the annual statutory audit (MNG Audit & Consulting) and the external audit of a GIZ-funded project (BDO), and bookkeeping on SAGE 100. He has 7+ years of finance and accounting experience (SAGE 100, QuickBooks, Xero, SYCEBNL) and has trained in cybersecurity (penetration testing, brute-force attacks). He is also a full-stack web developer (Django, WordPress/WooCommerce, Shopify). Bilingual in French and English.
+> Moses Zegbah Zimay (Moses Zimay) is an accounting assistant based in Abidjan, Côte d'Ivoire (Ivory Coast), focused on audit, internal control and fraud prevention, and building a career in forensic accounting and financial fraud investigation. Since 2022 he has worked in the Finance Department of the Inter-African Coffee Organization (IACO), a 25-member-country coffee producers' organization: multi-currency bank reconciliations (XOF, EUR), preparing the annual statutory audit (MNG Audit & Consulting) and the external audit of a GIZ-funded project (BDO), and bookkeeping on SAGE 100. He has 7+ years of finance and accounting experience (SAGE 100, QuickBooks, Xero, SYCEBNL), and has trained in open-source intelligence (OSINT) with the Basel Institute on Governance (ICAR) and in cybersecurity (penetration testing, brute-force attacks). He is also a full-stack web developer (Django, WordPress/WooCommerce, Shopify). Bilingual in French and English.
 
 - Also known as: Moses Zimay, Zimay Moses, Moses Z. Zimay, Moses Zegbah, Zimay Moses Zegbah
 - Roles: Accounting Assistant · Full-stack web developer
@@ -18,6 +18,7 @@
 - Monthly multi-account, multi-currency bank reconciliations (XOF, EUR) — the first line of defence for spotting anomalies and misappropriation.
 - Physical stock counts and fixed-asset verification with formal reports — matching what is recorded to what actually exists.
 - Monitoring compliance with financial rules and procedures, cash and per-diem handling, and a full paper trail for every transaction.
+- Open-source intelligence (OSINT) training with the International Centre for Asset Recovery of the Basel Institute on Governance — the investigative method used to trace financial flows and recover stolen assets.
 - Cybersecurity training (penetration testing, brute-force attacks) to understand digital fraud and how access is protected.
 
 ## Professional experience
@@ -60,6 +61,7 @@ Christian youth organization: films, vacation Bible schools and gospel concerts.
 - Baccalaureate, series D (science) — Nangui Abrogoua II, Abidjan, Côte d'Ivoire (2016 — 2017)
 
 ## Professional certifications
+- Open-source Intelligence (OSINT) — Basel Institute on Governance — International Centre for Asset Recovery (ICAR) (October 2026) — verify: https://learn.baselgovernance.org/mod/customcert/verify_certificate.php?code=DJu1TngHiQ
 - Executive Diploma in Finance Management — MTF Institute of Management, Technology and Finance (December 2025) — verify: https://edu.gtf.pt/admin/tool/certificate/index.php?code=4138373451MZ
 - Training on the Accounting System for Non-Profit Organizations (SYCEBNL) — SYCEBNL (February 2026)
 - Comprehensive Guide to Xero Accounting — Alison (January 2026)
@@ -76,7 +78,7 @@ Christian youth organization: films, vacation Bible schools and gospel concerts.
 - Create a WordPress Website with Hostinger — Udemy (January 2026) — verify: https://ude.my/UC-3701df63-b153-4d5a-8fd3-84c2c65d8a6b
 
 ## Skills
-- **Audit, control & fraud prevention**: External audit preparation, Internal control, Bank reconciliations, Asset verification & stock counts, Audit trails & supporting evidence, Financial compliance, Penetration testing (fundamentals), Access & password security
+- **Audit, control & fraud prevention**: External audit preparation, Internal control, Bank reconciliations, Asset verification & stock counts, Audit trails & supporting evidence, Financial compliance, Penetration testing (fundamentals), Access & password security, Open-source intelligence (OSINT), Financial investigation & asset recovery (fundamentals)
 - **Accounting & finance**: SAGE 100 Comptabilité, QuickBooks, Xero, SYCEBNL (non-profit accounting), Multi-currency bank reconciliation, Financial statements, Budgeting, Audit preparation, Fixed-asset register & depreciation, Treasury & petty cash, Inventory management, Financial compliance, Unit economics
 - **Web & development**: Full-stack web apps, Python / Django, WordPress, WooCommerce, Shopify, SEO, API integrations & automation
 - **Marketing & ads**: Facebook Ads, Instagram, TikTok Ads, Google Ads, Google Analytics, Email marketing (Klaviyo), Niche Scraper, DropPoint

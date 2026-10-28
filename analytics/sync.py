@@ -48,6 +48,25 @@ def _command(*args):
     return payload.get("result")
 
 
+def _check_write_access():
+    """Refuse to import with a read-only token.
+
+    Imported visits must be trimmed off the Upstash list afterwards; with a read-only
+    token that step fails, and the next sync would import the same visits again.
+    `LTRIM visits 0 -1` keeps every item, so it changes nothing but needs write access.
+    """
+    try:
+        _command("LTRIM", LIST_KEY, 0, -1)
+    except SyncError as exc:
+        if "403" in str(exc) or "NOPERM" in str(exc):
+            raise SyncError(
+                "La clé Upstash de .env est en lecture seule (KV_REST_API_READ_ONLY_TOKEN). "
+                "Remplace UPSTASH_REDIS_REST_TOKEN par la valeur de KV_REST_API_TOKEN : "
+                "aucune visite n'a été importée."
+            ) from exc
+        raise
+
+
 def _parse_time(value):
     try:
         moment = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
@@ -86,6 +105,7 @@ def sync(batch_size=500, max_batches=400):
             "Upstash n'est pas configuré : ajoute UPSTASH_REDIS_REST_URL et "
             "UPSTASH_REDIS_REST_TOKEN dans le fichier .env."
         )
+    _check_write_access()
     imported = skipped = 0
     for _ in range(max_batches):
         raw_items = _command("LRANGE", LIST_KEY, -batch_size, -1) or []

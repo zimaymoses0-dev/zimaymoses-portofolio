@@ -136,3 +136,21 @@ class DashboardTests(TestCase):
         self.client.logout()
         response = self.client.get(reverse("admin:analytics_visit_changelist"))
         self.assertEqual(response.status_code, 302)
+
+
+class ReadOnlyTokenTests(TestCase):
+    @override_settings(UPSTASH_REDIS_REST_URL="https://example.upstash.io", UPSTASH_REDIS_REST_TOKEN="ro")
+    def test_read_only_token_imports_nothing(self):
+        from unittest import mock
+
+        from analytics import sync
+
+        def fake(*args):
+            if args[0] == "LTRIM":
+                raise sync.SyncError("Upstash injoignable : HTTP Error 403: Forbidden")
+            return ['{"t": "2026-10-28T10:00:00Z", "path": "/"}']
+
+        with mock.patch.object(sync, "_command", side_effect=fake):
+            with self.assertRaisesMessage(sync.SyncError, "lecture seule"):
+                sync.sync()
+        self.assertEqual(Visit.objects.count(), 0)

@@ -223,7 +223,7 @@ def website_jsonld():
         "@id": absolute(WEBSITE_ID),
         "url": absolute("/"),
         "name": site.site_name,
-        "alternateName": profile.FULL_NAME,
+        "alternateName": [profile.FULL_NAME, "ZimayMoses", "zimaymoses.com"],
         "inLanguage": ["fr", "en"],
         "publisher": {"@id": absolute(PERSON_ID)},
         "about": {"@id": absolute(PERSON_ID)},

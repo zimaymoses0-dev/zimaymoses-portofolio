@@ -25,6 +25,7 @@ ALTERNATE_NAMES = [
     "Moses Z. Zimay",
     "Moses Zegbah",
     "Zimay Moses Zegbah",
+    "ZimayMoses",  # one-word handle: the domain (zimaymoses.com) and @ZimayMoses on Facebook
 ]
 
 JOB_TITLES = [

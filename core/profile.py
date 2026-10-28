@@ -225,6 +225,7 @@ SKILLS = [
             {"fr": "Tests d'intrusion (notions)", "en": "Penetration testing (fundamentals)"},
             {"fr": "Sécurité des accès & mots de passe", "en": "Access & password security"},
             {"fr": "Renseignement de sources ouvertes (OSINT)", "en": "Open-source intelligence (OSINT)"},
+            {"fr": "Audit interne ISO 9001 (notions)", "en": "ISO 9001 internal auditing (fundamentals)"},
             {"fr": "Enquête financière & recouvrement d'avoirs (notions)", "en": "Financial investigation & asset recovery (fundamentals)"},
         ],
     },

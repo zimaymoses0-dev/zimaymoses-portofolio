@@ -316,6 +316,7 @@ TRANSLATIONS = {
     "Diplômes d'études": "Degrees",
     "Finance & comptabilité": "Finance & accounting",
     "Investigation & lutte anticorruption": "Investigation & anti-corruption",
+    "Audit & qualité": "Audit & quality",
     "Cybersécurité": "Cybersecurity",
     "Gestion & management": "Management",
     "Marketing & web": "Marketing & web",

@@ -8,6 +8,7 @@ class Certification(models.Model):
     # Groups on the Certifications page, in display order.
     CATEGORY_CHOICES = [
         ("investigation", "Investigation & lutte anticorruption"),
+        ("audit", "Audit & qualité"),
         ("finance", "Finance & comptabilité"),
         ("cyber", "Cybersécurité"),
         ("management", "Gestion & management"),

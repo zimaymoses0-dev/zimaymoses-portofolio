@@ -73,6 +73,9 @@ Christian youth organization: films, vacation Bible schools and gospel concerts.
 - Open-source Intelligence (OSINT) — Basel Institute on Governance — International Centre for Asset Recovery (ICAR) (October 2026) — verify: https://learn.baselgovernance.org/mod/customcert/verify_certificate.php?code=DJu1TngHiQ
   Open-source intelligence (OSINT) course from the International Centre for Asset Recovery of the Basel Institute on Governance: finding, cross-checking and verifying public information to support financial investigations, anti-corruption work and asset recovery.
   Skills: Open-source research (OSINT); Verifying and cross-checking information; Supporting financial investigations and asset recovery
+- ISO 9001 - Quality Management System Internal Auditor — Udemy (March 2026) — verify: https://www.udemy.com/certificate/UC-e16d80f3-af04-49b7-9bed-f333111a7a21/
+  ISO 9001 quality management system internal auditor training: planning, conducting and documenting an internal audit, and following up corrective actions.
+  Skills: ISO 9001 requirements; Conducting an internal audit; Findings, nonconformities and corrective actions
 - Executive Diploma in Finance Management — MTF Institute of Management, Technology and Finance (December 2025) — verify: https://edu.gtf.pt/admin/tool/certificate/index.php?code=4138373451MZ
   An executive diploma covering the core practices of corporate financial management.
   Skills: Financial planning & budgeting; Treasury management; Financial statement analysis
@@ -112,7 +115,7 @@ Christian youth organization: films, vacation Bible schools and gospel concerts.
   Skills: Hosting and domain name; Installing WordPress; Taking a site live
 
 ## Skills
-- **Audit, control & fraud prevention**: External audit preparation, Internal control, Bank reconciliations, Asset verification & stock counts, Audit trails & supporting evidence, Financial compliance, Penetration testing (fundamentals), Access & password security, Open-source intelligence (OSINT), Financial investigation & asset recovery (fundamentals)
+- **Audit, control & fraud prevention**: External audit preparation, Internal control, Bank reconciliations, Asset verification & stock counts, Audit trails & supporting evidence, Financial compliance, Penetration testing (fundamentals), Access & password security, Open-source intelligence (OSINT), ISO 9001 internal auditing (fundamentals), Financial investigation & asset recovery (fundamentals)
 - **Accounting & finance**: SAGE 100 Comptabilité, QuickBooks, Xero, SYCEBNL (non-profit accounting), Multi-currency bank reconciliation, Financial statements, Budgeting, Audit preparation, Fixed-asset register & depreciation, Treasury & petty cash, Inventory management, Financial compliance, Unit economics
 - **Web & development**: Full-stack web apps, Python / Django, WordPress, WooCommerce, Shopify, SEO, API integrations & automation
 - **Marketing & ads**: Facebook Ads, Instagram, TikTok Ads, Google Ads, Google Analytics, Email marketing (Klaviyo), Niche Scraper, DropPoint
@@ -216,6 +219,9 @@ Organisation de jeunesse chrétienne : films, écoles bibliques de vacances et c
 - Open-source Intelligence (OSINT) — Basel Institute on Governance — International Centre for Asset Recovery (ICAR) (octobre 2026) — vérification: https://learn.baselgovernance.org/mod/customcert/verify_certificate.php?code=DJu1TngHiQ
   Formation au renseignement de sources ouvertes (OSINT) dispensée par l'International Centre for Asset Recovery du Basel Institute on Governance : rechercher, recouper et vérifier des informations publiques au service des enquêtes financières, de la lutte contre la corruption et du recouvrement d'avoirs.
   Compétences: Recherche en sources ouvertes (OSINT); Vérification et recoupement des informations; Appui aux enquêtes financières et au recouvrement d'avoirs
+- ISO 9001 - Quality Management System Internal Auditor — Udemy (mars 2026) — vérification: https://www.udemy.com/certificate/UC-e16d80f3-af04-49b7-9bed-f333111a7a21/
+  Formation d'auditeur interne du système de management de la qualité ISO 9001 : planifier, conduire et documenter un audit interne, et suivre les actions correctives.
+  Compétences: Exigences de la norme ISO 9001; Conduite d'un audit interne; Constats, non-conformités et actions correctives
 - Executive Diploma in Finance Management — MTF Institute of Management, Technology and Finance (décembre 2025) — vérification: https://edu.gtf.pt/admin/tool/certificate/index.php?code=4138373451MZ
   Un diplôme exécutif couvrant les pratiques essentielles de gestion financière en entreprise.
   Compétences: Planification financière & budgétisation; Gestion de trésorerie; Analyse des états financiers
@@ -255,7 +261,7 @@ Organisation de jeunesse chrétienne : films, écoles bibliques de vacances et c
   Compétences: Hébergement et nom de domaine; Installation de WordPress; Mise en ligne d'un site
 
 ## Compétences
-- **Audit, contrôle & prévention de la fraude**: Préparation d'audits externes, Contrôle interne, Rapprochements bancaires, Vérification des actifs & inventaires, Pistes d'audit & pièces justificatives, Conformité financière, Tests d'intrusion (notions), Sécurité des accès & mots de passe, Renseignement de sources ouvertes (OSINT), Enquête financière & recouvrement d'avoirs (notions)
+- **Audit, contrôle & prévention de la fraude**: Préparation d'audits externes, Contrôle interne, Rapprochements bancaires, Vérification des actifs & inventaires, Pistes d'audit & pièces justificatives, Conformité financière, Tests d'intrusion (notions), Sécurité des accès & mots de passe, Renseignement de sources ouvertes (OSINT), Audit interne ISO 9001 (notions), Enquête financière & recouvrement d'avoirs (notions)
 - **Comptabilité & finance**: SAGE 100 Comptabilité, QuickBooks, Xero, SYCEBNL (comptabilité des ONG), Rapprochement bancaire multi-devises, États financiers, Budgétisation, Préparation d'audit, Registre des immobilisations & amortissements, Trésorerie & petite caisse, Gestion des stocks, Conformité financière, Unit economics
 - **Web & développement**: Applications web full-stack, Python / Django, WordPress, WooCommerce, Shopify, SEO, Intégrations API & automatisation
 - **Marketing & publicité**: Facebook Ads, Instagram, TikTok Ads, Google Ads, Google Analytics, E-mailing (Klaviyo), Niche Scraper, DropPoint

@@ -62,6 +62,7 @@ Christian youth organization: films, vacation Bible schools and gospel concerts.
 
 ## Professional certifications
 - Open-source Intelligence (OSINT) — Basel Institute on Governance — International Centre for Asset Recovery (ICAR) (October 2026) — verify: https://learn.baselgovernance.org/mod/customcert/verify_certificate.php?code=DJu1TngHiQ
+- ISO 9001 - Quality Management System Internal Auditor — Udemy (March 2026) — verify: https://www.udemy.com/certificate/UC-e16d80f3-af04-49b7-9bed-f333111a7a21/
 - Executive Diploma in Finance Management — MTF Institute of Management, Technology and Finance (December 2025) — verify: https://edu.gtf.pt/admin/tool/certificate/index.php?code=4138373451MZ
 - Training on the Accounting System for Non-Profit Organizations (SYCEBNL) — Cabinet EXCO ECA (February 2026)
 - Comprehensive Guide to Xero Accounting — Alison (January 2026) — verify: https://alison.com/verify/21ecbb4b9a
@@ -78,7 +79,7 @@ Christian youth organization: films, vacation Bible schools and gospel concerts.
 - Create a WordPress Website with Hostinger — Udemy (January 2026) — verify: https://ude.my/UC-3701df63-b153-4d5a-8fd3-84c2c65d8a6b
 
 ## Skills
-- **Audit, control & fraud prevention**: External audit preparation, Internal control, Bank reconciliations, Asset verification & stock counts, Audit trails & supporting evidence, Financial compliance, Penetration testing (fundamentals), Access & password security, Open-source intelligence (OSINT), Financial investigation & asset recovery (fundamentals)
+- **Audit, control & fraud prevention**: External audit preparation, Internal control, Bank reconciliations, Asset verification & stock counts, Audit trails & supporting evidence, Financial compliance, Penetration testing (fundamentals), Access & password security, Open-source intelligence (OSINT), ISO 9001 internal auditing (fundamentals), Financial investigation & asset recovery (fundamentals)
 - **Accounting & finance**: SAGE 100 Comptabilité, QuickBooks, Xero, SYCEBNL (non-profit accounting), Multi-currency bank reconciliation, Financial statements, Budgeting, Audit preparation, Fixed-asset register & depreciation, Treasury & petty cash, Inventory management, Financial compliance, Unit economics
 - **Web & development**: Full-stack web apps, Python / Django, WordPress, WooCommerce, Shopify, SEO, API integrations & automation
 - **Marketing & ads**: Facebook Ads, Instagram, TikTok Ads, Google Ads, Google Analytics, Email marketing (Klaviyo), Niche Scraper, DropPoint
